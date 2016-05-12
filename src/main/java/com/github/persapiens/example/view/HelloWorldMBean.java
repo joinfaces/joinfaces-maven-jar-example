@@ -1,4 +1,4 @@
-package com.github.persapiens.view;
+package com.github.persapiens.example.view;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;

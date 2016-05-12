@@ -1,4 +1,4 @@
-package com.github.persapiens;
+package com.github.persapiens.example;
 
 import com.github.persapiens.jsfboot.CdiScopeResolver;
 import org.springframework.boot.SpringApplication;
