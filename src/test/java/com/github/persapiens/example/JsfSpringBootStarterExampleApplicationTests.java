@@ -1,4 +1,4 @@
-package com.github.persapiens;
+package com.github.persapiens.example;
 
 import com.github.persapiens.example.JsfSpringBootStarterExampleApplication;
 import org.junit.Test;
