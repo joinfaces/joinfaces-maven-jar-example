@@ -53,7 +53,7 @@ primefaces.theme=overcast
 public class JsfSpringBootStarterExampleApplication {
 </pre>
 
-- src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java: managed bean using ViewScoped cdi annotation.
+- **src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java**: managed bean using ViewScoped cdi annotation.
 
 <pre>
 @Named
