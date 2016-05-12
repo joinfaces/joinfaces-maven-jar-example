@@ -12,8 +12,8 @@ Key Files
 
 - src/main/resources/META-INF/resources/helloWorld.xhtml: example page. Note that xhtml, js, css and images files should be located at src/main/resources/META-INF/resources directory to JSF use them.
 
-- src/main/java/com/github/persapiens/JsfSpringBootStarterExampleApplication.java: @ComponentScan(scopeResolver = CdiScopeResolver.class) enable CDI annotations usage.
+- src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java: @ComponentScan(scopeResolver = CdiScopeResolver.class) enable CDI annotations usage.
 
-- src/main/java/com/github/persapiens/view/HelloWorldMBean.java: managed bean using ViewScoped cdi annotation.
+- src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java: managed bean using ViewScoped cdi annotation.
 
 
