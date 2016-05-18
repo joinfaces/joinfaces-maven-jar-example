@@ -14,17 +14,22 @@ The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-star
 
 ## Run Example Application locally
 
-1- Build
+1- Clone this project
+```Shell
+git clone https://github.com/persapiens/jsf-spring-boot-starter-example.git
+```
+
+2- Build
 ```Shell
 mvn clean install
 ```
 
-2- Run
+3- Run
 ```Shell
-java -jar jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
+java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 ```
 
-3- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
+4- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
 
 ## Key Files and Directories
 
