@@ -8,7 +8,11 @@ This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
 The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Mojarra](https://javaserverfaces.java.net/), [Primefaces](http://primefaces.org/) and [Omnifaces](http://omnifaces.org/) libraries to run at embedded [Tomcat](http://tomcat.apache.org/).
 
-## See Example Application in action
+## See Example Application in the cloud
+
+1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf**
+
+## Run Example Application locally
 
 1- Build
 ```Shell
@@ -20,7 +24,7 @@ mvn clean install
 java -jar jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 ```
 
-3- Access helloWorld jsf page at **http://localhost:8080/helloWorld.jsf**
+3- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
 
 ## Key Files and Directories
 
