@@ -1,9 +1,9 @@
 Jsf Spring Boot Starter Example
 =====
+[![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf)
 [![Build Status](https://travis-ci.org/persapiens/jsf-spring-boot-starter-example.svg?branch=master)](https://travis-ci.org/persapiens/jsf-spring-boot-starter)
 [![Dependency Status](https://www.versioneye.com/user/projects/573c95eace8d0e004130bd98/badge.svg?style=flat)](https://www.versioneye.com/user/projects/573c95eace8d0e004130bd98)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
