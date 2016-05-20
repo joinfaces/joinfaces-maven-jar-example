@@ -19,19 +19,50 @@
                         <p:growl id="growl" life="2000" />
                         <div id="helloDiv">
                             <center>
+                                <p:panelGrid columns="7">
+                                    <p:link href="http://projects.spring.io/spring-boot" >
+                                    <p:graphicImage value="#{resource['images/spring-boot-logo.png']}"
+                                                    height="100" width="100"/>
+                                    </p:link>
+                                </p:panelGrid>
+                                <p:spacer height="30" />
                                 <p:panelGrid columns="2">
-                                    <p:graphicImage value="#{resource['padlock.gif']}"
-                                                    height="100" width="100" />
-                                    <p:panelGrid columns="2">
-                                        <p:outputLabel for="helloInput" value="Say you nickname" />
-                                        <p:inputText id="helloInput" value="#{helloWorldMBean.nickname}"/>
+                                    <p:outputLabel for="helloInput" value="Say you nickname" />
+                                    <p:inputText id="helloInput" value="#{helloWorldMBean.nickname}"/>
 
-                                        <h:outputLabel value=""/>
-                                        <h:panelGroup >
-                                            <p:commandButton value="Enter" update="growl"
-                                                             actionListener="#{helloWorldMBean.buttonAction}" />
-                                        </h:panelGroup>
-                                    </p:panelGrid>
+                                    <h:outputLabel value=""/>
+                                    <h:panelGroup >
+                                        <p:commandButton value="Enter" update="growl"
+                                                         actionListener="#{helloWorldMBean.buttonAction}" />
+                                    </h:panelGroup>
+                                </p:panelGrid>
+                                <p:spacer height="30" />
+                                <p:panelGrid columns="1">
+                                    <p:link href="https://github.com/persapiens/jsf-spring-boot-starter">
+                                        <p:outputLabel value="This jsf hello world page runs inside Spring Boot Jar packaged Application using jsf-spring-boot-starter." />
+                                    </p:link>
+                                </p:panelGrid>
+                                <p:spacer height="30" />
+                                <p:panelGrid columns="7">
+                                    <p:link href="http://primefaces.org">
+                                        <p:graphicImage value="#{resource['images/primefaces-logo.png']}"
+                                                        height="100" width="342"/>
+                                    </p:link>
+                                    <p:spacer width="10" />
+                                    <p:link href="http://omnifaces.org">
+                                        <p:graphicImage value="#{resource['images/omnifaces-logo.png']}"
+                                                        height="100" width="100"/>
+                                    </p:link>
+                                    <p:spacer width="10" />
+                                    <p:link href="https://javaserverfaces.java.net/">
+                                        <p:graphicImage value="#{resource['images/mojarra-logo.png']}"
+                                                        height="100" width="200"/>
+                                    </p:link>
+                                    <p:spacer width="10" />
+                                    <p:link href="http://myfaces.apache.org">
+                                        <p:graphicImage value="#{resource['images/myfaces-logo.jpg']}"
+                                                        height="100" width="210"/>
+                                    </p:link>
                                 </p:panelGrid>
                             </center>
                         </div>
