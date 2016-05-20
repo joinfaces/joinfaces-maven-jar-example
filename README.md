@@ -34,7 +34,7 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 
 ## Key Files and Directories
 
-- **pom.xml**: includes jsf-spring-boot-starter dependency. spring-boot-starter-web, tomcat-embed-jasper and jstl dependencies are included transitively.
+- **pom.xml**: includes jsf-spring-boot-starter dependency. spring-boot-starter-web, tomcat-embed-jasper, jstl and commons-digester dependencies are included transitively.
 
 ```xml
 <properties>
@@ -49,6 +49,8 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 </dependencies>
 ```
 
+More, if you prefer, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
+
 - **src/main/resources/application.properties**: configure javax.faces.PROJECT_STATE and primefaces.THEME properties.
 
 ```properties
@@ -57,8 +59,6 @@ jsf.primefaces.theme=overcast
 ```
 
 - **src/main/resources/META-INF/resources/helloWorld.xhtml**: example page. Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
-
-- If you prefer, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
 
 - **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: @ComponentScan(scopeResolver = CdiScopeResolver.class) enable CDI annotations usage.
 
