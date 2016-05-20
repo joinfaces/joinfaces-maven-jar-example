@@ -49,7 +49,7 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 </dependencies>
 ```
 
-More, if you prefer, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
+More, if you prefer Myfaces instead of Mojarra, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
 
 - **src/main/resources/application.properties**: configure javax.faces.PROJECT_STATE and primefaces.THEME properties.
 
