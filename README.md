@@ -7,7 +7,7 @@ Jsf Spring Boot Starter Example
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Mojarra](https://javaserverfaces.java.net/), [Primefaces](http://primefaces.org/) and [Omnifaces](http://omnifaces.org/) libraries to run at embedded [Tomcat](http://tomcat.apache.org/).
+The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Primefaces](http://primefaces.org/), [Omnifaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [Myfaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/).
 
 ## See Example Application in the cloud
 
@@ -38,7 +38,7 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 
 ```xml
 <properties>
-    <jsf-spring-boot-starter.version>1.0.0</jsf-spring-boot-starter.version>
+    <jsf-spring-boot-starter.version>1.1.0</jsf-spring-boot-starter.version>
 </properties>
 <dependencies>
     <dependency>
@@ -52,11 +52,13 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 - **src/main/resources/application.properties**: configure javax.faces.PROJECT_STATE and primefaces.THEME properties.
 
 ```properties
-javax.faces.PROJECT_STAGE=Development
-primefaces.theme=overcast
+jsf.faces.PROJECT_STAGE=Development
+jsf.primefaces.theme=overcast
 ```
 
 - **src/main/resources/META-INF/resources/helloWorld.xhtml**: example page. Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
+
+- If you prefer, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
 
 - **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: @ComponentScan(scopeResolver = CdiScopeResolver.class) enable CDI annotations usage.
 
