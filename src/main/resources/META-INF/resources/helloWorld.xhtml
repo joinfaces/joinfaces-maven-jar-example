@@ -14,18 +14,25 @@
         <h:body>
             <p:layout fullPage="true" >
                 <p:layoutUnit position="center" >
-                    <h:form prependId="false">                        
-                        <p:focus for="helloInput" />
-                        <p:growl id="growl" life="2000" />
-                        <div id="helloDiv">
+                    <h:form prependId="false">
+                        <div id="helloDiv" class="ui-fluid">
                             <center>
-                                <p:panelGrid columns="7">
+                                <p:growl id="growl" life="2000" />
+                                <p:panelGrid columns="1">
                                     <p:link href="http://projects.spring.io/spring-boot" >
-                                    <p:graphicImage value="#{resource['images/spring-boot.png']}"
-                                                    height="100" width="100"/>
+                                        <p:graphicImage title="Spring Boot" alt="Spring Boot"
+                                                        value="#{resource['images/spring-boot.png']}"
+                                                        height="100" width="100"/>
                                     </p:link>
                                 </p:panelGrid>
-                                <p:spacer height="30" />
+                                <p:spacer height="20" />
+                                <p:panelGrid columns="1">
+                                    <p:link href="https://github.com/persapiens/jsf-spring-boot-starter">
+                                        <p:outputLabel value="This jsf hello world page runs inside Spring Boot Jar packaged Application using jsf-spring-boot-starter." />
+                                    </p:link>
+                                </p:panelGrid>
+                                <p:spacer height="20" />
+                                <p:focus for="helloInput" />
                                 <p:panelGrid columns="2">
                                     <p:outputLabel for="helloInput" value="Say you nickname" />
                                     <p:inputText id="helloInput" value="#{helloWorldMBean.nickname}"/>
@@ -36,51 +43,51 @@
                                                          actionListener="#{helloWorldMBean.buttonAction}" />
                                     </h:panelGroup>
                                 </p:panelGrid>
-                                <p:spacer height="30" />
-                                <p:panelGrid columns="1">
-                                    <p:link href="https://github.com/persapiens/jsf-spring-boot-starter">
-                                        <p:outputLabel value="This jsf hello world page runs inside Spring Boot Jar packaged Application using jsf-spring-boot-starter." />
-                                    </p:link>
-                                </p:panelGrid>
-                                <p:spacer height="30" />
-                                <p:panelGrid columns="7">
-                                    <p:link href="http://primefaces.org">
-                                        <p:graphicImage value="#{resource['images/primefaces.png']}"
-                                                        height="100" width="342"/>
-                                    </p:link>
-                                    <p:spacer width="10" />
-                                    <p:link href="http://omnifaces.org">
-                                        <p:graphicImage value="#{resource['images/omnifaces.png']}"
-                                                        height="100" width="100"/>
-                                    </p:link>
-                                    <p:spacer width="10" />
-                                    <p:link href="https://javaserverfaces.java.net">
-                                        <p:graphicImage value="#{resource['images/mojarra.png']}"
-                                                        height="100" width="200"/>
-                                    </p:link>
-                                    <p:spacer width="10" />
-                                    <p:link href="http://myfaces.apache.org">
-                                        <p:graphicImage value="#{resource['images/myfaces.jpg']}"
-                                                        height="100" width="210"/>
-                                    </p:link>
-                                </p:panelGrid>
-                                <p:spacer height="30" />
-                                <p:panelGrid columns="7">
-                                    <p:link href="http://tomcat.apache.org">
-                                        <p:graphicImage value="#{resource['images/apache-tomcat.png']}"
-                                                        height="100" width="150"/>
-                                    </p:link>
-                                    <p:spacer width="10" />
-                                    <p:link href="http://www.eclipse.org/jetty">
-                                        <p:graphicImage value="#{resource['images/jetty.png']}"
-                                                        height="100" width="226"/>
-                                    </p:link>
-                                    <p:spacer width="10" />
-                                    <p:link href="http://undertow.io">
-                                        <p:graphicImage value="#{resource['images/undertow.png']}"
-                                                        height="100" width="200"/>
-                                    </p:link>
-                                </p:panelGrid>
+                                <p:spacer height="20" />
+                                <p:panel header="Supported JSF Libraries" >
+                                    <p:panelGrid columns="4" layout="grid">
+                                        <p:link href="http://primefaces.org">
+                                            <p:graphicImage title="PrimeFaces" alt="PrimeFaces"
+                                                            value="#{resource['images/primefaces.png']}"
+                                                            height="100" width="123"/>
+                                        </p:link>
+                                        <p:link href="http://omnifaces.org">
+                                            <p:graphicImage title="OmniFaces" alt="OmniFaces"
+                                                            value="#{resource['images/omnifaces.png']}"
+                                                            height="100" width="100"/>
+                                        </p:link>
+                                        <p:link href="https://javaserverfaces.java.net">
+                                            <p:graphicImage title="Mojarra" alt="Mojarra"
+                                                            value="#{resource['images/mojarra.png']}"
+                                                            height="100" width="103"/>
+                                        </p:link>
+                                        <p:link href="http://myfaces.apache.org">
+                                            <p:graphicImage title="Apache MyFaces" alt="Apache MyFaces"
+                                                            value="#{resource['images/myfaces.png']}"
+                                                            height="100" width="210"/>
+                                        </p:link>
+                                    </p:panelGrid>
+                                </p:panel>
+                                <p:spacer height="20" />
+                                <p:panel header="Supported Servlet Containers" >
+                                    <p:panelGrid columns="3" layout="grid">
+                                        <p:link href="http://tomcat.apache.org">
+                                            <p:graphicImage title="Apache Tomcat" alt="Apache Tomcat" 
+                                                            value="#{resource['images/tomcat.png']}"
+                                                            height="100" width="150"/>
+                                        </p:link>
+                                        <p:link href="http://www.eclipse.org/jetty">
+                                            <p:graphicImage title="Jetty" alt="Jetty" 
+                                                            value="#{resource['images/jetty.png']}"
+                                                            height="100" width="226"/>
+                                        </p:link>
+                                        <p:link href="http://undertow.io">
+                                            <p:graphicImage title="Undertow" alt="Undertow" 
+                                                            value="#{resource['images/undertow.png']}"
+                                                            height="100" width="200"/>
+                                        </p:link>
+                                    </p:panelGrid>
+                                </p:panel>
                             </center>
                         </div>
                     </h:form>
