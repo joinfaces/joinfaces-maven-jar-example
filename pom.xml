@@ -49,6 +49,8 @@
            
         <dependency>
             <groupId>com.github.persapiens</groupId>
+            <!-- Change artifactId to jsf-jetty-spring-boot-starter to use Jetty servlet container -->
+            <!-- Change artifactId to jsf-undertow-spring-boot-starter to use Undertow servlet container -->
             <artifactId>jsf-spring-boot-starter</artifactId>
             <version>${jsf-spring-boot-starter.version}</version>
             <scope>compile</scope>
