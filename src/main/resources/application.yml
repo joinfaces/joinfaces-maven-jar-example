@@ -1,0 +1,4 @@
+jsf:
+  PROJECT_STAGE: Development
+  primefaces:
+    theme: overcast
