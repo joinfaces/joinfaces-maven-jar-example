@@ -7,7 +7,7 @@ Jsf Spring Boot Starter Example
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Primefaces](http://primefaces.org/), [Omnifaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [Myfaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/).
+The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Primefaces](http://primefaces.org/), [Omnifaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [Myfaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
 
 ## See Example Application in the cloud
 
@@ -34,11 +34,11 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 
 ## Key Files and Directories
 
-- **pom.xml**: includes jsf-spring-boot-starter dependency. spring-boot-starter-web, tomcat-embed-jasper, jstl and commons-digester dependencies are included transitively.
+- **pom.xml**: includes jsf-spring-boot-starter dependency. All other dependencies are included transitively.
 
 ```xml
 <properties>
-    <jsf-spring-boot-starter.version>1.1.0</jsf-spring-boot-starter.version>
+    <jsf-spring-boot-starter.version>1.2.0</jsf-spring-boot-starter.version>
 </properties>
 <dependencies>
     <dependency>
@@ -49,27 +49,31 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 </dependencies>
 ```
 
-More, if you prefer Myfaces instead of Mojarra, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable Myfaces and disable Mojarra. Note that Myfaces **should not** be used with Mojarra. 
+If you prefer **Jetty** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
 
-- **src/main/resources/application.properties**: configure javax.faces.PROJECT_STATE and primefaces.THEME properties.
+If you prefer **Undertow** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
 
-```properties
-jsf.faces.PROJECT_STAGE=Development
-jsf.primefaces.theme=overcast
+If you prefer **MyFaces** instead of **Mojarra**, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable **MyFaces** and disable **Mojarra**. Note that MyFaces **should not** be used with Mojarra. 
+
+- **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: very simple spring main application. No extra configuration is required.
+
+<pre>
+@SpringBootApplication
+public class JsfSpringBootStarterExampleApplication {
+</pre>
+
+- **src/main/resources/application.yml**: configure jsf.PROJECT_STATE and jsf.primefaces.THEME properties.
+
+```yml
+jsf:
+  PROJECT_STAGE: Development
+  primefaces: 
+    theme: overcast
 ```
 
 - **src/main/resources/META-INF/resources/helloWorld.xhtml**: example page. Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
 
-- **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: @ComponentScan(scopeResolver = CdiScopeResolver.class) enable CDI annotations usage.
-
-<pre>
-@EnableAutoConfiguration
-<b>@ComponentScan(scopeResolver = CdiScopeResolver.class)</b>
-@Configuration
-public class JsfSpringBootStarterExampleApplication {
-</pre>
-
-- **src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java**: managed bean using ViewScoped cdi annotation.
+- **src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java**: managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by Jsf Spring Boot Starter.
 
 <pre>
 @Named
