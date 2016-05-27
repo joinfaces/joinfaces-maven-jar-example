@@ -80,3 +80,12 @@ jsf:
 <b>@ViewScoped</b>
 public class HelloWorldMBean {
 </pre>
+
+## Getting Help
+
+* Report questions and bugs at [github.com/jsf-spring-boot-starter-example/issues](https://github.com/persapiens/jsf-spring-boot-starter-example/issues).
+
+## Contributing
+
+* Report documentation, features, enhancement and bugs at [github.com/jsf-spring-boot-starter-example/issues](https://github.com/persapiens/jsf-spring-boot-starter-example/issues).
+* Pull requests are welcome.
