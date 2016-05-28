@@ -5,7 +5,7 @@
 
     <groupId>com.github.persapiens</groupId>
     <artifactId>jsf-spring-boot-starter-example</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jsf-spring-boot-starter-example</name>
@@ -22,10 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         
-        <jsf-spring-boot-starter.version>1.2.1</jsf-spring-boot-starter.version>
-        <!-- Uncomment this to enable myfaces instead of mojarra         
-        <myfaces.version>2.2.10</myfaces.version>
-        -->
+        <jsf-spring-boot-starter.version>1.3.0</jsf-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -51,25 +48,13 @@
             <groupId>com.github.persapiens</groupId>
             <!-- Change artifactId to jsf-jetty-spring-boot-starter to use Jetty servlet container -->
             <!-- Change artifactId to jsf-undertow-spring-boot-starter to use Undertow servlet container -->
+            <!-- Change artifactId to jsf-myfaces-spring-boot-starter to use MyFaces instead of Mojarra -->
+            <!-- Change artifactId to jsf-jetty-myfaces-spring-boot-starter to use Jetty servlet container and MyFaces instead of Mojarra-->
+            <!-- Change artifactId to jsf-undertow-myfaces-spring-boot-starter to use Undertow servlet container and MyFaces instead of Mojarra-->
             <artifactId>jsf-spring-boot-starter</artifactId>
             <version>${jsf-spring-boot-starter.version}</version>
             <scope>compile</scope>
-            <!-- Uncomment this to enable myfaces instead of mojarra
-            <exclusions>
-                <exclusion>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>javax.faces</artifactId>
-                </exclusion>
-            </exclusions>
-            -->
         </dependency>
-        <!-- Uncomment this to enable myfaces instead of mojarra 
-        <dependency>
-            <groupId>org.apache.myfaces.core</groupId>
-            <artifactId>myfaces-bundle</artifactId>
-            <version>${myfaces.version}</version>
-        </dependency>        
-        -->
     </dependencies>
 	
     <build>
