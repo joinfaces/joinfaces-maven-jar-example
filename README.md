@@ -53,7 +53,11 @@ If you prefer **Jetty** instead of **Tomcat**, change artifactId jsf-spring-boot
 
 If you prefer **Undertow** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
 
-If you prefer **MyFaces** instead of **Mojarra**, uncomment **"Uncomment this to enable myfaces instead of mojarra"** messages at pom.xml to enable **MyFaces** and disable **Mojarra**. Note that MyFaces **should not** be used with Mojarra. 
+If you prefer **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
+
+If you prefer **Jetty** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-jetty-mojarra-spring-boot-starter**. 
+
+If you prefer **Undertow** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-undertow-mojarra-spring-boot-starter**. 
 
 - **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: very simple spring main application. No extra configuration is required.
 
