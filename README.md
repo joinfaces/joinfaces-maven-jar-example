@@ -7,7 +7,7 @@ Jsf Spring Boot Starter Example
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [Primefaces](http://primefaces.org/), [Omnifaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [Myfaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
+The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigure [PrimeFaces](http://primefaces.org/), [OmniFaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
 
 ## See Example Application in the cloud
 
@@ -27,7 +27,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
+java -jar target/jsf-spring-boot-starter-example-1.3.0-SNAPSHOT.jar
 ```
 
 4- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
@@ -38,7 +38,7 @@ java -jar target/jsf-spring-boot-starter-example-1.0.0-SNAPSHOT.jar
 
 ```xml
 <properties>
-    <jsf-spring-boot-starter.version>1.2.0</jsf-spring-boot-starter.version>
+    <jsf-spring-boot-starter.version>1.3.0</jsf-spring-boot-starter.version>
 </properties>
 <dependencies>
     <dependency>
