@@ -11,7 +11,12 @@ The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-star
 
 ## See Example Application in the cloud
 
-1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf**
+1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf** with credentials
+
+User | Password | Roles
+-----| -------- | -----
+persapiens | 123 | ROLE_ADMIN
+nyilmaz | qwe | ROLE_USER
 
 ## Run Example Application locally
 
@@ -27,18 +32,20 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/jsf-spring-boot-starter-example-1.3.0-SNAPSHOT.jar
+java -jar target/jsf-spring-boot-starter-example-1.4.1-SNAPSHOT.jar
 ```
 
 4- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
 
-## Key Files and Directories
+## Key Files
 
-- **pom.xml**: includes jsf-spring-boot-starter dependency. All other dependencies are included transitively.
+### pom.xml
+
+Includes jsf-spring-boot-starter dependency. All other jsf dependencies are included transitively.
 
 ```xml
 <properties>
-    <jsf-spring-boot-starter.version>1.3.0</jsf-spring-boot-starter.version>
+    <jsf-spring-boot-starter.version>1.4.1</jsf-spring-boot-starter.version>
 </properties>
 <dependencies>
     <dependency>
@@ -59,14 +66,20 @@ If you prefer **Jetty** instead of **Tomcat** and **MyFaces** instead of **Mojar
 
 If you prefer **Undertow** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-undertow-mojarra-spring-boot-starter**. 
 
-- **src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java**: very simple spring main application. No extra configuration is required.
+Note that **spring-boot-starter-security** is included to secure the application.
 
-<pre>
-@SpringBootApplication
-public class JsfSpringBootStarterExampleApplication {
-</pre>
+```xml
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+</dependencies>
+```
 
-- **src/main/resources/application.yml**: configure jsf.PROJECT_STATE and jsf.primefaces.THEME properties.
+### src/main/resources/application.yml
+
+Configure jsf.PROJECT_STATE and jsf.primefaces.THEME properties.
 
 ```yml
 jsf:
@@ -75,9 +88,40 @@ jsf:
     theme: overcast
 ```
 
-- **src/main/resources/META-INF/resources/helloWorld.xhtml**: example page. Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
+### src/main/resources/META-INF/resources/helloWorld.xhtml
 
-- **src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java**: managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by Jsf Spring Boot Starter.
+Example page. 
+
+Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
+
+Look at **authorize** and **anonymous** jsf spring security facelet tags in action to secure page information.
+
+```xhtml
+  <sec:authorize access="hasRole('ROLE_ADMIN')">
+    <p:panelGrid columns="1" rendered="#{sec:isFullyAuthenticated()}">
+      <p:link title="Logout" href="/logout">
+        <p:outputLabel value="You are logged in as an ADMIN" />
+      </p:link>
+    </p:panelGrid>
+  </sec:authorize>
+```
+
+### src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java
+
+Very simple spring main application. Only SpringBootApplication configuration is required.
+
+<pre>
+@SpringBootApplication
+public class JsfSpringBootStarterExampleApplication {
+</pre>
+
+### src/main/java/com/github/persapiens/example/SecurityConfig.java
+
+Spring Security configuration class to secure authentication with credentials to persapiens and nyilmaz users.
+
+### src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java
+
+Managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by Jsf Spring Boot Starter.
 
 <pre>
 @Named
