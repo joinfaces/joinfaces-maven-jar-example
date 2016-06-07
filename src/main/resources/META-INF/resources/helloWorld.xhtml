@@ -29,7 +29,7 @@
                                 <p:spacer height="20" />
                                 <p:panelGrid columns="1">
                                     <p:link title="Go to JSF Spring Boot Starter homepage" href="https://github.com/persapiens/jsf-spring-boot-starter">
-                                        <p:outputLabel value="This jsf hello world page runs inside Spring Boot Jar packaged Application using jsf-spring-boot-starter." />
+                                        <p:outputLabel value="This jsf hello world page runs inside Spring Boot Jar packaged Application using jsf-spring-boot-starter version #{environment.getProperty('jsf-spring-boot-starter.version')}" />
                                     </p:link>
                                 </p:panelGrid>
                                 <p:spacer height="20" />
@@ -48,7 +48,7 @@
                                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                                     <p:panelGrid columns="1" rendered="#{sec:isFullyAuthenticated()}">
                                         <p:link title="Logout" href="/logout">
-                                            <p:outputLabel value="You are logged in as an ADMIN" />
+                                            <p:outputLabel value="You are logged in as an ADMIN}" />
                                         </p:link>
                                     </p:panelGrid>
                                 </sec:authorize>
