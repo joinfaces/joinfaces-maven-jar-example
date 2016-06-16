@@ -32,7 +32,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/jsf-spring-boot-starter-example-1.5.0-SNAPSHOT.jar
+java -jar target/jsf-spring-boot-starter-example-1.5.1-SNAPSHOT.jar
 ```
 
 4- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
@@ -45,7 +45,7 @@ Includes jsf-spring-boot-starter dependency. All other jsf dependencies are incl
 
 ```xml
 <properties>
-    <jsf-spring-boot-starter.version>1.5.0</jsf-spring-boot-starter.version>
+    <jsf-spring-boot-starter.version>1.5.1</jsf-spring-boot-starter.version>
 </properties>
 <dependencies>
     <dependency>
