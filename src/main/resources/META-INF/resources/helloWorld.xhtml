@@ -5,6 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:o="http://omnifaces.org/ui"
       xmlns:sec="http://www.springframework.org/security/tags">
     <f:view contentType="text/html">
         <h:head>
@@ -19,6 +20,8 @@
                     <h:form prependId="false">
                         <div id="helloDiv" class="ui-fluid">
                             <center>
+                                <o:validateOne id="one" components="helloInput" />
+                                
                                 <p:growl id="growl" life="2000" />
                                 <p:panelGrid columns="1">
                                     <p:link href="http://projects.spring.io/spring-boot" >
