@@ -69,18 +69,28 @@
                                     </p:panelGrid>
                                 </sec:anonymous>
                                 <p:spacer height="20" />
-                                <p:panel header="Supported JSF Libraries" >
-                                    <p:panelGrid columns="4" layout="grid">
+                                <p:panel header="Supported JSF Component Libraries" >
+                                    <p:panelGrid columns="3" layout="grid">
                                         <p:link href="http://primefaces.org">
                                             <p:graphicImage title="PrimeFaces" alt="PrimeFaces"
                                                             value="#{resource['images/primefaces.png']}"
                                                             height="100" width="123"/>
+                                        </p:link>
+                                        <p:link href="http://primefaces-extensions.github.io">
+                                            <p:graphicImage title="PrimeFaces Extensions" alt="PrimeFaces Extensions"
+                                                            value="#{resource['images/primefaces-extensions.png']}"
+                                                            height="100" width="100"/>
                                         </p:link>
                                         <p:link href="http://omnifaces.org">
                                             <p:graphicImage title="OmniFaces" alt="OmniFaces"
                                                             value="#{resource['images/omnifaces.png']}"
                                                             height="100" width="100"/>
                                         </p:link>
+                                    </p:panelGrid>
+                                </p:panel>
+                                <p:spacer height="20" />
+                                <p:panel header="Supported JSF Implementations" >
+                                    <p:panelGrid columns="2" layout="grid">
                                         <p:link href="https://javaserverfaces.java.net">
                                             <p:graphicImage title="Mojarra" alt="Mojarra"
                                                             value="#{resource['images/mojarra.png']}"
