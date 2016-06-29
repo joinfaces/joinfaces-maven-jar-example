@@ -21,7 +21,7 @@
                         <div id="helloDiv" class="ui-fluid">
                             <center>
                                 <o:validateOne id="one" components="helloInput" />
-                                
+
                                 <p:growl id="growl" life="2000" />
                                 <p:panelGrid columns="1">
                                     <p:link href="http://projects.spring.io/spring-boot" >
@@ -81,9 +81,24 @@
                                                             value="#{resource['images/primefaces-extensions.png']}"
                                                             height="100" width="100"/>
                                         </p:link>
+                                        <p:link href="http://bootsfaces.net">
+                                            <p:graphicImage title="BootsFaces" alt="BootsFaces"
+                                                            value="#{resource['images/bootsfaces.png']}"
+                                                            height="100" width="100"/>
+                                        </p:link>
+                                    </p:panelGrid>
+                                </p:panel>
+                                <p:spacer height="20" />
+                                <p:panel header="Supported JSF Utility Libraries" >
+                                    <p:panelGrid columns="2" layout="grid">
                                         <p:link href="http://omnifaces.org">
                                             <p:graphicImage title="OmniFaces" alt="OmniFaces"
                                                             value="#{resource['images/omnifaces.png']}"
+                                                            height="100" width="100"/>
+                                        </p:link>
+                                        <p:link href="http://angularfaces.com">
+                                            <p:graphicImage title="AngularFaces" alt="AngularFaces"
+                                                            value="#{resource['images/angularfaces.png']}"
                                                             height="100" width="100"/>
                                         </p:link>
                                     </p:panelGrid>
