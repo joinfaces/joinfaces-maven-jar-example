@@ -1,17 +1,17 @@
 Jsf Spring Boot Starter Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf)
 [![Build Status](https://travis-ci.org/persapiens/jsf-spring-boot-starter-example.svg?branch=master)](https://travis-ci.org/persapiens/jsf-spring-boot-starter-example)
 [![Dependency Status](https://www.versioneye.com/user/projects/573c95eace8d0e004130bd98/badge.svg?style=flat)](https://www.versioneye.com/user/projects/573c95eace8d0e004130bd98)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigures [PrimeFaces](http://primefaces.org/), [OmniFaces](http://omnifaces.org/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
+The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
 
 ## See Example Application in the cloud
 
-1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/helloWorld.jsf** with credentials
+1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf** with credentials
 
 User | Password | Roles
 -----| -------- | -----
@@ -35,7 +35,7 @@ mvn clean install
 java -jar target/jsf-spring-boot-starter-example-1.6.0-SNAPSHOT.jar
 ```
 
-4- Access helloWorld page at **http://localhost:8080/helloWorld.jsf**
+4- Access helloWorld page at **http://localhost:8080/starter.jsf**
 
 ## Key Files
 
