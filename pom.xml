@@ -5,7 +5,7 @@
 
     <groupId>com.github.persapiens</groupId>
     <artifactId>jsf-spring-boot-starter-example</artifactId>
-    <version>1.6.0-SNAPSHOT</version>
+    <version>1.6.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>jsf-spring-boot-starter-example</name>
@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <jsf-spring-boot-starter.version>1.6.0</jsf-spring-boot-starter.version>
+        <jsf-spring-boot-starter.version>1.6.1</jsf-spring-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -44,10 +44,10 @@
         </dependency>     
         <dependency>
             <groupId>com.github.persapiens</groupId>
-            <!-- Change artifactId to jsf-jetty-spring-boot-starter to use Jetty servlet container -->
-            <!-- Change artifactId to jsf-undertow-spring-boot-starter to use Undertow servlet container -->
             <!-- Change artifactId to jsf-myfaces-spring-boot-starter to use MyFaces instead of Mojarra -->
+            <!-- Change artifactId to jsf-jetty-spring-boot-starter to use Jetty servlet container -->
             <!-- Change artifactId to jsf-jetty-myfaces-spring-boot-starter to use Jetty servlet container and MyFaces instead of Mojarra-->
+            <!-- Change artifactId to jsf-undertow-spring-boot-starter to use Undertow servlet container -->
             <!-- Change artifactId to jsf-undertow-myfaces-spring-boot-starter to use Undertow servlet container and MyFaces instead of Mojarra-->
             <artifactId>jsf-spring-boot-starter</artifactId>
             <version>${jsf-spring-boot-starter.version}</version>
