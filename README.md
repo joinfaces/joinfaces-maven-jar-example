@@ -88,9 +88,9 @@ jsf:
     theme: overcast
 ```
 
-### src/main/resources/META-INF/resources/helloWorld.xhtml
+### src/main/resources/META-INF/resources/starter.xhtml
 
-Example page. 
+Example page to help you choose the right JSF Spring Boot Starter for you. 
 
 Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
 
@@ -108,7 +108,7 @@ Look at **authorize** and **anonymous** jsf spring security facelet tags in acti
 
 ### src/main/java/com/github/persapiens/example/JsfSpringBootStarterExampleApplication.java
 
-Very simple spring main application. Only SpringBootApplication configuration is required.
+Very simple spring main application. Only SpringBootApplication annotation is required.
 
 <pre>
 @SpringBootApplication
