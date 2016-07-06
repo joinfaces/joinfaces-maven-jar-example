@@ -81,7 +81,7 @@
                                     </p:selectOneButton>
                                 </p:panelGrid>
                                 <p:spacer height="10" />
-                                <p:panel id="panelResult" header="Your starter is ${starterMBean.starter}" >
+                                <p:panel id="panelResult" header="Your starter is ${starterMBean.starter} version ${environment.getProperty('jsf-spring-boot-starter.version')}" >
                                     <p:panelGrid columns="2" layout="grid">
                                         <p:link href="http://tomcat.apache.org" rendered="#{starterMBean.servletContainer eq 'tomcat'}">
                                             <p:graphicImage title="Apache Tomcat" alt="Apache Tomcat" 
