@@ -1,6 +1,5 @@
 package com.github.persapiens.example;
 
-import com.github.persapiens.example.JsfSpringBootStarterExampleApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;

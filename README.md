@@ -119,14 +119,14 @@ public class JsfSpringBootStarterExampleApplication {
 
 Spring Security configuration class to secure authentication with credentials to persapiens and nyilmaz users.
 
-### src/main/java/com/github/persapiens/example/view/HelloWorldMBean.java
+### src/main/java/com/github/persapiens/example/view/StarterMBean.java
 
 Managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by Jsf Spring Boot Starter.
 
 <pre>
 @Named
 <b>@ViewScoped</b>
-public class HelloWorldMBean {
+public class StarterMBean {
 </pre>
 
 ## Getting Help

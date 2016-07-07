@@ -11,7 +11,7 @@
         <h:head>
             <title>.:: Choose your Jsf Spring Boot Starter ::.</title>
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-            <link href="favicon.ico" rel="shortcut icon"/>
+            <link href="#{resource['images/favicon.png']}" rel="shortcut icon"/>
             <h:outputStylesheet name="starter.css" />
         </h:head>
         <h:body>
@@ -44,7 +44,9 @@
                                 </sec:authorize>
                                 <sec:anonymous>
                                     <p:panelGrid columns="1">
-                                        <p:outputLabel value="You are logged in as a anonymous user" />
+                                        <p:link title="Login" href="/login">
+                                            <p:outputLabel value="You are logged in as a anonymous user" />
+                                        </p:link>
                                     </p:panelGrid>
                                 </sec:anonymous>
                                 <p:spacer height="10" />
@@ -54,9 +56,9 @@
                                     <h:outputText value="Servlet Container" />
                                     <p:selectOneButton id="servletContainerRadio" value="#{starterMBean.servletContainer}" 
                                                        required="true" requiredMessage="Choose one Servlet Container">
-                                        <f:selectItem itemLabel="Tomcat" itemValue="tomcat" />
-                                        <f:selectItem itemLabel="Jetty" itemValue="jetty" />
-                                        <f:selectItem itemLabel="Undertow" itemValue="undertow" />
+                                        <f:selectItem itemLabel="Tomcat" itemValue="Tomcat" />
+                                        <f:selectItem itemLabel="Jetty" itemValue="Jetty" />
+                                        <f:selectItem itemLabel="Undertow" itemValue="Undertow" />
                                         <p:ajax update="panelResult" />
                                     </p:selectOneButton>
                                 </p:panelGrid>
@@ -65,8 +67,8 @@
                                     <h:outputText value="JSF Implementation" />
                                     <p:selectOneButton id="jsfImplementationRadio" value="#{starterMBean.jsfImplementation}" 
                                                        required="true" requiredMessage="Choose one JSF Implementation">
-                                        <f:selectItem itemLabel="Mojarra" itemValue="mojarra" />
-                                        <f:selectItem itemLabel="MyFaces" itemValue="myfaces" />
+                                        <f:selectItem itemLabel="Mojarra" itemValue="Mojarra" />
+                                        <f:selectItem itemLabel="MyFaces" itemValue="MyFaces" />
                                         <p:ajax update="panelResult" />
                                     </p:selectOneButton>
                                 </p:panelGrid>
@@ -75,69 +77,87 @@
                                     <h:outputText value="JSF Components" />
                                     <p:selectOneButton id="jsfComponentsRadio" value="#{starterMBean.jsfComponents}" 
                                                        required="true" requiredMessage="Choose one JSF Implementation">
-                                        <f:selectItem itemLabel="PrimeFaces + PrimeFacesExtensions" itemValue="primefaces" />
-                                        <f:selectItem itemLabel="BootsFaces + AngularFaces + PrimeFaces + PrimeFacesExtensions" itemValue="bootsfaces" />
+                                        <f:selectItem itemLabel="PrimeFaces + PrimeFacesExtensions" itemValue="PrimeFaces" />
+                                        <f:selectItem itemLabel="BootsFaces + AngularFaces + PrimeFaces + PrimeFacesExtensions" itemValue="BootsFaces" />
+<!--
+                                        <f:selectItem itemLabel="ButterFaces + BootsFaces + PrimeFaces + PrimeFacesExtensions" itemValue="ButterFaces" />
+-->
                                         <p:ajax update="panelResult" />
                                     </p:selectOneButton>
                                 </p:panelGrid>
                                 <p:spacer height="10" />
                                 <p:panel id="panelResult" header="Your starter is ${starterMBean.starter} version ${environment.getProperty('jsf-spring-boot-starter.version')}" >
                                     <p:panelGrid columns="2" layout="grid">
-                                        <p:link href="http://tomcat.apache.org" rendered="#{starterMBean.servletContainer eq 'tomcat'}">
-                                            <p:graphicImage title="Apache Tomcat" alt="Apache Tomcat" 
-                                                            value="#{resource['images/tomcat.png']}"
-                                                            height="100" width="150"/>
-                                        </p:link>
-                                        <p:link href="http://www.eclipse.org/jetty" rendered="#{starterMBean.servletContainer eq 'jetty'}">
-                                            <p:graphicImage title="Jetty" alt="Jetty" 
-                                                            value="#{resource['images/jetty.png']}"
-                                                            height="100" width="226"/>
-                                        </p:link>
-                                        <p:link href="http://undertow.io" rendered="#{starterMBean.servletContainer eq 'undertow'}">
-                                            <p:graphicImage title="Undertow" alt="Undertow" 
-                                                            value="#{resource['images/undertow.png']}"
-                                                            height="100" width="200"/>
-                                        </p:link>
-                                        <p:link href="https://javaserverfaces.java.net" rendered="#{starterMBean.jsfImplementation eq 'mojarra'}" >
-                                            <p:graphicImage title="Mojarra" alt="Mojarra"
-                                                            value="#{resource['images/mojarra.png']}"
-                                                            height="100" width="103"/>
-                                        </p:link>
-                                        <p:link href="http://myfaces.apache.org" rendered="#{starterMBean.jsfImplementation eq 'myfaces'}">
-                                            <p:graphicImage title="Apache MyFaces" alt="Apache MyFaces"
-                                                            value="#{resource['images/myfaces.png']}"
-                                                            height="100" width="210"/>
-                                        </p:link>
+                                        <p:panel id="panelServletContainer" header="Servlet Container: ${starterMBean.servletContainer}" >
+                                            <p:link href="http://tomcat.apache.org" rendered="#{starterMBean.servletContainer eq 'Tomcat'}">
+                                                <p:graphicImage title="Apache Tomcat" alt="Apache Tomcat" 
+                                                                value="#{resource['images/tomcat.png']}"
+                                                                height="100" width="150"/>
+                                            </p:link>
+                                            <p:link href="http://www.eclipse.org/jetty" rendered="#{starterMBean.servletContainer eq 'Jetty'}">
+                                                <p:graphicImage title="Jetty" alt="Jetty" 
+                                                                value="#{resource['images/jetty.png']}"
+                                                                height="100" width="226"/>
+                                            </p:link>
+                                            <p:link href="http://undertow.io" rendered="#{starterMBean.servletContainer eq 'Undertow'}">
+                                                <p:graphicImage title="Undertow" alt="Undertow" 
+                                                                value="#{resource['images/undertow.png']}"
+                                                                height="100" width="200"/>
+                                            </p:link>
+                                        </p:panel>
+                                        <p:panel id="panelJsfImplementation" header="JSF Implementation: ${starterMBean.jsfImplementation}" >
+                                            <p:link href="https://javaserverfaces.java.net" rendered="#{starterMBean.jsfImplementation eq 'Mojarra'}" >
+                                                <p:graphicImage title="Mojarra" alt="Mojarra"
+                                                                value="#{resource['images/mojarra.png']}"
+                                                                height="100" width="103"/>
+                                            </p:link>
+                                            <p:link href="http://myfaces.apache.org" rendered="#{starterMBean.jsfImplementation eq 'MyFaces'}">
+                                                <p:graphicImage title="Apache MyFaces" alt="Apache MyFaces"
+                                                                value="#{resource['images/myfaces.png']}"
+                                                                height="100" width="210"/>
+                                            </p:link>
+                                        </p:panel>
                                     </p:panelGrid>
-                                    <p:panelGrid columns="#{starterMBean.jsfComponents eq 'primefaces' ? 2 : 3}" layout="grid">
-                                        <p:link href="http://primefaces.org">
-                                            <p:graphicImage title="PrimeFaces" alt="PrimeFaces"
-                                                            value="#{resource['images/primefaces.png']}"
-                                                            height="100" width="123"/>
-                                        </p:link>
-                                        <p:link href="http://primefaces-extensions.github.io">
-                                            <p:graphicImage title="PrimeFaces Extensions" alt="PrimeFaces Extensions"
-                                                            value="#{resource['images/primefaces-extensions.png']}"
-                                                            height="100" width="100"/>
-                                        </p:link>
-                                        <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents eq 'bootsfaces'}">
-                                            <p:graphicImage title="BootsFaces" alt="BootsFaces"
-                                                            value="#{resource['images/bootsfaces.png']}"
-                                                            height="100" width="100"/>
-                                        </p:link>
-                                    </p:panelGrid>
-                                    <p:panelGrid columns="#{starterMBean.jsfComponents eq 'primefaces' ? 1 : 2}" layout="grid">
-                                        <p:link href="http://omnifaces.org">
-                                            <p:graphicImage title="OmniFaces" alt="OmniFaces"
-                                                            value="#{resource['images/omnifaces.png']}"
-                                                            height="100" width="100"/>
-                                        </p:link>
-                                        <p:link href="http://angularfaces.com" rendered="#{starterMBean.jsfComponents eq 'bootsfaces'}">
-                                            <p:graphicImage title="AngularFaces" alt="AngularFaces"
-                                                            value="#{resource['images/angularfaces.png']}"
-                                                            height="100" width="100"/>
-                                        </p:link>
-                                    </p:panelGrid>
+<!--
+                                            <p:link href="http://butterfaces.org" rendered="#{starterMBean.jsfComponents eq 'ButterFaces'}">
+                                                <p:graphicImage title="ButterFaces" alt="ButterFaces"
+                                                                value="#{resource['images/butterfaces.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
+-->
+                                    <p:panel id="panelJsfVisualLibraries" header="JSF Component Libraries" >
+                                        <p:panelGrid columns="#{starterMBean.jsfComponents eq 'PrimeFaces' ? 2 : (starterMBean.jsfComponents eq 'BootsFaces' ? 3 :4)}" layout="grid">
+                                            <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents ne 'PrimeFaces'}">
+                                                <p:graphicImage title="BootsFaces" alt="BootsFaces"
+                                                                value="#{resource['images/bootsfaces.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
+                                            <p:link href="http://primefaces.org">
+                                                <p:graphicImage title="PrimeFaces" alt="PrimeFaces"
+                                                                value="#{resource['images/primefaces.png']}"
+                                                                height="100" width="123"/>
+                                            </p:link>
+                                            <p:link href="http://primefaces-extensions.github.io">
+                                                <p:graphicImage title="PrimeFaces Extensions" alt="PrimeFaces Extensions"
+                                                                value="#{resource['images/primefaces-extensions.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
+                                        </p:panelGrid>
+                                    </p:panel>
+                                    <p:panel id="panelJsfUtilityLibraries" header="JSF Utility Libraries" >
+                                        <p:panelGrid columns="#{starterMBean.jsfComponents eq 'BootsFaces' ? 2 : 1}" layout="grid">
+                                            <p:link href="http://angularfaces.com" rendered="#{starterMBean.jsfComponents eq 'BootsFaces'}">
+                                                <p:graphicImage title="AngularFaces" alt="AngularFaces"
+                                                                value="#{resource['images/angularfaces.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
+                                            <p:link href="http://omnifaces.org">
+                                                <p:graphicImage title="OmniFaces" alt="OmniFaces"
+                                                                value="#{resource['images/omnifaces.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
+                                        </p:panelGrid>
+                                    </p:panel>
                                 </p:panel>
                             </center>
                         </div>

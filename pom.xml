@@ -51,7 +51,6 @@
             <!-- Change artifactId to jsf-undertow-myfaces-spring-boot-starter to use Undertow servlet container and MyFaces instead of Mojarra-->
             <artifactId>jsf-spring-boot-starter</artifactId>
             <version>${jsf-spring-boot-starter.version}</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

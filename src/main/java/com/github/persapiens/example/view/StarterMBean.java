@@ -8,11 +8,11 @@ import javax.inject.Named;
 @ViewScoped
 public class StarterMBean implements Serializable {
     
-    private String servletContainer = "tomcat";
+    private String servletContainer = "Tomcat";
 
-    private String jsfImplementation = "mojarra";
+    private String jsfImplementation = "Mojarra";
     
-    private String jsfComponents = "primefaces";
+    private String jsfComponents = "PrimeFaces";
 
     public String getServletContainer() {
         return servletContainer;
@@ -41,18 +41,18 @@ public class StarterMBean implements Serializable {
     public String getStarter() {
         String result = "";
         
-        if(!servletContainer.equals("tomcat")) {
+        if(!servletContainer.equals("Tomcat")) {
             result += "-" + servletContainer ;
         }
         
-        if(!jsfImplementation.equals("mojarra")) {
+        if(!jsfImplementation.equals("Mojarra")) {
             result += "-" + jsfImplementation;
         }
         
-        if(!jsfComponents.equals("primefaces")) {
+        if(!jsfComponents.equals("PrimeFaces")) {
             result += "-" + jsfComponents;
         }
         
-        return "jsf" + result + "-spring-boot-starter";
+        return "jsf" + result.toLowerCase() + "-spring-boot-starter";
     }
 }
