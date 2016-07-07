@@ -11,7 +11,7 @@ The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-star
 
 ## See Example Application in the cloud
 
-1- Access helloWorld page at **https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf** with credentials
+1- Access starter.jsf page at **https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
 
 User | Password | Roles
 -----| -------- | -----
@@ -35,7 +35,7 @@ mvn clean install
 java -jar target/jsf-spring-boot-starter-example-1.6.1-SNAPSHOT.jar
 ```
 
-4- Access helloWorld page at **http://localhost:8080/starter.jsf**
+4- Access starter page at **http://localhost:8080/starter.jsf**
 
 ## Key Files
 
