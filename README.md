@@ -7,7 +7,7 @@ Jsf Spring Boot Starter Example
 
 This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
+The [Jsf Spring Boot Starter](https://github.com/persapiens/jsf-spring-boot-starter) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
 
 ## See Example Application in the cloud
 
@@ -44,14 +44,17 @@ java -jar target/jsf-spring-boot-starter-example-1.7.0-SNAPSHOT.jar
 Includes jsf-spring-boot-starter dependency. All other jsf dependencies are included transitively.
 
 ```xml
-<properties>
-    <jsf-spring-boot-starter.version>1.7.0</jsf-spring-boot-starter.version>
-</properties>
+<parent>
+    <groupId>com.github.persapiens</groupId>
+    <artifactId>jsf-spring-boot-parent</artifactId>
+    <version>1.7.0</version>
+    <relativePath/>
+</parent>
+
 <dependencies>
     <dependency>
       <groupId>com.github.persapiens</groupId>
       <artifactId>jsf-spring-boot-starter</artifactId>
-      <version>${jsf-spring-boot-starter.version}</version>
     </dependency>
 </dependencies>
 ```
