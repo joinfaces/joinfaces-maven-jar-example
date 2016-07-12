@@ -32,7 +32,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/jsf-spring-boot-starter-example-1.7.0-SNAPSHOT.jar
+java -jar target/jsf-spring-boot-starter-example-1.7.1-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/starter.jsf**
@@ -47,7 +47,7 @@ Includes jsf-spring-boot-starter dependency. All other jsf dependencies are incl
 <parent>
     <groupId>com.github.persapiens</groupId>
     <artifactId>jsf-spring-boot-parent</artifactId>
-    <version>1.7.0</version>
+    <version>1.7.1</version>
     <relativePath/>
 </parent>
 
