@@ -47,7 +47,7 @@ Includes jsf-spring-boot-starter dependency. All other jsf dependencies are incl
 <parent>
     <groupId>com.github.persapiens</groupId>
     <artifactId>jsf-spring-boot-parent</artifactId>
-    <version>1.7.1</version>
+    <version>1.7.2</version>
     <relativePath/>
 </parent>
 
