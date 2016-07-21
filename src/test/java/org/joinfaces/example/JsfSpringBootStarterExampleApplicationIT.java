@@ -1,4 +1,4 @@
-package com.github.persapiens.example;
+package org.joinfaces.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

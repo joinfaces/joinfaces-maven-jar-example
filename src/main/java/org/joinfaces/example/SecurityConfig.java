@@ -1,4 +1,4 @@
-package com.github.persapiens.example;
+package org.joinfaces.example;
 
 import java.util.Arrays;
 import org.springframework.context.annotation.Configuration;

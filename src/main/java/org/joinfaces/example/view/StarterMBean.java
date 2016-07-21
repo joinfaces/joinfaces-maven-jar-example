@@ -1,4 +1,4 @@
-package com.github.persapiens.example.view;
+package org.joinfaces.example.view;
 
 import java.io.Serializable;
 import javax.faces.bean.ViewScoped;

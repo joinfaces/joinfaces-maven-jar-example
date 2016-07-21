@@ -32,7 +32,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-1.7.3-SNAPSHOT.jar
+java -jar target/joinfaces-example-2.0.0-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/starter.jsf**
