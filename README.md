@@ -1,4 +1,4 @@
-Jsf Spring Boot Starter Example
+JoinFaces Example
 =====
 [![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://joinfaces-example.herokuapp.com/starter.jsf)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
