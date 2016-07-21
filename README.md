@@ -1,6 +1,6 @@
 Jsf Spring Boot Starter Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=heroku-badge)](https://joinfaces-example.herokuapp.com/starter.jsf)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
 [![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
@@ -11,7 +11,7 @@ This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
 ## See Example Application in the cloud
 
-1- Access starter.jsf page at **https://jsf-spring-boot-starter-sample.herokuapp.com/starter.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
+1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/starter.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
 
 User | Password | Roles
 -----| -------- | -----
