@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.github.persapiens</groupId>
+        <groupId>org.joinfaces</groupId>
         <artifactId>jsf-spring-boot-parent</artifactId>
-        <version>1.7.3</version>
+        <version>2.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -41,7 +41,7 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>     
         <dependency>
-            <groupId>com.github.persapiens</groupId>
+            <groupId>org.joinfaces</groupId>
             <!-- Change artifactId to jsf-myfaces-spring-boot-starter to use MyFaces instead of Mojarra -->
             <!-- Change artifactId to jsf-jetty-spring-boot-starter to use Jetty servlet container -->
             <!-- Change artifactId to jsf-jetty-myfaces-spring-boot-starter to use Jetty servlet container and MyFaces instead of Mojarra-->

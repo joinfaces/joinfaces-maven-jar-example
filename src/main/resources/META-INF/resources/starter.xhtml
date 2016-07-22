@@ -20,9 +20,14 @@
                     <h:form prependId="false">
                         <div id="starterDiv" class="ui-fluid">
                             <center>
-                                <p:panelGrid columns="1">
+                                <p:panelGrid columns="2" layout="grid">
+                                    <p:link href="http://joinfaces.org" >
+                                        <p:graphicImage title="JoinFaces ${environment.getProperty('joinfaces.version')}" alt="JoinFaces ${environment.getProperty('joinfaces.version')}"
+                                                        value="#{resource['images/joinfaces.png']}"
+                                                        height="100" width="100"/>
+                                    </p:link>
                                     <p:link href="http://projects.spring.io/spring-boot" >
-                                        <p:graphicImage title="Spring Boot" alt="Spring Boot"
+                                        <p:graphicImage title="Spring Boot ${environment.getProperty('spring-boot.version')}" alt="Spring Boot ${environment.getProperty('spring-boot.version')}"
                                                         value="#{resource['images/spring-boot.png']}"
                                                         height="100" width="100"/>
                                     </p:link>
@@ -45,7 +50,7 @@
                                 <sec:anonymous>
                                     <p:panelGrid columns="1">
                                         <p:link title="Login" href="/login">
-                                            <p:outputLabel value="You are anonymous user" />
+                                            <p:outputLabel value="Choose your starter as anonymous user" />
                                         </p:link>
                                     </p:panelGrid>
                                 </sec:anonymous>
@@ -84,33 +89,33 @@
                                     </p:selectOneButton>
                                 </p:panelGrid>
                                 <p:spacer height="10" />
-                                <p:panel id="panelResult" header="Your starter is ${starterMBean.starter} version ${environment.getProperty('jsf-spring-boot-starter.version')}" >
+                                <p:panel id="panelResult" header="Your JoinFaces starter is ${starterMBean.starter} version ${environment.getProperty('joinfaces.version')}" >
                                     <p:panelGrid columns="2" layout="grid">
                                         <p:panel id="panelServletContainer" header="Servlet Container: ${starterMBean.servletContainer}" >
                                             <p:link href="http://tomcat.apache.org" rendered="#{starterMBean.servletContainer eq 'Tomcat'}">
-                                                <p:graphicImage title="Apache Tomcat" alt="Apache Tomcat" 
+                                                <p:graphicImage title="Apache Tomcat ${environment.getProperty('tomcat.version')}" alt="Apache Tomcat ${environment.getProperty('tomcat.version')}" 
                                                                 value="#{resource['images/tomcat.png']}"
                                                                 height="100" width="150"/>
                                             </p:link>
                                             <p:link href="http://www.eclipse.org/jetty" rendered="#{starterMBean.servletContainer eq 'Jetty'}">
-                                                <p:graphicImage title="Jetty" alt="Jetty" 
+                                                <p:graphicImage title="Jetty ${environment.getProperty('jetty.version')}" alt="Jetty ${environment.getProperty('jetty.version')}" 
                                                                 value="#{resource['images/jetty.png']}"
                                                                 height="100" width="226"/>
                                             </p:link>
                                             <p:link href="http://undertow.io" rendered="#{starterMBean.servletContainer eq 'Undertow'}">
-                                                <p:graphicImage title="Undertow" alt="Undertow" 
+                                                <p:graphicImage title="Undertow ${environment.getProperty('undertow.version')}" alt="Undertow ${environment.getProperty('undertow.version')}" 
                                                                 value="#{resource['images/undertow.png']}"
                                                                 height="100" width="200"/>
                                             </p:link>
                                         </p:panel>
                                         <p:panel id="panelJsfImplementation" header="JSF Implementation: ${starterMBean.jsfImplementation}" >
                                             <p:link href="https://javaserverfaces.java.net" rendered="#{starterMBean.jsfImplementation eq 'Mojarra'}" >
-                                                <p:graphicImage title="Mojarra" alt="Mojarra"
+                                                <p:graphicImage title="Mojarra ${environment.getProperty('mojarra.version')}" alt="Mojarra ${environment.getProperty('mojarra.version')}"
                                                                 value="#{resource['images/mojarra.png']}"
                                                                 height="100" width="103"/>
                                             </p:link>
                                             <p:link href="http://myfaces.apache.org" rendered="#{starterMBean.jsfImplementation eq 'MyFaces'}">
-                                                <p:graphicImage title="Apache MyFaces" alt="Apache MyFaces"
+                                                <p:graphicImage title="Apache MyFaces ${environment.getProperty('myfaces.version')}" alt="Apache MyFaces ${environment.getProperty('myfaces.version')}"
                                                                 value="#{resource['images/myfaces.png']}"
                                                                 height="100" width="210"/>
                                             </p:link>
@@ -119,22 +124,22 @@
                                     <p:panel id="panelJsfVisualLibraries" header="JSF Component Libraries" >
                                         <p:panelGrid columns="#{starterMBean.jsfComponents eq 'PrimeFaces' ? 2 : (starterMBean.jsfComponents eq 'BootsFaces' ? 3 :4)}" layout="grid">
                                             <p:link href="http://butterfaces.org" rendered="#{starterMBean.jsfComponents eq 'ButterFaces'}">
-                                                <p:graphicImage title="ButterFaces" alt="ButterFaces"
+                                                <p:graphicImage title="ButterFaces ${environment.getProperty('butterfaces.version')}" alt="ButterFaces ${environment.getProperty('butterfaces.version')}"
                                                                 value="#{resource['images/butterfaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
                                             <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents ne 'PrimeFaces'}">
-                                                <p:graphicImage title="BootsFaces" alt="BootsFaces"
+                                                <p:graphicImage title="BootsFaces ${environment.getProperty('bootsfaces.version')}" alt="BootsFaces ${environment.getProperty('bootsfaces.version')}"
                                                                 value="#{resource['images/bootsfaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
                                             <p:link href="http://primefaces.org">
-                                                <p:graphicImage title="PrimeFaces" alt="PrimeFaces"
+                                                <p:graphicImage title="PrimeFaces ${environment.getProperty('primefaces.version')}" alt="PrimeFaces ${environment.getProperty('primefaces.version')}"
                                                                 value="#{resource['images/primefaces.png']}"
                                                                 height="100" width="123"/>
                                             </p:link>
                                             <p:link href="http://primefaces-extensions.github.io">
-                                                <p:graphicImage title="PrimeFaces Extensions" alt="PrimeFaces Extensions"
+                                                <p:graphicImage title="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}" alt="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}"
                                                                 value="#{resource['images/primefaces-extensions.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
@@ -143,12 +148,12 @@
                                     <p:panel id="panelJsfUtilityLibraries" header="JSF Utility Libraries" >
                                         <p:panelGrid columns="#{starterMBean.jsfComponents eq 'BootsFaces' ? 2 : 1}" layout="grid">
                                             <p:link href="http://angularfaces.com" rendered="#{starterMBean.jsfComponents eq 'BootsFaces'}">
-                                                <p:graphicImage title="AngularFaces" alt="AngularFaces"
+                                                <p:graphicImage title="AngularFaces ${environment.getProperty('angularfaces.version')}" alt="AngularFaces ${environment.getProperty('angularfaces.version')}"
                                                                 value="#{resource['images/angularfaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
                                             <p:link href="http://omnifaces.org">
-                                                <p:graphicImage title="OmniFaces" alt="OmniFaces"
+                                                <p:graphicImage title="OmniFaces ${environment.getProperty('omnifaces.version')}" alt="OmniFaces ${environment.getProperty('omnifaces.version')}"
                                                                 value="#{resource['images/omnifaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>

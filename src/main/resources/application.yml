@@ -1,6 +1,32 @@
 jsf:
-  PROJECT_STAGE: Development
+  PROJECT_STAGE: Production
   primefaces:
     theme: overcast
-jsf-spring-boot-starter:
+joinfaces:
   version: @jsf-spring-boot-starter.version@
+spring-boot:
+  version: @spring-boot.version@
+tomcat:
+  version: @tomcat.version@
+jetty:
+  version: @jetty.version@
+undertow:
+  version: @undertow.version@
+cdi:
+  version: @cdi.version@
+mojarra:
+  version: @javax.faces.version@
+myfaces:
+  version: @myfaces.version@
+omnifaces:
+  version: @omnifaces.version@
+angularfaces:
+  version: @angularfaces.version@
+primefaces:
+  version: @primefaces.version@
+primefaces-extensions:
+  version: @primefaces-extensions.version@
+bootsfaces:
+  version: @bootsfaces.version@
+butterfaces:
+  version: @butterfaces.version@
