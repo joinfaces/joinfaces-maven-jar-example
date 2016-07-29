@@ -3,9 +3,9 @@ jsf:
   primefaces:
     theme: overcast
 joinfaces:
-  version: @jsf-spring-boot-starter.version@
+  version: @project.parent.version@
 spring-boot:
-  version: @spring-boot.version@
+  version: @project.parent.parent.version@
 tomcat:
   version: @tomcat.version@
 jetty:
