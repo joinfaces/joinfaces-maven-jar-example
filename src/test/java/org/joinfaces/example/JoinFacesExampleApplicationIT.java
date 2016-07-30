@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = JsfSpringBootStarterExampleApplication.class)
-public class JsfSpringBootStarterExampleApplicationIT {
+@SpringBootTest(classes = JoinFacesExampleApplication.class)
+public class JoinFacesExampleApplicationIT {
 
 	@Test
 	public void contextLoads() {

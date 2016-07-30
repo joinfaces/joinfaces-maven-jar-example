@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JsfSpringBootStarterExampleApplication {
+public class JoinFacesExampleApplication {
     
 	public static void main(String[] args) {
-		SpringApplication.run(JsfSpringBootStarterExampleApplication.class, args);
+		SpringApplication.run(JoinFacesExampleApplication.class, args);
 	}
     
 }
