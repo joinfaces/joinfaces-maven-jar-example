@@ -41,7 +41,7 @@ java -jar target/joinfaces-example-2.1.2-SNAPSHOT.jar
 
 ### pom.xml
 
-Includes jsf-spring-boot-starter dependency. All other jsf dependencies are included transitively.
+Includes joinfaces starter dependency. All other jsf dependencies are included transitively.
 
 ```xml
 <parent>
@@ -109,13 +109,13 @@ Look at **authorize** and **anonymous** jsf spring security facelet tags in acti
   </sec:authorize>
 ```
 
-### src/main/java/org/joinfaces/example/JsfSpringBootStarterExampleApplication.java
+### src/main/java/org/joinfaces/example/JoinFacesExampleApplication.java
 
 Very simple spring main application. Only SpringBootApplication annotation is required.
 
 <pre>
 @SpringBootApplication
-public class JsfSpringBootStarterExampleApplication {
+public class JoinFacesExampleApplication {
 </pre>
 
 ### src/main/java/org/joinfaces/example/SecurityConfig.java
