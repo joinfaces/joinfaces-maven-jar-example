@@ -30,3 +30,6 @@ bootsfaces:
   version: @bootsfaces.version@
 butterfaces:
   version: @butterfaces.version@
+security:
+  ignored:
+    - /javax.faces.resource/**

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+    <f:view contentType="text/html">
+        <h:head>
+            <title>.:: Choose your Jsf Spring Boot Starter ::.</title>
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
+            <h:outputStylesheet name="starter.css" />
+        </h:head>
+        <h:body>
+            <pe:layout fullPage="true" >
+                <pe:layoutPane position="center" >
+                    <h:form prependId="false" enctype="multipart/form-data">
+                        <div id="starterDiv" class="ui-fluid">
+                            <center>
+                                <p:panelGrid columns="1" layout="grid">
+                                    <p:fileUpload value="#{fileMBean.uploadedFile}" label="1 - Upload" mode="simple" skinSimple="true"/>
+                                    <p:commandButton value="2 - Submit" ajax="false" actionListener="#{fileMBean.upload}" />
+                                    <p:commandButton disabled="#{empty fileMBean.downloadFile}" value="3 - Download #{fileMBean.uploadedFile.fileName}" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{fileMBean.downloadFile}" />
+                                    </p:commandButton>
+                                </p:panelGrid>
+                            </center>
+                        </div>
+                    </h:form>
+                </pe:layoutPane>
+            </pe:layout>
+        </h:body>
+    </f:view>
+</html>
