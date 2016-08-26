@@ -85,6 +85,7 @@
                                         <f:selectItem itemLabel="PrimeFaces + PrimeFacesExtensions" itemValue="PrimeFaces" />
                                         <f:selectItem itemLabel="BootsFaces + AngularFaces + PrimeFaces + PrimeFacesExtensions" itemValue="BootsFaces" />
                                         <f:selectItem itemLabel="ButterFaces + BootsFaces + PrimeFaces + PrimeFacesExtensions" itemValue="ButterFaces" />
+                                        <f:selectItem itemLabel="RichFaces" itemValue="RichFaces" />
                                         <p:ajax update="panelResult" />
                                     </p:selectOneButton>
                                 </p:panelGrid>
@@ -122,23 +123,28 @@
                                         </p:panel>
                                     </p:panelGrid>
                                     <p:panel id="panelJsfVisualLibraries" header="JSF Component Libraries" >
-                                        <p:panelGrid columns="#{starterMBean.jsfComponents eq 'PrimeFaces' ? 2 : (starterMBean.jsfComponents eq 'BootsFaces' ? 3 :4)}" layout="grid">
+                                        <p:panelGrid columns="#{starterMBean.jsfComponents eq 'RichFaces' ? 1 : (starterMBean.jsfComponents eq 'PrimeFaces' ? 2 : (starterMBean.jsfComponents eq 'BootsFaces' ? 3 :4))}" layout="grid">
+                                            <p:link href="https://github.com/richfaces/richfaces" rendered="#{starterMBean.jsfComponents eq 'RichFaces'}">
+                                                <p:graphicImage title="RichFaces ${environment.getProperty('richfaces.version')}" alt="RichFaces ${environment.getProperty('richfaces.version')}"
+                                                                value="#{resource['images/richfaces.png']}"
+                                                                height="100" width="100"/>
+                                            </p:link>
                                             <p:link href="http://butterfaces.org" rendered="#{starterMBean.jsfComponents eq 'ButterFaces'}">
                                                 <p:graphicImage title="ButterFaces ${environment.getProperty('butterfaces.version')}" alt="ButterFaces ${environment.getProperty('butterfaces.version')}"
                                                                 value="#{resource['images/butterfaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
-                                            <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents ne 'PrimeFaces'}">
+                                            <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents eq 'BootsFaces' or starterMBean.jsfComponents eq 'ButterFaces'}">
                                                 <p:graphicImage title="BootsFaces ${environment.getProperty('bootsfaces.version')}" alt="BootsFaces ${environment.getProperty('bootsfaces.version')}"
                                                                 value="#{resource['images/bootsfaces.png']}"
                                                                 height="100" width="100"/>
                                             </p:link>
-                                            <p:link href="http://primefaces.org">
+                                            <p:link href="http://primefaces.org" rendered="#{starterMBean.jsfComponents ne 'RichFaces'}">
                                                 <p:graphicImage title="PrimeFaces ${environment.getProperty('primefaces.version')}" alt="PrimeFaces ${environment.getProperty('primefaces.version')}"
                                                                 value="#{resource['images/primefaces.png']}"
                                                                 height="100" width="123"/>
                                             </p:link>
-                                            <p:link href="http://primefaces-extensions.github.io">
+                                            <p:link href="http://primefaces-extensions.github.io" rendered="#{starterMBean.jsfComponents ne 'RichFaces'}">
                                                 <p:graphicImage title="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}" alt="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}"
                                                                 value="#{resource['images/primefaces-extensions.png']}"
                                                                 height="100" width="100"/>
