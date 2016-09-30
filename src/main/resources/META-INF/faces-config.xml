@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+    
+    <!--
+        This file is not mandatory.
+        However, it is necessary to JoinFaces scan types handled by JSF.
+        Example of types handled by JSF: ManagedBean, FacesComponent,
+            FacesValidator, FacesConverter, FacesBehaviorRenderer,
+            ResourceDependency, ResourceDependencies, ListenerFor,
+            ListenersFor, UIComponent, Validator, Converter,
+            Renderer, FacesBehavior, PhaseListener,
+            FaceletsResourceResolver, Resource, NamedEvent        
+    -->    
+	<name>joinfaces-example</name>
+    
+</faces-config>
