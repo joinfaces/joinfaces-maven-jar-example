@@ -20,6 +20,7 @@
                             <center>
                                 <p:outputLabel value="Connection failed: user and/or password are wrong." 
                                                rendered="${!empty param['error']}"/>
+                                <p:focus />
                                 <p:panelGrid columns="2" layout="grid">
                                     <h:outputText value="username" />
                                     <p:inputText id="username" />
