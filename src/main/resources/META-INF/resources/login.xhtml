@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+    <f:view contentType="text/html">
+        <h:head>
+            <title>.:: Choose your Jsf Spring Boot Starter ::.</title>
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+            <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
+            <h:outputStylesheet name="starter.css" />
+        </h:head>
+        <h:body>
+            <pe:layout fullPage="true" >
+                <pe:layoutPane position="center" >
+                    <h:form prependId="false">
+                        <div id="starterDiv" class="ui-fluid">
+                            <center>
+                                <p:outputLabel value="Connection failed: user and/or password are wrong." 
+                                               rendered="${!empty param['error']}"/>
+                                <p:panelGrid columns="2" layout="grid">
+                                    <h:outputText value="username" />
+                                    <p:inputText id="username" />
+                                    <h:outputText value="password" />
+                                    <p:password id="password" />
+                                </p:panelGrid>
+                                <p:commandButton id="submit" value="Signin" ajax="false"
+                                                 action="${signinMBean.signinAction()}"/>
+                            </center>
+                        </div>
+                    </h:form>
+                </pe:layoutPane>
+            </pe:layout>
+        </h:body>
+    </f:view>
+</html>

@@ -48,7 +48,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
-				.defaultSuccessUrl("/starter.jsf");
+				.loginPage("/login.jsf")
+				.permitAll()
+				.failureUrl("/login.jsf?error=true")
+				.defaultSuccessUrl("/starter.jsf")
+				.and()
+				.logout()
+				.logoutSuccessUrl("/login.jsf");
 		}
 		catch (Exception ex) {
 			throw new RuntimeException(ex);
