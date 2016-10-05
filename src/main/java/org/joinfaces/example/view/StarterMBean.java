@@ -1,58 +1,62 @@
+/*
+ * Copyright 2016-2016 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package org.joinfaces.example.view;
 
 import java.io.Serializable;
+
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
 
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * StarterMBean to show joinfaces starters.
+ * @author Marcelo Fernandes
+ */
+@Getter
+@Setter
 @Named
 @ViewScoped
 public class StarterMBean implements Serializable {
-    
-    private String servletContainer = "Tomcat";
 
-    private String jsfImplementation = "Mojarra";
-    
-    private String jsfComponents = "PrimeFaces";
+	private static final long serialVersionUID = 1L;
 
-    public String getServletContainer() {
-        return servletContainer;
-    }
+	private String servletContainer = "Tomcat";
 
-    public void setServletContainer(String servletContainer) {
-        this.servletContainer = servletContainer;
-    }
+	private String jsfImplementation = "Mojarra";
 
-    public String getJsfImplementation() {
-        return jsfImplementation;
-    }
+	private String jsfComponents = "PrimeFaces";
 
-    public void setJsfImplementation(String jsfImplementation) {
-        this.jsfImplementation = jsfImplementation;
-    }
+	public String getStarter() {
+		String result = "";
 
-    public String getJsfComponents() {
-        return jsfComponents;
-    }
+		if (!servletContainer.equals("Tomcat")) {
+			result += "-" + servletContainer;
+		}
 
-    public void setJsfComponents(String jsfComponents) {
-        this.jsfComponents = jsfComponents;
-    }        
-     
-    public String getStarter() {
-        String result = "";
-        
-        if(!servletContainer.equals("Tomcat")) {
-            result += "-" + servletContainer ;
-        }
-        
-        if(!jsfImplementation.equals("Mojarra")) {
-            result += "-" + jsfImplementation;
-        }
-        
-        if(!jsfComponents.equals("PrimeFaces")) {
-            result += "-" + jsfComponents;
-        }
-        
-        return "jsf" + result.toLowerCase() + "-spring-boot-starter";
-    }
+		if (!jsfImplementation.equals("Mojarra")) {
+			result += "-" + jsfImplementation;
+		}
+
+		if (!jsfComponents.equals("PrimeFaces")) {
+			result += "-" + jsfComponents;
+		}
+
+		return "jsf" + result.toLowerCase() + "-spring-boot-starter";
+	}
 }
