@@ -62,4 +62,15 @@
             <goal>site</goal>
         </goals>
     </action>
+    <action>
+        <actionName>CUSTOM-integration-test</actionName>
+        <displayName>integration-test</displayName>
+        <goals>
+            <goal>clean</goal>
+            <goal>install</goal>
+        </goals>
+        <activatedProfiles>
+            <activatedProfile>attach-integration-test</activatedProfile>
+        </activatedProfiles>
+    </action>
 </actions>

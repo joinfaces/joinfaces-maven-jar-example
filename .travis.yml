@@ -4,4 +4,4 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
-script: mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs verify
+script: mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs verify && mvn -T 4 -Pcheck-cobertura-integration-test,attach-integration-test cobertura:check-integration-test
