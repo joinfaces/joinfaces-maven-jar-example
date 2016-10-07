@@ -2,6 +2,7 @@ JoinFaces Example
 =====
 [![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=starter.jsf)](https://joinfaces-example.herokuapp.com/starter.jsf)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
+[![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-example?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
