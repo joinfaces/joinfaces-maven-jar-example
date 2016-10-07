@@ -56,10 +56,10 @@
                                 </sec:anonymous>
                                 <p:spacer height="10" />
 
-                                <o:validateOne id="one" components="servletContainerRadio" />
+                                <o:validateOne id="one" components="servletContainer" />
                                 <p:panelGrid columns="2">
                                     <h:outputText value="Servlet Container" />
-                                    <p:selectOneButton id="servletContainerRadio" value="#{starterMBean.servletContainer}" 
+                                    <p:selectOneButton id="servletContainer" value="#{starterMBean.servletContainer}" 
                                                        required="true" requiredMessage="Choose one Servlet Container">
                                         <f:selectItem itemLabel="Tomcat" itemValue="Tomcat" />
                                         <f:selectItem itemLabel="Jetty" itemValue="Jetty" />
@@ -70,7 +70,7 @@
                                 <p:spacer height="10" />
                                 <p:panelGrid columns="2">
                                     <h:outputText value="JSF Implementation" />
-                                    <p:selectOneButton id="jsfImplementationRadio" value="#{starterMBean.jsfImplementation}" 
+                                    <p:selectOneButton id="jsfImplementation" value="#{starterMBean.jsfImplementation}" 
                                                        required="true" requiredMessage="Choose one JSF Implementation">
                                         <f:selectItem itemLabel="Mojarra" itemValue="Mojarra" />
                                         <f:selectItem itemLabel="MyFaces" itemValue="MyFaces" />
@@ -80,7 +80,7 @@
                                 <p:spacer height="10" />
                                 <p:panelGrid columns="2">
                                     <h:outputText value="JSF Components" />
-                                    <p:selectOneButton id="jsfComponentsRadio" value="#{starterMBean.jsfComponents}" 
+                                    <p:selectOneButton id="jsfComponents" value="#{starterMBean.jsfComponents}" 
                                                        required="true" requiredMessage="Choose one JSF Implementation">
                                         <f:selectItem itemLabel="PrimeFaces + PrimeFacesExtensions" itemValue="PrimeFaces" />
                                         <f:selectItem itemLabel="BootsFaces + AngularFaces + PrimeFaces + PrimeFacesExtensions" itemValue="BootsFaces" />

@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package org.joinfaces.example;
+package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import javax.faces.application.ResourceHandler;
-
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -35,39 +32,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class JsfPagesIT {
+public class StarterPageIT extends AbstractJsfIT {
 
-	@LocalServerPort
-	private long port;
-
-	private <P extends Page> P page(String url) throws IOException {
-		WebClient webClient = new WebClient();
-		webClient.getOptions().setTimeout(0);
-		return webClient.getPage("http://localhost:" + port + url);
-	}
+	public static final String TITLE_TEXT = ".:: Choose your Jsf Spring Boot Starter ::.";
 
 	@Test
-	public void starterJSF() throws IOException {
+	public void checkTitle() throws IOException {
 		HtmlPage page = page("/starter.jsf");
-		assertThat(page.getTitleText()).startsWith(".:: Choose your Jsf Spring Boot Starter ::.");
-	}
 
-	private String resource(String url) {
-		return ResourceHandler.RESOURCE_IDENTIFIER + url + ".jsf";
-	}
-
-	@Test
-	public void faviconIcoResource() throws IOException {
-		Page page = page(resource("/images/favicon.ico"));
-		assertThat(page.getWebResponse().getContentLength())
-			.isEqualTo(1150);
-	}
-
-	@Test
-	public void starterCSSResource() throws IOException {
-		Page page = page(resource("/starter.css"));
-		assertThat(page.getWebResponse().getContentLength())
-			.isGreaterThan(0);
+		assertThat(page.getTitleText())
+			.isEqualTo(TITLE_TEXT);
 	}
 
 }

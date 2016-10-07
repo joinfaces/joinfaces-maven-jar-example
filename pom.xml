@@ -28,11 +28,11 @@
         <commons-fileupload>1.3.2</commons-fileupload>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <cobertura.totalLineRate>35</cobertura.totalLineRate>
-        <cobertura.packageLineRate>14</cobertura.packageLineRate>
+        <cobertura.totalLineRate>71</cobertura.totalLineRate>
+        <cobertura.packageLineRate>65</cobertura.packageLineRate>
         <cobertura.lineRate>0</cobertura.lineRate>
-        <cobertura.totalBranchRate>30</cobertura.totalBranchRate>
-        <cobertura.packageBranchRate>30</cobertura.packageBranchRate>
+        <cobertura.totalBranchRate>40</cobertura.totalBranchRate>
+        <cobertura.packageBranchRate>40</cobertura.packageBranchRate>
         <cobertura.branchRate>0</cobertura.branchRate>
     </properties>
 

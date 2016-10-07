@@ -7,7 +7,7 @@
       xmlns:pe="http://primefaces.org/ui/extensions">
     <f:view contentType="text/html">
         <h:head>
-            <title>.:: Choose your Jsf Spring Boot Starter ::.</title>
+            <title>.:: Login ::.</title>
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
             <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
             <h:outputStylesheet name="starter.css" />
@@ -27,8 +27,8 @@
                                     <h:outputText value="password" />
                                     <p:password id="password" />
                                 </p:panelGrid>
-                                <p:commandButton id="submit" value="Signin" ajax="false"
-                                                 action="${signinMBean.signinAction()}"/>
+                                <p:commandButton id="submit" value="Login" ajax="false"
+                                                 action="#{loginMBean.signinAction()}"/>
                             </center>
                         </div>
                     </h:form>
