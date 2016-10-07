@@ -135,6 +135,7 @@ public class StarterMBean {
 
 ## Getting Help
 
+* Take a look at [JoinFaces Wiki](https://github.com/joinfaces/joinfaces/wiki).
 * Report questions and bugs at [github.com/joinfaces/joinfaces-example/issues](https://github.com/joinfaces/joinfaces-example/issues).
 
 ## Contributing
