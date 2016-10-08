@@ -19,6 +19,8 @@ package org.joinfaces.example.view;
 import java.io.IOException;
 
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlRadioButtonInput;
+import com.gargoylesoftware.htmlunit.html.HtmlSpan;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
 
@@ -40,6 +42,38 @@ public class StarterPageIT extends AbstractPageIT {
 
 		assertThat(page.getElementByName("servletContainer"))
 			.isNotNull();
+	}
+
+	@Test
+	public void clickJettyMyfacesButterfaces() throws IOException {
+		HtmlPage page = page("/");
+
+		HtmlRadioButtonInput jettyRadioButtonInput = (HtmlRadioButtonInput) page.getFirstByXPath("//input[@value='Jetty']");
+		jettyRadioButtonInput.setChecked(true);
+		HtmlPage jettyClickPage = jettyRadioButtonInput.click();
+		waitJavascript("jettyClick");
+
+		HtmlSpan panelHeaderSpan = jettyClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
+		assertThat(panelHeaderSpan.getTextContent())
+			.contains("jsf-jetty-spring-boot-starter");
+
+		HtmlRadioButtonInput myfacesRadioButtonInput = (HtmlRadioButtonInput) jettyClickPage.getFirstByXPath("//input[@value='MyFaces']");
+		myfacesRadioButtonInput.setChecked(true);
+		HtmlPage myfacesClickPage = myfacesRadioButtonInput.click();
+		waitJavascript("myfacesClick");
+
+		panelHeaderSpan = myfacesClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
+		assertThat(panelHeaderSpan.getTextContent())
+			.contains("jsf-jetty-myfaces-spring-boot-starter");
+
+		HtmlRadioButtonInput butterfacesRadioButtonInput = (HtmlRadioButtonInput) myfacesClickPage.getFirstByXPath("//input[@value='ButterFaces']");
+		butterfacesRadioButtonInput.setChecked(true);
+		HtmlPage butterfacesClickPage = butterfacesRadioButtonInput.click();
+		waitJavascript("butterfacesClick");
+
+		panelHeaderSpan = butterfacesClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
+		assertThat(panelHeaderSpan.getTextContent())
+			.contains("jsf-jetty-myfaces-butterfaces-spring-boot-starter");
 	}
 
 }
