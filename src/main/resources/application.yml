@@ -35,5 +35,3 @@ richfaces:
 security:
   ignored:
     - /javax.faces.resource/**
-    - /customInput.jsf
-    - /fileUpload.jsf

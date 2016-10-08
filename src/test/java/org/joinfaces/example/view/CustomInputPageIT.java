@@ -35,11 +35,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CustomInputPageIT extends AbstractJsfIT {
 
 	@Test
-	public void checkTitle() throws IOException {
-		HtmlPage page = page("/customInput.jsf");
+	public void checkCustomInputElement() throws IOException {
+		HtmlPage page = page("/index.jsf?content=customInput");
 
-		assertThat(page.getTitleText())
-			.isEqualTo(".:: Test Custom Input ::.");
+		assertThat(page.getElementByName("customInput:inputfield"))
+			.isNotNull();
 	}
 
 }

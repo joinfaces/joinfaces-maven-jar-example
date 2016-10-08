@@ -44,14 +44,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			http
 				.userDetailsService(userDetailsService())
 				.authorizeRequests()
-				.antMatchers("/starter.jsf").permitAll()
+				.antMatchers("/index.jsf").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()
 				.loginPage("/login.jsf")
 				.permitAll()
 				.failureUrl("/login.jsf?error=true")
-				.defaultSuccessUrl("/starter.jsf")
+				.defaultSuccessUrl("/index.jsf")
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login.jsf");

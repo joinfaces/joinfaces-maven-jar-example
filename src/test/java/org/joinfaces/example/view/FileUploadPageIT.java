@@ -35,11 +35,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileUploadPageIT extends AbstractJsfIT {
 
 	@Test
-	public void checkTitle() throws IOException {
-		HtmlPage page = page("/fileUpload.jsf");
+	public void checkFileUploadElement() throws IOException {
+		HtmlPage page = page("/index.jsf?content=fileUpload");
 
-		assertThat(page.getTitleText())
-			.isEqualTo(".:: Test File Upload ::.");
+		assertThat(page.getElementById("fileUpload"))
+			.isNotNull();
 	}
 
 }

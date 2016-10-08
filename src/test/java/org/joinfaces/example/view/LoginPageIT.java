@@ -42,7 +42,7 @@ public class LoginPageIT extends AbstractJsfIT {
 		HtmlPage page = page("/login.jsf");
 
 		assertThat(page.getTitleText())
-			.isEqualTo(".:: Login ::.");
+			.isEqualTo(".:: Login JoinFaces Example ::.");
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class LoginPageIT extends AbstractJsfIT {
 		HtmlPage starterPage = buttonSubmit.click();
 
 		assertThat(starterPage.getTitleText())
-			.isEqualTo(StarterPageIT.TITLE_TEXT);
+			.isEqualTo(".:: JoinFaces Example ::.");
 	}
 
 }

@@ -34,14 +34,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class StarterPageIT extends AbstractJsfIT {
 
-	public static final String TITLE_TEXT = ".:: Choose your Jsf Spring Boot Starter ::.";
-
 	@Test
-	public void checkTitle() throws IOException {
-		HtmlPage page = page("/starter.jsf");
+	public void checkServletContainerElement() throws IOException {
+		HtmlPage page = page("/index.jsf?content=starter");
 
-		assertThat(page.getTitleText())
-			.isEqualTo(TITLE_TEXT);
+		assertThat(page.getElementByName("servletContainer"))
+			.isNotNull();
 	}
 
 }
