@@ -1,6 +1,6 @@
 JoinFaces Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=starter.jsf)](https://joinfaces-example.herokuapp.com/starter.jsf)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com/index.jsf)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
 [![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-example?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
@@ -12,7 +12,7 @@ This project illustrates JSF usage inside JAR packaged Spring Boot Application.
 
 ## See Example Application in the cloud
 
-1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/starter.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
+1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/index.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
 
 User | Password | Roles
 -----| -------- | -----
@@ -36,7 +36,7 @@ mvn clean install
 java -jar target/joinfaces-example-2.2.6-SNAPSHOT.jar
 ```
 
-4- Access starter page at **http://localhost:8080/starter.jsf**
+4- Access starter page at **http://localhost:8080/index.jsf**
 
 ## Key Files
 
@@ -92,7 +92,7 @@ jsf:
     theme: overcast
 ```
 
-### src/main/resources/META-INF/resources/starter.xhtml
+### src/main/resources/META-INF/resources/content/starter.xhtml
 
 Example page to help you choose the right JSF Spring Boot Starter for you. 
 
