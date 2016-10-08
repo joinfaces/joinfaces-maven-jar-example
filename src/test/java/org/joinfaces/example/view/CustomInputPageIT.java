@@ -21,6 +21,7 @@ import java.io.IOException;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
 
@@ -55,9 +56,9 @@ public class CustomInputPageIT extends AbstractJsfIT {
 		HtmlInput buttonByName = form.getInputByName("customInput:submit");
 		HtmlPage clickedPage = buttonByName.click();
 
-		// is there better way to access specific dom element?
-		assertThat(clickedPage.getElementById("panel").getChildNodes().get(0)
-			.getChildNodes().get(0).getChildNodes().get(0).getChildNodes().get(2).getTextContent())
+		HtmlParagraph paragraph = clickedPage.getFirstByXPath("//p");
+
+		assertThat(paragraph.getTextContent())
 			.isEqualTo("You entered: Hello");
 	}
 
