@@ -60,6 +60,8 @@ public class LoginPageIT extends AbstractPageIT {
 
 		assertThat(starterPage.getTitleText())
 			.isEqualTo(".:: JoinFaces Example ::.");
+		assertThat(starterPage.getElementById("labelRoleAdmin").getTextContent())
+			.isEqualTo("Choose your starter as an ADMIN");
 	}
 
 }

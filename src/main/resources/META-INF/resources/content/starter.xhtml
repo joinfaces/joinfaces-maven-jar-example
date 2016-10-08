@@ -23,21 +23,21 @@
     <sec:authorize access="hasRole('ROLE_ADMIN')">
         <p:panelGrid columns="1" rendered="#{sec:isFullyAuthenticated()}">
             <p:link title="Logout" href="/logout">
-                <p:outputLabel value="Choose your starter as an ADMIN" />
+                <p:outputLabel id="labelRoleAdmin" value="Choose your starter as an ADMIN" />
             </p:link>
         </p:panelGrid>
     </sec:authorize>
     <sec:authorize ifAnyGranted="ROLE_USER">
         <p:panelGrid columns="1" rendered="#{sec:isAuthenticated()}">
             <p:link title="Logout" href="/logout">
-                <p:outputLabel value="Choose your starter as a regular user" />
+                <p:outputLabel id="labelRoleUser" value="Choose your starter as a regular user" />
             </p:link>
         </p:panelGrid>
     </sec:authorize>
     <sec:anonymous>
         <p:panelGrid columns="1">
             <p:link title="Login" href="/login.jsf">
-                <p:outputLabel value="Choose your starter as anonymous user" />
+                <p:outputLabel id="labelAnonymous" value="Choose your starter as anonymous user" />
             </p:link>
         </p:panelGrid>
     </sec:anonymous>
