@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			http
 				.userDetailsService(userDetailsService())
 				.authorizeRequests()
+				.antMatchers("/").permitAll()
 				.antMatchers("/index.jsf").permitAll()
 				.anyRequest().authenticated()
 				.and()

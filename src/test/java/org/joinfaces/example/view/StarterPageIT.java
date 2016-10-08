@@ -36,7 +36,7 @@ public class StarterPageIT extends AbstractJsfIT {
 
 	@Test
 	public void checkServletContainerElement() throws IOException {
-		HtmlPage page = page("/index.jsf?content=starter");
+		HtmlPage page = page("/");
 
 		assertThat(page.getElementByName("servletContainer"))
 			.isNotNull();

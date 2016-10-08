@@ -1,6 +1,6 @@
 JoinFaces Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com/index.jsf)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
 [![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-example?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
