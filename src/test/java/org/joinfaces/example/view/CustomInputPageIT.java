@@ -18,6 +18,8 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
+import com.gargoylesoftware.htmlunit.html.HtmlForm;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
@@ -40,6 +42,23 @@ public class CustomInputPageIT extends AbstractJsfIT {
 
 		assertThat(page.getElementByName("customInput:inputfield"))
 			.isNotNull();
+	}
+
+	@Test
+	public void submitHello() throws IOException {
+		HtmlPage page = page("/index.jsf?content=customInput");
+
+		HtmlForm form = page.getForms().get(0);
+		HtmlInput inputByName = form.getInputByName("customInput:inputfield");
+		inputByName.setValueAttribute("Hello");
+
+		HtmlInput buttonByName = form.getInputByName("customInput:submit");
+		HtmlPage clickedPage = buttonByName.click();
+
+		// is there better way to access specific dom element?
+		assertThat(clickedPage.getElementById("panel").getChildNodes().get(0)
+			.getChildNodes().get(0).getChildNodes().get(0).getChildNodes().get(2).getTextContent())
+			.isEqualTo("You entered: Hello");
 	}
 
 }
