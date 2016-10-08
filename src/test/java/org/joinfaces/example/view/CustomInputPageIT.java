@@ -35,7 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class CustomInputPageIT extends AbstractJsfIT {
+public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkCustomInputElement() throws IOException {
@@ -55,6 +55,7 @@ public class CustomInputPageIT extends AbstractJsfIT {
 
 		HtmlInput buttonByName = form.getInputByName("customInput:submit");
 		HtmlPage clickedPage = buttonByName.click();
+		waitJavascript("customInputClick");
 
 		HtmlParagraph paragraph = clickedPage.getFirstByXPath("//p");
 

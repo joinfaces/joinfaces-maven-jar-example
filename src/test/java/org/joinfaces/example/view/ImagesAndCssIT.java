@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ImagesAndCssIT extends AbstractJsfIT {
+public class ImagesAndCssIT extends AbstractPageIT {
 
 	private String resource(String url) {
 		return ResourceHandler.RESOURCE_IDENTIFIER + url + ".jsf";

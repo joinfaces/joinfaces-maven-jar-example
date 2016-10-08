@@ -32,7 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class StarterPageIT extends AbstractJsfIT {
+public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkServletContainerElement() throws IOException {

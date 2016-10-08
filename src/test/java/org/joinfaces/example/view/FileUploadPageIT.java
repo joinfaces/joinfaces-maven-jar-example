@@ -18,6 +18,7 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
+import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
@@ -32,13 +33,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class FileUploadPageIT extends AbstractJsfIT {
+public class FileUploadPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkFileUploadElement() throws IOException {
 		HtmlPage page = page("/index.jsf?content=fileUpload");
 
 		assertThat(page.getElementById("fileUpload"))
+			.isNotNull();
+	}
+
+	@Test
+	public void goToFileUpload() throws IOException {
+		HtmlPage page = page("/");
+
+		HtmlAnchor fileUploadAnchor = (HtmlAnchor) page.getByXPath("//a[@class='ui-menuitem-link ui-corner-all']").get(1);
+		HtmlPage fileUploadPage = fileUploadAnchor.click();
+		waitJavascript("fileUploadClick");
+
+		assertThat(fileUploadPage.getElementById("fileUpload"))
 			.isNotNull();
 	}
 

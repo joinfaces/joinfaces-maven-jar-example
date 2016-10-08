@@ -21,17 +21,40 @@ import java.io.IOException;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.WebClient;
 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+
 import org.springframework.boot.context.embedded.LocalServerPort;
 
-public class AbstractJsfIT {
+/**
+ * Abstract class to create utility methods to access WebClient and Page.
+ * @author Marcelo Fernandes
+ */
+public class AbstractPageIT {
 
 	@LocalServerPort
 	private long port;
 
+	private static WebClient webClient;
+
+	@BeforeClass
+	public static void init() {
+		webClient = new WebClient();
+	}
+
+	@AfterClass
+	public static void finish() {
+		webClient.close();
+	}
+
 	protected <P extends Page> P page(String url) throws IOException {
-		WebClient webClient = new WebClient();
-		webClient.getOptions().setTimeout(0);
 		return webClient.getPage("http://localhost:" + port + url);
 	}
 
+	protected void waitJavascript(String action) {
+		long time = System.currentTimeMillis();
+		int stillRunning = webClient.waitForBackgroundJavaScript(60000);
+		time = System.currentTimeMillis() - time;
+		System.out.println(action + " waited: " + time + " ms. running: " + stillRunning);
+	}
 }
