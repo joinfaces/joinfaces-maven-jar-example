@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,7 +30,7 @@ public class LoginPage {
 	@FindBy(name = "submit")
 	private WebElement buttonSubmit;
 
-	public void login(String username, String password) throws IOException {
+	public void login(String username, String password) {
 		usernameInput.sendKeys(username);
 		passwordInput.sendKeys(password);
 

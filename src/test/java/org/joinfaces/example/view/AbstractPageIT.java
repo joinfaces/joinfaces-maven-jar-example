@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import lombok.Getter;
 
 import org.junit.AfterClass;
@@ -52,7 +50,7 @@ public class AbstractPageIT {
 		webDriver.close();
 	}
 
-	protected WebDriver navegateTo(String url) throws IOException {
+	protected WebDriver navegateTo(String url) {
 		webDriver.get("http://localhost:" + port + url);
 		return webDriver;
 	}

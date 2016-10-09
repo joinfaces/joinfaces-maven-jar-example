@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -37,7 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LoginPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkTitle() throws IOException {
+	public void checkTitle() {
 		WebDriver page = navegateTo("/login.jsf");
 
 		assertThat(page.getTitle())
@@ -45,7 +43,7 @@ public class LoginPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void login() throws IOException {
+	public void login() {
 		WebDriver page = navegateTo("/login.jsf");
 
 		LoginPage loginPage = PageFactory.initElements(page, LoginPage.class);

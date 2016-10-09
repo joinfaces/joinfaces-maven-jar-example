@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -37,7 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkCustomInputElement() throws IOException {
+	public void checkCustomInputElement() {
 		WebDriver page = navegateTo("/index.jsf?content=customInput");
 
 		assertThat(page.findElement(By.name("customInput:inputfield")))
@@ -45,7 +43,7 @@ public class CustomInputPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void submitHello() throws IOException {
+	public void submitHello() {
 		WebDriver page = navegateTo("/index.jsf?content=customInput");
 
 		CustomInputPage customInputPage = PageFactory.initElements(page, CustomInputPage.class);

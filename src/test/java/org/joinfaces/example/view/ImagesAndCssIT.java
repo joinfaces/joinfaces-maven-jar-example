@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import javax.faces.application.ResourceHandler;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
@@ -41,7 +39,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void faviconIcoResource() throws IOException {
+	public void faviconIcoResource() {
 		WebDriver page = navegateTo(resource("/images/favicon.ico"));
 
 		assertThat(page.getPageSource().length())
@@ -49,7 +47,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void starterCssResource() throws IOException {
+	public void starterCssResource() {
 		WebDriver page = navegateTo(resource("/starter.css"));
 
 		assertThat(page.getPageSource().length())
@@ -57,7 +55,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void joinfacesPngResource() throws IOException {
+	public void joinfacesPngResource() {
 		WebDriver page = navegateTo(resource("/images/joinfaces.png"));
 
 		assertThat(page.getPageSource().length())

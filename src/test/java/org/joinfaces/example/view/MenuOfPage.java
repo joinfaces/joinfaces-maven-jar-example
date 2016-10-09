@@ -16,7 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -38,7 +37,7 @@ public class MenuOfPage {
 		this.webDriver = webDriver;
 	}
 
-	public void clickFileUpload() throws IOException {
+	public void clickFileUpload() {
 		menuAnchors.get(1).click();
 
 		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(By.id("fileUpload")));

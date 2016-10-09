@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,7 +37,7 @@ public class CustomInputPage {
 		this.webDriver = webDriver;
 	}
 
-	public void submit(String message) throws IOException {
+	public void submit(String message) {
 		inputByName.sendKeys(message);
 
 		buttonByName.click();

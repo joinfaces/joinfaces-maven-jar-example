@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -37,7 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FileUploadPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkFileUploadElement() throws IOException {
+	public void checkFileUploadElement() {
 		WebDriver page = navegateTo("/index.jsf?content=fileUpload");
 
 		assertThat(page.findElement(By.id("fileUpload")))
@@ -45,7 +43,7 @@ public class FileUploadPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void goToFileUploadPage() throws IOException {
+	public void goToFileUploadPage() {
 		WebDriver page = navegateTo("/");
 
 		MenuOfPage menuOfPage = PageFactory.initElements(page, MenuOfPage.class);
