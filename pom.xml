@@ -30,12 +30,13 @@
         <htmlunit.version>2.23</htmlunit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <cobertura.totalLineRate>90</cobertura.totalLineRate>
+        <cobertura.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</cobertura.exclude>
+        <cobertura.totalLineRate>95</cobertura.totalLineRate>
         <cobertura.packageLineRate>86</cobertura.packageLineRate>
         <cobertura.lineRate>0</cobertura.lineRate>
-        <cobertura.totalBranchRate>78</cobertura.totalBranchRate>
-        <cobertura.packageBranchRate>78</cobertura.packageBranchRate>
-        <cobertura.branchRate>0</cobertura.branchRate>
+        <cobertura.totalBranchRate>85</cobertura.totalBranchRate>
+        <cobertura.packageBranchRate>85</cobertura.packageBranchRate>
+        <cobertura.branchRate>50</cobertura.branchRate>
     </properties>
 
     <dependencies>

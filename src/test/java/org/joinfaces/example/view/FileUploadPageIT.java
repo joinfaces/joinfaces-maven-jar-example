@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import java.io.File;
+
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -54,4 +56,15 @@ public class FileUploadPageIT extends AbstractPageIT {
 			.isNotNull();
 	}
 
+	@Test
+	public void submitApplicationYml() {
+		WebDriver webDriver = navegateTo("/index.jsf?content=fileUpload");
+
+		FileUploadPage fileUploadPage = PageFactory.initElements(webDriver, FileUploadPage.class);
+
+		fileUploadPage.upload(new File("target/application.yml").getAbsolutePath());
+
+		assertThat(webDriver.findElement(By.id("downloadButton")).isEnabled())
+			.isTrue();
+	}
 }
