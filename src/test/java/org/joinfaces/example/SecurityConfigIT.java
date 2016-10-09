@@ -16,15 +16,15 @@
 
 package org.joinfaces.example;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.junit.Test;
 
-/**
- * JoinFaces Example Configuration class.
- * @author Marcelo Fernandes
- */
-@SpringBootApplication
-public class JoinFacesExampleApplication {
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-	protected JoinFacesExampleApplication() {
+public class SecurityConfigIT {
+
+	@Test(expected = RuntimeException.class)
+	public void exceptionOnConfigureNull() {
+		new SecurityConfig().configure((HttpSecurity) null);
 	}
+
 }
