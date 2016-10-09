@@ -18,6 +18,8 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
+import lombok.Getter;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -35,6 +37,7 @@ public class AbstractPageIT {
 	@LocalServerPort
 	private long port;
 
+	@Getter
 	private static WebDriver webDriver;
 
 	@BeforeClass
@@ -49,7 +52,7 @@ public class AbstractPageIT {
 		webDriver.close();
 	}
 
-	protected WebDriver page(String url) throws IOException {
+	protected WebDriver navegateTo(String url) throws IOException {
 		webDriver.get("http://localhost:" + port + url);
 		return webDriver;
 	}

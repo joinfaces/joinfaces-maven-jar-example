@@ -25,7 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -38,7 +38,7 @@ public class LoginPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkTitle() throws IOException {
-		WebDriver page = page("/login.jsf");
+		WebDriver page = navegateTo("/login.jsf");
 
 		assertThat(page.getTitle())
 			.isEqualTo(".:: Login JoinFaces Example ::.");
@@ -46,19 +46,13 @@ public class LoginPageIT extends AbstractPageIT {
 
 	@Test
 	public void login() throws IOException {
-		WebDriver page = page("/login.jsf");
+		WebDriver page = navegateTo("/login.jsf");
 
-		WebElement usernameInput = page.findElement(By.name("username"));
-		usernameInput.sendKeys("persapiens");
-		WebElement passwordInput = page.findElement(By.name("password"));
-		passwordInput.sendKeys("123");
+		LoginPage loginPage = PageFactory.initElements(page, LoginPage.class);
 
-		WebElement buttonSubmit = page.findElement(By.name("submit"));
-		buttonSubmit.click();
+		loginPage.login("persapiens", "123");
 
-		assertThat(page.getTitle())
-			.isEqualTo(".:: JoinFaces Example ::.");
-		assertThat(page.findElement(By.id("labelRoleAdmin")).getText())
+		assertThat(getWebDriver().findElement(By.id("labelRoleAdmin")).getText())
 			.isEqualTo("Choose your starter as an ADMIN");
 	}
 

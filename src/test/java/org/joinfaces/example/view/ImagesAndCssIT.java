@@ -42,7 +42,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 
 	@Test
 	public void faviconIcoResource() throws IOException {
-		WebDriver page = page(resource("/images/favicon.ico"));
+		WebDriver page = navegateTo(resource("/images/favicon.ico"));
 
 		assertThat(page.getPageSource().length())
 			.isEqualTo(1150);
@@ -50,7 +50,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 
 	@Test
 	public void starterCssResource() throws IOException {
-		WebDriver page = page(resource("/starter.css"));
+		WebDriver page = navegateTo(resource("/starter.css"));
 
 		assertThat(page.getPageSource().length())
 			.isEqualTo(114);
@@ -58,7 +58,7 @@ public class ImagesAndCssIT extends AbstractPageIT {
 
 	@Test
 	public void joinfacesPngResource() throws IOException {
-		WebDriver page = page(resource("/images/joinfaces.png"));
+		WebDriver page = navegateTo(resource("/images/joinfaces.png"));
 
 		assertThat(page.getPageSource().length())
 			.isEqualTo(38810);

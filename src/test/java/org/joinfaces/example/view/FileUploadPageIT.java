@@ -25,9 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -40,20 +38,19 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkFileUploadElement() throws IOException {
-		WebDriver page = page("/index.jsf?content=fileUpload");
+		WebDriver page = navegateTo("/index.jsf?content=fileUpload");
 
 		assertThat(page.findElement(By.id("fileUpload")))
 			.isNotNull();
 	}
 
 	@Test
-	public void goToFileUpload() throws IOException {
-		WebDriver page = page("/");
+	public void goToFileUploadPage() throws IOException {
+		WebDriver page = navegateTo("/");
 
-		WebElement fileUploadAnchor = page.findElements(By.xpath("//a[@class='ui-menuitem-link ui-corner-all']")).get(1);
-		fileUploadAnchor.click();
+		MenuOfPage menuOfPage = PageFactory.initElements(page, MenuOfPage.class);
 
-		new WebDriverWait(page, 10000).until(ExpectedConditions.presenceOfElementLocated(By.id("fileUpload")));
+		menuOfPage.clickFileUpload();
 
 		assertThat(page.findElement(By.id("fileUpload")))
 			.isNotNull();

@@ -25,9 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -40,7 +38,7 @@ public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkCustomInputElement() throws IOException {
-		WebDriver page = page("/index.jsf?content=customInput");
+		WebDriver page = navegateTo("/index.jsf?content=customInput");
 
 		assertThat(page.findElement(By.name("customInput:inputfield")))
 			.isNotNull();
@@ -48,21 +46,14 @@ public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void submitHello() throws IOException {
-		WebDriver page = page("/index.jsf?content=customInput");
+		WebDriver page = navegateTo("/index.jsf?content=customInput");
 
-		WebElement inputByName = page.findElement(By.name("customInput:inputfield"));
-		inputByName.sendKeys("Hello");
+		CustomInputPage customInputPage = PageFactory.initElements(page, CustomInputPage.class);
 
-		WebElement buttonByName = page.findElement(By.name("customInput:submit"));
-		buttonByName.click();
+		customInputPage.submit("Hello");
 
-		By paragraphBy = By.xpath("//p");
-		String expectedValue = "You entered: Hello";
-
-		new WebDriverWait(page, 5000).until(ExpectedConditions.textToBe(paragraphBy, expectedValue));
-
-		assertThat(page.findElement(paragraphBy).getText())
-			.isEqualTo(expectedValue);
+		assertThat(getWebDriver().findElement(By.xpath("//p")).getText())
+			.isEqualTo("You entered: Hello");
 	}
 
 }

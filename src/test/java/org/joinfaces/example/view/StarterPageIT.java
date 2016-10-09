@@ -25,9 +25,7 @@ import org.junit.runner.RunWith;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.PageFactory;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -40,7 +38,7 @@ public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkServletContainerElement() throws IOException {
-		WebDriver page = page("/");
+		WebDriver page = navegateTo("/");
 
 		assertThat(page.findElement(By.name("servletContainer")))
 			.isNotNull();
@@ -48,36 +46,22 @@ public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void clickJettyMyfacesButterfaces() throws IOException {
-		WebDriver page = page("/");
+		WebDriver page = navegateTo("/");
 
+		StarterPage starterPage = PageFactory.initElements(page, StarterPage.class);
 		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
 
-		WebElement jettyRadioButtonInput = page.findElement(By.xpath("//input[@value='Jetty']/.."));
-		jettyRadioButtonInput.click();
-
-		String starter = "jsf-jetty-spring-boot-starter";
-		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
-
+		starterPage.clickJetty();
 		assertThat(page.findElement(panelHeaderSpanBy).getText())
-			.contains(starter);
+			.contains("jetty");
 
-		WebElement myfacesRadioButtonInput = page.findElement(By.xpath("//input[@value='MyFaces']/.."));
-		myfacesRadioButtonInput.click();
-
-		starter = "jsf-jetty-myfaces-spring-boot-starter";
-		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
-
+		starterPage.clickMyFaces();
 		assertThat(page.findElement(panelHeaderSpanBy).getText())
-			.contains(starter);
+			.contains("myfaces");
 
-		WebElement butterfacesRadioButtonInput = page.findElement(By.xpath("//input[@value='ButterFaces']/.."));
-		butterfacesRadioButtonInput.click();
-
-		starter = "jsf-jetty-myfaces-butterfaces-spring-boot-starter";
-		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
-
+		starterPage.clickButterFaces();
 		assertThat(page.findElement(panelHeaderSpanBy).getText())
-			.contains(starter);
+			.contains("butterfaces");
 	}
 
 }
