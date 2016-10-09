@@ -18,13 +18,16 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -37,21 +40,22 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkFileUploadElement() throws IOException {
-		HtmlPage page = page("/index.jsf?content=fileUpload");
+		WebDriver page = page("/index.jsf?content=fileUpload");
 
-		assertThat(page.getElementById("fileUpload"))
+		assertThat(page.findElement(By.id("fileUpload")))
 			.isNotNull();
 	}
 
 	@Test
 	public void goToFileUpload() throws IOException {
-		HtmlPage page = page("/");
+		WebDriver page = page("/");
 
-		HtmlAnchor fileUploadAnchor = (HtmlAnchor) page.getByXPath("//a[@class='ui-menuitem-link ui-corner-all']").get(1);
-		HtmlPage fileUploadPage = fileUploadAnchor.click();
-		waitJavascript("fileUploadClick");
+		WebElement fileUploadAnchor = page.findElements(By.xpath("//a[@class='ui-menuitem-link ui-corner-all']")).get(1);
+		fileUploadAnchor.click();
 
-		assertThat(fileUploadPage.getElementById("fileUpload"))
+		new WebDriverWait(page, 10000).until(ExpectedConditions.presenceOfElementLocated(By.id("fileUpload")));
+
+		assertThat(page.findElement(By.id("fileUpload")))
 			.isNotNull();
 	}
 

@@ -18,15 +18,14 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.html.HtmlButton;
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -39,28 +38,27 @@ public class LoginPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkTitle() throws IOException {
-		HtmlPage page = page("/login.jsf");
+		WebDriver page = page("/login.jsf");
 
-		assertThat(page.getTitleText())
+		assertThat(page.getTitle())
 			.isEqualTo(".:: Login JoinFaces Example ::.");
 	}
 
 	@Test
 	public void login() throws IOException {
-		HtmlPage page = page("/login.jsf");
+		WebDriver page = page("/login.jsf");
 
-		HtmlForm form = page.getForms().get(0);
-		HtmlInput usernameInput = form.getInputByName("username");
-		usernameInput.setValueAttribute("persapiens");
-		HtmlInput passwordInput = form.getInputByName("password");
-		passwordInput.setValueAttribute("123");
+		WebElement usernameInput = page.findElement(By.name("username"));
+		usernameInput.sendKeys("persapiens");
+		WebElement passwordInput = page.findElement(By.name("password"));
+		passwordInput.sendKeys("123");
 
-		HtmlButton buttonSubmit = form.getButtonByName("submit");
-		HtmlPage starterPage = buttonSubmit.click();
+		WebElement buttonSubmit = page.findElement(By.name("submit"));
+		buttonSubmit.click();
 
-		assertThat(starterPage.getTitleText())
+		assertThat(page.getTitle())
 			.isEqualTo(".:: JoinFaces Example ::.");
-		assertThat(starterPage.getElementById("labelRoleAdmin").getTextContent())
+		assertThat(page.findElement(By.id("labelRoleAdmin")).getText())
 			.isEqualTo("Choose your starter as an ADMIN");
 	}
 

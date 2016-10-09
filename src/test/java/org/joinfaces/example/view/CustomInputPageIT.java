@@ -18,15 +18,16 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlInput;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlParagraph;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -39,28 +40,29 @@ public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkCustomInputElement() throws IOException {
-		HtmlPage page = page("/index.jsf?content=customInput");
+		WebDriver page = page("/index.jsf?content=customInput");
 
-		assertThat(page.getElementByName("customInput:inputfield"))
+		assertThat(page.findElement(By.name("customInput:inputfield")))
 			.isNotNull();
 	}
 
 	@Test
 	public void submitHello() throws IOException {
-		HtmlPage page = page("/index.jsf?content=customInput");
+		WebDriver page = page("/index.jsf?content=customInput");
 
-		HtmlForm form = page.getForms().get(0);
-		HtmlInput inputByName = form.getInputByName("customInput:inputfield");
-		inputByName.setValueAttribute("Hello");
+		WebElement inputByName = page.findElement(By.name("customInput:inputfield"));
+		inputByName.sendKeys("Hello");
 
-		HtmlInput buttonByName = form.getInputByName("customInput:submit");
-		HtmlPage clickedPage = buttonByName.click();
-		waitJavascript("customInputClick");
+		WebElement buttonByName = page.findElement(By.name("customInput:submit"));
+		buttonByName.click();
 
-		HtmlParagraph paragraph = clickedPage.getFirstByXPath("//p");
+		By paragraphBy = By.xpath("//p");
+		String expectedValue = "You entered: Hello";
 
-		assertThat(paragraph.getTextContent())
-			.isEqualTo("You entered: Hello");
+		new WebDriverWait(page, 5000).until(ExpectedConditions.textToBe(paragraphBy, expectedValue));
+
+		assertThat(page.findElement(paragraphBy).getText())
+			.isEqualTo(expectedValue);
 	}
 
 }

@@ -20,12 +20,12 @@ import java.io.IOException;
 
 import javax.faces.application.ResourceHandler;
 
-import com.gargoylesoftware.htmlunit.Page;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.openqa.selenium.WebDriver;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -42,25 +42,25 @@ public class ImagesAndCssIT extends AbstractPageIT {
 
 	@Test
 	public void faviconIcoResource() throws IOException {
-		Page page = page(resource("/images/favicon.ico"));
+		WebDriver page = page(resource("/images/favicon.ico"));
 
-		assertThat(page.getWebResponse().getContentLength())
+		assertThat(page.getPageSource().length())
 			.isEqualTo(1150);
 	}
 
 	@Test
 	public void starterCssResource() throws IOException {
-		Page page = page(resource("/starter.css"));
+		WebDriver page = page(resource("/starter.css"));
 
-		assertThat(page.getWebResponse().getContentLength())
+		assertThat(page.getPageSource().length())
 			.isEqualTo(114);
 	}
 
 	@Test
 	public void joinfacesPngResource() throws IOException {
-		Page page = page(resource("/images/joinfaces.png"));
+		WebDriver page = page(resource("/images/joinfaces.png"));
 
-		assertThat(page.getWebResponse().getContentLength())
+		assertThat(page.getPageSource().length())
 			.isEqualTo(38810);
 	}
 

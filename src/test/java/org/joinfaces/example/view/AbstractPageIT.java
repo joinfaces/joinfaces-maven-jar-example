@@ -18,11 +18,11 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.Page;
-import com.gargoylesoftware.htmlunit.WebClient;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import org.springframework.boot.context.embedded.LocalServerPort;
 
@@ -35,26 +35,22 @@ public class AbstractPageIT {
 	@LocalServerPort
 	private long port;
 
-	private static WebClient webClient;
+	private static WebDriver webDriver;
 
 	@BeforeClass
 	public static void init() {
-		webClient = new WebClient();
+		webDriver = new HtmlUnitDriver(true);
+		//webDriver = new ChromeDriver();
+		//webDriver = new FirefoxDriver();
 	}
 
 	@AfterClass
 	public static void finish() {
-		webClient.close();
+		webDriver.close();
 	}
 
-	protected <P extends Page> P page(String url) throws IOException {
-		return webClient.getPage("http://localhost:" + port + url);
-	}
-
-	protected void waitJavascript(String action) {
-		long time = System.currentTimeMillis();
-		int stillRunning = webClient.waitForBackgroundJavaScript(60000);
-		time = System.currentTimeMillis() - time;
-		System.out.println(action + " waited: " + time + " ms. running: " + stillRunning);
+	protected WebDriver page(String url) throws IOException {
+		webDriver.get("http://localhost:" + port + url);
+		return webDriver;
 	}
 }

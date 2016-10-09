@@ -18,14 +18,16 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
-import com.gargoylesoftware.htmlunit.html.HtmlRadioButtonInput;
-import com.gargoylesoftware.htmlunit.html.HtmlSpan;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -38,42 +40,44 @@ public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkServletContainerElement() throws IOException {
-		HtmlPage page = page("/");
+		WebDriver page = page("/");
 
-		assertThat(page.getElementByName("servletContainer"))
+		assertThat(page.findElement(By.name("servletContainer")))
 			.isNotNull();
 	}
 
 	@Test
 	public void clickJettyMyfacesButterfaces() throws IOException {
-		HtmlPage page = page("/");
+		WebDriver page = page("/");
 
-		HtmlRadioButtonInput jettyRadioButtonInput = (HtmlRadioButtonInput) page.getFirstByXPath("//input[@value='Jetty']");
-		jettyRadioButtonInput.setChecked(true);
-		HtmlPage jettyClickPage = jettyRadioButtonInput.click();
-		waitJavascript("jettyClick");
+		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
 
-		HtmlSpan panelHeaderSpan = jettyClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
-		assertThat(panelHeaderSpan.getTextContent())
-			.contains("jsf-jetty-spring-boot-starter");
+		WebElement jettyRadioButtonInput = page.findElement(By.xpath("//input[@value='Jetty']/.."));
+		jettyRadioButtonInput.click();
 
-		HtmlRadioButtonInput myfacesRadioButtonInput = (HtmlRadioButtonInput) jettyClickPage.getFirstByXPath("//input[@value='MyFaces']");
-		myfacesRadioButtonInput.setChecked(true);
-		HtmlPage myfacesClickPage = myfacesRadioButtonInput.click();
-		waitJavascript("myfacesClick");
+		String starter = "jsf-jetty-spring-boot-starter";
+		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
 
-		panelHeaderSpan = myfacesClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
-		assertThat(panelHeaderSpan.getTextContent())
-			.contains("jsf-jetty-myfaces-spring-boot-starter");
+		assertThat(page.findElement(panelHeaderSpanBy).getText())
+			.contains(starter);
 
-		HtmlRadioButtonInput butterfacesRadioButtonInput = (HtmlRadioButtonInput) myfacesClickPage.getFirstByXPath("//input[@value='ButterFaces']");
-		butterfacesRadioButtonInput.setChecked(true);
-		HtmlPage butterfacesClickPage = butterfacesRadioButtonInput.click();
-		waitJavascript("butterfacesClick");
+		WebElement myfacesRadioButtonInput = page.findElement(By.xpath("//input[@value='MyFaces']/.."));
+		myfacesRadioButtonInput.click();
 
-		panelHeaderSpan = butterfacesClickPage.getFirstByXPath("//span[@class='ui-panel-title']");
-		assertThat(panelHeaderSpan.getTextContent())
-			.contains("jsf-jetty-myfaces-butterfaces-spring-boot-starter");
+		starter = "jsf-jetty-myfaces-spring-boot-starter";
+		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
+
+		assertThat(page.findElement(panelHeaderSpanBy).getText())
+			.contains(starter);
+
+		WebElement butterfacesRadioButtonInput = page.findElement(By.xpath("//input[@value='ButterFaces']/.."));
+		butterfacesRadioButtonInput.click();
+
+		starter = "jsf-jetty-myfaces-butterfaces-spring-boot-starter";
+		new WebDriverWait(page, 10000).until(ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, starter));
+
+		assertThat(page.findElement(panelHeaderSpanBy).getText())
+			.contains(starter);
 	}
 
 }
