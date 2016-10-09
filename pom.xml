@@ -30,9 +30,9 @@
         <htmlunit.version>2.23</htmlunit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
-        <cobertura.totalLineRate>90</cobertura.totalLineRate>
-        <cobertura.packageLineRate>85</cobertura.packageLineRate>
-        <cobertura.lineRate>37</cobertura.lineRate>
+        <cobertura.totalLineRate>88</cobertura.totalLineRate>
+        <cobertura.packageLineRate>80</cobertura.packageLineRate>
+        <cobertura.lineRate>0</cobertura.lineRate>
         <cobertura.totalBranchRate>78</cobertura.totalBranchRate>
         <cobertura.packageBranchRate>78</cobertura.packageBranchRate>
         <cobertura.branchRate>0</cobertura.branchRate>
