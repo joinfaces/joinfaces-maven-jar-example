@@ -36,29 +36,29 @@ public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkServletContainerElement() {
-		WebDriver page = navegateTo("/");
+		WebDriver webDriver = navegateTo("/");
 
-		assertThat(page.findElement(By.name("servletContainer")))
+		assertThat(webDriver.findElement(By.name("servletContainer")))
 			.isNotNull();
 	}
 
 	@Test
 	public void clickJettyMyfacesButterfaces() {
-		WebDriver page = navegateTo("/");
+		WebDriver webDriver = navegateTo("/");
 
-		StarterPage starterPage = PageFactory.initElements(page, StarterPage.class);
+		StarterPage starterPage = PageFactory.initElements(webDriver, StarterPage.class);
 		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
 
 		starterPage.clickJetty();
-		assertThat(page.findElement(panelHeaderSpanBy).getText())
+		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
 			.contains("jetty");
 
 		starterPage.clickMyFaces();
-		assertThat(page.findElement(panelHeaderSpanBy).getText())
+		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
 			.contains("myfaces");
 
 		starterPage.clickButterFaces();
-		assertThat(page.findElement(panelHeaderSpanBy).getText())
+		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
 			.contains("butterfaces");
 	}
 

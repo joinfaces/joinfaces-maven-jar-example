@@ -40,25 +40,25 @@ public class ImagesAndCssIT extends AbstractPageIT {
 
 	@Test
 	public void faviconIcoResource() {
-		WebDriver page = navegateTo(resource("/images/favicon.ico"));
+		WebDriver webDriver = navegateTo(resource("/images/favicon.ico"));
 
-		assertThat(page.getPageSource().length())
+		assertThat(webDriver.getPageSource().length())
 			.isEqualTo(1150);
 	}
 
 	@Test
 	public void starterCssResource() {
-		WebDriver page = navegateTo(resource("/starter.css"));
+		WebDriver webDriver = navegateTo(resource("/starter.css"));
 
-		assertThat(page.getPageSource().length())
+		assertThat(webDriver.getPageSource().length())
 			.isEqualTo(114);
 	}
 
 	@Test
 	public void joinfacesPngResource() {
-		WebDriver page = navegateTo(resource("/images/joinfaces.png"));
+		WebDriver webDriver = navegateTo(resource("/images/joinfaces.png"));
 
-		assertThat(page.getPageSource().length())
+		assertThat(webDriver.getPageSource().length())
 			.isEqualTo(38810);
 	}
 

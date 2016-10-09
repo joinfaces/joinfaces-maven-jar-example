@@ -36,21 +36,21 @@ public class LoginPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkTitle() {
-		WebDriver page = navegateTo("/login.jsf");
+		WebDriver webDriver = navegateTo("/login.jsf");
 
-		assertThat(page.getTitle())
+		assertThat(webDriver.getTitle())
 			.isEqualTo(".:: Login JoinFaces Example ::.");
 	}
 
 	@Test
 	public void login() {
-		WebDriver page = navegateTo("/login.jsf");
+		WebDriver webDriver = navegateTo("/login.jsf");
 
-		LoginPage loginPage = PageFactory.initElements(page, LoginPage.class);
+		LoginPage loginPage = PageFactory.initElements(webDriver, LoginPage.class);
 
 		loginPage.login("persapiens", "123");
 
-		assertThat(getWebDriver().findElement(By.id("labelRoleAdmin")).getText())
+		assertThat(webDriver.findElement(By.id("labelRoleAdmin")).getText())
 			.isEqualTo("Choose your starter as an ADMIN");
 	}
 

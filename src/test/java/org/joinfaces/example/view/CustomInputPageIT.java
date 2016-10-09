@@ -36,21 +36,21 @@ public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkCustomInputElement() {
-		WebDriver page = navegateTo("/index.jsf?content=customInput");
+		WebDriver webDriver = navegateTo("/index.jsf?content=customInput");
 
-		assertThat(page.findElement(By.name("customInput:inputfield")))
+		assertThat(webDriver.findElement(By.name("customInput:inputfield")))
 			.isNotNull();
 	}
 
 	@Test
 	public void submitHello() {
-		WebDriver page = navegateTo("/index.jsf?content=customInput");
+		WebDriver webDriver = navegateTo("/index.jsf?content=customInput");
 
-		CustomInputPage customInputPage = PageFactory.initElements(page, CustomInputPage.class);
+		CustomInputPage customInputPage = PageFactory.initElements(webDriver, CustomInputPage.class);
 
 		customInputPage.submit("Hello");
 
-		assertThat(getWebDriver().findElement(By.xpath("//p")).getText())
+		assertThat(webDriver.findElement(By.xpath("//p")).getText())
 			.isEqualTo("You entered: Hello");
 	}
 

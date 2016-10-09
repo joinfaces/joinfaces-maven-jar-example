@@ -36,21 +36,21 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkFileUploadElement() {
-		WebDriver page = navegateTo("/index.jsf?content=fileUpload");
+		WebDriver webDriver = navegateTo("/index.jsf?content=fileUpload");
 
-		assertThat(page.findElement(By.id("fileUpload")))
+		assertThat(webDriver.findElement(By.id("fileUpload")))
 			.isNotNull();
 	}
 
 	@Test
 	public void goToFileUploadPage() {
-		WebDriver page = navegateTo("/");
+		WebDriver webDriver = navegateTo("/");
 
-		MenuOfPage menuOfPage = PageFactory.initElements(page, MenuOfPage.class);
+		MenuOfPage menuOfPage = PageFactory.initElements(webDriver, MenuOfPage.class);
 
 		menuOfPage.clickFileUpload();
 
-		assertThat(page.findElement(By.id("fileUpload")))
+		assertThat(webDriver.findElement(By.id("fileUpload")))
 			.isNotNull();
 	}
 

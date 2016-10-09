@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import lombok.Getter;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
@@ -35,7 +33,6 @@ public class AbstractPageIT {
 	@LocalServerPort
 	private long port;
 
-	@Getter
 	private static WebDriver webDriver;
 
 	@BeforeClass
