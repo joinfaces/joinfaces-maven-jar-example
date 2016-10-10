@@ -35,16 +35,25 @@ public class AbstractPageIT {
 
 	private static WebDriver webDriver;
 
+	private static int countFinish = 0;
+
+	private static final int NUMBER_OF_SUBCLASSES = 5;
+
 	@BeforeClass
 	public static void init() {
-		webDriver = new HtmlUnitDriver(true);
+		if (webDriver == null) {
+			webDriver = new HtmlUnitDriver(true);
+		}
 		//webDriver = new ChromeDriver();
 		//webDriver = new FirefoxDriver();
 	}
 
 	@AfterClass
 	public static void finish() {
-		webDriver.close();
+		countFinish++;
+		if (countFinish == NUMBER_OF_SUBCLASSES) {
+			webDriver.close();
+		}
 	}
 
 	protected WebDriver navegateTo(String url) {
