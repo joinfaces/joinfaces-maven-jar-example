@@ -6,7 +6,7 @@ JoinFaces Example
 [![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
-This project illustrates JSF usage inside JAR packaged Spring Boot Application.
+This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
 
 [JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
 
