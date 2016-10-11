@@ -69,6 +69,7 @@ public class AbstractPageIT {
 		countFinish++;
 		if (countFinish == NUMBER_OF_SUBCLASSES) {
 			webDriver.close();
+			webDriver.quit();
 		}
 	}
 
