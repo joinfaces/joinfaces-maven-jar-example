@@ -62,7 +62,7 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 		FileUploadPage fileUploadPage = PageFactory.initElements(webDriver, FileUploadPage.class);
 
-		fileUploadPage.upload(new File("target/application.yml").getAbsolutePath());
+		fileUploadPage.upload(new File("target/classes/application.yml").getAbsolutePath());
 
 		assertThat(webDriver.findElement(By.id("downloadButton")).isEnabled())
 			.isTrue();

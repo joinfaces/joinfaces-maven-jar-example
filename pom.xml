@@ -28,6 +28,8 @@
         <commons-fileupload.version>1.3.2</commons-fileupload.version>
         <selenium.version>3.0.0-beta4</selenium.version>
         <htmlunit.version>2.23</htmlunit.version>
+        <!-- Uncomment this if you want to use Chrome or Firefox driver -->
+        <webdrivermanager.version>1.4.9</webdrivermanager.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         
         <cobertura.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</cobertura.exclude>
@@ -110,6 +112,19 @@
         <dependency>
             <groupId>net.sourceforge.htmlunit</groupId>
             <artifactId>htmlunit</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Uncomment this if you want to use Chrome or Firefox driver -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>

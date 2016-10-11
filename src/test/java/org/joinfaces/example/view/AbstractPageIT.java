@@ -37,16 +37,32 @@ public class AbstractPageIT {
 
 	private static int countFinish = 0;
 
-	private static final int NUMBER_OF_SUBCLASSES = 5;
+	private static final int NUMBER_OF_SUBCLASSES = 4;
 
 	@BeforeClass
 	public static void init() {
 		if (webDriver == null) {
-			webDriver = new HtmlUnitDriver(true);
+			webDriver = getHtmlUnitDriver();
+			// webDriver = getChromeDriver();
+			// webDriver = getFirefoxDriver();
 		}
-		//webDriver = new ChromeDriver();
-		//webDriver = new FirefoxDriver();
 	}
+
+	private static WebDriver getHtmlUnitDriver() {
+		return new HtmlUnitDriver(true);
+	}
+
+	/*
+	private static WebDriver getChromeDriver() {
+		ChromeDriverManager.getInstance().setup();
+		return new ChromeDriver();
+	}
+
+	private static WebDriver getFirefoxDriver() {
+		MarionetteDriverManager.getInstance().setup();
+		return new FirefoxDriver();
+	}
+	*/
 
 	@AfterClass
 	public static void finish() {
@@ -57,7 +73,7 @@ public class AbstractPageIT {
 	}
 
 	protected WebDriver navegateTo(String url) {
-		webDriver.get("http://localhost:" + port + url);
+		webDriver.navigate().to("http://localhost:" + port + url);
 		return webDriver;
 	}
 }

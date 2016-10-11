@@ -16,6 +16,7 @@
 
 package org.joinfaces.example.view;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,9 +33,6 @@ public class FileUploadPage {
 	@FindBy(name = "submitButton")
 	private WebElement submitButton;
 
-	@FindBy(name = "downloadButton")
-	private WebElement downloadButton;
-
 	public FileUploadPage(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
@@ -44,7 +42,7 @@ public class FileUploadPage {
 
 		submitButton.click();
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(downloadButton));
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(By.name("downloadButton")));
 	}
 
 }
