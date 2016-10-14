@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import lombok.Getter;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,7 +25,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CustomInputPage extends AbstractPageComponent {
 
-	@Getter
 	@FindBy(name = "customInput:inputfield")
 	private WebElement inputByName;
 
@@ -54,12 +51,19 @@ public class CustomInputPage extends AbstractPageComponent {
 		new WebDriverWait(webDriver, 5000).until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
 	}
 
-	public By getOutputTextBy() {
+	private By getOutputTextBy() {
 		return By.xpath("//p");
 	}
 
 	public String getOutputText() {
 		return webDriver.findElement(getOutputTextBy()).getText();
+	}
+
+	public CustomInputPage waitLoad() {
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			getOutputTextBy()));
+
+		return this;
 	}
 
 }

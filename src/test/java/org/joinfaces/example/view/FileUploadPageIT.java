@@ -37,8 +37,8 @@ public class FileUploadPageIT extends AbstractPageIT {
 		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
 		fileUploadPage.navegateTo();
 
-		assertThat(fileUploadPage.getDownloadButtonWebElement())
-			.isNotNull();
+		assertThat(fileUploadPage.isDownloadButtonEnabled())
+			.isFalse();
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 		fileUploadPage.upload(new File("target/classes/application.yml").getAbsolutePath());
 
-		assertThat(fileUploadPage.getDownloadButtonWebElement().isEnabled())
+		assertThat(fileUploadPage.isDownloadButtonEnabled())
 			.isTrue();
 	}
 }

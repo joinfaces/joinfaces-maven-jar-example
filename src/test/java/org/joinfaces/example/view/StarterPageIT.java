@@ -31,12 +31,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class StarterPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkServletContainerElement() {
+	public void checkPanelHeaderText() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		assertThat(starterPage.getServletContainerWebElement())
-			.isNotNull();
+		assertThat(starterPage.getPanelHeaderText())
+			.contains("jsf-spring-boot-starter");
 	}
 
 	@Test
@@ -45,15 +45,15 @@ public class StarterPageIT extends AbstractPageIT {
 		starterPage.navegateTo();
 
 		starterPage.clickJetty();
-		assertThat(starterPage.getPanelHeaderWebElement().getText())
+		assertThat(starterPage.getPanelHeaderText())
 			.contains("jetty");
 
 		starterPage.clickMyFaces();
-		assertThat(starterPage.getPanelHeaderWebElement().getText())
+		assertThat(starterPage.getPanelHeaderText())
 			.contains("myfaces");
 
 		starterPage.clickButterFaces();
-		assertThat(starterPage.getPanelHeaderWebElement().getText())
+		assertThat(starterPage.getPanelHeaderText())
 			.contains("butterfaces");
 	}
 

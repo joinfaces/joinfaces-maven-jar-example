@@ -46,7 +46,7 @@ public class LoginPageIT extends AbstractPageIT {
 
 		StarterPage starterPage = loginPage.login("persapiens", "123");
 
-		assertThat(starterPage.getAdminRoleLabel().getText())
+		assertThat(starterPage.getAdminRoleLabelText())
 			.isEqualTo("Choose your starter as an ADMIN");
 	}
 

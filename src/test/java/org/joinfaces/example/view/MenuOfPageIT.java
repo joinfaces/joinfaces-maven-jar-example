@@ -37,8 +37,8 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		StarterPage starterPage = menuOfPage.clickStarter();
 
-		assertThat(starterPage.getPanelHeaderWebElement())
-			.isNotNull();
+		assertThat(starterPage.getPanelHeaderText())
+			.contains("jsf-spring-boot-starter");
 	}
 
 	@Test
@@ -48,8 +48,8 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		FileUploadPage fileUploadPage = menuOfPage.clickFileUpload();
 
-		assertThat(fileUploadPage.getDownloadButtonWebElement())
-			.isNotNull();
+		assertThat(fileUploadPage.isDownloadButtonEnabled())
+			.isFalse();
 	}
 
 	@Test
@@ -59,7 +59,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		CustomInputPage customInputPage = menuOfPage.clickCustomInput();
 
-		assertThat(customInputPage.getInputByName())
-			.isNotNull();
+		assertThat(customInputPage.getOutputText())
+			.isEqualTo("You entered: null");
 	}
 }

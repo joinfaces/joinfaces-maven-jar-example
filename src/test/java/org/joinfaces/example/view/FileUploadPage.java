@@ -40,7 +40,7 @@ public class FileUploadPage extends AbstractPageComponent {
 		return "/index.jsf?content=fileUpload";
 	}
 
-	public By getDownloadButtonBy() {
+	private By getDownloadButtonBy() {
 		return By.name("downloadButton");
 	}
 
@@ -52,7 +52,14 @@ public class FileUploadPage extends AbstractPageComponent {
 		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
 	}
 
-	public WebElement getDownloadButtonWebElement() {
-		return webDriver.findElement(getDownloadButtonBy());
+	public boolean isDownloadButtonEnabled() {
+		return webDriver.findElement(getDownloadButtonBy()).isEnabled();
+	}
+
+	public FileUploadPage waitLoad() {
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			getDownloadButtonBy()));
+
+		return this;
 	}
 }

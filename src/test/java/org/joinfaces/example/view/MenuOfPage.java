@@ -21,8 +21,6 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MenuOfPage extends AbstractPageComponent {
 
@@ -43,10 +41,7 @@ public class MenuOfPage extends AbstractPageComponent {
 
 		StarterPage starterPage = initElements(StarterPage.class);
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
-			starterPage.getServletContainerBy()));
-
-		return starterPage;
+		return starterPage.waitLoad();
 	}
 
 	public FileUploadPage clickFileUpload() {
@@ -54,10 +49,7 @@ public class MenuOfPage extends AbstractPageComponent {
 
 		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
-			fileUploadPage.getDownloadButtonBy()));
-
-		return fileUploadPage;
+		return fileUploadPage.waitLoad();
 	}
 
 	public CustomInputPage clickCustomInput() {
@@ -65,10 +57,7 @@ public class MenuOfPage extends AbstractPageComponent {
 
 		CustomInputPage customInputPage = initElements(CustomInputPage.class);
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
-			customInputPage.getOutputTextBy()));
-
-		return customInputPage;
+		return customInputPage.waitLoad();
 	}
 
 }

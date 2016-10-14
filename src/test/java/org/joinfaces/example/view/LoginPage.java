@@ -19,8 +19,6 @@ package org.joinfaces.example.view;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends AbstractPageComponent {
 
@@ -50,9 +48,7 @@ public class LoginPage extends AbstractPageComponent {
 
 		StarterPage starterPage = initElements(StarterPage.class);
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(starterPage.getServletContainerBy()));
-
-		return starterPage;
+		return starterPage.waitLoad();
 	}
 
 	public String getTitle() {

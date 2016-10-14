@@ -64,20 +64,23 @@ public class StarterPage extends AbstractPageComponent {
 		click(butterfacesRadioButtonInput, "butterfaces");
 	}
 
-	public WebElement getPanelHeaderWebElement() {
+	public String getPanelHeaderText() {
 		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
-		return webDriver.findElement(panelHeaderSpanBy);
+		return webDriver.findElement(panelHeaderSpanBy).getText();
 	}
 
-	public By getServletContainerBy() {
+	public String getAdminRoleLabelText() {
+		return webDriver.findElement(By.id("labelRoleAdmin")).getText();
+	}
+
+	private By getServletContainerBy() {
 		return By.name("servletContainer");
 	}
 
-	public WebElement getServletContainerWebElement() {
-		return webDriver.findElement(getServletContainerBy());
-	}
+	public StarterPage waitLoad() {
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			getServletContainerBy()));
 
-	public WebElement getAdminRoleLabel() {
-		return webDriver.findElement(By.id("labelRoleAdmin"));
+		return this;
 	}
 }

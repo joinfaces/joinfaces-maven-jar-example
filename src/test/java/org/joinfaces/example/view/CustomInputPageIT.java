@@ -35,8 +35,8 @@ public class CustomInputPageIT extends AbstractPageIT {
 		CustomInputPage customInputPage = initElements(CustomInputPage.class);
 		customInputPage.navegateTo();
 
-		assertThat(customInputPage.getInputByName())
-			.isNotNull();
+		assertThat(customInputPage.getOutputText())
+			.isEqualTo("You entered: null");
 	}
 
 	@Test
