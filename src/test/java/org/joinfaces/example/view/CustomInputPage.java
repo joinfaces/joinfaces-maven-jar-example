@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import lombok.Getter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,10 +25,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CustomInputPage {
+public class CustomInputPage extends AbstractPageComponent {
 
-	private final WebDriver webDriver;
-
+	@Getter
 	@FindBy(name = "customInput:inputfield")
 	private WebElement inputByName;
 
@@ -34,7 +35,12 @@ public class CustomInputPage {
 	private WebElement buttonByName;
 
 	public CustomInputPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver);
+	}
+
+	@Override
+	protected String url() {
+		return "/index.jsf?content=customInput";
 	}
 
 	public void submit(String message) {
@@ -42,10 +48,18 @@ public class CustomInputPage {
 
 		buttonByName.click();
 
-		By paragraphBy = By.xpath("//p");
+		By outputTextBy = getOutputTextBy();
 		String expectedValue = "You entered: " + message;
 
-		new WebDriverWait(webDriver, 5000).until(ExpectedConditions.textToBe(paragraphBy, expectedValue));
+		new WebDriverWait(webDriver, 5000).until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
+	}
+
+	public By getOutputTextBy() {
+		return By.xpath("//p");
+	}
+
+	public String getOutputText() {
+		return webDriver.findElement(getOutputTextBy()).getText();
 	}
 
 }

@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.io.File;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -30,25 +28,38 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class FileUploadPageIT extends AbstractPageIT {
+public class MenuOfPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkFileUploadElement() {
-		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
-		fileUploadPage.navegateTo();
+	public void clickStarter() {
+		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
+		menuOfPage.navegateTo();
+
+		StarterPage starterPage = menuOfPage.clickStarter();
+
+		assertThat(starterPage.getPanelHeaderWebElement())
+			.isNotNull();
+	}
+
+	@Test
+	public void clickFileUpload() {
+		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
+		menuOfPage.navegateTo();
+
+		FileUploadPage fileUploadPage = menuOfPage.clickFileUpload();
 
 		assertThat(fileUploadPage.getDownloadButtonWebElement())
 			.isNotNull();
 	}
 
 	@Test
-	public void submitApplicationYml() {
-		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
-		fileUploadPage.navegateTo();
+	public void clickCustomInput() {
+		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
+		menuOfPage.navegateTo();
 
-		fileUploadPage.upload(new File("target/classes/application.yml").getAbsolutePath());
+		CustomInputPage customInputPage = menuOfPage.clickCustomInput();
 
-		assertThat(fileUploadPage.getDownloadButtonWebElement().isEnabled())
-			.isTrue();
+		assertThat(customInputPage.getInputByName())
+			.isNotNull();
 	}
 }

@@ -23,9 +23,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class StarterPage {
-
-	private final WebDriver webDriver;
+public class StarterPage extends AbstractPageComponent {
 
 	@FindBy(xpath = "//input[@value='Jetty']/..")
 	private WebElement jettyRadioButtonInput;
@@ -37,7 +35,12 @@ public class StarterPage {
 	private WebElement butterfacesRadioButtonInput;
 
 	public StarterPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver);
+	}
+
+	@Override
+	protected String url() {
+		return "/index.jsf?content=starter";
 	}
 
 	private void click(WebElement webElement, String technology)  {
@@ -61,4 +64,20 @@ public class StarterPage {
 		click(butterfacesRadioButtonInput, "butterfaces");
 	}
 
+	public WebElement getPanelHeaderWebElement() {
+		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
+		return webDriver.findElement(panelHeaderSpanBy);
+	}
+
+	public By getServletContainerBy() {
+		return By.name("servletContainer");
+	}
+
+	public WebElement getServletContainerWebElement() {
+		return webDriver.findElement(getServletContainerBy());
+	}
+
+	public WebElement getAdminRoleLabel() {
+		return webDriver.findElement(By.id("labelRoleAdmin"));
+	}
 }

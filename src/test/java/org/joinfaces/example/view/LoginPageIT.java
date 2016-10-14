@@ -21,10 +21,6 @@ import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -36,21 +32,21 @@ public class LoginPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkTitle() {
-		WebDriver webDriver = navegateTo("/login.jsf");
+		LoginPage loginPage = initElements(LoginPage.class);
+		loginPage.navegateTo();
 
-		assertThat(webDriver.getTitle())
+		assertThat(loginPage.getTitle())
 			.isEqualTo(".:: Login JoinFaces Example ::.");
 	}
 
 	@Test
-	public void login() {
-		WebDriver webDriver = navegateTo("/login.jsf");
+	public void loginWithAdminCredentials() {
+		LoginPage loginPage = initElements(LoginPage.class);
+		loginPage.navegateTo();
 
-		LoginPage loginPage = PageFactory.initElements(webDriver, LoginPage.class);
+		StarterPage starterPage = loginPage.login("persapiens", "123");
 
-		loginPage.login("persapiens", "123");
-
-		assertThat(webDriver.findElement(By.id("labelRoleAdmin")).getText())
+		assertThat(starterPage.getAdminRoleLabel().getText())
 			.isEqualTo("Choose your starter as an ADMIN");
 	}
 

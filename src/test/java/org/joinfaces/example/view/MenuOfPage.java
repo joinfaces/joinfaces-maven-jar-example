@@ -18,29 +18,57 @@ package org.joinfaces.example.view;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MenuOfPage {
-
-	private WebDriver webDriver;
+public class MenuOfPage extends AbstractPageComponent {
 
 	@FindBy(xpath = "//a[@class='ui-menuitem-link ui-corner-all']")
 	private	List<WebElement> menuAnchors;
-	//= page.findElements(By.xpath()).get(1);
 
 	public MenuOfPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver);
 	}
 
-	public void clickFileUpload() {
+	@Override
+	protected String url() {
+		return "/";
+	}
+
+	public StarterPage clickStarter() {
+		menuAnchors.get(0).click();
+
+		StarterPage starterPage = initElements(StarterPage.class);
+
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			starterPage.getServletContainerBy()));
+
+		return starterPage;
+	}
+
+	public FileUploadPage clickFileUpload() {
 		menuAnchors.get(1).click();
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(By.id("fileUpload")));
+		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
+
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			fileUploadPage.getDownloadButtonBy()));
+
+		return fileUploadPage;
+	}
+
+	public CustomInputPage clickCustomInput() {
+		menuAnchors.get(2).click();
+
+		CustomInputPage customInputPage = initElements(CustomInputPage.class);
+
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+			customInputPage.getOutputTextBy()));
+
+		return customInputPage;
 	}
 
 }

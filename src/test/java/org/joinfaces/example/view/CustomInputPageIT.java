@@ -21,10 +21,6 @@ import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -36,21 +32,21 @@ public class CustomInputPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkCustomInputElement() {
-		WebDriver webDriver = navegateTo("/index.jsf?content=customInput");
+		CustomInputPage customInputPage = initElements(CustomInputPage.class);
+		customInputPage.navegateTo();
 
-		assertThat(webDriver.findElement(By.name("customInput:inputfield")))
+		assertThat(customInputPage.getInputByName())
 			.isNotNull();
 	}
 
 	@Test
 	public void submitHello() {
-		WebDriver webDriver = navegateTo("/index.jsf?content=customInput");
-
-		CustomInputPage customInputPage = PageFactory.initElements(webDriver, CustomInputPage.class);
+		CustomInputPage customInputPage = initElements(CustomInputPage.class);
+		customInputPage.navegateTo();
 
 		customInputPage.submit("Hello");
 
-		assertThat(webDriver.findElement(By.xpath("//p")).getText())
+		assertThat(customInputPage.getOutputText())
 			.isEqualTo("You entered: Hello");
 	}
 

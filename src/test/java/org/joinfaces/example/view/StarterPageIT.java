@@ -21,10 +21,6 @@ import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -36,29 +32,28 @@ public class StarterPageIT extends AbstractPageIT {
 
 	@Test
 	public void checkServletContainerElement() {
-		WebDriver webDriver = navegateTo("/");
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
 
-		assertThat(webDriver.findElement(By.name("servletContainer")))
+		assertThat(starterPage.getServletContainerWebElement())
 			.isNotNull();
 	}
 
 	@Test
 	public void clickJettyMyfacesButterfaces() {
-		WebDriver webDriver = navegateTo("/");
-
-		StarterPage starterPage = PageFactory.initElements(webDriver, StarterPage.class);
-		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
 
 		starterPage.clickJetty();
-		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
+		assertThat(starterPage.getPanelHeaderWebElement().getText())
 			.contains("jetty");
 
 		starterPage.clickMyFaces();
-		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
+		assertThat(starterPage.getPanelHeaderWebElement().getText())
 			.contains("myfaces");
 
 		starterPage.clickButterFaces();
-		assertThat(webDriver.findElement(panelHeaderSpanBy).getText())
+		assertThat(starterPage.getPanelHeaderWebElement().getText())
 			.contains("butterfaces");
 	}
 

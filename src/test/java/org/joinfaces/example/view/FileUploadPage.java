@@ -23,9 +23,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class FileUploadPage {
-
-	private WebDriver webDriver;
+public class FileUploadPage extends AbstractPageComponent {
 
 	@FindBy(name = "fileUpload_input")
 	private WebElement fileUploadInput;
@@ -34,7 +32,16 @@ public class FileUploadPage {
 	private WebElement submitButton;
 
 	public FileUploadPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver);
+	}
+
+	@Override
+	protected String url() {
+		return "/index.jsf?content=fileUpload";
+	}
+
+	public By getDownloadButtonBy() {
+		return By.name("downloadButton");
 	}
 
 	public void upload(String file) {
@@ -42,7 +49,10 @@ public class FileUploadPage {
 
 		submitButton.click();
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(By.name("downloadButton")));
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
 	}
 
+	public WebElement getDownloadButtonWebElement() {
+		return webDriver.findElement(getDownloadButtonBy());
+	}
 }

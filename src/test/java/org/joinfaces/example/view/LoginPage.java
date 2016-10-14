@@ -16,16 +16,13 @@
 
 package org.joinfaces.example.view;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LoginPage {
-
-	private WebDriver webDriver;
+public class LoginPage extends AbstractPageComponent {
 
 	@FindBy(name = "username")
 	private WebElement usernameInput;
@@ -37,16 +34,28 @@ public class LoginPage {
 	private WebElement buttonSubmit;
 
 	public LoginPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver);
 	}
 
-	public void login(String username, String password) {
+	@Override
+	protected String url() {
+		return "/login.jsf";
+	}
+
+	public StarterPage login(String username, String password) {
 		usernameInput.sendKeys(username);
 		passwordInput.sendKeys(password);
 
 		buttonSubmit.click();
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(By.id("servletContainer")));
+		StarterPage starterPage = initElements(StarterPage.class);
+
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(starterPage.getServletContainerBy()));
+
+		return starterPage;
 	}
 
+	public String getTitle() {
+		return webDriver.getTitle();
+	}
 }

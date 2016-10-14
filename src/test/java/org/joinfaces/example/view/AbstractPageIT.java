@@ -16,11 +16,13 @@
 
 package org.joinfaces.example.view;
 
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import org.springframework.boot.context.embedded.LocalServerPort;
 
@@ -37,14 +39,14 @@ public class AbstractPageIT {
 
 	private static int countFinish = 0;
 
-	private static final int NUMBER_OF_SUBCLASSES = 4;
+	private static final int NUMBER_OF_SUBCLASSES = 5;
 
 	@BeforeClass
 	public static void init() {
 		if (webDriver == null) {
 			webDriver = getHtmlUnitDriver();
-			// webDriver = getChromeDriver();
-			// webDriver = getFirefoxDriver();
+			//webDriver = getChromeDriver();
+			//webDriver = getFirefoxDriver();
 		}
 	}
 
@@ -73,8 +75,14 @@ public class AbstractPageIT {
 		}
 	}
 
-	protected WebDriver navegateTo(String url) {
-		webDriver.navigate().to("http://localhost:" + port + url);
-		return webDriver;
+	protected <T extends AbstractPageComponent> T initElements(Class<T> classx) {
+		T result = PageFactory.initElements(webDriver, classx);
+		result.setPreffix(getPreffix());
+		return result;
 	}
+
+	private String getPreffix() {
+		return "http://localhost:" + port;
+	}
+
 }
