@@ -6,10 +6,17 @@ cache:
   - $HOME/.m2
 addons:
   firefox: "49.0"
+  apt:
+    packages:
+      - oracle-java8-installer
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
+  - echo "Using firefox version `/usr/local/bin/firefox-bin --version`"
+  - echo "Extracting firefox and setting PATH variable..."
+  - tar -xjf /tmp/firefox-49.0.tar.bz2 --directory /tmp
+  - export PATH="/tmp/firefox:$PATH"
 script: mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true verify && mvn -T 4 -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test cobertura:check-integration-test
 after_success:
   - mvn -T 4 -Pignore-snapshot-repositories,attach-integration-test cobertura:cobertura-integration-test org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
