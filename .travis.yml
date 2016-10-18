@@ -11,7 +11,6 @@ addons:
     packages:
       - oracle-java8-installer
 before_script:
-  - "export DISPLAY=:99.0"
   - echo "Extracting firefox and setting PATH variable..."
   - tar -xjf /tmp/firefox-49.0.tar.bz2 --directory /tmp
   - export PATH="/tmp/firefox:$PATH"
