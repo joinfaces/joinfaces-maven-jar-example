@@ -14,10 +14,12 @@ before_script:
   - echo "Extracting firefox and setting PATH variable..."
   - tar -xjf /tmp/firefox-49.0.tar.bz2 --directory /tmp
   - export PATH="/tmp/firefox:$PATH"
+  - echo "Downloading chrome..."
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
+  - echo "Downloading maven and setting PATH variable..."
   - wget http://apache.claz.org/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
   - tar zxvf apache-maven-3.3.9-bin.tar.gz
   - chmod +x apache-maven-3.3.9/bin/mvn
@@ -25,6 +27,6 @@ before_script:
   - export PATH=$PWD/apache-maven-3.3.9/bin:${PATH}  
 script: >
   mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true verify 
-  && /usr/bin/xvfb-run mvn -T 4 -DwebDriverType=chrome  -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test clean cobertura:check-integration-test
+  && /usr/bin/xvfb-run mvn -T 4 -DwebDriverType=chrome  -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test cobertura:check-integration-test
 after_success: >
   mvn -T 4 -DwebDriverType=htmlunit -Pignore-snapshot-repositories,attach-integration-test cobertura:cobertura-integration-test org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
