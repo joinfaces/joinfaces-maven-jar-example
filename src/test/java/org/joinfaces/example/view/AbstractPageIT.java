@@ -16,11 +16,15 @@
 
 package org.joinfaces.example.view;
 
+import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.MarionetteDriverManager;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -44,9 +48,16 @@ public class AbstractPageIT {
 	@BeforeClass
 	public static void init() {
 		if (webDriver == null) {
-			webDriver = getHtmlUnitDriver();
-			//webDriver = getChromeDriver();
-			//webDriver = getFirefoxDriver();
+			String webDriverType = System.getProperty("webDriverType", "firefox");
+			if (webDriverType.equals("htmlunit")) {
+				webDriver = getHtmlUnitDriver();
+			}
+			else if (webDriverType.equals("chrome")) {
+				webDriver = getChromeDriver();
+			}
+			else {
+				webDriver = getFirefoxDriver();
+			}
 		}
 	}
 
@@ -54,7 +65,6 @@ public class AbstractPageIT {
 		return new HtmlUnitDriver(true);
 	}
 
-	/*
 	private static WebDriver getChromeDriver() {
 		ChromeDriverManager.getInstance().setup();
 		return new ChromeDriver();
@@ -64,7 +74,6 @@ public class AbstractPageIT {
 		MarionetteDriverManager.getInstance().setup();
 		return new FirefoxDriver();
 	}
-	*/
 
 	@AfterClass
 	public static void finish() {
