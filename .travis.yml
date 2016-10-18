@@ -24,7 +24,7 @@ before_script:
 script: >
   mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true verify 
   && mvn -T 4 -DwebDriverType=chrome   -Pignore-snapshot-repositories,attach-integration-test verify
-  && mvn -T 4 -DwebDriverType=firefox  -Pignore-snapshot-repositories,attach-integration-test verify
-  && mvn -T 4 -DwebDriverType=htmlunit -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test cobertura:check-integration-test
+  && mvn -T 4 -DwebDriverType=firefox  -Pignore-snapshot-repositories,attach-integration-test clean verify
+  && mvn -T 4 -DwebDriverType=htmlunit -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test clean cobertura:check-integration-test
 after_success:
   - mvn -T 4 -Pignore-snapshot-repositories,attach-integration-test cobertura:cobertura-integration-test org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
