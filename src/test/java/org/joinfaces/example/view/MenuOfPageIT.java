@@ -16,9 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import org.joinfaces.example.JoinFacesExampleApplication;
 
 import org.junit.Test;
@@ -39,13 +36,6 @@ public class MenuOfPageIT extends AbstractPageIT {
 		menuOfPage.navegateTo();
 
 		StarterPage starterPage = menuOfPage.clickStarter();
-
-		try {
-			Thread.sleep(10000);
-		}
-		catch (InterruptedException ex) {
-			Logger.getLogger(MenuOfPageIT.class.getName()).log(Level.SEVERE, null, ex);
-		}
 
 		assertThat(starterPage.getPanelHeaderText())
 			.contains("jsf-spring-boot-starter");

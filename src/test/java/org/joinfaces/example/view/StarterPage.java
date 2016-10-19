@@ -73,13 +73,13 @@ public class StarterPage extends AbstractPageComponent {
 		return webDriver.findElement(By.id("labelRoleAdmin")).getText();
 	}
 
-	private By getServletContainerBy() {
-		return By.name("servletContainer");
+	private By getJsfUtilityLibrariesPanelBy() {
+		return By.id("panelJsfUtilityLibraries");
 	}
 
 	public StarterPage waitLoad() {
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
-			getServletContainerBy()));
+		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.visibilityOfElementLocated(
+			getJsfUtilityLibrariesPanelBy()));
 
 		return this;
 	}
