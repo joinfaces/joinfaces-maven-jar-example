@@ -60,4 +60,12 @@ public class MenuOfPage extends AbstractPageComponent {
 		return customInputPage.waitLoad();
 	}
 
+	public HelloTagPage clickHelloTag() {
+		menuAnchors.get(3).click();
+
+		HelloTagPage helloTagPage = initElements(HelloTagPage.class);
+
+		return helloTagPage.waitLoad();
+	}
+
 }
