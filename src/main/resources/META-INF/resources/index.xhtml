@@ -38,6 +38,10 @@
                                                 actionListener="#{contentMBean.setPage('fileUpload')}" />
                                     <p:menuitem value="Custom Input" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=customInput')"
                                                 actionListener="#{contentMBean.setPage('customInput')}" />
+                                    <p:menuitem value="My Tag" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=helloTag')"
+                                                actionListener="#{contentMBean.setPage('helloTag')}" />
+                                    <p:menuitem value="Hi CC" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=hiCC')"
+                                                actionListener="#{contentMBean.setPage('hiCC')}" />
                                 </p:menubar>
 
                                 <p:spacer height="10" />
