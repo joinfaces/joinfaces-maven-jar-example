@@ -1,5 +1,6 @@
 jsf:
   PROJECT_STAGE: Production
+  FACELETS_LIBRARIES: /META-INF/tags.tablib.xml
   primefaces:
     theme: overcast
 joinfaces:
