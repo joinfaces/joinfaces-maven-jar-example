@@ -62,4 +62,26 @@ public class MenuOfPageIT extends AbstractPageIT {
 		assertThat(customInputPage.getOutputText())
 			.isEqualTo("You entered: null");
 	}
+
+	@Test
+	public void clickMyTag() {
+		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
+		menuOfPage.navegateTo();
+
+		HelloTagPage helloTagPage = menuOfPage.clickHelloTag();
+
+		assertThat(helloTagPage.getHelloWorldText())
+			.isEqualTo("Hello Tag File");
+	}
+
+	@Test
+	public void clickHiCC() {
+		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
+		menuOfPage.navegateTo();
+
+		HiCCPage hiCCPage = menuOfPage.clickHiCC();
+
+		assertThat(hiCCPage.getHiCCText())
+			.isEqualTo("Hi Composite Component");
+	}
 }
