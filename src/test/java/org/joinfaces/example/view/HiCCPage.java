@@ -33,7 +33,7 @@ public class HiCCPage extends AbstractPageComponent {
 	}
 
 	private By getHiCCDivBy() {
-		return By.className("ui-grid-col-12");
+		return By.id("hiCC:outputTextComponentId");
 	}
 
 	public String getHiCCText() {
