@@ -33,7 +33,7 @@ public class HelloTagPage extends AbstractPageComponent {
 	}
 
 	private By getHelloWorldDivBy() {
-		return By.className("ui-grid-col-12");
+		return By.id("outputTextTagId");
 	}
 
 	public String getHelloWorldText() {
