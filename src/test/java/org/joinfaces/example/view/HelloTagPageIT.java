@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HelloTagPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkCustomInputElement() {
+	public void checkTagElement() {
 		HelloTagPage helloTagPage = initElements(HelloTagPage.class);
 		helloTagPage.navegateTo();
 
