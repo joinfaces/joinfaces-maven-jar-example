@@ -42,6 +42,8 @@
                                                 actionListener="#{contentMBean.setPage('helloTag')}" />
                                     <p:menuitem value="Hi CC" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=hiCC')"
                                                 actionListener="#{contentMBean.setPage('hiCC')}" />
+                                    <p:menuitem value="Welcome Converter" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=welcomeConverter')"
+                                                actionListener="#{contentMBean.setPage('welcomeConverter')}" />
                                 </p:menubar>
 
                                 <p:spacer height="10" />
