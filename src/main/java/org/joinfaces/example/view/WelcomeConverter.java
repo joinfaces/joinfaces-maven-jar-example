@@ -25,16 +25,12 @@ import javax.faces.convert.FacesConverter;
  * Custom converter component.
  * @author Marcelo Fernandes
  */
-@FacesConverter(value = "org.joinfaces.example.view.WelcomeConverter")
+@FacesConverter("org.joinfaces.example.view.WelcomeConverter")
 public class WelcomeConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		String result = value;
-		if (!result.endsWith(" welcome!")) {
-			result += " welcome!";
-		}
-		return result;
+		return value + " welcome!";
 	}
 
 	@Override
