@@ -7,7 +7,7 @@
     <p:panelGrid columns="3" layout="grid" id="panel">
         <h:outputText value="Your nickname please" />
         <p:inputText id="welcomeInput" value="#{welcomeMBean.text}" converter="org.joinfaces.example.view.WelcomeConverter" />
-        <p:commandButton id="welcomeButton" value="Submit"/>
+        <p:commandButton id="welcomeButton" value="Submit" update="panel"/>
         <h:outputText id="welcomeOutput" value="#{welcomeMBean.text}" />
     </p:panelGrid>
 </ui:composition>
