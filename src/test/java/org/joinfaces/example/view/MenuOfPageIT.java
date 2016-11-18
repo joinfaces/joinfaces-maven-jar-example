@@ -32,56 +32,68 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 	@Test
 	public void clickStarter() {
-		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
-		menuOfPage.navegateTo();
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
 
-		StarterPage starterPage = menuOfPage.clickStarter();
+		StarterPage page = menu.clickStarter();
 
-		assertThat(starterPage.getPanelHeaderText())
+		assertThat(page.getPanelHeaderText())
 			.contains("jsf-spring-boot-starter");
 	}
 
 	@Test
 	public void clickFileUpload() {
-		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
-		menuOfPage.navegateTo();
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
 
-		FileUploadPage fileUploadPage = menuOfPage.clickFileUpload();
+		FileUploadPage page = menu.clickFileUpload();
 
-		assertThat(fileUploadPage.isDownloadButtonEnabled())
+		assertThat(page.isDownloadButtonEnabled())
 			.isFalse();
 	}
 
 	@Test
 	public void clickCustomInput() {
-		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
-		menuOfPage.navegateTo();
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
 
-		CustomInputPage customInputPage = menuOfPage.clickCustomInput();
+		CustomInputPage page = menu.clickCustomInput();
 
-		assertThat(customInputPage.getOutputText())
+		assertThat(page.getOutputText())
 			.isEqualTo("You entered: null");
 	}
 
 	@Test
 	public void clickMyTag() {
-		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
-		menuOfPage.navegateTo();
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
 
-		HelloTagPage helloTagPage = menuOfPage.clickHelloTag();
+		HelloTagPage page = menu.clickHelloTag();
 
-		assertThat(helloTagPage.getHelloWorldText())
+		assertThat(page.getHelloWorldText())
 			.isEqualTo("Hello Tag File");
 	}
 
 	@Test
 	public void clickHiCC() {
-		MenuOfPage menuOfPage = initElements(MenuOfPage.class);
-		menuOfPage.navegateTo();
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
 
-		HiCCPage hiCCPage = menuOfPage.clickHiCC();
+		HiCCPage page = menu.clickHiCC();
 
-		assertThat(hiCCPage.getHiCCText())
+		assertThat(page.getHiCCText())
 			.isEqualTo("Hi Composite Component");
+	}
+
+	@Test
+	public void clickWelcomeConverter() {
+		MenuOfPage menu = initElements(MenuOfPage.class);
+		menu.navegateTo();
+
+		WelcomeConverterPage page = menu.clickWelcomeConverter();
+		page.submit("Nick");
+
+		assertThat(page.getOutputText())
+			.isEqualTo("Nick welcome!");
 	}
 }

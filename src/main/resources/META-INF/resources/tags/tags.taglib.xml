@@ -5,6 +5,6 @@
     <namespace>http://joinfaces.org/tags</namespace>
     <tag>
         <tag-name>mytag</tag-name>
-        <source>tags/mytag.xhtml</source>
+        <source>mytag.xhtml</source>
     </tag>
 </facelet-taglib>
