@@ -39,41 +39,49 @@ public class MenuOfPage extends AbstractPageComponent {
 	public StarterPage clickStarter() {
 		menuAnchors.get(0).click();
 
-		StarterPage starterPage = initElements(StarterPage.class);
+		StarterPage page = initElements(StarterPage.class);
 
-		return starterPage.waitLoad();
+		return page.waitLoad();
 	}
 
 	public FileUploadPage clickFileUpload() {
 		menuAnchors.get(1).click();
 
-		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
+		FileUploadPage page = initElements(FileUploadPage.class);
 
-		return fileUploadPage.waitLoad();
+		return page.waitLoad();
 	}
 
 	public CustomInputPage clickCustomInput() {
 		menuAnchors.get(2).click();
 
-		CustomInputPage customInputPage = initElements(CustomInputPage.class);
+		CustomInputPage page = initElements(CustomInputPage.class);
 
-		return customInputPage.waitLoad();
+		return page.waitLoad();
 	}
 
 	public HelloTagPage clickHelloTag() {
 		menuAnchors.get(3).click();
 
-		HelloTagPage helloTagPage = initElements(HelloTagPage.class);
+		HelloTagPage page = initElements(HelloTagPage.class);
 
-		return helloTagPage.waitLoad();
+		return page.waitLoad();
 	}
 
 	public HiCCPage clickHiCC() {
 		menuAnchors.get(4).click();
 
-		HiCCPage hiCCPage = initElements(HiCCPage.class);
+		HiCCPage page = initElements(HiCCPage.class);
 
-		return hiCCPage.waitLoad();
+		return page.waitLoad();
+	}
+
+	public WelcomeConverterPage clickWelcomeConverter() {
+		menuAnchors.get(5).click();
+
+		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
+
+		return page.waitLoad();
 	}
 
 }
