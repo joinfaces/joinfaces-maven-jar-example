@@ -17,7 +17,7 @@
 package org.joinfaces.example.view;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.MarionetteDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -71,7 +71,7 @@ public class AbstractPageIT {
 	}
 
 	private static WebDriver getFirefoxDriver() {
-		MarionetteDriverManager.getInstance().setup();
+		FirefoxDriverManager.getInstance().setup();
 		return new FirefoxDriver();
 	}
 
