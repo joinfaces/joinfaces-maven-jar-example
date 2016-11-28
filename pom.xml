@@ -24,7 +24,7 @@
         <commons-fileupload.version>1.3.2</commons-fileupload.version>
         <selenium.version>3.0.1</selenium.version>
         <htmlunit.version>2.23</htmlunit.version>
-        <webdrivermanager.version>1.4.10</webdrivermanager.version>
+        <webdrivermanager.version>1.5.0</webdrivermanager.version>
         <all-themes.version>1.0.10</all-themes.version>
         
         <cobertura.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</cobertura.exclude>
