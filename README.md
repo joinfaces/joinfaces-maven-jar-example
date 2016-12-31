@@ -33,7 +33,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-2.3.3-SNAPSHOT.jar
+java -jar target/joinfaces-example-2.3.4-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/index.jsf**
@@ -48,7 +48,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 <parent>
     <groupId>org.joinfaces</groupId>
     <artifactId>jsf-spring-boot-parent</artifactId>
-    <version>2.3.3</version>
+    <version>2.3.4</version>
     <relativePath/>
 </parent>
 

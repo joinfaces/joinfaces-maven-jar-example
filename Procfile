@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/joinfaces-example-2.3.3-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar  target/joinfaces-example-2.3.4-SNAPSHOT.jar
