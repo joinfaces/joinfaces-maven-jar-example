@@ -19,7 +19,6 @@ package org.joinfaces.example.view;
 import java.io.File;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
