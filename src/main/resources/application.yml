@@ -33,6 +33,3 @@ butterfaces:
   version: @butterfaces.version@
 richfaces:
   version: @richfaces.version@
-security:
-  ignored:
-    - /javax.faces.resource/**

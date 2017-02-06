@@ -17,7 +17,6 @@
 package org.joinfaces.example.view;
 
 import lombok.Setter;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
