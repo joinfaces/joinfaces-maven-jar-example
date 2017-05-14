@@ -27,6 +27,7 @@
         <webdrivermanager.version>1.6.2</webdrivermanager.version>
         <all-themes.version>1.0.10</all-themes.version>
         
+        <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         <cobertura.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</cobertura.exclude>
         <cobertura.totalLineRate>100</cobertura.totalLineRate>
         <cobertura.packageLineRate>100</cobertura.packageLineRate>
