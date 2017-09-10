@@ -29,7 +29,7 @@
         -->
         <selenium.version>3.5.3</selenium.version>
         <htmlunit.version>2.26</htmlunit.version>
-        <webdrivermanager.version>1.6.2</webdrivermanager.version>
+        <webdrivermanager.version>1.7.1</webdrivermanager.version>
         <all-themes.version>1.0.10</all-themes.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
