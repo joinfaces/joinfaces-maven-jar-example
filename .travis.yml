@@ -6,13 +6,13 @@ cache:
   directories:
   - $HOME/.m2
 addons:
-  firefox: "53.0"
+  firefox: "55.0"
   apt:
     packages:
       - oracle-java8-installer
 before_script:
   - echo "Extracting firefox and setting PATH variable..."
-  - tar -xjf /tmp/firefox-53.0.tar.bz2 --directory /tmp
+  - tar -xjf /tmp/firefox-55.0.tar.bz2 --directory /tmp
   - export PATH="/tmp/firefox:$PATH"
   - echo "Downloading chrome..."
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
