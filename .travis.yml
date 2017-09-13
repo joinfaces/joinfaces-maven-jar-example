@@ -26,7 +26,7 @@ before_script:
   - export M2_HOME=$PWD/apache-maven-3.3.9
   - export PATH=$PWD/apache-maven-3.3.9/bin:${PATH}  
 script: >
-  mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true verify 
-  && /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=firefox -Pignore-snapshot-repositories,check-cobertura-integration-test,attach-integration-test clean cobertura:check-integration-test
+  mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true install 
+  && /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=firefox -Pignore-snapshot-repositories  clean verify
 after_success: >
-  /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=chrome -Pignore-snapshot-repositories,attach-integration-test cobertura:cobertura-integration-test org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
+  /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=chrome -Pignore-snapshot-repositories org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
