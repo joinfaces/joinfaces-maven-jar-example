@@ -178,8 +178,18 @@
         <repository>  
             <id>primefaces-maven-repository</id>  
             <name>PrimeFaces Maven Repository</name>  
-            <url>http://repository.primefaces.org</url>  
+            <url>http://repository.primefaces.org</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>        
+        <repository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
 </project>
