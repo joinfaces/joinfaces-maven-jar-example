@@ -36,8 +36,8 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		StarterPage page = menu.clickStarter();
 
-		assertThat(page.getPanelHeaderText())
-			.contains("jsf-spring-boot-starter");
+		assertThat(page.getServletContainerTabHeaderText())
+			.contains("Tomcat : Servlet Container");
 	}
 
 	@Test
