@@ -2,7 +2,7 @@ JoinFaces Example
 =====
 [![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example)
-[![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-example?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-maven-jar-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-maven-jar-example?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/59e2ab652de28c2198ef977f/badge.svg?style=flat)](https://www.versioneye.com/user/projects/59e2ab652de28c2198ef977f)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -60,15 +60,21 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 </dependencies>
 ```
 
-If you prefer **Jetty** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
+If you prefer **Jetty** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
 
-If you prefer **Undertow** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
+If you prefer **Undertow** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
 
-If you prefer **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
+If you prefer **MyFaces** instead of **Mojarra**, exclude **mojarra-spring-boot-starter** artifactId and add **myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
 
-If you prefer **Jetty** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-jetty-mojarra-spring-boot-starter**. 
+If you prefer **PrimeFaces**, add **primefaces-spring-boot-starter** in order to use **PrimeFaces** JSF Components. 
 
-If you prefer **Undertow** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-undertow-mojarra-spring-boot-starter**. 
+If you prefer **BootsFaces**, add **bootsfaces-spring-boot-starter** in order to use **BootsFaces** JSF Components. 
+
+If you prefer **ButterFaces**, add **butterfaces-spring-boot-starter** in order to use **ButterFaces** JSF Components. 
+
+If you prefer **AngularFaces**, add **angularfaces-spring-boot-starter** in order to use **AngularFaces** JSF Components. 
+
+If you prefer **RichFaces**, add **richfaces-spring-boot-starter** in order to use **RichFaces** JSF Components. 
 
 Note that **spring-boot-starter-security** is included to secure the application.
 
