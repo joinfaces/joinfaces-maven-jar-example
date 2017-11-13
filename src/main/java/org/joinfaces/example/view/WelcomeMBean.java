@@ -18,7 +18,7 @@ package org.joinfaces.example.view;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import lombok.Getter;
