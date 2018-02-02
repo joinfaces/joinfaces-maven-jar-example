@@ -20,13 +20,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
 
-        <!-- Uncomment this if you want to use tomcat7
-        <tomcat.version>7.0.72</tomcat.version>
-        -->
-        <!-- Uncomment this if you want to use with java6
-        <jackson.version>2.7.6</jackson.version>
-        -->
         <selenium.version>3.8.1</selenium.version>
         <htmlunit.version>2.29</htmlunit.version>
         <webdrivermanager.version>2.1.0</webdrivermanager.version>
