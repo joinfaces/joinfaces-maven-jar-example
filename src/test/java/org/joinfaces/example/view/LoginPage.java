@@ -41,10 +41,10 @@ public class LoginPage extends AbstractPageComponent {
 	}
 
 	public StarterPage login(String username, String password) {
-		usernameInput.sendKeys(username);
-		passwordInput.sendKeys(password);
+		this.usernameInput.sendKeys(username);
+		this.passwordInput.sendKeys(password);
 
-		buttonSubmit.click();
+		this.buttonSubmit.click();
 
 		StarterPage starterPage = initElements(StarterPage.class);
 

@@ -1,9 +1,9 @@
 JoinFaces Example
 =====
 [![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com)
-[![Build Status](https://travis-ci.org/joinfaces/joinfaces-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-example)
-[![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-example?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/5791524151500e00422a6777/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5791524151500e00422a6777)
+[![Build Status](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example)
+[![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-maven-jar-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-maven-jar-example?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
@@ -23,7 +23,7 @@ nyilmaz | qwe | ROLE_USER
 
 1- Clone this project
 ```Shell
-git clone https://github.com/joinfaces/joinfaces-example.git
+git clone https://github.com/joinfaces/joinfaces-maven-jar-example.git
 ```
 
 2- Build
@@ -33,7 +33,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-2.4.1-SNAPSHOT.jar
+java -jar target/joinfaces-example-3.0.0.RC1-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/index.jsf**
@@ -47,8 +47,8 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 ```xml
 <parent>
     <groupId>org.joinfaces</groupId>
-    <artifactId>jsf-spring-boot-parent</artifactId>
-    <version>2.4.0</version>
+    <artifactId>joinfaces-parent</artifactId>
+    <version>3.0.0.RC1</version>
     <relativePath/>
 </parent>
 
@@ -60,15 +60,21 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 </dependencies>
 ```
 
-If you prefer **Jetty** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
+If you prefer **Jetty** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
 
-If you prefer **Undertow** instead of **Tomcat**, change artifactId jsf-spring-boot-starter to **jsf-undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
+If you prefer **Undertow** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
 
-If you prefer **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
+If you prefer **MyFaces** instead of **Mojarra**, exclude **mojarra-spring-boot-starter** artifactId and add **myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
 
-If you prefer **Jetty** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-jetty-mojarra-spring-boot-starter**. 
+If you prefer **PrimeFaces**, add **primefaces-spring-boot-starter** in order to use **PrimeFaces** JSF Components. 
 
-If you prefer **Undertow** instead of **Tomcat** and **MyFaces** instead of **Mojarra**, change artifactId jsf-spring-boot-starter to **jsf-undertow-mojarra-spring-boot-starter**. 
+If you prefer **BootsFaces**, add **bootsfaces-spring-boot-starter** in order to use **BootsFaces** JSF Components. 
+
+If you prefer **ButterFaces**, add **butterfaces-spring-boot-starter** in order to use **ButterFaces** JSF Components. 
+
+If you prefer **AngularFaces**, add **angularfaces-spring-boot-starter** in order to use **AngularFaces** JSF Components. 
+
+If you prefer **RichFaces**, add **richfaces-spring-boot-starter** in order to use **RichFaces** JSF Components. 
 
 Note that **spring-boot-starter-security** is included to secure the application.
 
@@ -136,9 +142,9 @@ public class StarterMBean {
 ## Getting Help
 
 * Take a look at [JoinFaces Wiki](https://github.com/joinfaces/joinfaces/wiki).
-* Report questions and bugs at [github.com/joinfaces/joinfaces-example/issues](https://github.com/joinfaces/joinfaces-example/issues).
+* Report questions and bugs at [github.com/joinfaces/joinfaces-example/issues](https://github.com/joinfaces/joinfaces-maven-jar-example/issues).
 
 ## Contributing
 
-* Report documentation, features, enhancement and bugs at [github.com/joinfaces/joinfaces-example/issues](https://github.com/joinfaces/joinfaces-example/issues).
+* Report documentation, features, enhancement and bugs at [github.com/joinfaces/joinfaces-example/issues](https://github.com/joinfaces/joinfaces-maven-jar-example/issues).
 * Pull requests are welcome.
