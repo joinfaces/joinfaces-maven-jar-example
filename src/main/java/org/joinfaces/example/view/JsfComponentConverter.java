@@ -16,38 +16,32 @@
 
 package org.joinfaces.example.view;
 
-import java.io.Serializable;
-
-import javax.annotation.PostConstruct;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
+import javax.faces.convert.Converter;
+import javax.faces.convert.FacesConverter;
 
-import lombok.Getter;
-import lombok.Setter;
 
 /**
- * Content Page.
+ * jsf component converter.
+ *
  * @author Marcelo Fernandes
  */
-@Setter
-@Getter
-@Named
-@ViewScoped
-public class ContentMBean implements Serializable {
+@FacesConverter("jsfComponentConverter")
+public class JsfComponentConverter implements Converter {
 
-	private static final long serialVersionUID = 1L;
-
-	private String page;
-
-	@PostConstruct
-	public void init() {
-		String initPage = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("content");
-		if (initPage != null && !initPage.trim().isEmpty()) {
-			this.page = initPage;
-		}
-		else {
-			this.page = "starter";
-		}
+	@Override
+	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+		return ((JsfComponentService) fc.getExternalContext().getApplicationMap().get("jsfComponentService")).findByName(value);
 	}
+
+	@Override
+	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
+		String result = null;
+		if (object != null) {
+			result = ((JsfComponent) object).getName();
+		}
+		return result;
+	}
+
 }

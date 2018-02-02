@@ -28,7 +28,7 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 
 /**
  * Abstract class to create utility methods to access WebClient and Page.
@@ -95,7 +95,7 @@ public class AbstractPageIT {
 	}
 
 	private String getPreffix() {
-		return "http://localhost:" + port;
+		return "http://localhost:" + this.port;
 	}
 
 }

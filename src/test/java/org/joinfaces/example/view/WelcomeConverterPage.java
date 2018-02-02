@@ -41,9 +41,9 @@ public class WelcomeConverterPage extends AbstractPageComponent {
 	}
 
 	public void submit(String message) {
-		welcomeInput.sendKeys(message);
+		this.welcomeInput.sendKeys(message);
 
-		welcomeButton.submit();
+		this.welcomeButton.submit();
 
 		By outputTextBy = getOutputTextBy();
 		String expectedValue = message + " welcome!";
