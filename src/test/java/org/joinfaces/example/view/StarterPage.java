@@ -25,14 +25,23 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class StarterPage extends AbstractPageComponent {
 
-	@FindBy(xpath = "//input[@value='Jetty']/..")
+	@FindBy(id = "tabView:jetty")
 	private WebElement jettyRadioButtonInput;
 
-	@FindBy(xpath = "//input[@value='MyFaces']/..")
+	@FindBy(xpath = "//a[text()='Servlet Container']")
+	private WebElement servletContainerTab;
+
+	@FindBy(id = "tabView:myfaces")
 	private WebElement myfacesRadioButtonInput;
 
-	@FindBy(xpath = "//input[@value='ButterFaces']/..")
-	private WebElement butterfacesRadioButtonInput;
+	@FindBy(xpath = "//a[text()='JSF Implementation']")
+	private WebElement jsfImplementationTab;
+
+	@FindBy(xpath = "//a[text()='JSF Components']")
+	private WebElement jsfComponentsTab;
+
+	@FindBy(xpath = "//a[text()='Add to your pom.xml']")
+	private WebElement pomTab;
 
 	public StarterPage(WebDriver webDriver) {
 		super(webDriver);
@@ -43,43 +52,100 @@ public class StarterPage extends AbstractPageComponent {
 		return "/index.jsf?content=starter";
 	}
 
-	private void click(WebElement webElement, String technology)  {
-		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
-
+	private void click(WebElement webElement, String technology, By tabHeaderBy)  {
 		webElement.click();
 
 		new WebDriverWait(webDriver, 10000).until(
-			ExpectedConditions.textToBePresentInElementLocated(panelHeaderSpanBy, technology));
+			ExpectedConditions.textToBePresentInElementLocated(tabHeaderBy, technology));
+	}
+
+	public void clickServletContainerTab() {
+		this.servletContainerTab.click();
 	}
 
 	public void clickJetty() {
-		click(jettyRadioButtonInput, "jetty");
+		click(this.jettyRadioButtonInput, "Jetty", getServletContainerTabHeaderBy());
+	}
+
+	public void clickJsfImplementationTab() {
+		this.jsfImplementationTab.click();
 	}
 
 	public void clickMyFaces() {
-		click(myfacesRadioButtonInput, "myfaces");
+		click(this.myfacesRadioButtonInput, "MyFaces", getJsfImplementationTabHeaderBy());
+	}
+
+	public void clickJsfComponentsTab() {
+		this.jsfComponentsTab.click();
+	}
+
+	private WebElement jsfComponentRadioButtonInput(int index) {
+		return webDriver.findElement(By.xpath("//*[@id='tabView:jsfComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+	}
+
+	public void clickPrimeFaces() {
+		click(jsfComponentRadioButtonInput(1), "PrimeFaces", getJsfComponentsTabHeaderBy());
+	}
+
+	public void clickBootsFaces() {
+		click(jsfComponentRadioButtonInput(2), "BootsFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickButterFaces() {
-		click(butterfacesRadioButtonInput, "butterfaces");
+		click(jsfComponentRadioButtonInput(3), "ButterFaces", getJsfComponentsTabHeaderBy());
 	}
 
-	public String getPanelHeaderText() {
-		By panelHeaderSpanBy = By.xpath("//span[@class='ui-panel-title']");
-		return webDriver.findElement(panelHeaderSpanBy).getText();
+	public void clickAngularFaces() {
+		click(jsfComponentRadioButtonInput(4), "AngularFaces", getJsfComponentsTabHeaderBy());
+	}
+
+	public void clickRichFaces() {
+		click(jsfComponentRadioButtonInput(5), "RichFaces", getJsfComponentsTabHeaderBy());
+	}
+
+	public void clickPomTab() {
+		this.pomTab.click();
+	}
+
+	private By getTabHeaderBy(String tab) {
+		return By.xpath("//*[@id='tabView:panel" + tab + "_header']/span");
+	}
+
+	private By getServletContainerTabHeaderBy() {
+		return getTabHeaderBy("ServletContainer");
+	}
+
+	private By getJsfImplementationTabHeaderBy() {
+		return getTabHeaderBy("JsfImplementation");
+	}
+
+	private By getJsfComponentsTabHeaderBy() {
+		return getTabHeaderBy("JsfComponents");
+	}
+
+	public String getServletContainerTabHeaderText() {
+		return webDriver.findElement(getServletContainerTabHeaderBy()).getText();
+	}
+
+	public String getJsfImplementationTabHeaderText() {
+		return webDriver.findElement(getJsfImplementationTabHeaderBy()).getText();
+	}
+
+	public String getJsfComponentsTabHeaderText() {
+		return webDriver.findElement(getJsfComponentsTabHeaderBy()).getText();
 	}
 
 	public String getAdminRoleLabelText() {
 		return webDriver.findElement(By.id("labelRoleAdmin")).getText();
 	}
 
-	private By getJsfUtilityLibrariesPanelBy() {
-		return By.id("panelJsfUtilityLibraries");
+	public String getPomContent() {
+		return webDriver.findElement(By.xpath("//*[@id='tabView:panelPom_content']/div/div[6]/div[1]/div/div")).getText();
 	}
 
 	public StarterPage waitLoad() {
 		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.visibilityOfElementLocated(
-			getJsfUtilityLibrariesPanelBy()));
+			getServletContainerTabHeaderBy()));
 
 		return this;
 	}
