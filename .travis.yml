@@ -6,27 +6,26 @@ cache:
   directories:
   - $HOME/.m2
 addons:
-  firefox: "55.0"
+  firefox: latest
   apt:
     packages:
       - oracle-java8-installer
 before_script:
   - echo "Extracting firefox and setting PATH variable..."
-  - tar -xjf /tmp/firefox-55.0.tar.bz2 --directory /tmp
+  - tar -xjf /tmp/firefox-*.tar.bz2 --directory /tmp
   - export PATH="/tmp/firefox:$PATH"
   - echo "Downloading chrome..."
   - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
   - sudo apt-get update
   - sudo apt-get install google-chrome-stable
-  - echo "Downloading maven and setting PATH variable..."
-  - wget http://apache.claz.org/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
-  - tar zxvf apache-maven-3.5.0-bin.tar.gz
-  - chmod +x apache-maven-3.5.0/bin/mvn
-  - export M2_HOME=$PWD/apache-maven-3.5.0
-  - export PATH=$PWD/apache-maven-3.5.0/bin:${PATH}  
-script: >
-  mvn -T 4 -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -Dmaven.test.skip=true install 
-  && /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=firefox -Pignore-snapshot-repositories  clean verify
-after_success: >
-  /usr/bin/xvfb-run mvn --settings ignoreSnapshotsSettings.xml -DwebDriverType=chrome -Pignore-snapshot-repositories org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
+
+install: ./mvnw -B clean validate
+
+script:
+  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DskipTests=true install
+  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=firefox verify
+#  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=chrome verify
+
+after_success:
+  - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report

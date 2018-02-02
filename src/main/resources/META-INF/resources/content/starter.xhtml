@@ -5,6 +5,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
+                xmlns:pe="http://primefaces.org/ui/extensions"
                 xmlns:o="http://omnifaces.org/ui"
                 xmlns:sec="http://www.springframework.org/security/tags">
     <p:panelGrid columns="2" layout="grid">
@@ -43,114 +44,101 @@
     </sec:anonymous>
     <p:spacer height="10" />
 
-    <o:validateOne id="one" components="servletContainer" />
-    <p:panelGrid columns="2">
-        <h:outputText value="Servlet Container" />
-        <p:selectOneButton id="servletContainer" value="#{starterMBean.servletContainer}" 
-                           required="true" requiredMessage="Choose one Servlet Container">
-            <f:selectItem itemLabel="Tomcat" itemValue="Tomcat" />
-            <f:selectItem itemLabel="Jetty" itemValue="Jetty" />
-            <f:selectItem itemLabel="Undertow" itemValue="Undertow" />
-            <p:ajax update="panelResult" />
-        </p:selectOneButton>
-    </p:panelGrid>
-    <p:spacer height="10" />
-    <p:panelGrid columns="2">
-        <h:outputText value="JSF Implementation" />
-        <p:selectOneButton id="jsfImplementation" value="#{starterMBean.jsfImplementation}" 
-                           required="true" requiredMessage="Choose one JSF Implementation">
-            <f:selectItem itemLabel="Mojarra" itemValue="Mojarra" />
-            <f:selectItem itemLabel="MyFaces" itemValue="MyFaces" />
-            <p:ajax update="panelResult" />
-        </p:selectOneButton>
-    </p:panelGrid>
-    <p:spacer height="10" />
-    <p:panelGrid columns="2">
-        <h:outputText value="JSF Components" />
-        <p:selectOneButton id="jsfComponents" value="#{starterMBean.jsfComponents}" 
-                           required="true" requiredMessage="Choose one JSF Implementation">
-            <f:selectItem itemLabel="PrimeFaces + PrimeFacesExtensions" itemValue="PrimeFaces" />
-            <f:selectItem itemLabel="BootsFaces + AngularFaces + PrimeFaces + PrimeFacesExtensions" itemValue="BootsFaces" />
-            <f:selectItem itemLabel="ButterFaces + BootsFaces + PrimeFaces + PrimeFacesExtensions" itemValue="ButterFaces" />
-            <f:selectItem itemLabel="RichFaces" itemValue="RichFaces" />
-            <p:ajax update="panelResult" />
-        </p:selectOneButton>
-    </p:panelGrid>
-    <p:spacer height="10" />
-    <p:panel id="panelResult" header="Your JoinFaces starter is ${starterMBean.starter} version ${environment.getProperty('joinfaces.version')}" >
-        <p:panelGrid columns="2" layout="grid">
-            <p:panel id="panelServletContainer" header="Servlet Container: ${starterMBean.servletContainer}" >
-                <p:link href="http://tomcat.apache.org" rendered="#{starterMBean.servletContainer eq 'Tomcat'}">
-                    <p:graphicImage title="Apache Tomcat ${environment.getProperty('tomcat.version')}" alt="Apache Tomcat ${environment.getProperty('tomcat.version')}" 
-                                    value="#{resource['images/tomcat.png']}"
-                                    height="100" width="150"/>
-                </p:link>
-                <p:link href="http://www.eclipse.org/jetty" rendered="#{starterMBean.servletContainer eq 'Jetty'}">
-                    <p:graphicImage title="Jetty ${environment.getProperty('jetty.version')}" alt="Jetty ${environment.getProperty('jetty.version')}" 
-                                    value="#{resource['images/jetty.png']}"
-                                    height="100" width="226"/>
-                </p:link>
-                <p:link href="http://undertow.io" rendered="#{starterMBean.servletContainer eq 'Undertow'}">
-                    <p:graphicImage title="Undertow ${environment.getProperty('undertow.version')}" alt="Undertow ${environment.getProperty('undertow.version')}" 
-                                    value="#{resource['images/undertow.png']}"
-                                    height="100" width="200"/>
-                </p:link>
+    <p:tabView id="tabView">
+        <p:tab title="Servlet Container" id="tabServletContainer" >
+            <o:validateOne id="one" components="servletContainer" />
+            <p:panel id="panelServletContainer" header="${starterMBean.servletContainer} : Servlet Container" >
+                <p:selectOneRadio id="servletContainer" value="#{starterMBean.servletContainer}"
+                                 required="true" requiredMessage="Choose one Servlet Container" layout="custom">
+                    <f:selectItem itemLabel="Tomcat" itemValue="Tomcat" />
+                    <f:selectItem itemLabel="Jetty" itemValue="Jetty" />
+                    <f:selectItem itemLabel="Undertow" itemValue="Undertow" />
+                    <p:ajax update="panelServletContainer panelPom" />
+                </p:selectOneRadio>            
+                <p:panelGrid columns="2" layout="grid">
+                    <p:radioButton id="tomcat" for="servletContainer" itemIndex="0" />
+                    <p:link href="http://tomcat.apache.org">
+                        <p:graphicImage title="Apache Tomcat ${environment.getProperty('tomcat.version')}" alt="Apache Tomcat ${environment.getProperty('tomcat.version')}" 
+                                        value="#{resource['images/tomcat.png']}"
+                                        height="100" width="150"/>
+                    </p:link>
+                    <p:radioButton id="jetty" for="servletContainer" itemIndex="1" />
+                    <p:link href="http://www.eclipse.org/jetty">
+                        <p:graphicImage title="Jetty ${environment.getProperty('jetty.version')}" alt="Jetty ${environment.getProperty('jetty.version')}" 
+                                        value="#{resource['images/jetty.png']}"
+                                        height="100" width="226"/>
+                    </p:link>
+                    <p:radioButton id="undertow" for="servletContainer" itemIndex="2" />
+                    <p:link href="http://undertow.io">
+                        <p:graphicImage title="Undertow ${environment.getProperty('undertow.version')}" alt="Undertow ${environment.getProperty('undertow.version')}" 
+                                        value="#{resource['images/undertow.png']}"
+                                        height="100" width="200"/>
+                    </p:link>
+                </p:panelGrid>
             </p:panel>
-            <p:panel id="panelJsfImplementation" header="JSF Implementation: ${starterMBean.jsfImplementation}" >
-                <p:link href="https://javaserverfaces.java.net" rendered="#{starterMBean.jsfImplementation eq 'Mojarra'}" >
-                    <p:graphicImage title="Mojarra ${environment.getProperty('mojarra.version')}" alt="Mojarra ${environment.getProperty('mojarra.version')}"
-                                    value="#{resource['images/mojarra.png']}"
-                                    height="100" width="103"/>
-                </p:link>
-                <p:link href="http://myfaces.apache.org" rendered="#{starterMBean.jsfImplementation eq 'MyFaces'}">
-                    <p:graphicImage title="Apache MyFaces ${environment.getProperty('myfaces.version')}" alt="Apache MyFaces ${environment.getProperty('myfaces.version')}"
-                                    value="#{resource['images/myfaces.png']}"
-                                    height="100" width="210"/>
-                </p:link>
+        </p:tab>
+        
+        <p:tab title="JSF Implementation" id="tabJsfImplementation" >
+            <p:panel id="panelJsfImplementation" header="${starterMBean.jsfImplementation} : JSF Implementation" >
+                <p:selectOneRadio id="jsfImplementation" value="#{starterMBean.jsfImplementation}" 
+                                   required="true" requiredMessage="Choose one JSF Implementation" layout="custom">
+                    <f:selectItem itemLabel="Mojarra" itemValue="Mojarra" />
+                    <f:selectItem itemLabel="MyFaces" itemValue="MyFaces" />
+                    <p:ajax update="panelJsfImplementation panelPom" />
+                </p:selectOneRadio>
+                <p:panelGrid columns="2" layout="grid">
+                    <p:radioButton id="mojarra" for="jsfImplementation" itemIndex="0" />
+                    <p:link href="https://javaserverfaces.java.net" >
+                        <p:graphicImage title="Mojarra ${environment.getProperty('mojarra.version')}" alt="Mojarra ${environment.getProperty('mojarra.version')}"
+                                        value="#{resource['images/mojarra.png']}"
+                                        height="100" width="103"/>
+                    </p:link>
+                    <p:radioButton id="myfaces" for="jsfImplementation" itemIndex="1" />
+                    <p:link href="http://myfaces.apache.org" >
+                        <p:graphicImage title="Apache MyFaces ${environment.getProperty('myfaces.version')}" alt="Apache MyFaces ${environment.getProperty('myfaces.version')}"
+                                        value="#{resource['images/myfaces.png']}"
+                                        height="100" width="210"/>
+                    </p:link>
+                </p:panelGrid>
             </p:panel>
-        </p:panelGrid>
-        <p:panel id="panelJsfVisualLibraries" header="JSF Component Libraries" >
-            <p:panelGrid columns="#{starterMBean.jsfComponents eq 'RichFaces' ? 1 : (starterMBean.jsfComponents eq 'PrimeFaces' ? 2 : (starterMBean.jsfComponents eq 'BootsFaces' ? 3 :4))}" layout="grid">
-                <p:link href="https://github.com/richfaces/richfaces" rendered="#{starterMBean.jsfComponents eq 'RichFaces'}">
-                    <p:graphicImage title="RichFaces ${environment.getProperty('richfaces.version')}" alt="RichFaces ${environment.getProperty('richfaces.version')}"
-                                    value="#{resource['images/richfaces.png']}"
-                                    height="100" width="100"/>
-                </p:link>
-                <p:link href="http://butterfaces.org" rendered="#{starterMBean.jsfComponents eq 'ButterFaces'}">
-                    <p:graphicImage title="ButterFaces ${environment.getProperty('butterfaces.version')}" alt="ButterFaces ${environment.getProperty('butterfaces.version')}"
-                                    value="#{resource['images/butterfaces.png']}"
-                                    height="100" width="100"/>
-                </p:link>
-                <p:link href="http://bootsfaces.net" rendered="#{starterMBean.jsfComponents eq 'BootsFaces' or starterMBean.jsfComponents eq 'ButterFaces'}">
-                    <p:graphicImage title="BootsFaces ${environment.getProperty('bootsfaces.version')}" alt="BootsFaces ${environment.getProperty('bootsfaces.version')}"
-                                    value="#{resource['images/bootsfaces.png']}"
-                                    height="100" width="100"/>
-                </p:link>
-                <p:link href="http://primefaces.org" rendered="#{starterMBean.jsfComponents ne 'RichFaces'}">
-                    <p:graphicImage title="PrimeFaces ${environment.getProperty('primefaces.version')}" alt="PrimeFaces ${environment.getProperty('primefaces.version')}"
-                                    value="#{resource['images/primefaces.png']}"
-                                    height="100" width="123"/>
-                </p:link>
-                <p:link href="http://primefaces-extensions.github.io" rendered="#{starterMBean.jsfComponents ne 'RichFaces'}">
-                    <p:graphicImage title="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}" alt="PrimeFaces Extensions ${environment.getProperty('primefaces-extensions.version')}"
-                                    value="#{resource['images/primefaces-extensions.png']}"
-                                    height="100" width="100"/>
-                </p:link>
-            </p:panelGrid>
-        </p:panel>
-        <p:panel id="panelJsfUtilityLibraries" header="JSF Utility Libraries" >
-            <p:panelGrid columns="#{starterMBean.jsfComponents eq 'BootsFaces' ? 2 : 1}" layout="grid">
-                <p:link href="http://angularfaces.com" rendered="#{starterMBean.jsfComponents eq 'BootsFaces'}">
-                    <p:graphicImage title="AngularFaces ${environment.getProperty('angularfaces.version')}" alt="AngularFaces ${environment.getProperty('angularfaces.version')}"
-                                    value="#{resource['images/angularfaces.png']}"
-                                    height="100" width="100"/>
-                </p:link>
+        </p:tab>
+        
+        <p:tab title="JSF Utility Library" id="tabJsfUtilityLibrary" >
+            <p:panel id="panelJsfUtilityLibraries" header="OmniFaces: JSF Utility Library" >
                 <p:link href="http://omnifaces.org">
                     <p:graphicImage title="OmniFaces ${environment.getProperty('omnifaces.version')}" alt="OmniFaces ${environment.getProperty('omnifaces.version')}"
                                     value="#{resource['images/omnifaces.png']}"
                                     height="100" width="100"/>
-                </p:link>
-            </p:panelGrid>
-        </p:panel>
-    </p:panel>
+                </p:link>        
+            </p:panel>
+        </p:tab>
+        
+        <p:tab title="JSF Components" id="tabJsfComponents" >
+            <p:panel id="panelJsfComponents" header="#{starterMBean.jsfComponentsHeader} : Jsf Components" >
+                <p:selectManyMenu id="jsfComponents" value="#{starterMBean.selectedJsfComponents}" 
+                                  showCheckbox="true" var="t" converter="jsfComponentConverter">
+                    <f:selectItems value="#{starterMBean.jsfComponents}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
+                    <p:ajax update="panelJsfComponents panelPom" />
+                    <p:column>
+                        <h:outputText value="#{t.name}" />
+                    </p:column>
+                    <p:column>
+                        <ui:repeat var="jsfComponentLink" value="#{t.links}">
+                            <p:link href="${jsfComponentLink.site}">
+                                <p:graphicImage title="#{jsfComponentLink.name} #{jsfComponentLink.version}" alt="#{t.name} #{jsfComponentLink.version}"
+                                                value="#{resource[jsfComponentLink.image]}"
+                                                height="100" width="100"/>
+                            </p:link>
+                        </ui:repeat>
+                    </p:column>
+                </p:selectManyMenu>
+            </p:panel>
+        </p:tab>
+    
+        <p:tab title="Add to your pom.xml" id="tabPom" >        
+            <p:panel id="panelPom" header="Add to your pom.xml" >
+                <pe:codeMirror mode="xml" theme="blackboard" lineNumbers="true" value="#{starterMBean.pom}" />
+            </p:panel>
+        </p:tab>
+    </p:tabView>
 </ui:composition>

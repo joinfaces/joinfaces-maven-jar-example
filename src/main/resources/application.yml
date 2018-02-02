@@ -16,7 +16,7 @@ undertow:
 cdi:
   version: @cdi.version@
 mojarra:
-  version: @javax.faces.version@
+  version: @mojarra.version@
 myfaces:
   version: @myfaces.version@
 omnifaces:
