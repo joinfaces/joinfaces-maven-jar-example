@@ -50,7 +50,7 @@ public class FreemarkerUtils {
 	 * @throws TemplateException template exception
 	 */
 	public String mergeTemplate(Map<String, Object> map, String templateName) throws TemplateException, IOException {
-		Template template = configuration.getTemplate(templateName, "UTF-8");
+		Template template = this.configuration.getTemplate(templateName, "UTF-8");
 
 		return FreeMarkerTemplateUtils.processTemplateIntoString(template, map);
 	}

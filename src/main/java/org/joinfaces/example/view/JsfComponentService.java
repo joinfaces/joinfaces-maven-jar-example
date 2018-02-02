@@ -75,14 +75,14 @@ public class JsfComponentService {
 
 	@PostConstruct
 	public void init() {
-		jsfComponents = new ArrayList<>();
+		this.jsfComponents = new ArrayList<>();
 		JsfComponent primefaces = jsfComponent(PRIMEFACES, "http://primefaces.org");
 		primefaces.getLinks().add(jsfComponentLink(PRIMEFACES_EXTENSIONS, "http://primefaces-extensions.github.io"));
-		jsfComponents.add(primefaces);
-		jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net"));
-		jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org"));
-		jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com"));
-		jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces"));
+		this.jsfComponents.add(primefaces);
+		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net"));
+		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org"));
+		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com"));
+		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces"));
 	}
 
 	private JsfComponent jsfComponent(String name, String siteLink) {
@@ -101,7 +101,7 @@ public class JsfComponentService {
 				.name(name)
 				.site(siteLink)
 				.image("images/" + name.toLowerCase() + ".png")
-				.version(environment.getProperty(name.toLowerCase() + ".version"))
+				.version(this.environment.getProperty(name.toLowerCase() + ".version"))
 				.build();
 	}
 

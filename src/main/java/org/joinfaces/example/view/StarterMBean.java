@@ -75,8 +75,8 @@ public class StarterMBean implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		jsfComponents = jsfComponentService.getJsfComponents();
-		selectedJsfComponents = new ArrayList<>();
+		this.jsfComponents = this.jsfComponentService.getJsfComponents();
+		this.selectedJsfComponents = new ArrayList<>();
 	}
 
 	public List<String> getArtifactIds() {
@@ -127,38 +127,38 @@ public class StarterMBean implements Serializable {
 	}
 
 	public boolean isTomcatSelected() {
-		return servletContainer.equals(TOMCAT);
+		return this.servletContainer.equals(TOMCAT);
 	}
 
 	public boolean isMojarraSelected() {
-		return jsfImplementation.equals(MOJARRA);
+		return this.jsfImplementation.equals(MOJARRA);
 	}
 
 	public boolean isPrimeFacesSelected() {
-		return jsfComponentService.containsByName(JsfComponentService.PRIMEFACES, this.selectedJsfComponents);
+		return this.jsfComponentService.containsByName(JsfComponentService.PRIMEFACES, this.selectedJsfComponents);
 	}
 
 	public boolean isBootsFacesSelected() {
-		return jsfComponentService.containsByName(JsfComponentService.BOOTSFACES, this.selectedJsfComponents);
+		return this.jsfComponentService.containsByName(JsfComponentService.BOOTSFACES, this.selectedJsfComponents);
 	}
 
 	public boolean isButterFacesSelected() {
-		return jsfComponentService.containsByName(JsfComponentService.BUTTERFACES, this.selectedJsfComponents);
+		return this.jsfComponentService.containsByName(JsfComponentService.BUTTERFACES, this.selectedJsfComponents);
 	}
 
 	public boolean isAngularFacesSelected() {
-		return jsfComponentService.containsByName(JsfComponentService.ANGULARFACES, this.selectedJsfComponents);
+		return this.jsfComponentService.containsByName(JsfComponentService.ANGULARFACES, this.selectedJsfComponents);
 	}
 
 	public boolean isRichFacesSelected() {
-		return jsfComponentService.containsByName(JsfComponentService.RICHFACES, this.selectedJsfComponents);
+		return this.jsfComponentService.containsByName(JsfComponentService.RICHFACES, this.selectedJsfComponents);
 	}
 
 	public String getPom() throws IOException, TemplateException {
 		Map<String, Object> map = new HashMap<>();
-		map.put("environment", environment);
+		map.put("environment", this.environment);
 		map.put("starterMBean", this);
-		return freemarkerUtils.mergeTemplate(map, "pom.ftl");
+		return this.freemarkerUtils.mergeTemplate(map, "pom.ftl");
 	}
 
 	public void setPom(String pom) {

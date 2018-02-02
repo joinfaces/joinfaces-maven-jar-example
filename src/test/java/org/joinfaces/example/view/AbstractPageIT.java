@@ -95,7 +95,7 @@ public class AbstractPageIT {
 	}
 
 	private String getPreffix() {
-		return "http://localhost:" + port;
+		return "http://localhost:" + this.port;
 	}
 
 }

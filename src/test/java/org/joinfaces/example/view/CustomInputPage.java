@@ -41,9 +41,9 @@ public class CustomInputPage extends AbstractPageComponent {
 	}
 
 	public void submit(String message) {
-		inputByName.sendKeys(message);
+		this.inputByName.sendKeys(message);
 
-		buttonByName.click();
+		this.buttonByName.click();
 
 		By outputTextBy = getOutputTextBy();
 		String expectedValue = "You entered: " + message;

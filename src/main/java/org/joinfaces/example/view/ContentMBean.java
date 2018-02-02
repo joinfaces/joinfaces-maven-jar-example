@@ -44,10 +44,10 @@ public class ContentMBean implements Serializable {
 	public void init() {
 		String initPage = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("content");
 		if (initPage != null && !initPage.trim().isEmpty()) {
-			page = initPage;
+			this.page = initPage;
 		}
 		else {
-			page = "starter";
+			this.page = "starter";
 		}
 	}
 }

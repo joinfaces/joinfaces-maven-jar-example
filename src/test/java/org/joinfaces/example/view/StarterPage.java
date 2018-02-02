@@ -60,23 +60,23 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	public void clickServletContainerTab() {
-		servletContainerTab.click();
+		this.servletContainerTab.click();
 	}
 
 	public void clickJetty() {
-		click(jettyRadioButtonInput, "Jetty", getServletContainerTabHeaderBy());
+		click(this.jettyRadioButtonInput, "Jetty", getServletContainerTabHeaderBy());
 	}
 
 	public void clickJsfImplementationTab() {
-		jsfImplementationTab.click();
+		this.jsfImplementationTab.click();
 	}
 
 	public void clickMyFaces() {
-		click(myfacesRadioButtonInput, "MyFaces", getJsfImplementationTabHeaderBy());
+		click(this.myfacesRadioButtonInput, "MyFaces", getJsfImplementationTabHeaderBy());
 	}
 
 	public void clickJsfComponentsTab() {
-		jsfComponentsTab.click();
+		this.jsfComponentsTab.click();
 	}
 
 	private WebElement jsfComponentRadioButtonInput(int index) {
@@ -104,7 +104,7 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	public void clickPomTab() {
-		pomTab.click();
+		this.pomTab.click();
 	}
 
 	private By getTabHeaderBy(String tab) {
