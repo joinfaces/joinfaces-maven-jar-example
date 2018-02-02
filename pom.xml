@@ -27,9 +27,9 @@
         <!-- Uncomment this if you want to use with java6
         <jackson.version>2.7.6</jackson.version>
         -->
-        <selenium.version>3.6.0</selenium.version>
+        <selenium.version>3.8.1</selenium.version>
         <htmlunit.version>2.29</htmlunit.version>
-        <webdrivermanager.version>1.7.2</webdrivermanager.version>
+        <webdrivermanager.version>2.1.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
