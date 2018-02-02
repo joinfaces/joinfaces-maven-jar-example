@@ -5,14 +5,14 @@
 
     <parent>
         <groupId>org.joinfaces</groupId>
-        <artifactId>jsf-spring-boot-parent</artifactId>
-        <version>2.4.1</version>
+        <artifactId>joinfaces-parent</artifactId>
+        <version>3.0.0.RC1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>2.4.1-SNAPSHOT</version>
+    <version>3.0.0.RC1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
@@ -21,10 +21,16 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <selenium.version>3.5.3</selenium.version>
-        <htmlunit.version>2.27</htmlunit.version>
-        <webdrivermanager.version>1.7.1</webdrivermanager.version>
-        <all-themes.version>1.0.10</all-themes.version>
+        <!-- Uncomment this if you want to use tomcat7
+        <tomcat.version>7.0.72</tomcat.version>
+        -->
+        <!-- Uncomment this if you want to use with java6
+        <jackson.version>2.7.6</jackson.version>
+        -->
+        <selenium.version>3.8.1</selenium.version>
+        <htmlunit.version>2.29</htmlunit.version>
+        <webdrivermanager.version>2.1.0</webdrivermanager.version>
+        <primefaces-theme.version>1.0.10</primefaces-theme.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
@@ -41,6 +47,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.annotation</groupId>
+                    <artifactId>javax.annotation-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>		
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,8 +69,30 @@
         </dependency>     
         <dependency>
             <groupId>org.joinfaces</groupId>
-            <artifactId>jsf-undertow-myfaces-spring-boot-starter</artifactId>
+            <artifactId>primefaces-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.joinfaces</groupId>
+                    <artifactId>tomcat-spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.joinfaces</groupId>
+                    <artifactId>mojarra-spring-boot-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>undertow-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>myfaces-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>  
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -128,8 +162,8 @@
         </dependency>
         <dependency>
             <groupId>org.primefaces.themes</groupId>
-            <artifactId>all-themes</artifactId>
-            <version>${all-themes.version}</version>
+            <artifactId>overcast</artifactId>
+            <version>${primefaces-theme.version}</version>
         </dependency>    
     </dependencies>
 	
@@ -151,6 +185,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                </configuration>                
             </plugin>
         </plugins>
     </build>
@@ -159,8 +196,37 @@
         <repository>  
             <id>primefaces-maven-repository</id>  
             <name>PrimeFaces Maven Repository</name>  
-            <url>http://repository.primefaces.org</url>  
+            <url>http://repository.primefaces.org</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>        
+        <repository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <url>http://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>            
+        </pluginRepository>
+    </pluginRepositories>
 </project>

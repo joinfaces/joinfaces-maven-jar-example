@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
     <action>
+        <actionName>run</actionName>
+        <packagings>
+            <packaging>jar</packaging>
+        </packagings>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
+        </goals>
+        <properties>
+            <exec.args>-classpath %classpath org.joinfaces.example.JoinFacesExampleApplicationMain</exec.args>
+            <exec.executable>java</exec.executable>
+        </properties>
+    </action>
+    <action>
         <actionName>debug</actionName>
         <packagings>
             <packaging>jar</packaging>
@@ -30,29 +44,9 @@
             <activatedProfile>check-pmd</activatedProfile>
             <activatedProfile>check-findbugs</activatedProfile>
         </activatedProfiles>
-    </action>
-    <action>
-        <actionName>CUSTOM-cobertura</actionName>
-        <displayName>cobertura</displayName>
-        <goals>
-            <goal>clean</goal>
-            <goal>cobertura:check-integration-test</goal>
-        </goals>
-        <activatedProfiles>
-            <activatedProfile>attach-integration-test</activatedProfile>
-            <activatedProfile>check-cobertura-integration-test</activatedProfile>
-        </activatedProfiles>
-    </action>
-    <action>
-        <actionName>CUSTOM-cobertura-site</actionName>
-        <displayName>cobertura-site</displayName>
-        <goals>
-            <goal>clean</goal>
-            <goal>cobertura:cobertura-integration-test</goal>
-        </goals>
-        <activatedProfiles>
-            <activatedProfile>attach-integration-test</activatedProfile>
-        </activatedProfiles>
+        <properties>
+            <skipTests>true</skipTests>
+        </properties>
     </action>
     <action>
         <actionName>CUSTOM-site</actionName>
@@ -63,42 +57,13 @@
         </goals>
     </action>
     <action>
-        <actionName>CUSTOM-integration-test</actionName>
-        <displayName>integration-test</displayName>
+        <actionName>CUSTOM-skipTests</actionName>
+        <displayName>skipTests</displayName>
         <goals>
-            <goal>clean</goal>
             <goal>install</goal>
         </goals>
-        <activatedProfiles>
-            <activatedProfile>attach-integration-test</activatedProfile>
-        </activatedProfiles>
+        <properties>
+            <skipTests>true</skipTests>
+        </properties>
     </action>
-    <action>
-            <actionName>run</actionName>
-            <packagings>
-                <packaging>jar</packaging>
-            </packagings>
-            <goals>
-                <goal>process-classes</goal>
-                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
-            </goals>
-            <properties>
-                <exec.args>-classpath %classpath org.joinfaces.example.JoinFacesExampleApplicationMain</exec.args>
-                <exec.executable>java</exec.executable>
-            </properties>
-        </action>
-    <action>
-            <actionName>profile</actionName>
-            <packagings>
-                <packaging>jar</packaging>
-            </packagings>
-            <goals>
-                <goal>process-classes</goal>
-                <goal>org.codehaus.mojo:exec-maven-plugin:1.2.1:exec</goal>
-            </goals>
-            <properties>
-                <exec.args>-classpath %classpath org.joinfaces.example.JoinFacesExampleApplicationMain</exec.args>
-                <exec.executable>java</exec.executable>
-            </properties>
-        </action>
 </actions>
