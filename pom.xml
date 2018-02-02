@@ -28,7 +28,7 @@
         <jackson.version>2.7.6</jackson.version>
         -->
         <selenium.version>3.6.0</selenium.version>
-        <htmlunit.version>2.27</htmlunit.version>
+        <htmlunit.version>2.29</htmlunit.version>
         <webdrivermanager.version>1.7.2</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         
