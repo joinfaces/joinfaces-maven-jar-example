@@ -37,7 +37,7 @@ public class WelcomeConverterPage extends AbstractPageComponent {
 
 	@Override
 	protected String url() {
-		return "/index.jsf?content=welcomeConverter";
+		return "/welcomeConverter.jsf";
 	}
 
 	public void submit(String message) {

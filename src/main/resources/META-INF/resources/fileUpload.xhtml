@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template.xhtml">
+    <ui:define name="content" >
+        <p:panelGrid columns="1" layout="grid">
+            <p:fileUpload id="fileUpload" value="#{fileMBean.uploadedFile}" label="1 - Upload" mode="simple" skinSimple="true"/>
+            <p:commandButton id="submitButton" value="2 - Submit" ajax="false" actionListener="#{fileMBean.upload}" />
+            <p:commandButton id="downloadButton" disabled="#{empty fileMBean.downloadFile}" value="3 - Download #{fileMBean.uploadedFile.fileName}" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                <p:fileDownload value="#{fileMBean.downloadFile}" />
+            </p:commandButton>
+        </p:panelGrid>
+    </ui:define>
+</ui:composition>
