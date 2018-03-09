@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.userDetailsService(userDetailsService())
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/index.jsf").permitAll()
+				.antMatchers("/**.jsf").permitAll()
 				.antMatchers("/javax.faces.resource/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login.jsf")
 				.permitAll()
 				.failureUrl("/login.jsf?error=true")
-				.defaultSuccessUrl("/index.jsf")
+				.defaultSuccessUrl("/starter.jsf")
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login.jsf");
