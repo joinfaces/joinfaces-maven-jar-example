@@ -16,15 +16,11 @@
 
 package org.joinfaces.example;
 
-import java.util.Arrays;
-
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
@@ -45,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.userDetailsService(userDetailsService())
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
-				.antMatchers("/index.jsf").permitAll()
+				.antMatchers("/**.jsf").permitAll()
 				.antMatchers("/javax.faces.resource/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
@@ -53,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login.jsf")
 				.permitAll()
 				.failureUrl("/login.jsf?error=true")
-				.defaultSuccessUrl("/index.jsf")
+				.defaultSuccessUrl("/starter.jsf")
 				.and()
 				.logout()
 				.logoutSuccessUrl("/login.jsf");
@@ -65,8 +61,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected UserDetailsService userDetailsService() {
-		UserDetails user1 = new User("persapiens", "123", AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_ADMIN"));
-		UserDetails user2 = new User("nyilmaz", "qwe", AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
-		return new InMemoryUserDetailsManager(Arrays.asList(user1, user2));
+		InMemoryUserDetailsManager result = new InMemoryUserDetailsManager();
+		result.createUser(User.withDefaultPasswordEncoder().username("persapiens").password("123").authorities("ROLE_ADMIN").build());
+		result.createUser(User.withDefaultPasswordEncoder().username("nyilmaz").password("qwe").authorities("ROLE_USER").build());
+		return result;
 	}
 }
