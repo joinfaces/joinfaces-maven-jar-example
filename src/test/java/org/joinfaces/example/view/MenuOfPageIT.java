@@ -36,8 +36,8 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		StarterPage page = menu.clickStarter();
 
-		assertThat(page.getPanelHeaderText())
-			.contains("jsf-spring-boot-starter");
+		assertThat(page.getServletContainerTabHeaderText())
+			.contains("Tomcat : Servlet Container");
 	}
 
 	@Test
@@ -51,6 +51,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 			.isFalse();
 	}
 
+	/*
 	@Test
 	public void clickCustomInput() {
 		MenuOfPage menu = initElements(MenuOfPage.class);
@@ -61,6 +62,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 		assertThat(page.getOutputText())
 			.isEqualTo("You entered: null");
 	}
+	*/
 
 	@Test
 	public void clickMyTag() {
@@ -84,6 +86,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 			.isEqualTo("Hi Composite Component");
 	}
 
+	/*
 	@Test
 	public void clickWelcomeConverter() {
 		MenuOfPage menu = initElements(MenuOfPage.class);
@@ -95,4 +98,5 @@ public class MenuOfPageIT extends AbstractPageIT {
 		assertThat(page.getOutputText())
 			.isEqualTo("Nick welcome!");
 	}
+	*/
 }

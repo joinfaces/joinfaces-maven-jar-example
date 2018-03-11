@@ -3,18 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html" 
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions">
+      xmlns:p="http://primefaces.org/ui">
     <f:view contentType="text/html">
         <h:head>
             <title>.:: Login JoinFaces Example ::.</title>
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
             <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
-            <h:outputStylesheet name="starter.css" />
+            <h:outputStylesheet library="css" name="starter.css" />
         </h:head>
         <h:body>
-            <pe:layout fullPage="true" >
-                <pe:layoutPane position="center" >
+            <p:layout fullPage="true" >
+                <p:layoutUnit position="center" >
                     <h:form prependId="false">
                         <div id="starterDiv" class="ui-fluid">
                             <center>
@@ -31,8 +30,8 @@
                             </center>
                         </div>
                     </h:form>
-                </pe:layoutPane>
-            </pe:layout>
+                </p:layoutUnit>
+            </p:layout>
         </h:body>
     </f:view>
 </html>

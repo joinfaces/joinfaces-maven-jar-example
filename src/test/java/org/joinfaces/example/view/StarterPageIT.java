@@ -34,26 +34,117 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		assertThat(starterPage.getPanelHeaderText())
-			.contains("jsf-spring-boot-starter");
+		assertThat(starterPage.getServletContainerTabHeaderText())
+			.contains("Servlet Container");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("<joinfaces.version>");
 	}
 
 	@Test
-	public void clickJettyMyfacesButterfaces() {
+	public void clickJetty() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
+		starterPage.clickServletContainerTab();
 		starterPage.clickJetty();
-		assertThat(starterPage.getPanelHeaderText())
-			.contains("jetty");
+		assertThat(starterPage.getServletContainerTabHeaderText())
+			.contains("Jetty");
 
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("jetty-spring-boot-starter");
+	}
+
+	@Test
+	public void clickMyfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfImplementationTab();
 		starterPage.clickMyFaces();
-		assertThat(starterPage.getPanelHeaderText())
-			.contains("myfaces");
+		assertThat(starterPage.getJsfImplementationTabHeaderText())
+			.contains("MyFaces");
 
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("myfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickPrimefaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickPrimeFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("PrimeFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("primefaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickBootsfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickBootsFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("BootsFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("bootsfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickButterfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
 		starterPage.clickButterFaces();
-		assertThat(starterPage.getPanelHeaderText())
-			.contains("butterfaces");
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("ButterFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("butterfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickAngularfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickAngularFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("AngularFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("angularfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickRichfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickRichFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("RichFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("richfaces-spring-boot-starter");
 	}
 
 }
