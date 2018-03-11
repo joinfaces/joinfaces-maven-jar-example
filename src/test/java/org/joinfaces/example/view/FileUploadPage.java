@@ -37,7 +37,7 @@ public class FileUploadPage extends AbstractPageComponent {
 
 	@Override
 	protected String url() {
-		return "/index.jsf?content=fileUpload";
+		return "/fileUpload.jsf";
 	}
 
 	private By getDownloadButtonBy() {
@@ -45,9 +45,9 @@ public class FileUploadPage extends AbstractPageComponent {
 	}
 
 	public void upload(String file) {
-		fileUploadInput.sendKeys(file);
+		this.fileUploadInput.sendKeys(file);
 
-		submitButton.click();
+		this.submitButton.click();
 
 		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
 	}

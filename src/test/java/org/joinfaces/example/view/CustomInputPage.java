@@ -37,13 +37,13 @@ public class CustomInputPage extends AbstractPageComponent {
 
 	@Override
 	protected String url() {
-		return "/index.jsf?content=customInput";
+		return "/customInput.jsf";
 	}
 
 	public void submit(String message) {
-		inputByName.sendKeys(message);
+		this.inputByName.sendKeys(message);
 
-		buttonByName.click();
+		this.buttonByName.click();
 
 		By outputTextBy = getOutputTextBy();
 		String expectedValue = "You entered: " + message;

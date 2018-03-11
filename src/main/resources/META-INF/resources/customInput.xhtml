@@ -3,8 +3,11 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:custom="http://joinfaces.org/example">
-    <p:panelGrid columns="1" layout="grid" id="panel">
-        <custom:custom-input id="customInput"/>
-    </p:panelGrid>
+                xmlns:custom="http://joinfaces.org/example"
+                template="/template.xhtml">
+    <ui:define name="content" >
+        <p:panelGrid columns="1" layout="grid" id="panel">
+            <custom:custom-input id="customInput"/>
+        </p:panelGrid>
+    </ui:define>
 </ui:composition>
