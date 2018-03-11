@@ -65,17 +65,9 @@
             <exclusions>
                 <exclusion>
                     <groupId>org.joinfaces</groupId>
-                    <artifactId>tomcat-spring-boot-starter</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.joinfaces</groupId>
                     <artifactId>mojarra-spring-boot-starter</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.joinfaces</groupId>
-            <artifactId>jetty-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.joinfaces</groupId>
