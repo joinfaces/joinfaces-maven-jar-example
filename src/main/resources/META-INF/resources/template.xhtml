@@ -12,8 +12,8 @@
             <title>.:: JoinFaces Example ::.</title>
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
             <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
-            <h:outputStylesheet name="starter.css" />
-            <h:outputScript name="starter.js" />
+            <h:outputStylesheet library="css" name="starter.css" />
+            <h:outputScript library="js" name="starter.js" />
         </h:head>
 
         <h:body>            
@@ -32,23 +32,17 @@
                         <div id="starterDiv" class="ui-fluid">
                             <center>
                                 <p:menubar>
-                                    <p:menuitem value="Starter" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=starter')"
-                                                actionListener="#{contentMBean.setPage('starter')}" />
-                                    <p:menuitem value="File Upload" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=fileUpload')"
-                                                actionListener="#{contentMBean.setPage('fileUpload')}" />
-                                    <p:menuitem value="Custom Input" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=customInput')"
-                                                actionListener="#{contentMBean.setPage('customInput')}" />
-                                    <p:menuitem value="My Tag" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=helloTag')"
-                                                actionListener="#{contentMBean.setPage('helloTag')}" />
-                                    <p:menuitem value="Hi CC" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=hiCC')"
-                                                actionListener="#{contentMBean.setPage('hiCC')}" />
-                                    <p:menuitem value="Welcome Converter" ajax="true" update="@form" onsuccess="updateHistory('Starter', 'index.jsf?content=welcomeConverter')"
-                                                actionListener="#{contentMBean.setPage('welcomeConverter')}" />
+                                    <p:menuitem value="Starter" url="/starter.jsf" />
+                                    <p:menuitem value="File Upload" url="fileUpload.jsf" />
+                                    <p:menuitem value="Custom Input" url="customInput.jsf" />
+                                    <p:menuitem value="My Tag" url="helloTag.jsf" />
+                                    <p:menuitem value="Hi CC" url="hiCC.jsf" />
+                                    <p:menuitem value="Welcome Converter" url="welcomeConverter.jsf" />
                                 </p:menubar>
 
                                 <p:spacer height="10" />
 
-                                <ui:include id="spa_content" src="content/#{contentMBean.page}.xhtml"/>
+                                <ui:insert name="content" />
                             </center>
                         </div>
                     </h:form>

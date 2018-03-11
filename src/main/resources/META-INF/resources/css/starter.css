@@ -1,0 +1,13 @@
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+#starterDiv{
+  padding-top: 3%;
+}
+
+.CodeMirror { 
+  text-align: left; 
+  height: auto !important;
+}

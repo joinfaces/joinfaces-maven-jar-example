@@ -17,24 +17,23 @@
 package org.joinfaces.example.view;
 
 import java.io.Serializable;
+import java.util.List;
 
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
- * Welcome Page.
+ * Store information about jsf component.
+ *
  * @author Marcelo Fernandes
  */
-@Setter
 @Getter
-@Named
-@ViewScoped
-public class WelcomeMBean implements Serializable {
+@Builder
+public class JsfComponent implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private String text = "";
+	private List<JsfComponentLink> links;
+
+	private String name;
 }

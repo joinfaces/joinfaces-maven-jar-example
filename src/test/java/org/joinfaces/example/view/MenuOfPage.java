@@ -37,7 +37,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public StarterPage clickStarter() {
-		menuAnchors.get(0).click();
+		this.menuAnchors.get(0).click();
 
 		StarterPage page = initElements(StarterPage.class);
 
@@ -45,7 +45,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public FileUploadPage clickFileUpload() {
-		menuAnchors.get(1).click();
+		this.menuAnchors.get(1).click();
 
 		FileUploadPage page = initElements(FileUploadPage.class);
 
@@ -53,7 +53,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public CustomInputPage clickCustomInput() {
-		menuAnchors.get(2).click();
+		this.menuAnchors.get(2).click();
 
 		CustomInputPage page = initElements(CustomInputPage.class);
 
@@ -61,7 +61,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public HelloTagPage clickHelloTag() {
-		menuAnchors.get(3).click();
+		this.menuAnchors.get(3).click();
 
 		HelloTagPage page = initElements(HelloTagPage.class);
 
@@ -69,7 +69,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public HiCCPage clickHiCC() {
-		menuAnchors.get(4).click();
+		this.menuAnchors.get(4).click();
 
 		HiCCPage page = initElements(HiCCPage.class);
 
@@ -77,7 +77,7 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	public WelcomeConverterPage clickWelcomeConverter() {
-		menuAnchors.get(5).click();
+		this.menuAnchors.get(5).click();
 
 		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
 
