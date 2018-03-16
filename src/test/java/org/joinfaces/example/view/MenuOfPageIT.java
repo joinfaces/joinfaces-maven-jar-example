@@ -51,7 +51,6 @@ public class MenuOfPageIT extends AbstractPageIT {
 			.isFalse();
 	}
 
-	/*
 	@Test
 	public void clickCustomInput() {
 		MenuOfPage menu = initElements(MenuOfPage.class);
@@ -62,7 +61,6 @@ public class MenuOfPageIT extends AbstractPageIT {
 		assertThat(page.getOutputText())
 			.isEqualTo("You entered: null");
 	}
-	*/
 
 	@Test
 	public void clickMyTag() {
@@ -86,7 +84,6 @@ public class MenuOfPageIT extends AbstractPageIT {
 			.isEqualTo("Hi Composite Component");
 	}
 
-	/*
 	@Test
 	public void clickWelcomeConverter() {
 		MenuOfPage menu = initElements(MenuOfPage.class);
@@ -98,5 +95,4 @@ public class MenuOfPageIT extends AbstractPageIT {
 		assertThat(page.getOutputText())
 			.isEqualTo("Nick welcome!");
 	}
-	*/
 }
