@@ -38,7 +38,6 @@ public class CustomInputPageIT extends AbstractPageIT {
 			.isEqualTo("You entered: null");
 	}
 
-	/*
 	@Test
 	public void submitHello() {
 		CustomInputPage customInputPage = initElements(CustomInputPage.class);
@@ -49,5 +48,4 @@ public class CustomInputPageIT extends AbstractPageIT {
 		assertThat(customInputPage.getOutputText())
 			.isEqualTo("You entered: Hello");
 	}
-	*/
 }

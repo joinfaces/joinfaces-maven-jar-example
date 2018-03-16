@@ -38,7 +38,6 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 			.isEqualTo("");
 	}
 
-	/*
 	@Test
 	public void submitHello() {
 		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
@@ -49,6 +48,5 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 		assertThat(page.getOutputText())
 			.isEqualTo("Hello welcome!");
 	}
-	*/
 
 }
