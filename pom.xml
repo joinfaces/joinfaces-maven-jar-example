@@ -63,10 +63,10 @@
             <groupId>org.joinfaces</groupId>
             <artifactId>primefaces-spring-boot-starter</artifactId>
             <exclusions>
-                <exclusion>
-                    <groupId>org.joinfaces</groupId>
-                    <artifactId>mojarra-spring-boot-starter</artifactId>
-                </exclusion>
+              <exclusion>
+                <groupId>org.joinfaces</groupId>
+                <artifactId>mojarra-spring-boot-starter</artifactId>
+              </exclusion>
             </exclusions>
         </dependency>
         <dependency>
