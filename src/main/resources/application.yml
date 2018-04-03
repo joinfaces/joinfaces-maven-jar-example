@@ -6,7 +6,7 @@ jsf:
 joinfaces:
   version: @project.parent.version@
 spring-boot:
-  version: @project.parent.parent.version@
+  version: @project.parent.parent.parent.version@
 tomcat:
   version: @tomcat.version@
 jetty:
