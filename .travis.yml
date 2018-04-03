@@ -1,15 +1,12 @@
 dist: trusty
 language: java
 jdk:
-  - oraclejdk8
+  - openjdk8
 cache:
   directories:
   - $HOME/.m2
 addons:
   firefox: latest
-  apt:
-    packages:
-      - oracle-java8-installer
 before_script:
   - echo "Extracting firefox and setting PATH variable..."
   - tar -xjf /tmp/firefox-*.tar.bz2 --directory /tmp
@@ -24,8 +21,8 @@ install: ./mvnw -B clean validate
 
 script:
   - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DskipTests=true install
-  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=firefox verify
-#  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=chrome verify
+#  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=firefox verify
+  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=chrome verify
 
 after_success:
   - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
