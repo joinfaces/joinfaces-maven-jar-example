@@ -6,23 +6,24 @@
     <parent>
         <groupId>org.joinfaces</groupId>
         <artifactId>joinfaces-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>3.0.2-SNAPSHOT</version>
+    <version>3.1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <selenium.version>3.10.0</selenium.version>
-        <htmlunit.version>2.29</htmlunit.version>
-        <webdrivermanager.version>2.1.0</webdrivermanager.version>
+        <selenium.version>3.11.0</selenium.version>
+        <htmlunit.version>2.30</htmlunit.version>
+        <webdrivermanager.version>2.2.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
+        <jarchivelib.version>0.7.1</jarchivelib.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
@@ -88,6 +89,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>rewrite-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-fileupload</groupId>
@@ -156,7 +161,13 @@
             <groupId>org.primefaces.themes</groupId>
             <artifactId>overcast</artifactId>
             <version>${primefaces-theme.version}</version>
-        </dependency>    
+        </dependency>
+        <dependency>
+            <groupId>org.rauschig</groupId>
+            <artifactId>jarchivelib</artifactId>
+            <version>${jarchivelib.version}</version>
+            <scope>test</scope>
+        </dependency>        
     </dependencies>
 	
     <build>
