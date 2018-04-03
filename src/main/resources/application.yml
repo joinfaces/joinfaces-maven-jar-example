@@ -3,7 +3,6 @@ jsf:
   FACELETS_LIBRARIES: /tags/tags.taglib.xml
   primefaces:
     theme: overcast
-    moveScriptsToBottom: true
 joinfaces:
   version: @project.parent.version@
 spring-boot:
@@ -21,7 +20,7 @@ mojarra:
 myfaces:
   version: @myfaces.version@
 omnifaces:
-  version: @omnifaces.version@
+  version: @omnifaces1.version@
 angularfaces:
   version: @angularfaces.version@
 primefaces:
