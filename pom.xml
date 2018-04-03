@@ -19,9 +19,9 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <selenium.version>3.10.0</selenium.version>
-        <htmlunit.version>2.29</htmlunit.version>
-        <webdrivermanager.version>2.1.0</webdrivermanager.version>
+        <selenium.version>3.11.0</selenium.version>
+        <htmlunit.version>2.30</htmlunit.version>
+        <webdrivermanager.version>2.2.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
