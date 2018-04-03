@@ -1,16 +1,12 @@
-dist: xenial
+dist: trusty
 language: java
 jdk:
-  - oraclejdk9
   - openjdk8
 cache:
   directories:
   - $HOME/.m2
 addons:
   firefox: latest
-  apt:
-    packages:
-      - oracle-java9-installer
 before_script:
   - echo "Extracting firefox and setting PATH variable..."
   - tar -xjf /tmp/firefox-*.tar.bz2 --directory /tmp
