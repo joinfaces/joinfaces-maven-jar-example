@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.joinfaces.example.view;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.servlet.ServletContext;
-import org.ocpsoft.rewrite.annotation.RewriteConfiguration;
+
 import org.ocpsoft.rewrite.config.Configuration;
 import org.ocpsoft.rewrite.config.ConfigurationBuilder;
 import org.ocpsoft.rewrite.config.Direction;
@@ -35,17 +36,17 @@ import org.ocpsoft.rewrite.servlet.config.Redirect;
 @ApplicationScoped
 public class RedirectToIndexConfigurationProvider extends HttpConfigurationProvider {
 
-    @Override
-    public Configuration getConfiguration(ServletContext t) {
-        return ConfigurationBuilder.begin()
-                .addRule()
-                .when(Direction.isInbound().and(Path.matches("/")))
-                .perform(Redirect.temporary("/starter.jsf"));
-    }
+	@Override
+	public Configuration getConfiguration(ServletContext t) {
+		return ConfigurationBuilder.begin()
+			.addRule()
+			.when(Direction.isInbound().and(Path.matches("/")))
+			.perform(Redirect.temporary("/starter.jsf"));
+	}
 
-    @Override
-    public int priority() {
-        return 10;
-    }
-    
+	@Override
+	public int priority() {
+		return 10;
+	}
+
 }
