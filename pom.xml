@@ -23,6 +23,7 @@
         <htmlunit.version>2.30</htmlunit.version>
         <webdrivermanager.version>2.2.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
+        <jarchivelib.version>0.7.1</jarchivelib.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
@@ -142,7 +143,13 @@
             <groupId>org.primefaces.themes</groupId>
             <artifactId>overcast</artifactId>
             <version>${primefaces-theme.version}</version>
-        </dependency>    
+        </dependency>
+        <dependency>
+            <groupId>org.rauschig</groupId>
+            <artifactId>jarchivelib</artifactId>
+            <version>${jarchivelib.version}</version>
+            <scope>test</scope>
+        </dependency>        
     </dependencies>
 	
     <build>
