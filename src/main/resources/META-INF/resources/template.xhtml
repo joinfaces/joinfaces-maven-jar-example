@@ -7,48 +7,45 @@
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <f:view contentType="text/html">
+    <h:head>
+        <title>.:: JoinFaces Example ::.</title>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+        <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
+        <h:outputStylesheet library="css" name="starter.css" />
+        <h:outputScript library="js" name="starter.js" />
+    </h:head>
 
-        <h:head>            
-            <title>.:: JoinFaces Example ::.</title>
-            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
-            <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
-            <h:outputStylesheet library="css" name="starter.css" />
-            <h:outputScript library="js" name="starter.js" />
-        </h:head>
+    <h:body>
+        <pe:layout fullPage="true" >
+            <pe:layoutPane position="center" >
+                <h:form id="contentForm" prependId="false" enctype="multipart/form-data">
+                    <p:ajaxStatus onstart="PF('statusDialog').show();"
+                                  onsuccess="PF('statusDialog').hide();" />
+                    <p:dialog widgetVar="statusDialog" position="right top"
+                              draggable="false" resizable="false" closable="false"
+                              showHeader="false" modal="false">
+                        <center>
+                            <p:graphicImage value="#{resource['images/ajaxloading.gif']}" />
+                        </center>
+                    </p:dialog>
+                    <div id="starterDiv" class="ui-fluid">
+                        <center>
+                            <p:menubar>
+                                <p:menuitem value="Starter" url="/starter.jsf" />
+                                <p:menuitem value="File Upload" url="fileUpload.jsf" />
+                                <p:menuitem value="Custom Input" url="customInput.jsf" />
+                                <p:menuitem value="My Tag" url="helloTag.jsf" />
+                                <p:menuitem value="Hi CC" url="hiCC.jsf" />
+                                <p:menuitem value="Welcome Converter" url="welcomeConverter.jsf" />
+                            </p:menubar>
 
-        <h:body>            
-            <pe:layout fullPage="true" >
-                <pe:layoutPane position="center" >
-                    <h:form id="contentForm" prependId="false" enctype="multipart/form-data">
-                        <p:ajaxStatus onstart="PF('statusDialog').show();"
-                                      onsuccess="PF('statusDialog').hide();" />
-                        <p:dialog widgetVar="statusDialog" position="right top"
-                                  draggable="false" resizable="false" closable="false"
-                                  showHeader="false" modal="false">
-                            <center>
-                                <p:graphicImage value="#{resource['images/ajaxloading.gif']}" />
-                            </center>
-                        </p:dialog>
-                        <div id="starterDiv" class="ui-fluid">
-                            <center>
-                                <p:menubar>
-                                    <p:menuitem value="Starter" url="/starter.jsf" />
-                                    <p:menuitem value="File Upload" url="fileUpload.jsf" />
-                                    <p:menuitem value="Custom Input" url="customInput.jsf" />
-                                    <p:menuitem value="My Tag" url="helloTag.jsf" />
-                                    <p:menuitem value="Hi CC" url="hiCC.jsf" />
-                                    <p:menuitem value="Welcome Converter" url="welcomeConverter.jsf" />
-                                </p:menubar>
+                            <p:spacer height="10" />
 
-                                <p:spacer height="10" />
-
-                                <ui:insert name="content" />
-                            </center>
-                        </div>
-                    </h:form>
-                </pe:layoutPane>
-            </pe:layout>
-        </h:body>
-    </f:view>
+                            <ui:insert name="content" />
+                        </center>
+                    </div>
+                </h:form>
+            </pe:layoutPane>
+        </pe:layout>
+    </h:body>
 </html>
