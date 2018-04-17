@@ -27,7 +27,7 @@
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
-        <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</jacoco.exclude>        
+        <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
         <jacoco.totalLineRate>0.91</jacoco.totalLineRate>
         <jacoco.packageLineRate>0.90</jacoco.packageLineRate>
         <jacoco.lineRate>0.37</jacoco.lineRate>
