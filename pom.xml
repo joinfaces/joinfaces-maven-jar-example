@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.joinfaces</groupId>
         <artifactId>joinfaces-parent</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
@@ -21,13 +21,13 @@
     <properties>
         <selenium.version>3.11.0</selenium.version>
         <htmlunit.version>2.30</htmlunit.version>
-        <webdrivermanager.version>2.2.0</webdrivermanager.version>
+        <webdrivermanager.version>2.2.1</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         <jarchivelib.version>0.7.1</jarchivelib.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
-        <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplicationMain.class</jacoco.exclude>        
+        <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
         <jacoco.totalLineRate>0.91</jacoco.totalLineRate>
         <jacoco.packageLineRate>0.90</jacoco.packageLineRate>
         <jacoco.lineRate>0.37</jacoco.lineRate>
