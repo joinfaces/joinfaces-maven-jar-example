@@ -21,7 +21,7 @@
     <properties>
         <selenium.version>3.12.0</selenium.version>
         <htmlunit.version>2.31</htmlunit.version>
-        <webdrivermanager.version>2.2.1</webdrivermanager.version>
+        <webdrivermanager.version>2.2.2</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         <jarchivelib.version>0.7.1</jarchivelib.version>
         
