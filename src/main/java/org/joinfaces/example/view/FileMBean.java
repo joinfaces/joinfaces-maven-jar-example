@@ -16,23 +16,22 @@
 
 package org.joinfaces.example.view;
 
-import java.io.IOException;
-import java.io.Serializable;
-
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
+import org.springframework.stereotype.Component;
+
+import javax.faces.view.ViewScoped;
+import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * FileMBean to test primefaces upload component.
  * @author Marcelo Fernandes
  */
-@Named
+@Component
 @ViewScoped
 public class FileMBean implements Serializable {
 

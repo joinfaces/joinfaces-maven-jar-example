@@ -16,6 +16,15 @@
 
 package org.joinfaces.example.view;
 
+import freemarker.template.TemplateException;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,23 +32,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import freemarker.template.TemplateException;
-import lombok.Getter;
-import lombok.Setter;
-
-import org.springframework.core.env.Environment;
-
 /**
  * StarterMBean to show joinfaces starters.
  *
  * @author Marcelo Fernandes
  */
-@Named
+@Component
 @ViewScoped
 public class StarterMBean implements Serializable {
 
@@ -64,13 +62,13 @@ public class StarterMBean implements Serializable {
 	@Setter
 	private List<JsfComponent> selectedJsfComponents;
 
-	@Inject
+	@Autowired
 	private transient JsfComponentService jsfComponentService;
 
-	@Inject
+	@Autowired
 	private transient Environment environment;
 
-	@Inject
+	@Autowired
 	private transient FreemarkerUtils freemarkerUtils;
 
 	@PostConstruct
