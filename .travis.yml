@@ -20,8 +20,9 @@ before_script:
 install: ./mvnw -B clean validate
 
 script:
-  - /usr/bin/xvfb-run ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DwebDriverType=firefox verify
-  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=chrome verify
+  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DskipTests=true install
+  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=firefox verify
+  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=chrome verify
 
 after_success:
   - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
