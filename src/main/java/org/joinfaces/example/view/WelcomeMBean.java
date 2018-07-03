@@ -16,12 +16,14 @@
 
 package org.joinfaces.example.view;
 
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.stereotype.Component;
+import java.io.Serializable;
 
 import javax.faces.view.ViewScoped;
-import java.io.Serializable;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import org.springframework.stereotype.Component;
 
 /**
  * Welcome Page.

@@ -16,16 +16,18 @@
 
 package org.joinfaces.example.view;
 
+import java.io.IOException;
+import java.io.Serializable;
+
+import javax.faces.view.ViewScoped;
+
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import org.primefaces.model.UploadedFile;
-import org.springframework.stereotype.Component;
 
-import javax.faces.view.ViewScoped;
-import java.io.IOException;
-import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
 /**
  * FileMBean to test primefaces upload component.
