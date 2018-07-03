@@ -16,13 +16,12 @@
 
 package org.joinfaces.example.view;
 
-import java.io.Serializable;
-
-import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+import javax.faces.view.ViewScoped;
+import java.io.Serializable;
 
 /**
  * Welcome Page.
@@ -30,7 +29,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-@Named
+@Component
 @ViewScoped
 public class WelcomeMBean implements Serializable {
 
