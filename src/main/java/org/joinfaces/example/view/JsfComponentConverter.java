@@ -36,7 +36,7 @@ public class JsfComponentConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-		return jsfComponentService.findByName(value);
+		return this.jsfComponentService.findByName(value);
 	}
 
 	@Override
