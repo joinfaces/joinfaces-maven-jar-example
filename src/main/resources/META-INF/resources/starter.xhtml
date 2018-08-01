@@ -118,7 +118,7 @@
             <p:tab title="JSF Components" id="tabJsfComponents" >
                 <p:panel id="panelJsfComponents" header="#{starterMBean.jsfComponentsHeader} : Jsf Components" >
                     <p:selectManyMenu id="jsfComponents" value="#{starterMBean.selectedJsfComponents}" 
-                                      showCheckbox="true" var="t" converter="jsfComponentConverter">
+                                      showCheckbox="true" var="t" converter="#{jsfComponentConverter}">
                         <f:selectItems value="#{starterMBean.jsfComponents}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
                         <p:ajax update="panelJsfComponents panelPom" />
                         <p:column>
