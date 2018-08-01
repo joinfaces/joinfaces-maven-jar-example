@@ -1,7 +1,8 @@
 JoinFaces Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=index.jsf)](https://joinfaces-example.herokuapp.com)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=starter.jsf)](https://joinfaces-example.herokuapp.com)
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example)
+[![Codecov](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example/branch/master/graph/badge.svg)](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example)
 [![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-maven-jar-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-maven-jar-example?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
@@ -33,7 +34,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-3.2.3-SNAPSHOT.jar
+java -jar target/joinfaces-example-3.2.4-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/index.jsf**
@@ -48,7 +49,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 <parent>
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-parent</artifactId>
-    <version>3.2.3</version>
+    <version>3.2.4</version>
     <relativePath/>
 </parent>
 
