@@ -19,20 +19,24 @@ package org.joinfaces.example.view;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * jsf component converter.
  *
  * @author Marcelo Fernandes
  */
-@FacesConverter("jsfComponentConverter")
+@Component
 public class JsfComponentConverter implements Converter {
+
+	@Autowired
+	private JsfComponentService jsfComponentService;
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
-		return ((JsfComponentService) fc.getExternalContext().getApplicationMap().get("jsfComponentService")).findByName(value);
+		return this.jsfComponentService.findByName(value);
 	}
 
 	@Override

@@ -20,21 +20,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 import lombok.Getter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
  * Jsf Component service.
  *
  * @author Marcelo Fernandes
  */
-@Named
-@ApplicationScoped
+@Component
+@ApplicationScope
 public class JsfComponentService {
 
 	/**
@@ -70,7 +70,7 @@ public class JsfComponentService {
 	@Getter
 	private List<JsfComponent> jsfComponents;
 
-	@Inject
+	@Autowired
 	private transient Environment environment;
 
 	@PostConstruct
