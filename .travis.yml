@@ -8,6 +8,7 @@ jdk:
 cache:
   directories:
   - $HOME/.m2
+
 addons:
   firefox: latest
 before_script:
@@ -28,4 +29,5 @@ script:
   - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=chrome verify
 
 after_success:
+  - bash <(curl -s https://codecov.io/bash)
   - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
