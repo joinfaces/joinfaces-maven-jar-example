@@ -16,8 +16,7 @@
 
 package org.joinfaces.example.view;
 
-import io.github.bonigarcia.wdm.ChromeDriverManager;
-import io.github.bonigarcia.wdm.FirefoxDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
@@ -66,12 +65,12 @@ public class AbstractPageIT {
 	}
 
 	private static WebDriver getChromeDriver() {
-		ChromeDriverManager.getInstance().setup();
+		WebDriverManager.getInstance(ChromeDriver.class).setup();
 		return new ChromeDriver();
 	}
 
 	private static WebDriver getFirefoxDriver() {
-		FirefoxDriverManager.getInstance().setup();
+		WebDriverManager.getInstance(FirefoxDriver.class).setup();
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		FirefoxProfile firefoxProfile = new FirefoxProfile();
 		// setting preference because of https://github.com/mozilla/geckodriver/issues/659
