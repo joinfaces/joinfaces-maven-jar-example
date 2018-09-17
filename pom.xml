@@ -19,7 +19,7 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <selenium.version>3.13.0</selenium.version>
+        <selenium.version>3.14.0</selenium.version>
         <htmlunit.version>2.31</htmlunit.version>
         <webdrivermanager.version>3.0.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
