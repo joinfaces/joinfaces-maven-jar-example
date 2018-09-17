@@ -6,24 +6,24 @@
     <parent>
         <groupId>org.joinfaces</groupId>
         <artifactId>joinfaces-parent</artifactId>
-        <version>3.2.4</version>
+        <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>3.2.4-SNAPSHOT</version>
+    <version>3.2.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <selenium.version>3.13.0</selenium.version>
-        <htmlunit.version>2.31</htmlunit.version>
-        <webdrivermanager.version>2.2.4</webdrivermanager.version>
+        <selenium.version>3.14.0</selenium.version>
+        <htmlunit.version>2.33</htmlunit.version>
+        <webdrivermanager.version>3.0.0</webdrivermanager.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
-        <jarchivelib.version>0.7.1</jarchivelib.version>
+        <jarchivelib.version>0.8.0</jarchivelib.version>
         
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         
