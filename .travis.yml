@@ -22,7 +22,7 @@ before_script:
 install: ./mvnw -B clean validate
 
 script:
-  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DskipTests=true install
+  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true install
 #  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=firefox verify
   - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=chrome verify
 
