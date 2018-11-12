@@ -91,13 +91,13 @@
                     <p:panelGrid columns="2" layout="grid">
                         <p:radioButton id="mojarra" for="jsfImplementation" itemIndex="0" />
                         <p:link href="https://javaserverfaces.java.net" >
-                            <p:graphicImage title="Mojarra ${environment.getProperty('mojarra.version')}" alt="Mojarra ${environment.getProperty('mojarra.version')}"
+                            <p:graphicImage title="Mojarra ${jsfComponentService.mojarraVersion}" alt="Mojarra ${jsfComponentService.mojarraVersion}"
                                             value="#{resource['images/mojarra.png']}"
                                             height="100" width="103"/>
                         </p:link>
                         <p:radioButton id="myfaces" for="jsfImplementation" itemIndex="1" />
                         <p:link href="http://myfaces.apache.org" >
-                            <p:graphicImage title="Apache MyFaces ${environment.getProperty('myfaces.version')}" alt="Apache MyFaces ${environment.getProperty('myfaces.version')}"
+                            <p:graphicImage title="Apache MyFaces ${jsfComponentService.myfacesVersion}" alt="Apache MyFaces ${jsfComponentService.myfacesVersion}"
                                             value="#{resource['images/myfaces.png']}"
                                             height="100" width="210"/>
                         </p:link>
@@ -108,7 +108,7 @@
             <p:tab title="JSF Utility Library" id="tabJsfUtilityLibrary" >
                 <p:panel id="panelJsfUtilityLibraries" header="OmniFaces: JSF Utility Library" >
                     <p:link href="http://omnifaces.org">
-                        <p:graphicImage title="OmniFaces ${environment.getProperty('omnifaces.version')}" alt="OmniFaces ${environment.getProperty('omnifaces.version')}"
+                        <p:graphicImage title="OmniFaces ${jsfComponentService.omnifacesVersion}" alt="OmniFaces ${jsfComponentService.omnifacesVersion}"
                                         value="#{resource['images/omnifaces.png']}"
                                         height="100" width="100"/>
                     </p:link>        
