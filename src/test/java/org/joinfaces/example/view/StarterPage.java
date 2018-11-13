@@ -40,6 +40,9 @@ public class StarterPage extends AbstractPageComponent {
 	@FindBy(xpath = "//a[text()='JSF Components']")
 	private WebElement jsfComponentsTab;
 
+	@FindBy(xpath = "//a[text()='JSF Addons']")
+	private WebElement jsfAddonsTab;
+
 	@FindBy(xpath = "//a[text()='Add to your pom.xml']")
 	private WebElement pomTab;
 
@@ -95,12 +98,20 @@ public class StarterPage extends AbstractPageComponent {
 		click(jsfComponentRadioButtonInput(3), "ButterFaces", getJsfComponentsTabHeaderBy());
 	}
 
+	public void clickAdminFaces() {
+		click(jsfComponentRadioButtonInput(4), "AdminFaces", getJsfComponentsTabHeaderBy());
+	}
+
+	public void clickIceFaces() {
+		click(jsfComponentRadioButtonInput(5), "IceFaces", getJsfComponentsTabHeaderBy());
+	}
+
 	public void clickAngularFaces() {
-		click(jsfComponentRadioButtonInput(4), "AngularFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(6), "AngularFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickRichFaces() {
-		click(jsfComponentRadioButtonInput(5), "RichFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(7), "RichFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
@@ -121,6 +132,10 @@ public class StarterPage extends AbstractPageComponent {
 
 	private By getJsfComponentsTabHeaderBy() {
 		return getTabHeaderBy("JsfComponents");
+	}
+
+	private By getJsfAddonsTabHeaderBy() {
+		return getTabHeaderBy("JsfAddons");
 	}
 
 	public String getServletContainerTabHeaderText() {
@@ -148,5 +163,29 @@ public class StarterPage extends AbstractPageComponent {
 			getServletContainerTabHeaderBy()));
 
 		return this;
+	}
+
+	public void clickJsfAddonsTab() {
+		this.jsfAddonsTab.click();
+	}
+
+	public void clickRewrite() {
+		click(jsfAddonsRadioButtonInput(1), "Rewrite", getJsfAddonsTabHeaderBy());
+	}
+
+	public void clickOmnifaces3() {
+		click(jsfAddonsRadioButtonInput(2), "OmniFaces", getJsfAddonsTabHeaderBy());
+	}
+
+	public void clickWeld() {
+		click(jsfAddonsRadioButtonInput(3), "Weld", getJsfAddonsTabHeaderBy());
+	}
+
+	private WebElement jsfAddonsRadioButtonInput(int index) {
+		return webDriver.findElement(By.xpath("//*[@id='tabView:jsfAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+	}
+
+	public String getJsfAddonsTabHeaderText() {
+		return webDriver.findElement(getJsfAddonsTabHeaderBy()).getText();
 	}
 }

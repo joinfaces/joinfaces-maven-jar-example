@@ -4,32 +4,12 @@ jsf:
   primefaces:
     theme: overcast
 joinfaces:
-  version: @project.parent.version@
+  version: @joinfaces.version@
 spring-boot:
-  version: @project.parent.parent.parent.version@
+  version: @project.parent.version@
 tomcat:
   version: @tomcat.version@
 jetty:
   version: @jetty.version@
 undertow:
   version: @undertow.version@
-cdi:
-  version: @cdi.version@
-mojarra:
-  version: @mojarra.version@
-myfaces:
-  version: @myfaces.version@
-omnifaces:
-  version: @omnifaces1.version@
-angularfaces:
-  version: @angularfaces.version@
-primefaces:
-  version: @primefaces.version@
-primefaces-extensions:
-  version: @primefaces-extensions.version@
-bootsfaces:
-  version: @bootsfaces.version@
-butterfaces:
-  version: @butterfaces.version@
-richfaces:
-  version: @richfaces.version@

@@ -16,15 +16,22 @@
 
 package org.joinfaces.example.view;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
 import lombok.Getter;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -35,6 +42,7 @@ import org.springframework.web.context.annotation.ApplicationScope;
  */
 @Component
 @ApplicationScope
+@Getter
 public class JsfComponentService {
 
 	/**
@@ -58,6 +66,16 @@ public class JsfComponentService {
 	public static final String BUTTERFACES = "ButterFaces";
 
 	/**
+	 * AdminFaces constant.
+	 */
+	public static final String ADMINFACES = "AdminFaces";
+
+	/**
+	 * IceFaces constant.
+	 */
+	public static final String ICEFACES = "IceFaces";
+
+	/**
 	 * AngularFaces constant.
 	 */
 	public static final String ANGULARFACES = "AngularFaces";
@@ -67,49 +85,129 @@ public class JsfComponentService {
 	 */
 	public static final String RICHFACES = "RichFaces";
 
-	@Getter
 	private List<JsfComponent> jsfComponents;
 
-	@Autowired
-	private transient Environment environment;
+	private List<JsfComponent> jsfAddons;
+
+	/**
+	 * AngularFaces constant.
+	 */
+	public static final String REWRITE = "Rewrite";
+
+	/**
+	 * RichFaces constant.
+	 */
+	public static final String OMNIFACES3 = "OmniFaces3";
+
+	/**
+	 * RichFaces constant.
+	 */
+	public static final String WELD = "Weld";
+
+	@Value("${joinfaces.version}")
+	private String joinfacesVersion;
+
+	private String bootsfacesVersion;
+	private String cdiVersion;
+	private String mojarraVersion;
+	private String myfacesVersion;
+	private String omnifaces1Version;
+	private String primefacesVersion;
+	private String primefacesExtensionsVersion;
+	private String butterfacesVersion;
+	private String adminfacesVersion;
+	private String icefacesVersion;
+	private String angularfacesVersion;
+	private String richfacesVersion;
+
+	private String rewriteVersion;
+	private String omnifaces3Version;
+	private String weldVersion;
 
 	@PostConstruct
-	public void init() {
+	public void init() throws IOException, MalformedURLException, XmlPullParserException {
+		Model model = createModel();
+		Map<String, String> versionMap = versionMap(model);
+		findVersions(versionMap);
+
 		this.jsfComponents = new ArrayList<>();
-		JsfComponent primefaces = jsfComponent(PRIMEFACES, "http://primefaces.org");
-		primefaces.getLinks().add(jsfComponentLink(PRIMEFACES_EXTENSIONS, "http://primefaces-extensions.github.io"));
+		JsfComponent primefaces = jsfComponent(PRIMEFACES, "http://primefaces.org", getPrimefacesVersion());
+		primefaces.getLinks().add(jsfComponentLink(PRIMEFACES_EXTENSIONS, "http://primefaces-extensions.github.io", getPrimefacesExtensionsVersion()));
 		this.jsfComponents.add(primefaces);
-		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net"));
-		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org"));
-		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com"));
-		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces"));
+		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net", getBootsfacesVersion()));
+		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion()));
+		this.jsfComponents.add(jsfComponent(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion()));
+		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
+		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
+		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
+
+		this.jsfAddons = new ArrayList<>();
+		this.jsfAddons.add(jsfComponent(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()));
+		this.jsfAddons.add(jsfComponent(OMNIFACES3, "http://omnifaces.org/", getOmnifaces3Version()));
+		this.jsfAddons.add(jsfComponent(WELD, "http://weld.cdi-spec.org/", getWeldVersion()));
 	}
 
-	private JsfComponent jsfComponent(String name, String siteLink) {
+	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
+		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
+		return mavenXpp3Reader.read(new URL("http://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
+				+ joinfacesVersion + "/joinfaces-dependencies-" + joinfacesVersion + ".pom").openStream());
+	}
+
+	private Map<String, String> versionMap(Model pom) {
+		Map<String, String> result = new HashMap<>();
+		pom.getDependencyManagement().getDependencies().forEach((dependency) -> {
+			result.put(dependency.getGroupId() + ":" + dependency.getArtifactId(), dependency.getVersion());
+		});
+		return result;
+	}
+
+	private void findVersions(Map<String, String> versionMap) {
+		this.cdiVersion = versionMap.get("javax.enterprise:cdi-api");
+		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
+		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
+		this.omnifaces1Version = "1.14.1";
+		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
+		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
+		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
+		this.butterfacesVersion = versionMap.get("org.butterfaces:components");
+		this.adminfacesVersion = versionMap.get("com.github.adminfaces:admin-template");
+		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
+		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
+		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
+		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
+		this.omnifaces3Version = "3.2";
+		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
+	}
+
+	private JsfComponent jsfComponent(String name, String siteLink, String version) {
 		JsfComponent result = JsfComponent.builder()
 				.name(name)
 				.links(new ArrayList<>())
 				.build();
 
-		result.getLinks().add(jsfComponentLink(name, siteLink));
+		result.getLinks().add(jsfComponentLink(name, siteLink, version));
 
 		return result;
 	}
 
-	private JsfComponentLink jsfComponentLink(String name, String siteLink) {
+	private JsfComponentLink jsfComponentLink(String name, String siteLink, String version) {
 		return JsfComponentLink.builder()
 				.name(name)
 				.site(siteLink)
 				.image("images/" + name.toLowerCase() + ".png")
-				.version(this.environment.getProperty(name.toLowerCase() + ".version"))
+				.version(version)
 				.build();
 	}
 
 	public JsfComponent findByName(String name) {
-		return findByName(name, this.jsfComponents);
+		JsfComponent result = findByName(name, this.jsfComponents);
+		if (result == null) {
+			result = findByName(name, this.jsfAddons);
+		}
+		return result;
 	}
 
-	public JsfComponent findByName(String name, List<JsfComponent> jsfComponentsList) {
+	private JsfComponent findByName(String name, List<JsfComponent> jsfComponentsList) {
 		JsfComponent result = null;
 
 		for (JsfComponent jsfComponent : jsfComponentsList) {
