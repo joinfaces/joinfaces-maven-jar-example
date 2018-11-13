@@ -147,4 +147,79 @@ public class StarterPageIT extends AbstractPageIT {
 			.contains("richfaces-spring-boot-starter");
 	}
 
+	@Test
+	public void clickIcefaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickIceFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("IceFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("icefaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickAdminfaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickAdminFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("AdminFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("adminfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickRewrite() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickRewrite();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("Rewrite");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("rewrite-spring-boot-starter");
+	}
+
+	@Test
+	public void clickOmnifaces3() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickOmnifaces3();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("OmniFaces3");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("omnifaces3-spring-boot-starter");
+	}
+
+	@Test
+	public void clickWeld() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickWeld();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("Weld");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("weld-spring-boot-starter");
+	}
+
 }

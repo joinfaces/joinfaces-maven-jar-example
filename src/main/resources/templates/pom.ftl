@@ -4,7 +4,7 @@
 </properties>
 
 <dependencies>
-<#list starterMBean.artifactIds as artifactId>
+<#list starterMBean.componentArtifactIds as artifactId>
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${artifactId?lower_case}-spring-boot-starter</artifactId>
@@ -41,4 +41,11 @@
     <version>${"$"}{joinfaces.version}</version>
   </dependency>
 </#if>
+<#list starterMBean.addonArtifactIds as artifactId>
+  <dependency>
+    <groupId>org.joinfaces</groupId>
+    <artifactId>${artifactId?lower_case}-spring-boot-starter</artifactId>
+    <version>${"$"}{joinfaces.version}</version>
+  </dependency>
+</#list>
 </dependencies>
