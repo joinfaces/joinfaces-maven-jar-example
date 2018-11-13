@@ -95,12 +95,16 @@ public class StarterPage extends AbstractPageComponent {
 		click(jsfComponentRadioButtonInput(3), "ButterFaces", getJsfComponentsTabHeaderBy());
 	}
 
+	public void clickIceFaces() {
+		click(jsfComponentRadioButtonInput(4), "IceFaces", getJsfComponentsTabHeaderBy());
+	}
+
 	public void clickAngularFaces() {
-		click(jsfComponentRadioButtonInput(4), "AngularFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(5), "AngularFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickRichFaces() {
-		click(jsfComponentRadioButtonInput(5), "RichFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(6), "RichFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
