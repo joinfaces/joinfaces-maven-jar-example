@@ -73,13 +73,22 @@ public class StarterMBean implements Serializable {
 	@Autowired
 	private transient FreemarkerUtils freemarkerUtils;
 
+	@Getter
+	private List<JsfComponent> jsfAddons;
+
+	@Getter
+	@Setter
+	private List<JsfComponent> selectedJsfAddons;
+
 	@PostConstruct
 	public void init() {
 		this.jsfComponents = this.jsfComponentService.getJsfComponents();
 		this.selectedJsfComponents = new ArrayList<>();
+		this.jsfAddons = this.jsfComponentService.getJsfAddons();
+		this.selectedJsfAddons = new ArrayList<>();
 	}
 
-	public List<String> getArtifactIds() {
+	public List<String> getComponentArtifactIds() {
 		List<String> result = new ArrayList<>();
 
 		if (isPrimeFacesSelected()) {
@@ -138,6 +147,38 @@ public class StarterMBean implements Serializable {
 		return result.toString();
 	}
 
+	public List<String> getAddonArtifactIds() {
+		List<String> result = new ArrayList<>();
+
+		if (isRewriteSelected()) {
+			result.add(JsfComponentService.REWRITE);
+		}
+		if (isOmnifaces3Selected()) {
+			result.add(JsfComponentService.OMNIFACES3);
+		}
+		if (isWeldSelected()) {
+			result.add(JsfComponentService.WELD);
+		}
+
+		return result;
+	}
+
+	public String getJsfAddonsHeader() {
+		StringBuilder result = new StringBuilder();
+
+		if (isRewriteSelected()) {
+			result.append(' ').append(JsfComponentService.REWRITE);
+		}
+		if (isOmnifaces3Selected()) {
+			result.append(' ').append(JsfComponentService.OMNIFACES3);
+		}
+		if (isWeldSelected()) {
+			result.append(' ').append(JsfComponentService.WELD);
+		}
+
+		return result.toString();
+	}
+
 	public boolean isTomcatSelected() {
 		return this.servletContainer.equals(TOMCAT);
 	}
@@ -172,6 +213,18 @@ public class StarterMBean implements Serializable {
 
 	public boolean isRichFacesSelected() {
 		return this.jsfComponentService.containsByName(JsfComponentService.RICHFACES, this.selectedJsfComponents);
+	}
+
+	public boolean isRewriteSelected() {
+		return this.jsfComponentService.containsByName(JsfComponentService.REWRITE, this.selectedJsfAddons);
+	}
+
+	public boolean isOmnifaces3Selected() {
+		return this.jsfComponentService.containsByName(JsfComponentService.OMNIFACES3, this.selectedJsfAddons);
+	}
+
+	public boolean isWeldSelected() {
+		return this.jsfComponentService.containsByName(JsfComponentService.WELD, this.selectedJsfAddons);
 	}
 
 	public String getPom() throws IOException, TemplateException {

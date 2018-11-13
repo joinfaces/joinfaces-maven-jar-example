@@ -177,4 +177,49 @@ public class StarterPageIT extends AbstractPageIT {
 			.contains("adminfaces-spring-boot-starter");
 	}
 
+	@Test
+	public void clickRewrite() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickRewrite();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("Rewrite");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("rewrite-spring-boot-starter");
+	}
+
+	@Test
+	public void clickOmnifaces3() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickOmnifaces3();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("OmniFaces3");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("omnifaces3-spring-boot-starter");
+	}
+
+	@Test
+	public void clickWeld() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfAddonsTab();
+		starterPage.clickWeld();
+		assertThat(starterPage.getJsfAddonsTabHeaderText())
+			.contains("Weld");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("weld-spring-boot-starter");
+	}
+
 }

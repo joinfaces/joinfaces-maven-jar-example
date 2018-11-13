@@ -108,8 +108,8 @@
             <p:tab title="JSF Utility Library" id="tabJsfUtilityLibrary" >
                 <p:panel id="panelJsfUtilityLibraries" header="OmniFaces: JSF Utility Library" >
                     <p:link href="http://omnifaces.org">
-                        <p:graphicImage title="OmniFaces ${jsfComponentService.omnifacesVersion}" alt="OmniFaces ${jsfComponentService.omnifacesVersion}"
-                                        value="#{resource['images/omnifaces.png']}"
+                        <p:graphicImage title="OmniFaces ${jsfComponentService.omnifaces1Version}" alt="OmniFaces ${jsfComponentService.omnifaces1Version}"
+                                        value="#{resource['images/omnifaces1.png']}"
                                         height="100" width="100"/>
                     </p:link>        
                 </p:panel>
@@ -121,6 +121,28 @@
                                       showCheckbox="true" var="t" converter="#{jsfComponentConverter}">
                         <f:selectItems value="#{starterMBean.jsfComponents}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
                         <p:ajax update="panelJsfComponents panelPom" />
+                        <p:column>
+                            <h:outputText value="#{t.name}" />
+                        </p:column>
+                        <p:column>
+                            <ui:repeat var="jsfComponentLink" value="#{t.links}">
+                                <p:link href="${jsfComponentLink.site}">
+                                    <p:graphicImage title="#{jsfComponentLink.name} #{jsfComponentLink.version}" alt="#{t.name} #{jsfComponentLink.version}"
+                                                    value="#{resource[jsfComponentLink.image]}"
+                                                    height="100" width="100"/>
+                                </p:link>
+                            </ui:repeat>
+                        </p:column>
+                    </p:selectManyMenu>
+                </p:panel>
+            </p:tab>
+
+            <p:tab title="JSF Addons" id="tabJsfAddons" >
+                <p:panel id="panelJsfAddons" header="#{starterMBean.jsfAddonsHeader} : Jsf Addons" >
+                    <p:selectManyMenu id="jsfAddons" value="#{starterMBean.selectedJsfAddons}" 
+                                      showCheckbox="true" var="t" converter="#{jsfComponentConverter}">
+                        <f:selectItems value="#{starterMBean.jsfAddons}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
+                        <p:ajax update="panelJsfAddons panelPom" />
                         <p:column>
                             <h:outputText value="#{t.name}" />
                         </p:column>

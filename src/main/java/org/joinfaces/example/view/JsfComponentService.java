@@ -87,6 +87,23 @@ public class JsfComponentService {
 
 	private List<JsfComponent> jsfComponents;
 
+	private List<JsfComponent> jsfAddons;
+
+	/**
+	 * AngularFaces constant.
+	 */
+	public static final String REWRITE = "Rewrite";
+
+	/**
+	 * RichFaces constant.
+	 */
+	public static final String OMNIFACES3 = "OmniFaces3";
+
+	/**
+	 * RichFaces constant.
+	 */
+	public static final String WELD = "Weld";
+
 	@Value("${joinfaces.version}")
 	private String joinfacesVersion;
 
@@ -94,7 +111,7 @@ public class JsfComponentService {
 	private String cdiVersion;
 	private String mojarraVersion;
 	private String myfacesVersion;
-	private String omnifacesVersion;
+	private String omnifaces1Version;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
@@ -102,6 +119,10 @@ public class JsfComponentService {
 	private String icefacesVersion;
 	private String angularfacesVersion;
 	private String richfacesVersion;
+
+	private String rewriteVersion;
+	private String omnifaces3Version;
+	private String weldVersion;
 
 	@PostConstruct
 	public void init() throws IOException, MalformedURLException, XmlPullParserException {
@@ -119,6 +140,11 @@ public class JsfComponentService {
 		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
 		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
 		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
+
+		this.jsfAddons = new ArrayList<>();
+		this.jsfAddons.add(jsfComponent(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()));
+		this.jsfAddons.add(jsfComponent(OMNIFACES3, "http://omnifaces.org/", getOmnifaces3Version()));
+		this.jsfAddons.add(jsfComponent(WELD, "http://weld.cdi-spec.org/", getWeldVersion()));
 	}
 
 	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
@@ -139,7 +165,7 @@ public class JsfComponentService {
 		this.cdiVersion = versionMap.get("javax.enterprise:cdi-api");
 		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
 		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
-		this.omnifacesVersion = "1.14.1";
+		this.omnifaces1Version = "1.14.1";
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
 		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
@@ -148,6 +174,9 @@ public class JsfComponentService {
 		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
 		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
 		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
+		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
+		this.omnifaces3Version = "3.2";
+		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
 
 	private JsfComponent jsfComponent(String name, String siteLink, String version) {
@@ -171,10 +200,14 @@ public class JsfComponentService {
 	}
 
 	public JsfComponent findByName(String name) {
-		return findByName(name, this.jsfComponents);
+		JsfComponent result = findByName(name, this.jsfComponents);
+		if (result == null) {
+			result = findByName(name, this.jsfAddons);
+		}
+		return result;
 	}
 
-	public JsfComponent findByName(String name, List<JsfComponent> jsfComponentsList) {
+	private JsfComponent findByName(String name, List<JsfComponent> jsfComponentsList) {
 		JsfComponent result = null;
 
 		for (JsfComponent jsfComponent : jsfComponentsList) {
