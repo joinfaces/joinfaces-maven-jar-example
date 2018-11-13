@@ -75,6 +75,11 @@ public class JsfComponentService {
 	 */
 	public static final String RICHFACES = "RichFaces";
 
+	/**
+	 * IceFaces constant.
+	 */
+	public static final String ICEFACES = "IceFaces";
+
 	private List<JsfComponent> jsfComponents;
 
 	@Value("${joinfaces.version}")
@@ -90,7 +95,7 @@ public class JsfComponentService {
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
 	private String richfacesVersion;
-	private String iceVersion;
+	private String icefacesVersion;
 
 	@PostConstruct
 	public void init() throws IOException, MalformedURLException, XmlPullParserException {
@@ -104,6 +109,7 @@ public class JsfComponentService {
 		this.jsfComponents.add(primefaces);
 		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net", getBootsfacesVersion()));
 		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion()));
+		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
 		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
 		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
 	}
@@ -133,7 +139,7 @@ public class JsfComponentService {
 		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
 		this.butterfacesVersion = versionMap.get("org.butterfaces:components");
 		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
-		this.iceVersion = versionMap.get("org.icefaces:icefaces");
+		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
 	}
 
 	private JsfComponent jsfComponent(String name, String siteLink, String version) {

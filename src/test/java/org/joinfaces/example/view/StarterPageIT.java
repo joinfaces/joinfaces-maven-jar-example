@@ -147,4 +147,19 @@ public class StarterPageIT extends AbstractPageIT {
 			.contains("richfaces-spring-boot-starter");
 	}
 
+	@Test
+	public void clickIcefaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickIceFaces();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("IceFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("icefaces-spring-boot-starter");
+	}
+
 }
