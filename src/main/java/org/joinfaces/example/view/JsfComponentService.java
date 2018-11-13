@@ -66,6 +66,16 @@ public class JsfComponentService {
 	public static final String BUTTERFACES = "ButterFaces";
 
 	/**
+	 * AdminFaces constant.
+	 */
+	public static final String ADMINFACES = "AdminFaces";
+
+	/**
+	 * IceFaces constant.
+	 */
+	public static final String ICEFACES = "IceFaces";
+
+	/**
 	 * AngularFaces constant.
 	 */
 	public static final String ANGULARFACES = "AngularFaces";
@@ -74,11 +84,6 @@ public class JsfComponentService {
 	 * RichFaces constant.
 	 */
 	public static final String RICHFACES = "RichFaces";
-
-	/**
-	 * IceFaces constant.
-	 */
-	public static final String ICEFACES = "IceFaces";
 
 	private List<JsfComponent> jsfComponents;
 
@@ -90,12 +95,13 @@ public class JsfComponentService {
 	private String mojarraVersion;
 	private String myfacesVersion;
 	private String omnifacesVersion;
-	private String angularfacesVersion;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
-	private String richfacesVersion;
+	private String adminfacesVersion;
 	private String icefacesVersion;
+	private String angularfacesVersion;
+	private String richfacesVersion;
 
 	@PostConstruct
 	public void init() throws IOException, MalformedURLException, XmlPullParserException {
@@ -109,6 +115,7 @@ public class JsfComponentService {
 		this.jsfComponents.add(primefaces);
 		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net", getBootsfacesVersion()));
 		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion()));
+		this.jsfComponents.add(jsfComponent(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion()));
 		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
 		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
 		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
@@ -133,13 +140,14 @@ public class JsfComponentService {
 		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
 		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
 		this.omnifacesVersion = "1.14.1";
-		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
 		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
 		this.butterfacesVersion = versionMap.get("org.butterfaces:components");
-		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
+		this.adminfacesVersion = versionMap.get("com.github.adminfaces:admin-template");
 		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
+		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
+		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
 	}
 
 	private JsfComponent jsfComponent(String name, String siteLink, String version) {

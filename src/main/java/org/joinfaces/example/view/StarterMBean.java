@@ -91,6 +91,9 @@ public class StarterMBean implements Serializable {
 		if (isButterFacesSelected()) {
 			result.add(JsfComponentService.BUTTERFACES);
 		}
+		if (isAdminFacesSelected()) {
+			result.add(JsfComponentService.ADMINFACES);
+		}
 		if (isIceFacesSelected()) {
 			result.add(JsfComponentService.ICEFACES);
 		}
@@ -118,6 +121,9 @@ public class StarterMBean implements Serializable {
 		}
 		if (isButterFacesSelected()) {
 			result.append(' ').append(JsfComponentService.BUTTERFACES);
+		}
+		if (isAdminFacesSelected()) {
+			result.append(' ').append(JsfComponentService.ADMINFACES);
 		}
 		if (isIceFacesSelected()) {
 			result.append(' ').append(JsfComponentService.ICEFACES);
@@ -150,6 +156,10 @@ public class StarterMBean implements Serializable {
 
 	public boolean isButterFacesSelected() {
 		return this.jsfComponentService.containsByName(JsfComponentService.BUTTERFACES, this.selectedJsfComponents);
+	}
+
+	public boolean isAdminFacesSelected() {
+		return this.jsfComponentService.containsByName(JsfComponentService.ADMINFACES, this.selectedJsfComponents);
 	}
 
 	public boolean isIceFacesSelected() {
