@@ -9,7 +9,7 @@
     <groupId>org.joinfaces</groupId>
     <artifactId>${artifactId?lower_case}-spring-boot-starter</artifactId>
     <version>${"$"}{joinfaces.version}</version>
-    <#if !starterMBean.tomcatSelected || !starterMBean.mojarraSelected>
+    <#if !starterMBean.tomcatSelected || !starterMBean.mojarraSelected || starterMBean.omnifaces3Selected>
     <exclusions>
       <#if !starterMBean.tomcatSelected>
       <exclusion>
@@ -21,6 +21,12 @@
       <exclusion>
         <groupId>org.joinfaces</groupId>
         <artifactId>mojarra-spring-boot-starter</artifactId>
+      </exclusion>
+      </#if>
+      <#if starterMBean.omnifaces3Selected>
+      <exclusion>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>omnifaces1-spring-boot-starter</artifactId>
       </exclusion>
       </#if>
     </exclusions>
