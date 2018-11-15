@@ -30,7 +30,7 @@
         <htmlunit-driver.version>2.33.2</htmlunit-driver.version>
         <htmlunit.version>2.33</htmlunit.version>
         <webdrivermanager.version>3.0.0</webdrivermanager.version>
-        <jarchivelib.version>0.8.0</jarchivelib.version>
+        <jarchivelib.version>1.0.0</jarchivelib.version>
 
         <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
@@ -54,12 +54,12 @@
         <pmd.dir>${check.dir}/pmd</pmd.dir>
 
         <pmd.ruleset>${pmd.dir}/pmd-ruleset.xml</pmd.ruleset>
-        <cpd.excludeFromFailureFile />
+        <cpd.excludeFromFailureFile/>
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         <checkstyle.configLocation>${checkstyle.dir}/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.suppressionsLocation>${checkstyle.dir}/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
         <checkstyle.headerLocation>${checkstyle.dir}/checkstyle-header.txt</checkstyle.headerLocation>
-        <checkstyle.excludes />
+        <checkstyle.excludes/>
         <duplicate-finder-maven-plugin.version>1.3.0</duplicate-finder-maven-plugin.version>
         <duplicate.ignoredResourcePattern>about.html</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>META-INF.versions.9.module-info</duplicate.ignoredClassPattern>
@@ -496,7 +496,7 @@
                                 <phase>test</phase>
                                 <configuration>
                                     <rules>
-                                        <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule" />
+                                        <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule"/>
                                     </rules>
                                     <includeTests>true</includeTests>
                                 </configuration>
