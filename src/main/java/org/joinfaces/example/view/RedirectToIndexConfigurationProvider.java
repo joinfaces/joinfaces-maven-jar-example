@@ -16,8 +16,6 @@
 
 package org.joinfaces.example.view;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 import javax.servlet.ServletContext;
 
 import org.ocpsoft.rewrite.config.Configuration;
@@ -27,13 +25,16 @@ import org.ocpsoft.rewrite.servlet.config.HttpConfigurationProvider;
 import org.ocpsoft.rewrite.servlet.config.Path;
 import org.ocpsoft.rewrite.servlet.config.Redirect;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
+
 /**
  * Redirect to index.jsf SPA.
  *
  * @author Marcelo Fernandes
  */
-@Named
-@ApplicationScoped
+@Component
+@ApplicationScope
 public class RedirectToIndexConfigurationProvider extends HttpConfigurationProvider {
 
 	@Override

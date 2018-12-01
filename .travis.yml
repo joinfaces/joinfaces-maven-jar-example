@@ -2,11 +2,13 @@ dist: trusty
 language: java
 jdk:
   - openjdk8
+  - openjdk11
 cache:
   directories:
   - $HOME/.m2
 addons:
   firefox: latest
+
 before_script:
   - echo "Extracting firefox and setting PATH variable..."
   - tar -xjf /tmp/firefox-*.tar.bz2 --directory /tmp
@@ -20,9 +22,10 @@ before_script:
 install: ./mvnw -B clean validate
 
 script:
-  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-findbugs -DskipTests=true install
-#  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=firefox verify
-  - /usr/bin/xvfb-run ./mvnw -DwebDriverType=chrome verify
+  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true install
+#  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=firefox verify
+  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=chrome verify
 
 after_success:
+  - bash <(curl -s https://codecov.io/bash)
   - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
