@@ -71,6 +71,16 @@ public class JsfComponentService {
 	public static final String ADMINFACES = "AdminFaces";
 
 	/**
+	 * OmniFaces 1 constant.
+	 */
+	public static final String OMNIFACES1 = "OmniFaces1";
+
+	/**
+	 * OmniFaces 3 constant.
+	 */
+	public static final String OMNIFACES3 = "OmniFaces3";
+
+	/**
 	 * IceFaces constant.
 	 */
 	public static final String ICEFACES = "IceFaces";
@@ -90,17 +100,12 @@ public class JsfComponentService {
 	private List<JsfComponent> jsfAddons;
 
 	/**
-	 * AngularFaces constant.
+	 * Rewrite constant.
 	 */
 	public static final String REWRITE = "Rewrite";
 
 	/**
-	 * RichFaces constant.
-	 */
-	public static final String OMNIFACES3 = "OmniFaces3";
-
-	/**
-	 * RichFaces constant.
+	 * Weld constant.
 	 */
 	public static final String WELD = "Weld";
 
@@ -111,17 +116,17 @@ public class JsfComponentService {
 	private String cdiVersion;
 	private String mojarraVersion;
 	private String myfacesVersion;
-	private String omnifaces1Version;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
 	private String adminfacesVersion;
+	private String omnifaces1Version;
+	private String omnifaces3Version;
 	private String icefacesVersion;
 	private String angularfacesVersion;
 	private String richfacesVersion;
 
 	private String rewriteVersion;
-	private String omnifaces3Version;
 	private String weldVersion;
 
 	@PostConstruct
@@ -137,13 +142,14 @@ public class JsfComponentService {
 		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net", getBootsfacesVersion()));
 		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion()));
 		this.jsfComponents.add(jsfComponent(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion()));
+		this.jsfComponents.add(jsfComponent(OMNIFACES1, "http://omnifaces.org/", getOmnifaces1Version()));
+		this.jsfComponents.add(jsfComponent(OMNIFACES3, "http://omnifaces.org/", getOmnifaces3Version()));
 		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
 		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
 		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
 
 		this.jsfAddons = new ArrayList<>();
 		this.jsfAddons.add(jsfComponent(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()));
-		this.jsfAddons.add(jsfComponent(OMNIFACES3, "http://omnifaces.org/", getOmnifaces3Version()));
 		this.jsfAddons.add(jsfComponent(WELD, "http://weld.cdi-spec.org/", getWeldVersion()));
 	}
 

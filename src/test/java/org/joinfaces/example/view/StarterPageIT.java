@@ -178,6 +178,36 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickOmnifaces1() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickOmnifaces1();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("OmniFaces1");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("omnifaces1-spring-boot-starter");
+	}
+
+	@Test
+	public void clickOmnifaces3() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJsfComponentsTab();
+		starterPage.clickOmnifaces3();
+		assertThat(starterPage.getJsfComponentsTabHeaderText())
+			.contains("OmniFaces3");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("omnifaces3-spring-boot-starter");
+	}
+
+	@Test
 	public void clickRewrite() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
@@ -190,21 +220,6 @@ public class StarterPageIT extends AbstractPageIT {
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent())
 			.contains("rewrite-spring-boot-starter");
-	}
-
-	@Test
-	public void clickOmnifaces3() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJsfAddonsTab();
-		starterPage.clickOmnifaces3();
-		assertThat(starterPage.getJsfAddonsTabHeaderText())
-			.contains("OmniFaces3");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("omnifaces3-spring-boot-starter");
 	}
 
 	@Test

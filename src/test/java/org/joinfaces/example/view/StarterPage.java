@@ -102,16 +102,24 @@ public class StarterPage extends AbstractPageComponent {
 		click(jsfComponentRadioButtonInput(4), "AdminFaces", getJsfComponentsTabHeaderBy());
 	}
 
+	public void clickOmnifaces1() {
+		click(jsfComponentRadioButtonInput(5), "OmniFaces", getJsfComponentsTabHeaderBy());
+	}
+
+	public void clickOmnifaces3() {
+		click(jsfComponentRadioButtonInput(6), "OmniFaces", getJsfComponentsTabHeaderBy());
+	}
+
 	public void clickIceFaces() {
-		click(jsfComponentRadioButtonInput(5), "IceFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(7), "IceFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickAngularFaces() {
-		click(jsfComponentRadioButtonInput(6), "AngularFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(8), "AngularFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickRichFaces() {
-		click(jsfComponentRadioButtonInput(7), "RichFaces", getJsfComponentsTabHeaderBy());
+		click(jsfComponentRadioButtonInput(9), "RichFaces", getJsfComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
@@ -173,12 +181,8 @@ public class StarterPage extends AbstractPageComponent {
 		click(jsfAddonsRadioButtonInput(1), "Rewrite", getJsfAddonsTabHeaderBy());
 	}
 
-	public void clickOmnifaces3() {
-		click(jsfAddonsRadioButtonInput(2), "OmniFaces", getJsfAddonsTabHeaderBy());
-	}
-
 	public void clickWeld() {
-		click(jsfAddonsRadioButtonInput(3), "Weld", getJsfAddonsTabHeaderBy());
+		click(jsfAddonsRadioButtonInput(2), "Weld", getJsfAddonsTabHeaderBy());
 	}
 
 	private WebElement jsfAddonsRadioButtonInput(int index) {
