@@ -1,9 +1,9 @@
-jsf:
-  PROJECT_STAGE: Production
-  FACELETS_LIBRARIES: /tags/tags.taglib.xml
+joinfaces:
+  jsf:
+    PROJECT_STAGE: Production
+    FACELETS_LIBRARIES: /tags/tags.taglib.xml
   primefaces:
     theme: overcast
-joinfaces:
   version: @joinfaces.version@
 spring-boot:
   version: @project.parent.version@
