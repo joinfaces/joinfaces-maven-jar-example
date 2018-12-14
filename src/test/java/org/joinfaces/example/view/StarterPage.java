@@ -37,11 +37,11 @@ public class StarterPage extends AbstractPageComponent {
 	@FindBy(xpath = "//a[text()='JSF Implementation']")
 	private WebElement jsfImplementationTab;
 
-	@FindBy(xpath = "//a[text()='JSF Components']")
-	private WebElement jsfComponentsTab;
+	@FindBy(xpath = "//a[text()='JoinFaces Components']")
+	private WebElement joinFacesComponentsTab;
 
-	@FindBy(xpath = "//a[text()='JSF Addons']")
-	private WebElement jsfAddonsTab;
+	@FindBy(xpath = "//a[text()='JoinFaces Addons']")
+	private WebElement joinFacesAddonsTab;
 
 	@FindBy(xpath = "//a[text()='Add to your pom.xml']")
 	private WebElement pomTab;
@@ -78,40 +78,52 @@ public class StarterPage extends AbstractPageComponent {
 		click(this.myfacesRadioButtonInput, "MyFaces", getJsfImplementationTabHeaderBy());
 	}
 
-	public void clickJsfComponentsTab() {
-		this.jsfComponentsTab.click();
+	public void clickJoinFacesComponentsTab() {
+		this.joinFacesComponentsTab.click();
 	}
 
-	private WebElement jsfComponentRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:jsfComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+	private WebElement joinFacesComponentRadioButtonInput(int index) {
+		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+	}
+
+	public void clickSecurity() {
+		click(joinFacesComponentRadioButtonInput(1), "Security", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickPrimeFaces() {
-		click(jsfComponentRadioButtonInput(1), "PrimeFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(2), "PrimeFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickBootsFaces() {
-		click(jsfComponentRadioButtonInput(2), "BootsFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(3), "BootsFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickButterFaces() {
-		click(jsfComponentRadioButtonInput(3), "ButterFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(4), "ButterFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickAdminFaces() {
-		click(jsfComponentRadioButtonInput(4), "AdminFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(5), "AdminFaces", getJoinFacesComponentsTabHeaderBy());
+	}
+
+	public void clickOmnifaces1() {
+		click(joinFacesComponentRadioButtonInput(6), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
+	}
+
+	public void clickOmnifaces3() {
+		click(joinFacesComponentRadioButtonInput(7), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickIceFaces() {
-		click(jsfComponentRadioButtonInput(5), "IceFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(8), "IceFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickAngularFaces() {
-		click(jsfComponentRadioButtonInput(6), "AngularFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(9), "AngularFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickRichFaces() {
-		click(jsfComponentRadioButtonInput(7), "RichFaces", getJsfComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(10), "RichFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
@@ -130,12 +142,12 @@ public class StarterPage extends AbstractPageComponent {
 		return getTabHeaderBy("JsfImplementation");
 	}
 
-	private By getJsfComponentsTabHeaderBy() {
-		return getTabHeaderBy("JsfComponents");
+	private By getJoinFacesComponentsTabHeaderBy() {
+		return getTabHeaderBy("JoinFacesComponents");
 	}
 
-	private By getJsfAddonsTabHeaderBy() {
-		return getTabHeaderBy("JsfAddons");
+	private By getJoinFacesAddonsTabHeaderBy() {
+		return getTabHeaderBy("JoinFacesAddons");
 	}
 
 	public String getServletContainerTabHeaderText() {
@@ -146,8 +158,8 @@ public class StarterPage extends AbstractPageComponent {
 		return webDriver.findElement(getJsfImplementationTabHeaderBy()).getText();
 	}
 
-	public String getJsfComponentsTabHeaderText() {
-		return webDriver.findElement(getJsfComponentsTabHeaderBy()).getText();
+	public String getJoinFacesComponentsTabHeaderText() {
+		return webDriver.findElement(getJoinFacesComponentsTabHeaderBy()).getText();
 	}
 
 	public String getAdminRoleLabelText() {
@@ -165,27 +177,23 @@ public class StarterPage extends AbstractPageComponent {
 		return this;
 	}
 
-	public void clickJsfAddonsTab() {
-		this.jsfAddonsTab.click();
+	public void clickJoinFacesAddonsTab() {
+		this.joinFacesAddonsTab.click();
 	}
 
 	public void clickRewrite() {
-		click(jsfAddonsRadioButtonInput(1), "Rewrite", getJsfAddonsTabHeaderBy());
-	}
-
-	public void clickOmnifaces3() {
-		click(jsfAddonsRadioButtonInput(2), "OmniFaces", getJsfAddonsTabHeaderBy());
+		click(joinFacesAddonsRadioButtonInput(1), "Rewrite", getJoinFacesAddonsTabHeaderBy());
 	}
 
 	public void clickWeld() {
-		click(jsfAddonsRadioButtonInput(3), "Weld", getJsfAddonsTabHeaderBy());
+		click(joinFacesAddonsRadioButtonInput(2), "Weld", getJoinFacesAddonsTabHeaderBy());
 	}
 
-	private WebElement jsfAddonsRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:jsfAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+	private WebElement joinFacesAddonsRadioButtonInput(int index) {
+		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
 	}
 
-	public String getJsfAddonsTabHeaderText() {
-		return webDriver.findElement(getJsfAddonsTabHeaderBy()).getText();
+	public String getJoinFacesAddonsTabHeaderText() {
+		return webDriver.findElement(getJoinFacesAddonsTabHeaderBy()).getText();
 	}
 }
