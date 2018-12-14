@@ -21,6 +21,7 @@ import java.util.List;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Singular;
 
 /**
  * Store information about jsf component.
@@ -29,11 +30,12 @@ import lombok.Getter;
  */
 @Getter
 @Builder
-public class JsfComponent implements Serializable {
+public class JoinFacesStarter implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private List<JsfComponentLink> links;
+	@Singular
+	private List<JoinFacesStarterLibrary> libraries;
 
 	private String name;
 }

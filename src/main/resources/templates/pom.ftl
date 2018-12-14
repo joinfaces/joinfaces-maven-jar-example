@@ -1,15 +1,33 @@
 <#ftl output_format="XML">
+<parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>${environment.getProperty("spring-boot.version")}</version>
+    <relativePath/>
+</parent>
+
 <properties>
    <joinfaces.version>${environment.getProperty("joinfaces.version")}</joinfaces.version>
 </properties>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>joinfaces-dependencies</artifactId>
+            <version>${"$"}{joinfaces.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 
 <dependencies>
 <#list starterMBean.componentArtifactIds as artifactId>
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${artifactId?lower_case}-spring-boot-starter</artifactId>
-    <version>${"$"}{joinfaces.version}</version>
-    <#if !starterMBean.tomcatSelected || !starterMBean.mojarraSelected || starterMBean.omnifaces3Selected>
+    <#if !starterMBean.tomcatSelected || !starterMBean.mojarraSelected>
     <exclusions>
       <#if !starterMBean.tomcatSelected>
       <exclusion>
@@ -23,12 +41,6 @@
         <artifactId>mojarra-spring-boot-starter</artifactId>
       </exclusion>
       </#if>
-      <#if starterMBean.omnifaces3Selected>
-      <exclusion>
-        <groupId>org.joinfaces</groupId>
-        <artifactId>omnifaces1-spring-boot-starter</artifactId>
-      </exclusion>
-      </#if>
     </exclusions>
     </#if>
   </dependency>
@@ -37,21 +49,18 @@
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${starterMBean.servletContainer?lower_case}-spring-boot-starter</artifactId>
-    <version>${"$"}{joinfaces.version}</version>
     </dependency>
 </#if>
 <#if !starterMBean.mojarraSelected>
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${starterMBean.jsfImplementation?lower_case}-spring-boot-starter</artifactId>
-    <version>${"$"}{joinfaces.version}</version>
   </dependency>
 </#if>
 <#list starterMBean.addonArtifactIds as artifactId>
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${artifactId?lower_case}-spring-boot-starter</artifactId>
-    <version>${"$"}{joinfaces.version}</version>
   </dependency>
 </#list>
 </dependencies>

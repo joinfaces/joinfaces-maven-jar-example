@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.0.RELEASE</version>
+        <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>3.3.0-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
@@ -20,7 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
-        <joinfaces.version>3.3.0-rc2</joinfaces.version>
+        <joinfaces.version>4.0.0</joinfaces.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         <commons-fileupload.version>1.3.3</commons-fileupload.version>
         <maven-model.version>3.6.0</maven-model.version>
@@ -30,7 +30,7 @@
         <htmlunit-driver.version>2.33.2</htmlunit-driver.version>
         <htmlunit.version>2.33</htmlunit.version>
         <webdrivermanager.version>3.0.0</webdrivermanager.version>
-        <jarchivelib.version>0.8.0</jarchivelib.version>
+        <jarchivelib.version>1.0.0</jarchivelib.version>
 
         <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
@@ -54,12 +54,12 @@
         <pmd.dir>${check.dir}/pmd</pmd.dir>
 
         <pmd.ruleset>${pmd.dir}/pmd-ruleset.xml</pmd.ruleset>
-        <cpd.excludeFromFailureFile />
+        <cpd.excludeFromFailureFile/>
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
         <checkstyle.configLocation>${checkstyle.dir}/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.suppressionsLocation>${checkstyle.dir}/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
         <checkstyle.headerLocation>${checkstyle.dir}/checkstyle-header.txt</checkstyle.headerLocation>
-        <checkstyle.excludes />
+        <checkstyle.excludes/>
         <duplicate-finder-maven-plugin.version>1.3.0</duplicate-finder-maven-plugin.version>
         <duplicate.ignoredResourcePattern>about.html</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>META-INF.versions.9.module-info</duplicate.ignoredClassPattern>
@@ -176,10 +176,6 @@
         </dependency>  
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
               <exclusion>
@@ -209,6 +205,14 @@
         <dependency>
             <groupId>org.joinfaces</groupId>
             <artifactId>myfaces-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>omnifaces1-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>security-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.joinfaces</groupId>
@@ -252,7 +256,7 @@
         </dependency>
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-core</artifactId>
+            <artifactId>jaxb-runtime</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -263,6 +267,18 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.joinfaces</groupId>
+                    <artifactId>joinfaces-maven-plugin</artifactId>
+                    <version>${joinfaces.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>classpath-scan</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
@@ -408,6 +424,10 @@
 
         <plugins>
             <plugin>
+                <groupId>org.joinfaces</groupId>
+                <artifactId>joinfaces-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -520,7 +540,7 @@
                                 <phase>test</phase>
                                 <configuration>
                                     <rules>
-                                        <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule" />
+                                        <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule"/>
                                     </rules>
                                     <includeTests>true</includeTests>
                                 </configuration>
