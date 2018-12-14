@@ -73,13 +73,28 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickSecurity() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJoinFacesComponentsTab();
+		starterPage.clickSecurity();
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
+			.contains("Security");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("security-spring-boot-starter");
+	}
+
+	@Test
 	public void clickPrimefaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickPrimeFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("PrimeFaces");
 
 		starterPage.clickPomTab();
@@ -92,9 +107,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickBootsFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("BootsFaces");
 
 		starterPage.clickPomTab();
@@ -107,9 +122,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickButterFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("ButterFaces");
 
 		starterPage.clickPomTab();
@@ -122,9 +137,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickAngularFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("AngularFaces");
 
 		starterPage.clickPomTab();
@@ -137,9 +152,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickRichFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("RichFaces");
 
 		starterPage.clickPomTab();
@@ -152,9 +167,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickIceFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("IceFaces");
 
 		starterPage.clickPomTab();
@@ -167,9 +182,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickAdminFaces();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("AdminFaces");
 
 		starterPage.clickPomTab();
@@ -182,10 +197,10 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickOmnifaces1();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
-			.contains("OmniFaces1");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
+			.contains("OmniFaces");
 
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent())
@@ -197,10 +212,10 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfComponentsTab();
+		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickOmnifaces3();
-		assertThat(starterPage.getJsfComponentsTabHeaderText())
-			.contains("OmniFaces3");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
+			.contains("OmniFaces");
 
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent())
@@ -212,9 +227,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfAddonsTab();
+		starterPage.clickJoinFacesAddonsTab();
 		starterPage.clickRewrite();
-		assertThat(starterPage.getJsfAddonsTabHeaderText())
+		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
 			.contains("Rewrite");
 
 		starterPage.clickPomTab();
@@ -227,9 +242,9 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		starterPage.clickJsfAddonsTab();
+		starterPage.clickJoinFacesAddonsTab();
 		starterPage.clickWeld();
-		assertThat(starterPage.getJsfAddonsTabHeaderText())
+		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
 			.contains("Weld");
 
 		starterPage.clickPomTab();

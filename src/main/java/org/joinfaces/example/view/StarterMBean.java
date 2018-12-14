@@ -58,14 +58,14 @@ public class StarterMBean implements Serializable {
 	private String jsfImplementation = MOJARRA;
 
 	@Getter
-	private List<JsfComponent> jsfComponents;
+	private List<JoinFacesStarter> joinFacesStarterComponents;
 
 	@Getter
 	@Setter
-	private List<JsfComponent> selectedJsfComponents;
+	private List<JoinFacesStarter> selectedJoinFacesStarterComponents;
 
 	@Autowired
-	private transient JsfComponentService jsfComponentService;
+	private transient JoinFacesStarterService joinFacesStarterService;
 
 	@Autowired
 	private transient Environment environment;
@@ -74,26 +74,26 @@ public class StarterMBean implements Serializable {
 	private transient FreemarkerUtils freemarkerUtils;
 
 	@Getter
-	private List<JsfComponent> jsfAddons;
+	private List<JoinFacesStarter> joinFacesStarterAddons;
 
 	@Getter
 	@Setter
-	private List<JsfComponent> selectedJsfAddons;
+	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;
 
 	@PostConstruct
 	public void init() {
-		this.jsfComponents = this.jsfComponentService.getJsfComponents();
-		this.selectedJsfComponents = new ArrayList<>();
-		this.jsfAddons = this.jsfComponentService.getJsfAddons();
-		this.selectedJsfAddons = new ArrayList<>();
+		this.joinFacesStarterComponents = this.joinFacesStarterService.getJoinFacesStartersComponents();
+		this.selectedJoinFacesStarterComponents = new ArrayList<>();
+		this.joinFacesStarterAddons = this.joinFacesStarterService.getJoinFacesStartersAddons();
+		this.selectedJoinFacesStarterAddons = new ArrayList<>();
 	}
 
 	public List<String> getComponentArtifactIds() {
 		List<String> result = new ArrayList<>();
 
-		for (JsfComponent jsfComponent : this.jsfComponents) {
-			if (this.jsfComponentService.containsByName(jsfComponent.getName(), this.selectedJsfComponents)) {
-				result.add(jsfComponent.getName());
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+				result.add(joinFacesStarter.getName());
 			}
 		}
 		if (result.isEmpty()) {
@@ -103,12 +103,12 @@ public class StarterMBean implements Serializable {
 		return result;
 	}
 
-	public String getJsfComponentsHeader() {
+	public String getJoinFacesStarterComponentsHeader() {
 		StringBuilder result = new StringBuilder();
 
-		for (JsfComponent jsfComponent : this.jsfComponents) {
-			if (this.jsfComponentService.containsByName(jsfComponent.getName(), this.selectedJsfComponents)) {
-				result.append(' ').append(jsfComponent.getName());
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+				result.append(' ').append(joinFacesStarter.getName());
 			}
 		}
 
@@ -118,21 +118,21 @@ public class StarterMBean implements Serializable {
 	public List<String> getAddonArtifactIds() {
 		List<String> result = new ArrayList<>();
 
-		for (JsfComponent jsfComponent : this.jsfAddons) {
-			if (this.jsfComponentService.containsByName(jsfComponent.getName(), this.selectedJsfAddons)) {
-				result.add(jsfComponent.getName());
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+				result.add(joinFacesStarter.getName());
 			}
 		}
 
 		return result;
 	}
 
-	public String getJsfAddonsHeader() {
+	public String getJoinFacesStarterAddonsHeader() {
 		StringBuilder result = new StringBuilder();
 
-		for (JsfComponent jsfComponent : this.jsfAddons) {
-			if (this.jsfComponentService.containsByName(jsfComponent.getName(), this.selectedJsfAddons)) {
-				result.append(' ').append(jsfComponent.getName());
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+				result.append(' ').append(joinFacesStarter.getName());
 			}
 		}
 

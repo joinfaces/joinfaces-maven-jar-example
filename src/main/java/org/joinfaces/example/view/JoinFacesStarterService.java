@@ -43,7 +43,12 @@ import org.springframework.web.context.annotation.ApplicationScope;
 @Component
 @ApplicationScope
 @Getter
-public class JsfComponentService {
+public class JoinFacesStarterService {
+
+	/**
+	 * Security constant.
+	 */
+	public static final String SECURITY = "Security";
 
 	/**
 	 * PrimeFaces constant.
@@ -95,9 +100,9 @@ public class JsfComponentService {
 	 */
 	public static final String RICHFACES = "RichFaces";
 
-	private List<JsfComponent> jsfComponents;
+	private List<JoinFacesStarter> joinFacesStartersComponents;
 
-	private List<JsfComponent> jsfAddons;
+	private List<JoinFacesStarter> joinFacesStartersAddons;
 
 	/**
 	 * Rewrite constant.
@@ -111,6 +116,9 @@ public class JsfComponentService {
 
 	@Value("${joinfaces.version}")
 	private String joinfacesVersion;
+
+	@Value("${spring-boot.version}")
+	private String securityVersion;
 
 	private String bootsfacesVersion;
 	private String cdiVersion;
@@ -135,22 +143,35 @@ public class JsfComponentService {
 		Map<String, String> versionMap = versionMap(model);
 		findVersions(versionMap);
 
-		this.jsfComponents = new ArrayList<>();
-		JsfComponent primefaces = jsfComponent(PRIMEFACES, "http://primefaces.org", getPrimefacesVersion());
-		primefaces.getLinks().add(jsfComponentLink(PRIMEFACES_EXTENSIONS, "http://primefaces-extensions.github.io", getPrimefacesExtensionsVersion()));
-		this.jsfComponents.add(primefaces);
-		this.jsfComponents.add(jsfComponent(BOOTSFACES, "http://bootsfaces.net", getBootsfacesVersion()));
-		this.jsfComponents.add(jsfComponent(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion()));
-		this.jsfComponents.add(jsfComponent(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion()));
-		this.jsfComponents.add(jsfComponent(OMNIFACES1, "http://omnifaces.org/", getOmnifaces1Version()));
-		this.jsfComponents.add(jsfComponent(OMNIFACES3, "http://omnifaces.org/", getOmnifaces3Version()));
-		this.jsfComponents.add(jsfComponent(ICEFACES, "http://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion()));
-		this.jsfComponents.add(jsfComponent(ANGULARFACES, "http://angularfaces.com", getAngularfacesVersion()));
-		this.jsfComponents.add(jsfComponent(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion()));
+		this.joinFacesStartersComponents = new ArrayList<>();
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(SECURITY)
+			.library(joinFacesStarterLibrary("Spring Security", "https://spring.io/projects/spring-security", getSecurityVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(PRIMEFACES)
+			.library(joinFacesStarterLibrary(PRIMEFACES, "https://primefaces.org", getPrimefacesVersion()))
+			.library(joinFacesStarterLibrary(PRIMEFACES_EXTENSIONS, "https://primefaces-extensions.github.io", getPrimefacesExtensionsVersion()))
+			.build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(BOOTSFACES)
+			.library(joinFacesStarterLibrary(BOOTSFACES, "https://bootsfaces.net", getBootsfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(BUTTERFACES)
+			.library(joinFacesStarterLibrary(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ADMINFACES)
+			.library(joinFacesStarterLibrary(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES1)
+			.library(joinFacesStarterLibrary("OmniFaces", "https://omnifaces.org/", getOmnifaces1Version())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES3)
+			.library(joinFacesStarterLibrary("OmniFaces", "https://omnifaces.org/", getOmnifaces3Version())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ICEFACES)
+			.library(joinFacesStarterLibrary(ICEFACES, "https://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ANGULARFACES)
+			.library(joinFacesStarterLibrary(ANGULARFACES, "https://angularfaces.net", getAngularfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(RICHFACES)
+			.library(joinFacesStarterLibrary(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion())).build());
 
-		this.jsfAddons = new ArrayList<>();
-		this.jsfAddons.add(jsfComponent(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()));
-		this.jsfAddons.add(jsfComponent(WELD, "http://weld.cdi-spec.org/", getWeldVersion()));
+		this.joinFacesStartersAddons = new ArrayList<>();
+		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(REWRITE)
+			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion())).build());
+		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(WELD)
+			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion())).build());
 	}
 
 	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
@@ -185,40 +206,29 @@ public class JsfComponentService {
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
 
-	private JsfComponent jsfComponent(String name, String siteLink, String version) {
-		JsfComponent result = JsfComponent.builder()
-				.name(name)
-				.links(new ArrayList<>())
-				.build();
-
-		result.getLinks().add(jsfComponentLink(name, siteLink, version));
-
-		return result;
-	}
-
-	private JsfComponentLink jsfComponentLink(String name, String siteLink, String version) {
-		return JsfComponentLink.builder()
+	private JoinFacesStarterLibrary joinFacesStarterLibrary(String name, String siteLink, String version) {
+		return JoinFacesStarterLibrary.builder()
 				.name(name)
 				.site(siteLink)
-				.image("images/" + name.toLowerCase() + ".png")
+				.image("images/" + name.toLowerCase().trim().replace(' ', '-') + ".png")
 				.version(version)
 				.build();
 	}
 
-	public JsfComponent findByName(String name) {
-		JsfComponent result = findByName(name, this.jsfComponents);
+	public JoinFacesStarter findByName(String name) {
+		JoinFacesStarter result = findByName(name, this.joinFacesStartersComponents);
 		if (result == null) {
-			result = findByName(name, this.jsfAddons);
+			result = findByName(name, this.joinFacesStartersAddons);
 		}
 		return result;
 	}
 
-	private JsfComponent findByName(String name, List<JsfComponent> jsfComponentsList) {
-		JsfComponent result = null;
+	private JoinFacesStarter findByName(String name, List<JoinFacesStarter> joinFacesStarterList) {
+		JoinFacesStarter result = null;
 
-		for (JsfComponent jsfComponent : jsfComponentsList) {
-			if (jsfComponent.getName().equals(name)) {
-				result = jsfComponent;
+		for (JoinFacesStarter joinFacesStarter : joinFacesStarterList) {
+			if (joinFacesStarter.getName().equals(name)) {
+				result = joinFacesStarter;
 				break;
 			}
 		}
@@ -226,7 +236,7 @@ public class JsfComponentService {
 		return result;
 	}
 
-	public boolean containsByName(String name, List<JsfComponent> jsfComponentsList) {
-		return findByName(name, jsfComponentsList) != null;
+	public boolean containsByName(String name, List<JoinFacesStarter> joinFacesStarterList) {
+		return findByName(name, joinFacesStarterList) != null;
 	}
 }
