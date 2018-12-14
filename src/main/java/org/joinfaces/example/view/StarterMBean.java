@@ -58,14 +58,14 @@ public class StarterMBean implements Serializable {
 	private String jsfImplementation = MOJARRA;
 
 	@Getter
-	private List<JsfComponent> jsfComponents;
+	private List<JoinFacesStarter> joinFacesStarterComponents;
 
 	@Getter
 	@Setter
-	private List<JsfComponent> selectedJsfComponents;
+	private List<JoinFacesStarter> selectedJoinFacesStarterComponents;
 
 	@Autowired
-	private transient JsfComponentService jsfComponentService;
+	private transient JoinFacesStarterService joinFacesStarterService;
 
 	@Autowired
 	private transient Environment environment;
@@ -74,43 +74,27 @@ public class StarterMBean implements Serializable {
 	private transient FreemarkerUtils freemarkerUtils;
 
 	@Getter
-	private List<JsfComponent> jsfAddons;
+	private List<JoinFacesStarter> joinFacesStarterAddons;
 
 	@Getter
 	@Setter
-	private List<JsfComponent> selectedJsfAddons;
+	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;
 
 	@PostConstruct
 	public void init() {
-		this.jsfComponents = this.jsfComponentService.getJsfComponents();
-		this.selectedJsfComponents = new ArrayList<>();
-		this.jsfAddons = this.jsfComponentService.getJsfAddons();
-		this.selectedJsfAddons = new ArrayList<>();
+		this.joinFacesStarterComponents = this.joinFacesStarterService.getJoinFacesStartersComponents();
+		this.selectedJoinFacesStarterComponents = new ArrayList<>();
+		this.joinFacesStarterAddons = this.joinFacesStarterService.getJoinFacesStartersAddons();
+		this.selectedJoinFacesStarterAddons = new ArrayList<>();
 	}
 
 	public List<String> getComponentArtifactIds() {
 		List<String> result = new ArrayList<>();
 
-		if (isPrimeFacesSelected()) {
-			result.add(JsfComponentService.PRIMEFACES);
-		}
-		if (isBootsFacesSelected()) {
-			result.add(JsfComponentService.BOOTSFACES);
-		}
-		if (isButterFacesSelected()) {
-			result.add(JsfComponentService.BUTTERFACES);
-		}
-		if (isAdminFacesSelected()) {
-			result.add(JsfComponentService.ADMINFACES);
-		}
-		if (isIceFacesSelected()) {
-			result.add(JsfComponentService.ICEFACES);
-		}
-		if (isAngularFacesSelected()) {
-			result.add(JsfComponentService.ANGULARFACES);
-		}
-		if (isRichFacesSelected()) {
-			result.add(JsfComponentService.RICHFACES);
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+				result.add(joinFacesStarter.getName());
+			}
 		}
 		if (result.isEmpty()) {
 			result.add("jsf");
@@ -119,29 +103,13 @@ public class StarterMBean implements Serializable {
 		return result;
 	}
 
-	public String getJsfComponentsHeader() {
+	public String getJoinFacesStarterComponentsHeader() {
 		StringBuilder result = new StringBuilder();
 
-		if (isPrimeFacesSelected()) {
-			result.append(' ').append(JsfComponentService.PRIMEFACES);
-		}
-		if (isBootsFacesSelected()) {
-			result.append(' ').append(JsfComponentService.BOOTSFACES);
-		}
-		if (isButterFacesSelected()) {
-			result.append(' ').append(JsfComponentService.BUTTERFACES);
-		}
-		if (isAdminFacesSelected()) {
-			result.append(' ').append(JsfComponentService.ADMINFACES);
-		}
-		if (isIceFacesSelected()) {
-			result.append(' ').append(JsfComponentService.ICEFACES);
-		}
-		if (isAngularFacesSelected()) {
-			result.append(' ').append(JsfComponentService.ANGULARFACES);
-		}
-		if (isRichFacesSelected()) {
-			result.append(' ').append(JsfComponentService.RICHFACES);
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+				result.append(' ').append(joinFacesStarter.getName());
+			}
 		}
 
 		return result.toString();
@@ -150,30 +118,22 @@ public class StarterMBean implements Serializable {
 	public List<String> getAddonArtifactIds() {
 		List<String> result = new ArrayList<>();
 
-		if (isRewriteSelected()) {
-			result.add(JsfComponentService.REWRITE);
-		}
-		if (isOmnifaces3Selected()) {
-			result.add(JsfComponentService.OMNIFACES3);
-		}
-		if (isWeldSelected()) {
-			result.add(JsfComponentService.WELD);
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+				result.add(joinFacesStarter.getName());
+			}
 		}
 
 		return result;
 	}
 
-	public String getJsfAddonsHeader() {
+	public String getJoinFacesStarterAddonsHeader() {
 		StringBuilder result = new StringBuilder();
 
-		if (isRewriteSelected()) {
-			result.append(' ').append(JsfComponentService.REWRITE);
-		}
-		if (isOmnifaces3Selected()) {
-			result.append(' ').append(JsfComponentService.OMNIFACES3);
-		}
-		if (isWeldSelected()) {
-			result.append(' ').append(JsfComponentService.WELD);
+		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+				result.append(' ').append(joinFacesStarter.getName());
+			}
 		}
 
 		return result.toString();
@@ -185,46 +145,6 @@ public class StarterMBean implements Serializable {
 
 	public boolean isMojarraSelected() {
 		return this.jsfImplementation.equals(MOJARRA);
-	}
-
-	public boolean isPrimeFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.PRIMEFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isBootsFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.BOOTSFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isButterFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.BUTTERFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isAdminFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.ADMINFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isIceFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.ICEFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isAngularFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.ANGULARFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isRichFacesSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.RICHFACES, this.selectedJsfComponents);
-	}
-
-	public boolean isRewriteSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.REWRITE, this.selectedJsfAddons);
-	}
-
-	public boolean isOmnifaces3Selected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.OMNIFACES3, this.selectedJsfAddons);
-	}
-
-	public boolean isWeldSelected() {
-		return this.jsfComponentService.containsByName(JsfComponentService.WELD, this.selectedJsfAddons);
 	}
 
 	public String getPom() throws IOException, TemplateException {
