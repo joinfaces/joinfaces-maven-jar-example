@@ -13,7 +13,7 @@ This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spr
 
 ## See Example Application in the cloud
 
-1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/index.jsf**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
+1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
 
 User | Password | Roles
 -----| -------- | -----
@@ -37,7 +37,7 @@ mvn clean install
 java -jar target/joinfaces-example-3.3.0-SNAPSHOT.jar
 ```
 
-4- Access starter page at **http://localhost:8080/index.jsf**
+4- Access starter page at **http://localhost:8080/**
 
 ## Key Files
 
@@ -49,7 +49,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 <parent>
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-parent</artifactId>
-    <version>3.3.0-rc5</version>
+    <version>4.0.0</version>
     <relativePath/>
 </parent>
 

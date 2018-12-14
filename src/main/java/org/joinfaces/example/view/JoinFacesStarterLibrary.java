@@ -28,7 +28,7 @@ import lombok.Getter;
  */
 @Getter
 @Builder
-public class JsfComponentLink implements Serializable {
+public class JoinFacesStarterLibrary implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
