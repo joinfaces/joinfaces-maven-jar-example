@@ -4,7 +4,6 @@ JoinFaces Example
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example)
 [![Codecov](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example/branch/master/graph/badge.svg)](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example)
 [![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-maven-jar-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-maven-jar-example?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5a09afae0fb24f00502441b0)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
@@ -13,7 +12,7 @@ This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spr
 
 ## See Example Application in the cloud
 
-1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JSF Spring Boot Starter that fits your needs. You may login with credentials
+1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JoinFaces Starter that fits your needs. You may login with credentials
 
 User | Password | Roles
 -----| -------- | -----
@@ -34,7 +33,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-3.3.0-SNAPSHOT.jar
+java -jar target/joinfaces-example-4.0.0-SNAPSHOT.jar
 ```
 
 4- Access starter page at **http://localhost:8080/**
@@ -46,44 +45,37 @@ java -jar target/joinfaces-example-3.3.0-SNAPSHOT.jar
 Includes joinfaces starter dependency. All other jsf dependencies are included transitively.
 
 ```xml
-<parent>
-    <groupId>org.joinfaces</groupId>
-    <artifactId>joinfaces-parent</artifactId>
-    <version>4.0.0</version>
-    <relativePath/>
-</parent>
+<properties>
+   <joinfaces.version>4.0.0</joinfaces.version>
+</properties>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.joinfaces</groupId>
+            <artifactId>joinfaces-dependencies</artifactId>
+            <version>${joinfaces.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
 
 <dependencies>
-    <dependency>
-      <groupId>org.joinfaces</groupId>
-      <artifactId>jsf-spring-boot-starter</artifactId>
-    </dependency>
+  <dependency>
+    <groupId>org.joinfaces</groupId>
+    <artifactId>jsf-spring-boot-starter</artifactId>
+  </dependency>
 </dependencies>
 ```
 
-If you prefer **Jetty** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **jetty-spring-boot-starter** in order to use **Jetty** servlet container. 
-
-If you prefer **Undertow** instead of **Tomcat**, exclude **tomcat-spring-boot-starter** artifactId and add **undertow-spring-boot-starter** in order to use **Undertow** servlet container. 
-
-If you prefer **MyFaces** instead of **Mojarra**, exclude **mojarra-spring-boot-starter** artifactId and add **myfaces-spring-boot-starter** in order to use **MyFaces** JSF Implementation. 
-
-If you prefer **PrimeFaces**, add **primefaces-spring-boot-starter** in order to use **PrimeFaces** JSF Components. 
-
-If you prefer **BootsFaces**, add **bootsfaces-spring-boot-starter** in order to use **BootsFaces** JSF Components. 
-
-If you prefer **ButterFaces**, add **butterfaces-spring-boot-starter** in order to use **ButterFaces** JSF Components. 
-
-If you prefer **AngularFaces**, add **angularfaces-spring-boot-starter** in order to use **AngularFaces** JSF Components. 
-
-If you prefer **RichFaces**, add **richfaces-spring-boot-starter** in order to use **RichFaces** JSF Components. 
-
-Note that **spring-boot-starter-security** is included to secure the application.
+Note that **security-spring-boot-starter** is included to secure the application.
 
 ```xml
 <dependencies>
     <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-security</artifactId>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>security-spring-boot-starter</artifactId>
     </dependency>
 </dependencies>
 ```
@@ -93,15 +85,16 @@ Note that **spring-boot-starter-security** is included to secure the application
 Configure jsf.PROJECT_STATE and jsf.primefaces.THEME properties.
 
 ```yml
-jsf:
-  PROJECT_STAGE: Development
+joinfaces:
+  jsf:
+    PROJECT_STAGE: Development
   primefaces: 
     theme: overcast
 ```
 
 ### src/main/resources/META-INF/resources/content/starter.xhtml
 
-Example page to help you choose the right JSF Spring Boot Starter for you. 
+Example page to help you choose the right JoinFaces Starter for you. 
 
 Note that xhtml, js, css and images files should be located at **src/main/resources/META-INF/resources** directory to JSF use them.
 
@@ -132,7 +125,7 @@ Spring Security configuration class to secure authentication with credentials to
 
 ### src/main/java/org/joinfaces/example/view/StarterMBean.java
 
-Managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by Jsf Spring Boot Starter.
+Managed bean using ViewScoped CDI annotation. The equivalent spring scope of ViewScoped annotation is configured automatically by JoinFaces Starter.
 
 <pre>
 @Named
