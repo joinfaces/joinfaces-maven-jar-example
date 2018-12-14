@@ -105,30 +105,20 @@
                 </p:panel>
             </p:tab>
 
-            <p:tab title="JSF Utility Library" id="tabJsfUtilityLibrary" >
-                <p:panel id="panelJsfUtilityLibraries" header="OmniFaces: JSF Utility Library" >
-                    <p:link href="http://omnifaces.org">
-                        <p:graphicImage title="OmniFaces ${jsfComponentService.omnifaces1Version}" alt="OmniFaces ${jsfComponentService.omnifaces1Version}"
-                                        value="#{resource['images/omnifaces1.png']}"
-                                        height="100" width="100"/>
-                    </p:link>        
-                </p:panel>
-            </p:tab>
-
-            <p:tab title="JSF Components" id="tabJsfComponents" >
-                <p:panel id="panelJsfComponents" header="#{starterMBean.jsfComponentsHeader} : Jsf Components" >
-                    <p:selectManyMenu id="jsfComponents" value="#{starterMBean.selectedJsfComponents}" 
-                                      showCheckbox="true" var="t" converter="#{jsfComponentConverter}">
-                        <f:selectItems value="#{starterMBean.jsfComponents}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
-                        <p:ajax update="panelJsfComponents panelPom" />
+            <p:tab title="JoinFaces Components" id="tabJoinFacesComponents" >
+                <p:panel id="panelJoinFacesComponents" header="#{starterMBean.joinFacesStarterComponentsHeader} : JoinFaces Components" >
+                    <p:selectManyMenu id="joinFacesComponents" value="#{starterMBean.selectedJoinFacesStarterComponents}" 
+                                      showCheckbox="true" var="t" converter="#{joinFacesStarterConverter}">
+                        <f:selectItems value="#{starterMBean.joinFacesStarterComponents}" var="joinFacesStarter" itemLabel="#{joinFacesStarter.name}" itemValue="#{joinFacesStarter}" />
+                        <p:ajax update="panelJoinFacesComponents panelPom" />
                         <p:column>
                             <h:outputText value="#{t.name}" />
                         </p:column>
                         <p:column>
-                            <ui:repeat var="jsfComponentLink" value="#{t.links}">
-                                <p:link href="${jsfComponentLink.site}">
-                                    <p:graphicImage title="#{jsfComponentLink.name} #{jsfComponentLink.version}" alt="#{t.name} #{jsfComponentLink.version}"
-                                                    value="#{resource[jsfComponentLink.image]}"
+                            <ui:repeat var="library" value="#{t.libraries}">
+                                <p:link href="${library.site}">
+                                    <p:graphicImage title="#{library.name} #{library.version}" alt="#{t.name} #{library.version}"
+                                                    value="#{resource[library.image]}"
                                                     height="100" width="100"/>
                                 </p:link>
                             </ui:repeat>
@@ -137,20 +127,20 @@
                 </p:panel>
             </p:tab>
 
-            <p:tab title="JSF Addons" id="tabJsfAddons" >
-                <p:panel id="panelJsfAddons" header="#{starterMBean.jsfAddonsHeader} : Jsf Addons" >
-                    <p:selectManyMenu id="jsfAddons" value="#{starterMBean.selectedJsfAddons}" 
-                                      showCheckbox="true" var="t" converter="#{jsfComponentConverter}">
-                        <f:selectItems value="#{starterMBean.jsfAddons}" var="jsfComponent" itemLabel="#{jsfComponent.name}" itemValue="#{jsfComponent}" />
-                        <p:ajax update="panelJsfAddons panelPom" />
+            <p:tab title="JoinFaces Addons" id="tabJoinFacesAddons" >
+                <p:panel id="panelJoinFacesAddons" header="#{starterMBean.joinFacesStarterAddonsHeader} : JoinFaces Addons" >
+                    <p:selectManyMenu id="joinFacesAddons" value="#{starterMBean.selectedJoinFacesStarterAddons}" 
+                                      showCheckbox="true" var="t" converter="#{joinFacesStarterConverter}">
+                        <f:selectItems value="#{starterMBean.joinFacesStarterAddons}" var="joinFacesStarter" itemLabel="#{joinFacesStarter.name}" itemValue="#{joinFacesStarter}" />
+                        <p:ajax update="panelJoinFacesAddons panelPom" />
                         <p:column>
                             <h:outputText value="#{t.name}" />
                         </p:column>
                         <p:column>
-                            <ui:repeat var="jsfComponentLink" value="#{t.links}">
-                                <p:link href="${jsfComponentLink.site}">
-                                    <p:graphicImage title="#{jsfComponentLink.name} #{jsfComponentLink.version}" alt="#{t.name} #{jsfComponentLink.version}"
-                                                    value="#{resource[jsfComponentLink.image]}"
+                            <ui:repeat var="library" value="#{t.libraries}">
+                                <p:link href="${library.site}">
+                                    <p:graphicImage title="#{library.name} #{library.version}" alt="#{t.name} #{library.version}"
+                                                    value="#{resource[library.image]}"
                                                     height="100" width="100"/>
                                 </p:link>
                             </ui:repeat>
