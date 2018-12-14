@@ -49,7 +49,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 <parent>
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-parent</artifactId>
-    <version>3.3.0-rc5</version>
+    <version>4.0.0</version>
     <relativePath/>
 </parent>
 
