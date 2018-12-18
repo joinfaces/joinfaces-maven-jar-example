@@ -52,7 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.defaultSuccessUrl("/starter.jsf")
 				.and()
 				.logout()
-				.logoutSuccessUrl("/login.jsf");
+				.logoutSuccessUrl("/login.jsf")
+				.deleteCookies("JSESSIONID");
 		}
 		catch (Exception ex) {
 			throw new RuntimeException(ex);
