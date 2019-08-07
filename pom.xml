@@ -20,7 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
-        <joinfaces.version>4.0.3</joinfaces.version>
+        <joinfaces.version>4.0.7</joinfaces.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
         <maven-model.version>3.6.0</maven-model.version>
 
