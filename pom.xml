@@ -27,7 +27,7 @@
         <!-- test library versions -->
         <selenium.version>3.141.5</selenium.version>
         <htmlunit-driver.version>2.33.2</htmlunit-driver.version>
-        <htmlunit.version>2.33</htmlunit.version>
+        <htmlunit.version>2.36.0</htmlunit.version>
         <webdrivermanager.version>3.0.0</webdrivermanager.version>
         <jarchivelib.version>1.0.0</jarchivelib.version>
 
