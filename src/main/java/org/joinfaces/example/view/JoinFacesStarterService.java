@@ -176,7 +176,7 @@ public class JoinFacesStarterService {
 
 	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-		return mavenXpp3Reader.read(new URL("http://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
+		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
 				+ joinfacesVersion + "/joinfaces-dependencies-" + joinfacesVersion + ".pom").openStream());
 	}
 
