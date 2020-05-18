@@ -22,7 +22,7 @@
         <!-- compile library versions -->
         <joinfaces.version>4.1.1</joinfaces.version>
         <primefaces-theme.version>1.0.10</primefaces-theme.version>
-        <maven-model.version>3.6.0</maven-model.version>
+        <maven-model.version>3.6.3</maven-model.version>
 
         <!-- test library versions -->
         <selenium.version>3.141.59</selenium.version>
