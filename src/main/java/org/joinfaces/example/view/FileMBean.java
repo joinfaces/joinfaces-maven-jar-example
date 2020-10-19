@@ -25,7 +25,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import org.primefaces.model.UploadedFile;
+import org.primefaces.model.file.UploadedFile;
 
 import org.springframework.stereotype.Component;
 
@@ -48,7 +48,7 @@ public class FileMBean implements Serializable {
 
 	public void upload() throws IOException {
 		if (this.uploadedFile != null) {
-			this.downloadFile = new DefaultStreamedContent(this.uploadedFile.getInputstream(),
+			this.downloadFile = new DefaultStreamedContent(this.uploadedFile.getInputStream(),
 				this.uploadedFile.getContentType(), this.uploadedFile.getFileName());
 		}
 	}
