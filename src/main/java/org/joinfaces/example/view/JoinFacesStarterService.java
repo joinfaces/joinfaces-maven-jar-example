@@ -137,6 +137,9 @@ public class JoinFacesStarterService {
 	private String rewriteVersion;
 	private String weldVersion;
 
+	/**
+	* Initialize default properties.
+	*/
 	@PostConstruct
 	public void init() throws IOException, MalformedURLException, XmlPullParserException {
 		Model model = createModel();
@@ -177,7 +180,7 @@ public class JoinFacesStarterService {
 	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
-				+ joinfacesVersion + "/joinfaces-dependencies-" + joinfacesVersion + ".pom").openStream());
+				+ this.joinfacesVersion + "/joinfaces-dependencies-" + this.joinfacesVersion + ".pom").openStream());
 	}
 
 	private Map<String, String> versionMap(Model pom) {
@@ -215,6 +218,9 @@ public class JoinFacesStarterService {
 				.build();
 	}
 
+	/**
+	* Find joinfaces starter by name.
+	*/
 	public JoinFacesStarter findByName(String name) {
 		JoinFacesStarter result = findByName(name, this.joinFacesStartersComponents);
 		if (result == null) {
@@ -236,6 +242,9 @@ public class JoinFacesStarterService {
 		return result;
 	}
 
+	/**
+	* Calculate contains by name using joinfaces starter list.
+	*/
 	public boolean containsByName(String name, List<JoinFacesStarter> joinFacesStarterList) {
 		return findByName(name, joinFacesStarterList) != null;
 	}

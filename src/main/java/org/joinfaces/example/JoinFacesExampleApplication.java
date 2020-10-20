@@ -26,6 +26,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JoinFacesExampleApplication {
 
+	/**
+	* Main method.
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(JoinFacesExampleApplication.class, args);
 	}

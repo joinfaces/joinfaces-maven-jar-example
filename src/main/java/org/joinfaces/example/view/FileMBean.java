@@ -46,6 +46,9 @@ public class FileMBean implements Serializable {
 	@Getter
 	private transient StreamedContent downloadFile;
 
+	/**
+	* Upload file action.
+	*/
 	public void upload() throws IOException {
 		if (this.uploadedFile != null) {
 			this.downloadFile = new DefaultStreamedContent(this.uploadedFile.getInputStream(),

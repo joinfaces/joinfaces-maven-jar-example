@@ -80,6 +80,9 @@ public class StarterMBean implements Serializable {
 	@Setter
 	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;
 
+	/**
+	* Initialize default attributes.
+	*/
 	@PostConstruct
 	public void init() {
 		this.joinFacesStarterComponents = this.joinFacesStarterService.getJoinFacesStartersComponents();
@@ -88,6 +91,9 @@ public class StarterMBean implements Serializable {
 		this.selectedJoinFacesStarterAddons = new ArrayList<>();
 	}
 
+	/**
+	* Calculate component artifact ids.
+	*/
 	public List<String> getComponentArtifactIds() {
 		List<String> result = new ArrayList<>();
 
@@ -103,6 +109,9 @@ public class StarterMBean implements Serializable {
 		return result;
 	}
 
+	/**
+	* Calculate joinfaces starter components header.
+	*/
 	public String getJoinFacesStarterComponentsHeader() {
 		StringBuilder result = new StringBuilder();
 
@@ -115,6 +124,9 @@ public class StarterMBean implements Serializable {
 		return result.toString();
 	}
 
+	/**
+	* Calculate addon artifact ids.
+	*/
 	public List<String> getAddonArtifactIds() {
 		List<String> result = new ArrayList<>();
 
@@ -127,6 +139,9 @@ public class StarterMBean implements Serializable {
 		return result;
 	}
 
+	/**
+	* Calculate joinfaces starter addons header.
+	*/
 	public String getJoinFacesStarterAddonsHeader() {
 		StringBuilder result = new StringBuilder();
 
@@ -147,6 +162,9 @@ public class StarterMBean implements Serializable {
 		return this.jsfImplementation.equals(MOJARRA);
 	}
 
+	/**
+	* Create pom map.
+	*/
 	public String getPom() throws IOException, TemplateException {
 		Map<String, Object> map = new HashMap<>();
 		map.put("environment", this.environment);
@@ -154,6 +172,9 @@ public class StarterMBean implements Serializable {
 		return this.freemarkerUtils.mergeTemplate(map, "pom.ftl");
 	}
 
+	/**
+	* Set pom map.
+	*/
 	public void setPom(String pom) {
 	}
 }
