@@ -16,15 +16,16 @@
 
 package org.joinfaces.example;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 public class SecurityConfigIT {
 
-	@Test(expected = RuntimeException.class)
+	@Test
 	public void exceptionOnConfigureNull() {
-		new SecurityConfig().configure((HttpSecurity) null);
+            Assertions.assertThrows(RuntimeException.class, () -> new SecurityConfig().configure((HttpSecurity) null));
 	}
 
 }
