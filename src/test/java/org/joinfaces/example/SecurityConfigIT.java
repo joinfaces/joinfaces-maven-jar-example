@@ -25,7 +25,7 @@ public class SecurityConfigIT {
 
 	@Test
 	public void exceptionOnConfigureNull() {
-            Assertions.assertThrows(RuntimeException.class, () -> new SecurityConfig().configure((HttpSecurity) null));
+		Assertions.assertThrows(RuntimeException.class, () -> new SecurityConfig().configure((HttpSecurity) null));
 	}
 
 }
