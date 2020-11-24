@@ -17,8 +17,8 @@
 package org.joinfaces.example.view;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -45,7 +45,7 @@ public class AbstractPageIT {
 
 	private static final int NUMBER_OF_SUBCLASSES = 8;
 
-	@BeforeClass
+	@BeforeAll
 	public static void init() {
 		if (webDriver == null) {
 			String webDriverType = System.getProperty("webDriverType", "firefox");
@@ -83,7 +83,7 @@ public class AbstractPageIT {
 		return new FirefoxDriver(firefoxOptions);
 	}
 
-	@AfterClass
+	@AfterAll
 	public static void finish() {
 		countFinish++;
 		if (countFinish == NUMBER_OF_SUBCLASSES) {
