@@ -45,7 +45,7 @@
         <no-package-cycles-enforcer-rule.version>1.0.9</no-package-cycles-enforcer-rule.version>
         <spotbugs-maven-plugin.version>4.1.4</spotbugs-maven-plugin.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
-        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
+        <maven-pmd-plugin.version>3.14.0</maven-pmd-plugin.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
         <checkstyle.version>8.37</checkstyle.version>
 
