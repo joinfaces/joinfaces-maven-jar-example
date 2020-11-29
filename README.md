@@ -4,6 +4,7 @@ JoinFaces Example
 [![Build Status](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example.svg?branch=master)](https://travis-ci.org/joinfaces/joinfaces-maven-jar-example)
 [![Codecov](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example/branch/master/graph/badge.svg)](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example)
 [![Coverage Status](https://coveralls.io/repos/github/joinfaces/joinfaces-maven-jar-example/badge.svg?branch=master)](https://coveralls.io/github/joinfaces/joinfaces-maven-jar-example?branch=master)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=joinfaces_joinfaces-maven-jar-example&metric=bugs)](https://sonarcloud.io/dashboard?id=joinfaces_joinfaces-maven-jar-example)
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
