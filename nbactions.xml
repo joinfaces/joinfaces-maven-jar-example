@@ -30,8 +30,8 @@
         </properties>
     </action>
     <action>
-        <actionName>CUSTOM-duplicate-checkstyle-pmd-cpd-cycles-spotbugs</actionName>
-        <displayName>duplicate-checkstyle-pmd-cpd-cycles-spotbugs</displayName>
+        <actionName>CUSTOM-duplicate-checkstyle-pmd-cpd-cycles-spotbugs-dependency</actionName>
+        <displayName>duplicate-checkstyle-pmd-cpd-cycles-spotbugs-dependency</displayName>
         <goals>
             <goal>clean</goal>
             <goal>verify</goal>
@@ -43,6 +43,7 @@
             <activatedProfile>check-cpd</activatedProfile>
             <activatedProfile>check-pmd</activatedProfile>
             <activatedProfile>check-spotbugs</activatedProfile>
+            <activatedProfile>check-dependency</activatedProfile>
         </activatedProfiles>
         <properties>
             <skipTests>true</skipTests>
