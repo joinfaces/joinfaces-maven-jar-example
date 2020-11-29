@@ -63,6 +63,12 @@
         <duplicate-finder-maven-plugin.version>1.5.0</duplicate-finder-maven-plugin.version>
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|javax.el.*)</duplicate.ignoredClassPattern>
+
+        <dependency-check-maven.version>6.0.3</dependency-check-maven.version>
+        <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
+        <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
+        <sonar.organization>joinfaces</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencyManagement>
@@ -400,6 +406,16 @@
                         <excludes>${checkstyle.excludes}</excludes>
                     </configuration>
                 </plugin>            
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${sonar-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>${dependency-check-maven.version}</version>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -571,6 +587,48 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>check-sonarqube</id>
+            <properties>
+                <sonar.dependencyCheck.htmlReportPath>target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonarsource.scanner.maven</groupId>
+                        <artifactId>sonar-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>sonar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>check-dependency</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.owasp</groupId>
+                        <artifactId>dependency-check-maven</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>aggregate</goal>
+                                </goals>
+                            </execution>                            
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>                
     </profiles>
 
     <repositories>
