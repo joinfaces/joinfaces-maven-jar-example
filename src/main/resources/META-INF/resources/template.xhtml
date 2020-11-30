@@ -3,7 +3,6 @@
 <html lang="en-us"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
@@ -25,25 +24,21 @@
                     <p:dialog widgetVar="statusDialog" position="right top"
                               draggable="false" resizable="false" closable="false"
                               showHeader="false" modal="false">
-                        <center>
-                            <p:graphicImage value="#{resource['images/ajaxloading.gif']}" />
-                        </center>
+                        <p:graphicImage value="#{resource['images/ajaxloading.gif']}" />
                     </p:dialog>
-                    <div id="starterDiv" class="ui-fluid">
-                        <center>
-                            <p:menubar>
-                                <p:menuitem value="Starter" url="/starter.jsf" />
-                                <p:menuitem value="File Upload" url="fileUpload.jsf" />
-                                <p:menuitem value="Custom Input" url="customInput.jsf" />
-                                <p:menuitem value="My Tag" url="helloTag.jsf" />
-                                <p:menuitem value="Hi CC" url="hiCC.jsf" />
-                                <p:menuitem value="Welcome Converter" url="welcomeConverter.jsf" />
-                            </p:menubar>
+                    <div id="starterDiv" class="ui-fluid center">
+                        <p:menubar>
+                            <p:menuitem value="Starter" url="/starter.jsf" />
+                            <p:menuitem value="File Upload" url="fileUpload.jsf" />
+                            <p:menuitem value="Custom Input" url="customInput.jsf" />
+                            <p:menuitem value="My Tag" url="helloTag.jsf" />
+                            <p:menuitem value="Hi CC" url="hiCC.jsf" />
+                            <p:menuitem value="Welcome Converter" url="welcomeConverter.jsf" />
+                        </p:menubar>
 
-                            <p:spacer height="10" />
+                        <p:spacer height="10" />
 
-                            <ui:insert name="content" />
-                        </center>
+                        <ui:insert name="content" />
                     </div>
                 </h:form>
             </pe:layoutPane>
