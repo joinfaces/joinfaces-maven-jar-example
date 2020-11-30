@@ -17,19 +17,17 @@
             <pe:layout fullPage="true" >
                 <pe:layoutPane position="center" >
                     <h:form prependId="false">
-                        <div id="starterDiv" class="ui-fluid">
-                            <center>
-                                <p:outputLabel value="Connection failed: user and/or password are wrong." 
-                                               rendered="${!empty param['error']}"/>
-                                <p:focus />
-                                <p:panelGrid columns="2" layout="grid">
-                                    <h:outputText value="username" />
-                                    <p:inputText id="username" />
-                                    <h:outputText value="password" />
-                                    <p:password id="password" />
-                                </p:panelGrid>
-                                <p:commandButton id="submit" value="Login" ajax="false" />
-                            </center>
+                        <div id="starterDiv" class="ui-fluid center">
+                            <p:outputLabel value="Connection failed: user and/or password are wrong." 
+                                           rendered="${!empty param['error']}"/>
+                            <p:focus />
+                            <p:panelGrid columns="2" layout="grid">
+                                <h:outputText value="username" />
+                                <p:inputText id="username" />
+                                <h:outputText value="password" />
+                                <p:password id="password" />
+                            </p:panelGrid>
+                            <p:commandButton id="submit" value="Login" ajax="false" />
                         </div>
                     </h:form>
                 </pe:layoutPane>
