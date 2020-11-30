@@ -16,6 +16,10 @@
 
 package org.joinfaces.example;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,8 +35,13 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
  */
 @Configuration
 @EnableWebSecurity
+@EnableConfigurationProperties(ApplicationUsers.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	@Autowired
+	private ApplicationUsers applicationUsers;
+
+	@SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
 	@Override
 	protected void configure(HttpSecurity http) {
 		try {
@@ -63,8 +72,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected UserDetailsService userDetailsService() {
 		InMemoryUserDetailsManager result = new InMemoryUserDetailsManager();
-		result.createUser(User.withDefaultPasswordEncoder().username("persapiens").password("123").authorities("ROLE_ADMIN").build());
-		result.createUser(User.withDefaultPasswordEncoder().username("nyilmaz").password("qwe").authorities("ROLE_USER").build());
+		for (UserCredentials userCredentials : this.applicationUsers.getUsersCredentials()) {
+			result.createUser(User.withDefaultPasswordEncoder()
+				.username(userCredentials.getUsername())
+				.password(userCredentials.getPassword())
+				.authorities(userCredentials.getAuthorities().toArray(new String[0])).build());
+		}
 		return result;
 	}
 }
