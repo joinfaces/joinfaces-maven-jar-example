@@ -12,12 +12,4 @@
         <Method name="__cobertura_get_and_reset_counters" />
         <Bug pattern="UMAC_UNCALLABLE_METHOD_OF_ANONYMOUS_CLASS" />
     </Match>
-    <Match>
-        <Method returns="java.util.Date" />
-        <Bug pattern="EI_EXPOSE_REP" />
-    </Match>
-    <Match>
-        <Method params="java.util.Date" />
-        <Bug pattern="EI_EXPOSE_REP2" />
-    </Match>
 </FindBugsFilter>

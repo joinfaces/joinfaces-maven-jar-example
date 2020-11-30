@@ -26,6 +26,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
@@ -177,6 +178,7 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion())).build());
 	}
 
+	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
 	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
