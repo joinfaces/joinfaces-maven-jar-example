@@ -34,7 +34,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-4.4.2.jar
+java -jar target/joinfaces-example-4.4.3.jar
 ```
 
 4- Access starter page at **http://localhost:8080/**
@@ -49,7 +49,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>4.4.2</joinfaces.version>
+   <joinfaces.version>4.4.3</joinfaces.version>
 </properties>
 
 <dependencyManagement>
