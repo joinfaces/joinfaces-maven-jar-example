@@ -83,7 +83,7 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	private WebElement joinFacesComponentRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
 	}
 
 	public void clickSecurity() {
@@ -190,7 +190,7 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	private WebElement joinFacesAddonsRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div/span"));
+		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
 	}
 
 	public String getJoinFacesAddonsTabHeaderText() {
