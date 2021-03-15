@@ -16,6 +16,7 @@
 
 package org.joinfaces.example.view;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.faces.view.ViewScoped;
@@ -51,10 +52,17 @@ public class FileMBean implements Serializable {
 	public void upload() {
 		if (this.uploadedFile != null) {
 			this.downloadFile = DefaultStreamedContent.builder()
-                                .stream(() -> this.uploadedFile.getInputStream())
-                                .contentType(this.uploadedFile.getContentType())
-                                .name(this.uploadedFile.getFileName())
-                                .build();
+				.stream(() -> {
+					try {
+						return this.uploadedFile.getInputStream();
+					}
+					catch (IOException ex) {
+						throw new RuntimeException(ex);
+					}
+				})
+				.contentType(this.uploadedFile.getContentType())
+				.name(this.uploadedFile.getFileName())
+				.build();
 		}
 	}
 }
