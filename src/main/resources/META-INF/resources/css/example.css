@@ -1,0 +1,16 @@
+#mainLayoutPane {
+  background-color: #1f2d40;
+}
+
+#mainDiv {
+  background-color: #1f2d40;
+}
+
+.CodeMirror { 
+  text-align: left; 
+  height: auto !important;
+}
+
+.center {
+  text-align: center;
+}

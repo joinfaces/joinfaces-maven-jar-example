@@ -6,18 +6,20 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:pe="http://primefaces.org/ui/extensions">
+
     <f:view contentType="text/html">
         <h:head>
             <title>.:: Login JoinFaces Example ::.</title>
             <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
             <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
-            <h:outputStylesheet library="css" name="starter.css" />
+            <h:outputStylesheet library="css" name="example.css" />
         </h:head>
+
         <h:body>
             <pe:layout fullPage="true" >
-                <pe:layoutPane position="center" >
+                <pe:layoutPane id="mainLayoutPane" position="center" >
                     <h:form prependId="false">
-                        <div id="starterDiv" class="ui-fluid center">
+                        <div id="mainDiv" class="ui-fluid center">
                             <p:outputLabel value="Connection failed: user and/or password are wrong." 
                                            rendered="${!empty param['error']}"/>
                             <p:focus />

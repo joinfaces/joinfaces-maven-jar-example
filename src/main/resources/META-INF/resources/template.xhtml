@@ -11,13 +11,13 @@
         <title>.:: JoinFaces Example ::.</title>
         <meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
         <link href="#{resource['images/favicon.ico']}" rel="shortcut icon"/>
-        <h:outputStylesheet library="css" name="starter.css" />
-        <h:outputScript library="js" name="starter.js" />
+        <h:outputStylesheet library="css" name="example.css" />
+        <h:outputScript library="js" name="example.js" />
     </h:head>
 
     <h:body>
         <pe:layout fullPage="true" >
-            <pe:layoutPane position="center" >
+            <pe:layoutPane id="mainLayoutPane" position="center">
                 <h:form id="contentForm" prependId="false" enctype="multipart/form-data">
                     <p:ajaxStatus onstart="PF('statusDialog').show();"
                                   onsuccess="PF('statusDialog').hide();" />
@@ -26,7 +26,7 @@
                               showHeader="false" modal="false">
                         <p:graphicImage value="#{resource['images/ajaxloading.gif']}" />
                     </p:dialog>
-                    <div id="starterDiv" class="ui-fluid center">
+                    <div id="mainDiv" class="ui-fluid center">
                         <p:menubar>
                             <p:menuitem value="Starter" url="/starter.jsf" />
                             <p:menuitem value="File Upload" url="fileUpload.jsf" />
