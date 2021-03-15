@@ -3,7 +3,7 @@ joinfaces:
     PROJECT_STAGE: Production
     FACELETS_LIBRARIES: /tags/tags.taglib.xml
   primefaces:
-    theme: overcast
+    theme: vela
   version: @joinfaces.version@
 spring-boot:
   version: @project.parent.version@

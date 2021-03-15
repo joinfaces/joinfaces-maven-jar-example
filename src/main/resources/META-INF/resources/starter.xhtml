@@ -24,21 +24,21 @@
         </p:panelGrid>
         <p:spacer height="10" />
         <sec:authorize access="hasRole('ROLE_ADMIN')">
-            <p:panelGrid columns="1" rendered="#{sec:isFullyAuthenticated()}">
+            <p:panelGrid columns="1" rendered="#{sec:isFullyAuthenticated()}" layout="grid">
                 <p:link title="Logout" href="/logout">
                     <p:outputLabel id="labelRoleAdmin" value="Choose your starter as an ADMIN" />
                 </p:link>
             </p:panelGrid>
         </sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_USER">
-            <p:panelGrid columns="1" rendered="#{sec:isAuthenticated()}">
+            <p:panelGrid columns="1" rendered="#{sec:isAuthenticated()}" layout="grid">
                 <p:link title="Logout" href="/logout">
                     <p:outputLabel id="labelRoleUser" value="Choose your starter as a regular user" />
                 </p:link>
             </p:panelGrid>
         </sec:authorize>
         <sec:anonymous>
-            <p:panelGrid columns="1">
+            <p:panelGrid columns="1" layout="grid">
                 <p:link title="Login" href="/login.jsf">
                     <p:outputLabel id="labelAnonymous" value="Choose your starter as anonymous user" />
                 </p:link>
