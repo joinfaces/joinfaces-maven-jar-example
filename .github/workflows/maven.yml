@@ -49,4 +49,4 @@ jobs:
           fail_ci_if_error: true
 
       - name: Sonarqube with Maven
-        run: ./mvnw -Pcheck-sonarqube -Dsonar.login=${{ SONAR_TOKEN_VALUE }} sonar:sonar
+        run: ./mvnw -Pcheck-sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN_VALUE }} sonar:sonar
