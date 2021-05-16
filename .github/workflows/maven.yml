@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Set up JDK ${{ matrix.java }}
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v2
         with:
           java-version: ${{ matrix.java }}
           distribution: 'adopt'
@@ -47,3 +47,6 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
+
+      - name: Sonarqube with Maven
+        run: ./mvnw -Pcheck-sonarqube -Dsonar.login=${{ SONAR_TOKEN_VALUE }} sonar:sonar
