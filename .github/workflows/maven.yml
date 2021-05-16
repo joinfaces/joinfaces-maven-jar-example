@@ -49,4 +49,7 @@ jobs:
           fail_ci_if_error: true
 
       - name: Sonarqube with Maven
+        env:
+          # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./mvnw -Pcheck-sonarqube -Dsonar.login=${{ secrets.SONAR_TOKEN_VALUE }} sonar:sonar
