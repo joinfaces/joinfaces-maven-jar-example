@@ -49,6 +49,7 @@ jobs:
           fail_ci_if_error: true
 
       - name: Sonarqube with Maven
+        if: ${{ matrix.java == 11 }}
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
