@@ -48,9 +48,14 @@ jobs:
         with:
           fail_ci_if_error: true
 
+      - name: Git branch name
+        id: git-branch-name
+        uses: EthanSK/git-branch-name-action@v1
+
       - name: Sonarqube with Maven
-        if: ${{ matrix.java == 11 && github.event_name == 'push' }}
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ matrix.java == 11 && github.event_name == 'push' && env.GIT_BRANCH_NAME == 'master' }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
+
