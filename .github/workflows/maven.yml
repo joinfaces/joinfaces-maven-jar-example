@@ -53,4 +53,4 @@ jobs:
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN_VALUE }} -Pcheck-sonarqube sonar:sonar
+        run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
