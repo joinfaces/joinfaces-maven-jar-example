@@ -49,8 +49,9 @@ jobs:
           fail_ci_if_error: true
 
       - name: Sonarqube with Maven
-        if: ${{ matrix.java == 11 && github.event_name == 'push' }}
+        if: ${{ matrix.java == 11 && secrets.SONAR_TOKEN != null }}
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
+
