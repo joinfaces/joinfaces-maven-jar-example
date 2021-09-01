@@ -65,7 +65,7 @@
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|javax.el.*)</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>6.2.2</dependency-check-maven.version>
+        <dependency-check-maven.version>6.3.1</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.9.0.2155</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
