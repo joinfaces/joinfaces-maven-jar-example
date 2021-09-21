@@ -26,6 +26,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import freemarker.template.TemplateException;
 import lombok.Getter;
 import lombok.Setter;
@@ -57,9 +58,11 @@ public class StarterMBean implements Serializable {
 	@Setter
 	private String jsfImplementation = MOJARRA;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	private List<JoinFacesStarter> joinFacesStarterComponents;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	@Setter
 	private List<JoinFacesStarter> selectedJoinFacesStarterComponents;
@@ -73,9 +76,11 @@ public class StarterMBean implements Serializable {
 	@Autowired
 	private transient FreemarkerUtils freemarkerUtils;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	private List<JoinFacesStarter> joinFacesStarterAddons;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	@Setter
 	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;

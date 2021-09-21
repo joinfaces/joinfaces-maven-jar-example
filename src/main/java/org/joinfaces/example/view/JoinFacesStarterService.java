@@ -101,8 +101,10 @@ public class JoinFacesStarterService {
 	 */
 	public static final String RICHFACES = "RichFaces";
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	private List<JoinFacesStarter> joinFacesStartersComponents;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	private List<JoinFacesStarter> joinFacesStartersAddons;
 
 	/**

@@ -19,6 +19,7 @@ package org.joinfaces.example.view;
 import java.io.Serializable;
 import java.util.List;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Singular;
@@ -34,6 +35,7 @@ public class JoinFacesStarter implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Singular
 	private List<JoinFacesStarterLibrary> libraries;
 

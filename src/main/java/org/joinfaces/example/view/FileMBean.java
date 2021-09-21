@@ -21,6 +21,7 @@ import java.io.Serializable;
 
 import javax.faces.view.ViewScoped;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;
@@ -39,6 +40,7 @@ public class FileMBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	@Setter
 	private transient UploadedFile uploadedFile;

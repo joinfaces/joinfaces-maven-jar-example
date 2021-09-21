@@ -77,7 +77,11 @@ under the License.
     <rule ref="category/java/errorprone.xml/FinalizeOverloaded" />
     <rule ref="category/java/errorprone.xml/FinalizeShouldBeProtected" />
     <rule ref="category/java/errorprone.xml/MissingSerialVersionUID" />
-    <rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals" />
+    <rule ref="category/java/errorprone.xml/AvoidDuplicateLiterals" >
+      <properties>
+        <property name="maxDuplicateLiterals" value="5"/>
+      </properties>
+    </rule>        
     <rule ref="category/java/errorprone.xml/StringBufferInstantiationWithChar" />
     <rule ref="category/java/errorprone.xml/UnnecessaryCaseChange" />
     <rule ref="category/java/errorprone.xml/UseEqualsToCompareStrings" />
