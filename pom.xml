@@ -19,6 +19,8 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
+        <lombok.version>1.18.22</lombok.version>
+        
         <!-- compile library versions -->
         <joinfaces.version>4.5.5</joinfaces.version>
         <maven-model.version>3.8.3</maven-model.version>
@@ -157,6 +159,11 @@
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>findbugs-annotations</artifactId>
                 <version>${findbugs-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

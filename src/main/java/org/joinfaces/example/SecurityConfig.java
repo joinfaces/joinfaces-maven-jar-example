@@ -26,6 +26,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 /**
@@ -71,11 +73,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected UserDetailsService userDetailsService() {
+		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		InMemoryUserDetailsManager result = new InMemoryUserDetailsManager();
 		for (UserCredentials userCredentials : this.applicationUsers.getUsersCredentials()) {
-			result.createUser(User.withDefaultPasswordEncoder()
+			result.createUser(User.builder()
 				.username(userCredentials.getUsername())
-				.password(userCredentials.getPassword())
+				.password(encoder.encode(userCredentials.getPassword()))
 				.authorities(userCredentials.getAuthorities().toArray(new String[0])).build());
 		}
 		return result;
