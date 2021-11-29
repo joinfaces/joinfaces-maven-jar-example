@@ -26,16 +26,16 @@ import javax.faces.convert.FacesConverter;
  * @author Marcelo Fernandes
  */
 @FacesConverter("org.joinfaces.example.view.WelcomeConverter")
-public class WelcomeConverter implements Converter {
+public class WelcomeConverter implements Converter<String> {
 
 	@Override
-	public Object getAsObject(FacesContext context, UIComponent component, String value) {
+	public String getAsObject(FacesContext context, UIComponent component, String value) {
 		return value + " welcome!";
 	}
 
 	@Override
-	public String getAsString(FacesContext context, UIComponent component, Object value) {
-		return value.toString();
+	public String getAsString(FacesContext context, UIComponent component, String value) {
+		return value;
 	}
 
 }

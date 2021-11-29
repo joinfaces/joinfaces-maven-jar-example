@@ -29,23 +29,22 @@ import org.springframework.stereotype.Component;
  * @author Marcelo Fernandes
  */
 @Component
-public class JoinFacesStarterConverter implements Converter {
+public class JoinFacesStarterConverter implements Converter<JoinFacesStarter> {
 
 	@Autowired
 	private JoinFacesStarterService joinFacesStarterService;
 
 	@Override
-	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
+	public JoinFacesStarter getAsObject(FacesContext fc, UIComponent uic, String value) {
 		return this.joinFacesStarterService.findByName(value);
 	}
 
 	@Override
-	public String getAsString(FacesContext fc, UIComponent uic, Object object) {
-		String result = null;
+	public String getAsString(FacesContext fc, UIComponent uic, JoinFacesStarter object) {
 		if (object != null) {
-			result = ((JoinFacesStarter) object).getName();
+			return object.getName();
 		}
-		return result;
+		return null;
 	}
 
 }
