@@ -17,17 +17,17 @@
 package org.joinfaces.example.view;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
+import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
@@ -144,7 +144,7 @@ public class JoinFacesStarterService {
 	* Initialize default properties.
 	*/
 	@PostConstruct
-	public void init() throws IOException, MalformedURLException, XmlPullParserException {
+	public void init() throws IOException, XmlPullParserException {
 		Model model = createModel();
 		Map<String, String> versionMap = versionMap(model);
 		findVersions(versionMap);
@@ -181,18 +181,17 @@ public class JoinFacesStarterService {
 	}
 
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
-	private Model createModel() throws MalformedURLException, IOException, XmlPullParserException {
+	private Model createModel() throws IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
 				+ this.joinfacesVersion + "/joinfaces-dependencies-" + this.joinfacesVersion + ".pom").openStream());
 	}
 
 	private Map<String, String> versionMap(Model pom) {
-		Map<String, String> result = new HashMap<>();
-		pom.getDependencyManagement().getDependencies().forEach((dependency) -> {
-			result.put(dependency.getGroupId() + ":" + dependency.getArtifactId(), dependency.getVersion());
-		});
-		return result;
+		return pom.getDependencyManagement()
+				.getDependencies()
+				.stream()
+				.collect(Collectors.toMap(dependency -> dependency.getGroupId() + ":" + dependency.getArtifactId(), Dependency::getVersion));
 	}
 
 	private void findVersions(Map<String, String> versionMap) {

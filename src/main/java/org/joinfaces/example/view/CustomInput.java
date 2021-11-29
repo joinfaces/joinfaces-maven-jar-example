@@ -39,10 +39,10 @@ public class CustomInput extends UIInput {
 
 	@Override
 	public void decode(FacesContext context) {
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		String clientId = getClientId(context);
 		char sep = UINamingContainer.getSeparatorChar(context);
-		String submitted_hello_msg = (String) requestMap.get(clientId + sep + "inputfield");
+		String submitted_hello_msg = requestMap.get(clientId + sep + "inputfield");
 		setSubmittedValue(submitted_hello_msg);
 	}
 
