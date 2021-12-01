@@ -1,13 +1,15 @@
 <#ftl output_format="XML">
+<#-- @ftlvariable name="starterService" type="org.joinfaces.example.view.JoinFacesStarterService" -->
+<#-- @ftlvariable name="starterMBean" type="org.joinfaces.example.view.StarterMBean" -->
 <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>${environment.getProperty("spring-boot.version")}</version>
+    <version>${starterService.springBootVersion}</version>
     <relativePath/>
 </parent>
 
 <properties>
-   <joinfaces.version>${environment.getProperty("joinfaces.version")}</joinfaces.version>
+   <joinfaces.version>${starterService.joinfacesVersion}</joinfaces.version>
 </properties>
 
 <dependencyManagement>

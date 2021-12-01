@@ -4,9 +4,6 @@ joinfaces:
     FACELETS_LIBRARIES: /tags/tags.taglib.xml
   primefaces:
     theme: vela
-  version: @joinfaces.version@
-spring-boot:
-  version: @project.parent.version@
 tomcat:
   version: @tomcat.version@
 jetty:

@@ -32,7 +32,9 @@ import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.joinfaces.autoconfigure.JoinfacesAutoConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.security.web.FilterChainProxy;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
@@ -117,11 +119,9 @@ public class JoinFacesStarterService {
 	 */
 	public static final String WELD = "Weld";
 
-	@Value("${joinfaces.version}")
-	private String joinfacesVersion;
-
-	@Value("${spring-boot.version}")
-	private String securityVersion;
+	private final String joinfacesVersion = JoinfacesAutoConfiguration.class.getPackage().getImplementationVersion();
+	private final String springBootVersion = SpringApplication.class.getPackage().getImplementationVersion();
+	private final String securityVersion = FilterChainProxy.class.getPackage().getImplementationVersion();
 
 	private String bootsfacesVersion;
 	private String cdiVersion;

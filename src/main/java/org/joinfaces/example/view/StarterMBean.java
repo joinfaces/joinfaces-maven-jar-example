@@ -71,9 +71,6 @@ public class StarterMBean implements Serializable {
 	private transient JoinFacesStarterService joinFacesStarterService;
 
 	@Autowired
-	private transient Environment environment;
-
-	@Autowired
 	private transient FreemarkerUtils freemarkerUtils;
 
 	@SuppressFBWarnings("EI_EXPOSE_REP")
@@ -172,7 +169,7 @@ public class StarterMBean implements Serializable {
 	*/
 	public String getPom() throws IOException, TemplateException {
 		Map<String, Object> map = new HashMap<>();
-		map.put("environment", this.environment);
+		map.put("starterService", this.joinFacesStarterService);
 		map.put("starterMBean", this);
 		return this.freemarkerUtils.mergeTemplate(map, "pom.ftl");
 	}
