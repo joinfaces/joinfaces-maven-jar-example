@@ -31,8 +31,8 @@ import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
-
 import org.joinfaces.autoconfigure.JoinfacesAutoConfiguration;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.stereotype.Component;
