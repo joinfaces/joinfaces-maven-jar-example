@@ -19,11 +19,11 @@ package org.joinfaces.example.view;
 import java.io.IOException;
 import java.util.Map;
 
-import javax.faces.component.FacesComponent;
-import javax.faces.component.UIInput;
-import javax.faces.component.UINamingContainer;
-import javax.faces.context.FacesContext;
-import javax.faces.context.ResponseWriter;
+import jakarta.faces.component.FacesComponent;
+import jakarta.faces.component.UIInput;
+import jakarta.faces.component.UINamingContainer;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.context.ResponseWriter;
 
 /**
  * Custom input component.

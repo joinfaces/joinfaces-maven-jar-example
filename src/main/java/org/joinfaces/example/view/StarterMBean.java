@@ -23,8 +23,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import freemarker.template.TemplateException;

@@ -16,9 +16,9 @@
 
 package org.joinfaces.example.view;
 
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
+import jakarta.faces.component.UIComponent;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.convert.Converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
