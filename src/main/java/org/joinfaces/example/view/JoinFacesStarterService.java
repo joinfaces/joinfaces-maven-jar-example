@@ -23,9 +23,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import jakarta.annotation.PostConstruct;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
