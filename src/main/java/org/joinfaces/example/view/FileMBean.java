@@ -19,8 +19,9 @@ package org.joinfaces.example.view;
 import java.io.IOException;
 import java.io.Serializable;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.faces.view.ViewScoped;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;

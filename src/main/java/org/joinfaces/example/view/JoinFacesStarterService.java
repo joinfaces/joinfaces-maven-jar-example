@@ -23,8 +23,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import jakarta.annotation.PostConstruct;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.Getter;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
@@ -177,7 +178,7 @@ public class JoinFacesStarterService {
 	}
 
 	private void findVersions(Map<String, String> versionMap) {
-		this.cdiVersion = versionMap.get("javax.enterprise:cdi-api");
+		this.cdiVersion = versionMap.get("jakarta.enterprise:cdi-api");
 		this.mojarraVersion = versionMap.get("org.glassfish:jakarta.faces");
 		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
 		this.omnifacesVersion = versionMap.get("org.omnifaces:omnifaces");
