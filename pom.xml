@@ -12,7 +12,7 @@
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>4.6.2</version>
+    <version>4.6.3</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
@@ -20,7 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
-        <joinfaces.version>4.6.2</joinfaces.version>
+        <joinfaces.version>4.6.3</joinfaces.version>
         <maven-model.version>3.8.4</maven-model.version>
 
         <!-- test library versions -->
