@@ -20,7 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
-        <joinfaces.version>4.7.0-m1</joinfaces.version>
+        <joinfaces.version>5.0.0-m1</joinfaces.version>
         <maven-model.version>3.8.4</maven-model.version>
 
         <!-- test library versions -->
