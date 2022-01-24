@@ -1,7 +1,23 @@
 version: 2
 updates:
-- package-ecosystem: maven
-  directory: "/"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "master"
+    schedule:
+      interval: daily
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "5.0.x"
+    schedule:
+      interval: daily
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "4.6.x"
+    schedule:
+      interval: daily
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
