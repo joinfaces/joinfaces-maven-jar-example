@@ -210,12 +210,6 @@
             <groupId>org.joinfaces</groupId>
             <artifactId>security-spring-boot-starter</artifactId>
         </dependency>
-	<!-- rewrite retired
-        <dependency>
-            <groupId>org.joinfaces</groupId>
-            <artifactId>rewrite-spring-boot-starter</artifactId>
-        </dependency>
-        -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

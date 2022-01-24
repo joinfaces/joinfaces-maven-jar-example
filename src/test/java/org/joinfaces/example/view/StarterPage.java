@@ -106,24 +106,20 @@ public class StarterPage extends AbstractPageComponent {
 		click(joinFacesComponentRadioButtonInput(5), "AdminFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
-	public void clickOmnifaces1() {
+	public void clickOmnifaces() {
 		click(joinFacesComponentRadioButtonInput(6), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
-	public void clickOmnifaces3() {
-		click(joinFacesComponentRadioButtonInput(7), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
 	public void clickIceFaces() {
-		click(joinFacesComponentRadioButtonInput(8), "IceFaces", getJoinFacesComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(7), "IceFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickAngularFaces() {
-		click(joinFacesComponentRadioButtonInput(9), "AngularFaces", getJoinFacesComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(8), "AngularFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickRichFaces() {
-		click(joinFacesComponentRadioButtonInput(10), "RichFaces", getJoinFacesComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(9), "RichFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
@@ -181,12 +177,8 @@ public class StarterPage extends AbstractPageComponent {
 		this.joinFacesAddonsTab.click();
 	}
 
-	public void clickRewrite() {
-		click(joinFacesAddonsRadioButtonInput(1), "Rewrite", getJoinFacesAddonsTabHeaderBy());
-	}
-
 	public void clickWeld() {
-		click(joinFacesAddonsRadioButtonInput(2), "Weld", getJoinFacesAddonsTabHeaderBy());
+		click(joinFacesAddonsRadioButtonInput(1), "Weld", getJoinFacesAddonsTabHeaderBy());
 	}
 
 	private WebElement joinFacesAddonsRadioButtonInput(int index) {

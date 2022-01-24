@@ -78,14 +78,9 @@ public class JoinFacesStarterService {
 	public static final String ADMINFACES = "AdminFaces";
 
 	/**
-	 * OmniFaces 1 constant.
+	 * OmniFaces constant.
 	 */
-	public static final String OMNIFACES1 = "OmniFaces1";
-
-	/**
-	 * OmniFaces 3 constant.
-	 */
-	public static final String OMNIFACES3 = "OmniFaces3";
+	public static final String OMNIFACES = "OmniFaces";
 
 	/**
 	 * IceFaces constant.
@@ -109,11 +104,6 @@ public class JoinFacesStarterService {
 	private List<JoinFacesStarter> joinFacesStartersAddons;
 
 	/**
-	 * Rewrite constant.
-	 */
-	public static final String REWRITE = "Rewrite";
-
-	/**
 	 * Weld constant.
 	 */
 	public static final String WELD = "Weld";
@@ -130,13 +120,10 @@ public class JoinFacesStarterService {
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
 	private String adminfacesVersion;
-	private String omnifaces1Version;
-	private String omnifaces3Version;
+	private String omnifacesVersion;
 	private String icefacesVersion;
 	private String angularfacesVersion;
 	private String richfacesVersion;
-
-	private String rewriteVersion;
 	private String weldVersion;
 
 	/**
@@ -161,10 +148,8 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ADMINFACES)
 			.library(joinFacesStarterLibrary(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES1)
-			.library(joinFacesStarterLibrary("OmniFaces", "https://omnifaces.org/", getOmnifaces1Version())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES3)
-			.library(joinFacesStarterLibrary("OmniFaces", "https://omnifaces.org/", getOmnifaces3Version())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES)
+			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ICEFACES)
 			.library(joinFacesStarterLibrary(ICEFACES, "https://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ANGULARFACES)
@@ -173,8 +158,6 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion())).build());
 
 		this.joinFacesStartersAddons = new ArrayList<>();
-		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(REWRITE)
-			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion())).build());
 		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(WELD)
 			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion())).build());
 	}
@@ -195,9 +178,9 @@ public class JoinFacesStarterService {
 
 	private void findVersions(Map<String, String> versionMap) {
 		this.cdiVersion = versionMap.get("javax.enterprise:cdi-api");
-		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
+		this.mojarraVersion = versionMap.get("org.glassfish:jakarta.faces");
 		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
-		this.omnifaces1Version = "1.14.1";
+		this.omnifacesVersion = versionMap.get("org.omnifaces:omnifaces");
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
 		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
@@ -206,8 +189,6 @@ public class JoinFacesStarterService {
 		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
 		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
 		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
-		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
-		this.omnifaces3Version = "3.2";
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
 

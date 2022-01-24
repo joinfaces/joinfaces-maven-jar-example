@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/**.jsf").permitAll()
-				.antMatchers("/javax.faces.resource/**").permitAll()
+				.antMatchers("/jakarta.faces.resource/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 				.formLogin()

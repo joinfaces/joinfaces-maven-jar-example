@@ -193,48 +193,18 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickOmnifaces1() {
+	public void clickOmnifaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
 		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickOmnifaces1();
+		starterPage.clickOmnifaces();
 		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
 			.contains("OmniFaces");
 
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent())
-			.contains("omnifaces1-spring-boot-starter");
-	}
-
-	@Test
-	public void clickOmnifaces3() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickOmnifaces3();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("OmniFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("omnifaces3-spring-boot-starter");
-	}
-
-	@Test
-	public void clickRewrite() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesAddonsTab();
-		starterPage.clickRewrite();
-		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
-			.contains("Rewrite");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("rewrite-spring-boot-starter");
+			.contains("omnifaces-spring-boot-starter");
 	}
 
 	@Test
