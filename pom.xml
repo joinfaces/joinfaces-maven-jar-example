@@ -20,6 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
+        <jakarta.validation-api.version>3.0.0</jakarta.validation-api.version>
         <joinfaces.version>5.0.0-m1</joinfaces.version>
         <maven-model.version>3.8.4</maven-model.version>
 
@@ -41,7 +42,7 @@
 
         <!-- check library versions -->
         <no-package-cycles-enforcer-rule.version>1.0.9</no-package-cycles-enforcer-rule.version>
-        <spotbugs-maven-plugin.version>4.5.2.0</spotbugs-maven-plugin.version>
+        <spotbugs-maven-plugin.version>4.5.3.0</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.11.0</findsecbugs-plugin.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
@@ -64,7 +65,7 @@
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|javax.el.*)</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>6.5.2</dependency-check-maven.version>
+        <dependency-check-maven.version>6.5.3</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
@@ -73,6 +74,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation-api.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.joinfaces</groupId>
                 <artifactId>joinfaces-dependencies</artifactId>
@@ -157,6 +163,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -189,6 +199,12 @@
         <dependency>
             <groupId>org.joinfaces</groupId>
             <artifactId>omnifaces-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.el</groupId>
+                    <artifactId>jakarta.el-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.joinfaces</groupId>
