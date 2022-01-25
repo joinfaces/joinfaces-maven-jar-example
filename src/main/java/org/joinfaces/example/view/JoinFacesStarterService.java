@@ -104,6 +104,11 @@ public class JoinFacesStarterService {
 	public static final String RICHFACES = "RichFaces";
 
 	/**
+	 * RichFaces-AYG constant.
+	 */
+	public static final String RICHFACES_AYG = "RichFaces-Ayg";
+
+	/**
 	 * Tobago constant.
 	 */
 	public static final String TOBAGO = "Tobago";
@@ -132,7 +137,7 @@ public class JoinFacesStarterService {
 	private String cdiVersion;
 	private String mojarraVersion;
 	private String myfacesVersion;
-        private String myfacesNextVersion;
+	private String myfacesNextVersion;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
@@ -142,6 +147,7 @@ public class JoinFacesStarterService {
 	private String icefacesVersion;
 	private String angularfacesVersion;
 	private String richfacesVersion;
+	private String richfacesAygVersion;
 	private String tobagoVersion;
 
 	private String rewriteVersion;
@@ -179,6 +185,8 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(ANGULARFACES, "https://angularfaces.net", getAngularfacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(RICHFACES)
 			.library(joinFacesStarterLibrary(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(RICHFACES_AYG)
+			.library(joinFacesStarterLibrary(RICHFACES_AYG, "https://github.com/albfernandez/richfaces", getRichfacesAygVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(TOBAGO)
 			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion())).build());
 
@@ -217,6 +225,7 @@ public class JoinFacesStarterService {
 		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
 		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
 		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
+		this.richfacesAygVersion = versionMap.get("com.github.albfernandez.richfaces:richfaces");
 		this.tobagoVersion = versionMap.get("org.apache.myfaces.tobago:tobago-core");
 		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
 		this.omnifaces3Version = "3.2";

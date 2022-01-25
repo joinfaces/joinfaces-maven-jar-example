@@ -163,6 +163,21 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickRichfacesAyg() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJoinFacesComponentsTab();
+		starterPage.clickRichFacesAyg();
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
+			.contains("RichFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("richfaces-ayg-spring-boot-starter");
+	}
+
+	@Test
 	public void clickTobago() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
