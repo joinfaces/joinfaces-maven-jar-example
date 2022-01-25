@@ -86,18 +86,25 @@
                                        required="true" requiredMessage="Choose one JSF Implementation" layout="custom">
                         <f:selectItem itemLabel="Mojarra" itemValue="Mojarra" />
                         <f:selectItem itemLabel="MyFaces" itemValue="MyFaces" />
+                        <f:selectItem itemLabel="MyFaces-Next" itemValue="MyFaces-Next" />
                         <p:ajax update="panelJsfImplementation panelPom" />
                     </p:selectOneRadio>
                     <p:panelGrid columns="2" layout="grid">
                         <p:radioButton id="mojarra" for="jsfImplementation" itemIndex="0" />
                         <p:link href="https://javaserverfaces.java.net" >
-                            <p:graphicImage title="Mojarra ${jsfComponentService.mojarraVersion}" alt="Mojarra ${jsfComponentService.mojarraVersion}"
+                            <p:graphicImage title="Mojarra ${joinFacesStarterService.mojarraVersion}" alt="Mojarra ${joinFacesStarterService.mojarraVersion}"
                                             value="#{resource['images/mojarra.png']}"
                                             height="100" width="103"/>
                         </p:link>
                         <p:radioButton id="myfaces" for="jsfImplementation" itemIndex="1" />
                         <p:link href="http://myfaces.apache.org" >
-                            <p:graphicImage title="Apache MyFaces ${jsfComponentService.myfacesVersion}" alt="Apache MyFaces ${jsfComponentService.myfacesVersion}"
+                            <p:graphicImage title="Apache MyFaces ${joinFacesStarterService.myfacesVersion}" alt="Apache MyFaces ${joinFacesStarterService.myfacesVersion}"
+                                            value="#{resource['images/myfaces.png']}"
+                                            height="100" width="210"/>
+                        </p:link>
+                        <p:radioButton id="myfaces-next" for="jsfImplementation" itemIndex="2" />
+                        <p:link href="http://myfaces.apache.org" >
+                            <p:graphicImage title="Apache MyFaces Next ${joinFacesStarterService.myfacesNextVersion}" alt="Apache MyFaces Next ${joinFacesStarterService.myfacesNextVersion}"
                                             value="#{resource['images/myfaces.png']}"
                                             height="100" width="210"/>
                         </p:link>

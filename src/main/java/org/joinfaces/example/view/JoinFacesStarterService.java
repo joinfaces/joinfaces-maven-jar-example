@@ -132,6 +132,7 @@ public class JoinFacesStarterService {
 	private String cdiVersion;
 	private String mojarraVersion;
 	private String myfacesVersion;
+        private String myfacesNextVersion;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
 	private String butterfacesVersion;
@@ -203,9 +204,10 @@ public class JoinFacesStarterService {
 	}
 
 	private void findVersions(Map<String, String> versionMap) {
-		this.cdiVersion = versionMap.get("javax.enterprise:cdi-api");
+		this.cdiVersion = versionMap.get("jakarta.enterprise:jakarta.enterprise.cdi-api");
 		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
 		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
+		this.myfacesNextVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
 		this.omnifaces1Version = "1.14.1";
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
