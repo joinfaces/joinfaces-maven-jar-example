@@ -158,9 +158,7 @@ public class JoinFacesStarterService {
 	*/
 	@PostConstruct
 	public void init() throws IOException, XmlPullParserException {
-		Model model = createModel();
-		Map<String, String> versionMap = versionMap(model);
-		findVersions(versionMap);
+		findVersions();
 
 		this.joinFacesStartersComponents = new ArrayList<>();
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(SECURITY)
@@ -198,10 +196,18 @@ public class JoinFacesStarterService {
 	}
 
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
-	private Model createModel() throws IOException, XmlPullParserException {
+	private void findVersions() throws IOException, XmlPullParserException {
+		findVersionsDependencies(versionMap(createModel("joinfaces-dependencies")));
+		findVersionsMojarra(versionMap(createModel("mojarra-spring-boot-starter")));
+		findVersionsMyfaces(versionMap(createModel("myfaces-spring-boot-starter")));
+		findVersionsMyfacesNext(versionMap(createModel("myfaces-next-spring-boot-starter")));
+	}
+
+	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
+	private Model createModel(String name) throws IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/joinfaces-dependencies/"
-				+ this.joinfacesVersion + "/joinfaces-dependencies-" + this.joinfacesVersion + ".pom").openStream());
+		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/" + name + "/"
+				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom").openStream());
 	}
 
 	private Map<String, String> versionMap(Model pom) {
@@ -211,11 +217,8 @@ public class JoinFacesStarterService {
 				.collect(Collectors.toMap(dependency -> dependency.getGroupId() + ":" + dependency.getArtifactId(), Dependency::getVersion));
 	}
 
-	private void findVersions(Map<String, String> versionMap) {
+	private void findVersionsDependencies(Map<String, String> versionMap) {
 		this.cdiVersion = versionMap.get("jakarta.enterprise:jakarta.enterprise.cdi-api");
-		this.mojarraVersion = versionMap.get("org.glassfish:javax.faces");
-		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
-		this.myfacesNextVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
 		this.omnifaces1Version = "1.14.1";
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
@@ -230,6 +233,18 @@ public class JoinFacesStarterService {
 		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
 		this.omnifaces3Version = "3.2";
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
+	}
+
+	private void findVersionsMojarra(Map<String, String> versionMap) {
+		this.mojarraVersion = versionMap.get("org.glassfish:jakarta.faces");
+	}
+
+	private void findVersionsMyfaces(Map<String, String> versionMap) {
+		this.myfacesVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
+	}
+
+	private void findVersionsMyfacesNext(Map<String, String> versionMap) {
+		this.myfacesNextVersion = versionMap.get("org.apache.myfaces.core:myfaces-api");
 	}
 
 	private JoinFacesStarterLibrary joinFacesStarterLibrary(String name, String siteLink, String version) {
