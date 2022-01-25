@@ -8,7 +8,7 @@ JoinFaces Example
 
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-[JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
+[JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [PrimeFaces Extensions](http://primefaces-extensions.github.io/), [AdminFaces](https://adminfaces.github.io/site/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [IceFaces](http://www.icesoft.org/java/projects/ICEfaces/overview.jsf), [RichFaces](https://github.com/richfaces/richfaces), [RichFaces-AYG](https://github.com/albfernandez/richfaces), [Tobago](https://myfaces.apache.org/#/tobago), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/). It autoconfigures [Weld](http://weld.cdi-spec.org) and [Rewrite](https://www.ocpsoft.org/rewrite/) too.
 
 ## See Example Application in the cloud
 
