@@ -63,7 +63,7 @@
         <checkstyle.excludes/>
         <duplicate-finder-maven-plugin.version>1.5.1</duplicate-finder-maven-plugin.version>
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
-        <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|javax.el.*)</duplicate.ignoredClassPattern>
+        <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|jakarta.el.*)</duplicate.ignoredClassPattern>
 
         <dependency-check-maven.version>6.5.3</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
@@ -199,12 +199,6 @@
         <dependency>
             <groupId>org.joinfaces</groupId>
             <artifactId>omnifaces-spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>jakarta.el</groupId>
-                    <artifactId>jakarta.el-api</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.joinfaces</groupId>
