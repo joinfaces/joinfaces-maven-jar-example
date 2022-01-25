@@ -103,66 +103,6 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickBootsfaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickBootsFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("BootsFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("bootsfaces-spring-boot-starter");
-	}
-
-	@Test
-	public void clickButterfaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickButterFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("ButterFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("butterfaces-spring-boot-starter");
-	}
-
-	@Test
-	public void clickAngularfaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickAngularFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("AngularFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("angularfaces-spring-boot-starter");
-	}
-
-	@Test
-	public void clickRichfaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickRichFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("RichFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("richfaces-spring-boot-starter");
-	}
-
-	@Test
 	public void clickTobago() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
@@ -175,36 +115,6 @@ public class StarterPageIT extends AbstractPageIT {
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent())
 			.contains("tobago-spring-boot-starter");
-	}
-
-	@Test
-	public void clickIcefaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickIceFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("IceFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("icefaces-spring-boot-starter");
-	}
-
-	@Test
-	public void clickAdminfaces() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesComponentsTab();
-		starterPage.clickAdminFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("AdminFaces");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("adminfaces-spring-boot-starter");
 	}
 
 	@Test

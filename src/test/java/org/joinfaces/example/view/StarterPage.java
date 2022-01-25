@@ -94,36 +94,12 @@ public class StarterPage extends AbstractPageComponent {
 		click(joinFacesComponentRadioButtonInput(2), "PrimeFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
-	public void clickBootsFaces() {
-		click(joinFacesComponentRadioButtonInput(3), "BootsFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
-	public void clickButterFaces() {
-		click(joinFacesComponentRadioButtonInput(4), "ButterFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
-	public void clickAdminFaces() {
-		click(joinFacesComponentRadioButtonInput(5), "AdminFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
 	public void clickOmnifaces() {
-		click(joinFacesComponentRadioButtonInput(6), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
-	public void clickIceFaces() {
-		click(joinFacesComponentRadioButtonInput(7), "IceFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
-	public void clickAngularFaces() {
-		click(joinFacesComponentRadioButtonInput(8), "AngularFaces", getJoinFacesComponentsTabHeaderBy());
-	}
-
-	public void clickRichFaces() {
-		click(joinFacesComponentRadioButtonInput(9), "RichFaces", getJoinFacesComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(3), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickTobago() {
-		click(joinFacesComponentRadioButtonInput(10), "Tobago", getJoinFacesComponentsTabHeaderBy());
+		click(joinFacesComponentRadioButtonInput(4), "Tobago", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {

@@ -64,39 +64,9 @@ public class JoinFacesStarterService {
 	public static final String PRIMEFACES_EXTENSIONS = "PrimeFaces-Extensions";
 
 	/**
-	 * BootsFaces constant.
-	 */
-	public static final String BOOTSFACES = "BootsFaces";
-
-	/**
-	 * ButterFaces constant.
-	 */
-	public static final String BUTTERFACES = "ButterFaces";
-
-	/**
-	 * AdminFaces constant.
-	 */
-	public static final String ADMINFACES = "AdminFaces";
-
-	/**
 	 * OmniFaces constant.
 	 */
 	public static final String OMNIFACES = "OmniFaces";
-
-	/**
-	 * IceFaces constant.
-	 */
-	public static final String ICEFACES = "IceFaces";
-
-	/**
-	 * AngularFaces constant.
-	 */
-	public static final String ANGULARFACES = "AngularFaces";
-
-	/**
-	 * RichFaces constant.
-	 */
-	public static final String RICHFACES = "RichFaces";
 
 	/**
 	 * Tobago constant.
@@ -118,18 +88,12 @@ public class JoinFacesStarterService {
 	private final String springBootVersion = SpringApplication.class.getPackage().getImplementationVersion();
 	private final String securityVersion = FilterChainProxy.class.getPackage().getImplementationVersion();
 
-	private String bootsfacesVersion;
 	private String cdiVersion;
 	private String mojarraVersion;
 	private String myfacesVersion;
 	private String primefacesVersion;
 	private String primefacesExtensionsVersion;
-	private String butterfacesVersion;
-	private String adminfacesVersion;
 	private String omnifacesVersion;
-	private String icefacesVersion;
-	private String angularfacesVersion;
-	private String richfacesVersion;
 	private String tobagoVersion;
 	private String weldVersion;
 
@@ -149,20 +113,8 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(PRIMEFACES, "https://primefaces.org", getPrimefacesVersion()))
 			.library(joinFacesStarterLibrary(PRIMEFACES_EXTENSIONS, "https://primefaces-extensions.github.io", getPrimefacesExtensionsVersion()))
 			.build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(BOOTSFACES)
-			.library(joinFacesStarterLibrary(BOOTSFACES, "https://bootsfaces.net", getBootsfacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(BUTTERFACES)
-			.library(joinFacesStarterLibrary(BUTTERFACES, "http://butterfaces.org", getButterfacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ADMINFACES)
-			.library(joinFacesStarterLibrary(ADMINFACES, "https://adminfaces.github.io/site/", getAdminfacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES)
 			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ICEFACES)
-			.library(joinFacesStarterLibrary(ICEFACES, "https://www.icesoft.org/java/projects/ICEfaces/overview.jsf", getIcefacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(ANGULARFACES)
-			.library(joinFacesStarterLibrary(ANGULARFACES, "https://angularfaces.net", getAngularfacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(RICHFACES)
-			.library(joinFacesStarterLibrary(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(TOBAGO)
 			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion())).build());
 
@@ -192,12 +144,6 @@ public class JoinFacesStarterService {
 		this.omnifacesVersion = versionMap.get("org.omnifaces:omnifaces");
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
-		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
-		this.butterfacesVersion = versionMap.get("org.butterfaces:components");
-		this.adminfacesVersion = versionMap.get("com.github.adminfaces:admin-template");
-		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
-		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
-		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
 		this.tobagoVersion = versionMap.get("org.apache.myfaces.tobago:tobago-core");
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
