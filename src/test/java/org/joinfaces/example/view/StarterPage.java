@@ -126,6 +126,10 @@ public class StarterPage extends AbstractPageComponent {
 		click(joinFacesComponentRadioButtonInput(10), "RichFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
+	public void clickTobago() {
+		click(joinFacesComponentRadioButtonInput(11), "Tobago", getJoinFacesComponentsTabHeaderBy());
+	}
+
 	public void clickPomTab() {
 		this.pomTab.click();
 	}
