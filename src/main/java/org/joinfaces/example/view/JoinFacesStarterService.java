@@ -98,6 +98,11 @@ public class JoinFacesStarterService {
 	 */
 	public static final String RICHFACES = "RichFaces";
 
+	/**
+	 * Tobago constant.
+	 */
+	public static final String TOBAGO = "Tobago";
+
 	@SuppressFBWarnings("EI_EXPOSE_REP")
 	private List<JoinFacesStarter> joinFacesStartersComponents;
 
@@ -125,6 +130,7 @@ public class JoinFacesStarterService {
 	private String icefacesVersion;
 	private String angularfacesVersion;
 	private String richfacesVersion;
+	private String tobagoVersion;
 	private String weldVersion;
 
 	/**
@@ -157,6 +163,8 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(ANGULARFACES, "https://angularfaces.net", getAngularfacesVersion())).build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(RICHFACES)
 			.library(joinFacesStarterLibrary(RICHFACES, "https://github.com/richfaces/richfaces", getRichfacesVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(TOBAGO)
+			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion())).build());
 
 		this.joinFacesStartersAddons = new ArrayList<>();
 		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(WELD)
@@ -190,6 +198,7 @@ public class JoinFacesStarterService {
 		this.icefacesVersion = versionMap.get("org.icefaces:icefaces");
 		this.angularfacesVersion = versionMap.get("de.beyondjava:angularFaces-core");
 		this.richfacesVersion = versionMap.get("org.richfaces:richfaces");
+		this.tobagoVersion = versionMap.get("org.apache.myfaces.tobago:tobago-core");
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
 

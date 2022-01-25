@@ -163,6 +163,21 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickTobago() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJoinFacesComponentsTab();
+		starterPage.clickTobago();
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
+			.contains("Tobago");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("tobago-spring-boot-starter");
+	}
+
+	@Test
 	public void clickIcefaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
