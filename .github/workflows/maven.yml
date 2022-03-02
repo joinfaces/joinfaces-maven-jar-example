@@ -37,7 +37,12 @@ jobs:
         run: ./mvnw -B clean validate
 
       - name: Static validation with Maven
+        if: ${{ matrix.java != 8 }}
         run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true install
+
+      - name: Static validation with Maven
+        if: ${{ matrix.java == 8 }}
+        run: ./mvnw -B -Pcheck-duplicate,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true install
 
       - name: Tests with Maven
         uses: GabrielBB/xvfb-action@v1
