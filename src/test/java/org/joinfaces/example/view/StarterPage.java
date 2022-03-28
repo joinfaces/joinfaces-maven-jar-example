@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -58,7 +60,7 @@ public class StarterPage extends AbstractPageComponent {
 	private void click(WebElement webElement, String technology, By tabHeaderBy)  {
 		webElement.click();
 
-		new WebDriverWait(webDriver, 10000).until(
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(
 			ExpectedConditions.textToBePresentInElementLocated(tabHeaderBy, technology));
 	}
 
@@ -171,7 +173,7 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	public StarterPage waitLoad() {
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.visibilityOfElementLocated(
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(
 			getServletContainerTabHeaderBy()));
 
 		return this;
