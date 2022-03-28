@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,7 +50,7 @@ public class CustomInputPage extends AbstractPageComponent {
 		By outputTextBy = getOutputTextBy();
 		String expectedValue = "You entered: " + message;
 
-		new WebDriverWait(webDriver, 5000).until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
 	}
 
 	private By getOutputTextBy() {
@@ -60,7 +62,7 @@ public class CustomInputPage extends AbstractPageComponent {
 	}
 
 	public CustomInputPage waitLoad() {
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
 			getOutputTextBy()));
 
 		return this;
