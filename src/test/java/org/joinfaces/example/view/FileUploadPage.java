@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +51,7 @@ public class FileUploadPage extends AbstractPageComponent {
 
 		this.submitButton.click();
 
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
 	}
 
 	public boolean isDownloadButtonEnabled() {
@@ -57,7 +59,7 @@ public class FileUploadPage extends AbstractPageComponent {
 	}
 
 	public FileUploadPage waitLoad() {
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
 			getDownloadButtonBy()));
 
 		return this;
