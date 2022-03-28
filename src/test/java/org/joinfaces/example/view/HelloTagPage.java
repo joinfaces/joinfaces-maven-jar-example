@@ -16,6 +16,8 @@
 
 package org.joinfaces.example.view;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,7 +43,7 @@ public class HelloTagPage extends AbstractPageComponent {
 	}
 
 	public HelloTagPage waitLoad() {
-		new WebDriverWait(webDriver, 10000).until(ExpectedConditions.presenceOfElementLocated(
+		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(
 			getHelloWorldDivBy()));
 
 		return this;
