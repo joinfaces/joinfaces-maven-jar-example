@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0-M1</version>
+        <version>3.0.0-M2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>org.joinfaces</groupId>
     <artifactId>joinfaces-example</artifactId>
-    <version>5.0.0-m1</version>
+    <version>5.0.x</version>
     <packaging>jar</packaging>
 
     <name>JoinFaces Example</name>
@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.0</jakarta.validation-api.version>
-        <joinfaces.version>5.0.0-m1</joinfaces.version>
+        <joinfaces.version>5.0.0-m2</joinfaces.version>
         <maven-model.version>3.8.5</maven-model.version>
 
         <!-- test library versions -->
