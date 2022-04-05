@@ -31,7 +31,7 @@
         <webdrivermanager.version>5.1.0</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
-        <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>        
+        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
         <jacoco.totalLineRate>0.91</jacoco.totalLineRate>
         <jacoco.packageLineRate>0.90</jacoco.packageLineRate>
