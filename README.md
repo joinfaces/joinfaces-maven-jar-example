@@ -48,7 +48,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.0.0-m2</joinfaces.version>
+   <joinfaces.version>5.0.0-m3</joinfaces.version>
 </properties>
 
 <dependencyManagement>
