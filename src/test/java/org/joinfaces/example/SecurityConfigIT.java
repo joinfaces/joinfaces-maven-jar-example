@@ -16,11 +16,13 @@
 
 package org.joinfaces.example;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
+@SuppressFBWarnings("THROWS_METHOD_THROWS_CLAUSE_THROWABLE")
 public class SecurityConfigIT {
 
 	@Test
