@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private ApplicationUsers applicationUsers;
 
-	@SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
+	@SuppressFBWarnings({"SPRING_CSRF_PROTECTION_DISABLED", "THROWS_METHOD_THROWS_RUNTIMEEXCEPTION"})
 	@Override
 	protected void configure(HttpSecurity http) {
 		try {
