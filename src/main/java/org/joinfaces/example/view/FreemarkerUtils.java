@@ -29,7 +29,7 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
- * Freemarker utitily class to merge map and templates.
+ * Freemarker utility class to merge map and templates.
  *
  * @author Marcelo Fernandes
  */
