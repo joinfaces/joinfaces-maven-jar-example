@@ -40,6 +40,14 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableConfigurationProperties(ApplicationUsers.class)
 public class SecurityConfig {
 
+	/**
+	 * Setups a security filter chain that will be applied to all the requests.
+	 * Since JSF 2.2 there is already a CSRF protection, so the Spring CSRF protection must be disabled,
+	 * because it blocks AJAX requests.
+	 * @param http - autowired HttpSecurity object
+	 * @return SecurityFilterChain that contains all the security filters
+	 * @throws BeanCreationException if something in the configuration is wrong
+	 */
 	@SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
 	@Bean
 	public SecurityFilterChain configure(HttpSecurity http) {
@@ -62,11 +70,17 @@ public class SecurityConfig {
 				.logoutSuccessUrl("/login.jsf")
 				.deleteCookies("JSESSIONID");
 			return http.build();
-		} catch (Exception ex) {
+		}
+		catch (Exception ex) {
 			throw new BeanCreationException("Wrong spring security configuration", ex);
 		}
 	}
 
+	/**
+	 * UserDetailsService that configures an in-memory users store.
+	 * @param applicationUsers - autowired users from the application.yml file
+	 * @return InMemoryUserDetailsManager - a manager that keeps all the users' info in the memory
+	 */
 	@Bean
 	public InMemoryUserDetailsManager userDetailsService(ApplicationUsers applicationUsers) {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
