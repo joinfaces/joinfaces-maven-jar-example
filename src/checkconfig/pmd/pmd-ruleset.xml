@@ -63,13 +63,10 @@ under the License.
     <rule ref="category/java/errorprone.xml/UnnecessaryConversionTemporary" />
     <rule ref="category/java/errorprone.xml/UnusedNullCheckInEquals" />
     <rule ref="category/java/errorprone.xml/UselessOperationOnImmutable" />
-    <rule ref="category/java/errorprone.xml/ImportFromSamePackage" />
     <rule ref="category/java/errorprone.xml/CloneMethodMustBePublic" />
     <rule ref="category/java/errorprone.xml/CloneMethodMustImplementCloneable" />
     <rule ref="category/java/errorprone.xml/CloneMethodReturnTypeMustMatchClassName" />
-    <rule ref="category/java/errorprone.xml/CloneThrowsCloneNotSupportedException" />
-    <rule ref="category/java/errorprone.xml/ProperCloneImplementation" />    
-    <rule ref="category/java/errorprone.xml/CloneMethodMustImplementCloneable" />
+    <rule ref="category/java/errorprone.xml/ProperCloneImplementation" />
     <rule ref="category/java/errorprone.xml/AvoidCallingFinalize" />
     <rule ref="category/java/errorprone.xml/EmptyFinalizer" />
     <rule ref="category/java/errorprone.xml/FinalizeDoesNotCallSuperFinalize" />
@@ -92,11 +89,8 @@ under the License.
 
     <rule ref="category/java/bestpractices.xml/AvoidUsingHardCodedIP" />
     <rule ref="category/java/bestpractices.xml/CheckResultSet" />
-    <rule ref="category/java/bestpractices.xml/UnusedImports" />
     <rule ref="category/java/bestpractices.xml/LooseCoupling" />
     <rule ref="category/java/bestpractices.xml/AvoidStringBufferField" />
-    <rule ref="category/java/bestpractices.xml/LooseCoupling" />
-    <rule ref="category/java/bestpractices.xml/UnusedImports" />
 
     <rule ref="category/java/codestyle.xml/ExtendsObject" />
     <rule ref="category/java/codestyle.xml/ForLoopShouldBeWhileLoop" />
@@ -105,17 +99,10 @@ under the License.
     <rule ref="category/java/codestyle.xml/UselessParentheses" />
     <rule ref="category/java/codestyle.xml/UselessQualifiedThis" />
     <rule ref="category/java/codestyle.xml/UnnecessaryModifier" name="UnnecessaryFinalModifier" />
-    <rule ref="category/java/codestyle.xml/DontImportJavaLang" />
-    <rule ref="category/java/codestyle.xml/DuplicateImports" />
     <rule ref="category/java/codestyle.xml/TooManyStaticImports" />
     <rule ref="category/java/codestyle.xml/UnnecessaryFullyQualifiedName" />
-    <rule ref="category/java/codestyle.xml/ForLoopsMustUseBraces" />
-    <rule ref="category/java/codestyle.xml/IfElseStmtsMustUseBraces" />
-    <rule ref="category/java/codestyle.xml/IfStmtsMustUseBraces" />
-    <rule ref="category/java/codestyle.xml/WhileLoopsMustUseBraces" />
 
     <rule ref="category/java/performance.xml/BigIntegerInstantiation" />
-    <rule ref="category/java/performance.xml/BooleanInstantiation" />
     <rule ref="category/java/performance.xml/AppendCharacterWithChar" />
     <rule ref="category/java/performance.xml/ConsecutiveAppendsShouldReuse" />
     <rule ref="category/java/performance.xml/ConsecutiveLiteralAppends" />
@@ -139,12 +126,7 @@ under the License.
         <property name="minimum" value="57"/>
       </properties>
     </rule>
-    <rule ref="category/java/design.xml/ModifiedCyclomaticComplexity" />
-    <rule ref="category/java/design.xml/NcssConstructorCount" />
-    <rule ref="category/java/design.xml/NcssMethodCount" />
-    <rule ref="category/java/design.xml/NcssTypeCount" />
     <rule ref="category/java/design.xml/NPathComplexity" />
-    <rule ref="category/java/design.xml/StdCyclomaticComplexity" />
     <rule ref="category/java/design.xml/TooManyFields" >
       <properties>
         <property name="maxfields" value="101"/>
