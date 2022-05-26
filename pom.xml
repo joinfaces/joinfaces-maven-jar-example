@@ -20,7 +20,7 @@
 
     <properties>
         <!-- compile library versions -->
-        <jakarta.validation-api.version>3.0.0</jakarta.validation-api.version>
+        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>5.0.0-m3</joinfaces.version>
         <maven-model.version>3.8.5</maven-model.version>
 
