@@ -12,12 +12,12 @@ This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spr
 
 ## See Example Application in the cloud
 
-1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JoinFaces Starter that fits your needs. You may login with credentials
+1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
 
-User | Password | Roles
------| -------- | -----
-persapiens | 123 | ROLE_ADMIN
-nyilmaz | qwe | ROLE_USER
+| User       | Password | Roles      |
+|------------|----------|------------|
+| persapiens | 123      | ROLE_ADMIN |
+| nyilmaz    | qwe      | ROLE_USER  |
 
 ## Run Example Application locally
 

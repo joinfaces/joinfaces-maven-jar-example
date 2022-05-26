@@ -20,8 +20,10 @@
                 <pe:layoutPane id="mainLayoutPane" position="center" >
                     <h:form prependId="false">
                         <div id="mainDiv" class="ui-fluid center">
-                            <p:outputLabel value="Connection failed: user and/or password are wrong." 
-                                           rendered="${!empty param['error']}"/>
+                            <p:panelGrid columns="1" layout="grid">
+                                <p:outputLabel value="Connection failed: user and/or password are wrong."
+                                               rendered="${!empty param['error']}"/>
+                            </p:panelGrid>
                             <p:focus />
                             <p:panelGrid columns="2" layout="grid">
                                 <h:outputText value="username" />

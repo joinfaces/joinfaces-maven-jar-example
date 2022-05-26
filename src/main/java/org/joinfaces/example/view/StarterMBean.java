@@ -172,10 +172,4 @@ public class StarterMBean implements Serializable {
 		map.put("starterMBean", this);
 		return this.freemarkerUtils.mergeTemplate(map, "pom.ftl");
 	}
-
-	/**
-	* Set pom map.
-	*/
-	public void setPom(String pom) {
-	}
 }
