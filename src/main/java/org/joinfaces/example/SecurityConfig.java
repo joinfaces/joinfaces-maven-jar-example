@@ -18,17 +18,17 @@ package org.joinfaces.example;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 /**
  * Spring Security Configuration.
@@ -38,18 +38,17 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @Configuration
 @EnableWebSecurity
 @EnableConfigurationProperties(ApplicationUsers.class)
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig {
 
-	@Autowired
-	private ApplicationUsers applicationUsers;
-
-	@SuppressFBWarnings({"SPRING_CSRF_PROTECTION_DISABLED", "THROWS_METHOD_THROWS_RUNTIMEEXCEPTION"})
-	@Override
-	protected void configure(HttpSecurity http) {
+	/**
+	 * Configure security.
+	 **/
+	@SuppressFBWarnings("SPRING_CSRF_PROTECTION_DISABLED")
+	@Bean
+	public SecurityFilterChain configure(HttpSecurity http) {
 		try {
 			http.csrf().disable();
 			http
-				.userDetailsService(userDetailsService())
 				.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/**.jsf").permitAll()
@@ -65,17 +64,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.logout()
 				.logoutSuccessUrl("/login.jsf")
 				.deleteCookies("JSESSIONID");
+			return http.build();
 		}
 		catch (Exception ex) {
-			throw new RuntimeException(ex);
+			throw new BeanCreationException("Wrong spring security configuration", ex);
 		}
 	}
 
-	@Override
-	protected UserDetailsService userDetailsService() {
+	/**
+	 * UserDetailsService that configures an in-memory users store.
+	 * @param applicationUsers - autowired users from the application.yml file
+	 * @return InMemoryUserDetailsManager - a manager that keeps all the users' info in the memory
+	 */
+	@Bean
+	public InMemoryUserDetailsManager userDetailsService(ApplicationUsers applicationUsers) {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		InMemoryUserDetailsManager result = new InMemoryUserDetailsManager();
-		for (UserCredentials userCredentials : this.applicationUsers.getUsersCredentials()) {
+		for (UserCredentials userCredentials : applicationUsers.getUsersCredentials()) {
 			result.createUser(User.builder()
 				.username(userCredentials.getUsername())
 				.password(encoder.encode(userCredentials.getPassword()))

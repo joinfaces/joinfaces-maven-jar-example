@@ -35,7 +35,7 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 		page.navegateTo();
 
 		assertThat(page.getOutputText())
-			.isEqualTo("");
+			.isEmpty();
 	}
 
 	@Test

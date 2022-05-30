@@ -20,6 +20,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 @SuppressFBWarnings("THROWS_METHOD_THROWS_CLAUSE_THROWABLE")
@@ -27,7 +28,8 @@ public class SecurityConfigIT {
 
 	@Test
 	public void exceptionOnConfigureNull() {
-		Assertions.assertThrows(RuntimeException.class, () -> new SecurityConfig().configure((HttpSecurity) null));
+		SecurityConfig securityConfig = new SecurityConfig();
+		Assertions.assertThrows(BeanCreationException.class, () -> securityConfig.configure((HttpSecurity) null));
 	}
 
 }
