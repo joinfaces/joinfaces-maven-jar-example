@@ -32,8 +32,8 @@ public class MenuOfPage extends AbstractPageComponent {
 	}
 
 	@Override
-	protected String url() {
-		return "/starter.jsf";
+	public String getLocation() {
+		return "starter.jsf";
 	}
 
 	public StarterPage clickStarter() {
