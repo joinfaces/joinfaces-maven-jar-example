@@ -38,7 +38,7 @@ jobs:
 
       - name: Static validation with Maven
         if: ${{ matrix.java != 8 }}
-        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true install
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} install
 
       - name: Static validation with Maven
         if: ${{ matrix.java == 8 }}

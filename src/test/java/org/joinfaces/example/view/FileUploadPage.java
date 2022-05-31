@@ -38,8 +38,8 @@ public class FileUploadPage extends AbstractPageComponent {
 	}
 
 	@Override
-	protected String url() {
-		return "/fileUpload.jsf";
+	public String getLocation() {
+		return "fileUpload.jsf";
 	}
 
 	private By getDownloadButtonBy() {

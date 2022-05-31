@@ -30,8 +30,8 @@ public class HiCCPage extends AbstractPageComponent {
 	}
 
 	@Override
-	protected String url() {
-		return "/hiCC.jsf";
+	public String getLocation() {
+		return "hiCC.jsf";
 	}
 
 	private By getHiCCDivBy() {
