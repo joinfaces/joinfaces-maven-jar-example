@@ -49,12 +49,11 @@ public class SecurityConfig {
 		try {
 			http.csrf().disable();
 			http
-				.authorizeRequests()
-				.antMatchers("/").permitAll()
-				.antMatchers("/**.jsf").permitAll()
-				.antMatchers("/jakarta.faces.resource/**").permitAll()
-				.anyRequest().authenticated()
-				.and()
+				.authorizeHttpRequests((authorize) -> authorize
+				.requestMatchers("/").permitAll()
+				.requestMatchers("/**.jsf").permitAll()
+				.requestMatchers("/jakarta.faces.resource/**").permitAll()
+				.anyRequest().authenticated())
 				.formLogin()
 				.loginPage("/login.jsf")
 				.permitAll()
