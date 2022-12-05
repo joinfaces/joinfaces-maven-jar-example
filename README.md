@@ -1,6 +1,5 @@
 JoinFaces Example
 =====
-[![Heroku](http://heroku-badge.herokuapp.com/?app=joinfaces-example&root=starter.jsf)](https://joinfaces-example.herokuapp.com)
 [![Build Status](https://github.com/joinfaces/joinfaces-maven-jar-example/actions/workflows/maven.yml/badge.svg)](https://github.com/joinfaces/joinfaces-maven-jar-example/actions)
 [![Codecov](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example/branch/4.7.x/graph/badge.svg)](https://codecov.io/gh/joinfaces/joinfaces-maven-jar-example)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=joinfaces_joinfaces-maven-jar-example&metric=bugs)](https://sonarcloud.io/dashboard?id=joinfaces_joinfaces-maven-jar-example)
@@ -9,15 +8,6 @@ JoinFaces Example
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
 
 [JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://javaserverfaces.java.net/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
-
-## See Example Application in the cloud
-
-1- Access starter.jsf page at **https://joinfaces-example.herokuapp.com/**. This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
-
-| User       | Password | Roles      |
-|------------|----------|------------|
-| persapiens | 123      | ROLE_ADMIN |
-| nyilmaz    | qwe      | ROLE_USER  |
 
 ## Run Example Application locally
 
@@ -36,7 +26,12 @@ mvn clean install
 java -jar target/joinfaces-example-5.0.x.jar
 ```
 
-4- Access starter page at **http://localhost:8080/**
+4- Access starter page at **http://localhost:8080/** This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
+
+| User       | Password | Roles      |
+|------------|----------|------------|
+| persapiens | 123      | ROLE_ADMIN |
+| nyilmaz    | qwe      | ROLE_USER  |
 
 Optional: If your IDE is showing build errors install [Lombok](https://projectlombok.org/setup/overview)
 
@@ -48,7 +43,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.0.0-m3</joinfaces.version>
+   <joinfaces.version>5.0.0</joinfaces.version>
 </properties>
 
 <dependencyManagement>
