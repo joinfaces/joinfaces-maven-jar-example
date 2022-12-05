@@ -68,6 +68,19 @@
         </properties>
     </action>
     <action>
+        <actionName>CUSTOM-native</actionName>
+        <displayName>native</displayName>
+        <goals>
+            <goal>package</goal>
+        </goals>
+        <activatedProfiles>
+            <activatedProfile>native</activatedProfile>
+        </activatedProfiles>
+        <properties>
+            <skipTests>true</skipTests>
+        </properties>
+    </action>
+    <action>
             <actionName>profile</actionName>
             <packagings>
                 <packaging>jar</packaging>
