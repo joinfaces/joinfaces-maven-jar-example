@@ -159,8 +159,12 @@ public class StarterPage extends AbstractPageComponent {
 		this.joinFacesAddonsTab.click();
 	}
 
+	public void clickRewrite() {
+		click(joinFacesAddonsRadioButtonInput(1), "Rewrite", getJoinFacesAddonsTabHeaderBy());
+	}
+
 	public void clickWeld() {
-		click(joinFacesAddonsRadioButtonInput(1), "Weld", getJoinFacesAddonsTabHeaderBy());
+		click(joinFacesAddonsRadioButtonInput(2), "Weld", getJoinFacesAddonsTabHeaderBy());
 	}
 
 	private WebElement joinFacesAddonsRadioButtonInput(int index) {

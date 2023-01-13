@@ -80,6 +80,11 @@ public class JoinFacesStarterService {
 	private List<JoinFacesStarter> joinFacesStartersAddons;
 
 	/**
+	 * Rewrite constant.
+	 */
+	public static final String REWRITE = "Rewrite";
+
+	/**
 	 * Weld constant.
 	 */
 	public static final String WELD = "Weld";
@@ -95,6 +100,8 @@ public class JoinFacesStarterService {
 	private String primefacesExtensionsVersion;
 	private String omnifacesVersion;
 	private String tobagoVersion;
+
+	private String rewriteVersion;
 	private String weldVersion;
 
 	/**
@@ -117,6 +124,8 @@ public class JoinFacesStarterService {
 			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion())).build());
 
 		this.joinFacesStartersAddons = new ArrayList<>();
+		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(REWRITE)
+			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion())).build());
 		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(WELD)
 			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion())).build());
 	}
@@ -150,6 +159,7 @@ public class JoinFacesStarterService {
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
 		this.tobagoVersion = versionMap.get("org.apache.myfaces.tobago:tobago-core");
+		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
 	}
 

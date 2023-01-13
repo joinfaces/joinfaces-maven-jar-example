@@ -133,6 +133,21 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickRewrite() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJoinFacesAddonsTab();
+		starterPage.clickRewrite();
+		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
+			.contains("Rewrite");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent())
+			.contains("rewrite-spring-boot-starter");
+	}
+
+	@Test
 	public void clickWeld() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();

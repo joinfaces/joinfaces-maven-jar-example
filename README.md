@@ -7,7 +7,7 @@ JoinFaces Example
 
 This SAP (Single Page Application) illustrates JSF usage inside JAR packaged Spring Boot Application.
 
-[JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://eclipse-ee4j.github.io/mojarra/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/).
+[JoinFaces](http://joinfaces.org) autoconfigures [PrimeFaces](http://primefaces.org/), [BootsFaces](http://bootsfaces.net/), [ButterFaces](http://butterfaces.org), [OmniFaces](http://omnifaces.org/), [AngularFaces](http://angularfaces.com/), [Mojarra](https://eclipse-ee4j.github.io/mojarra/) and [MyFaces](http://myfaces.apache.org) libraries to run at embedded [Tomcat](http://tomcat.apache.org/), [Jetty](http://www.eclipse.org/jetty) or [Undertow](http://undertow.io/). It autoconfigures [Weld](http://weld.cdi-spec.org) and [Rewrite](https://www.ocpsoft.org/rewrite/) too.
 
 ## Run Example Application locally
 
@@ -43,7 +43,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.0.0</joinfaces.version>
+   <joinfaces.version>5.0.1</joinfaces.version>
 </properties>
 
 <dependencyManagement>
