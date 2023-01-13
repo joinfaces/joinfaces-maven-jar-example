@@ -25,10 +25,10 @@
         <maven-model.version>3.8.7</maven-model.version>
 
         <!-- test library versions -->
-        <selenium.version>4.5.0</selenium.version>
-        <htmlunit-driver.version>4.5.0</htmlunit-driver.version>
-        <htmlunit.version>2.65.1</htmlunit.version>
-        <webdrivermanager.version>5.3.0</webdrivermanager.version>
+        <selenium.version>4.7.2</selenium.version>
+        <htmlunit-driver.version>4.7.2</htmlunit-driver.version>
+        <htmlunit.version>2.69.0</htmlunit.version>
+        <webdrivermanager.version>5.3.1</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>        
@@ -42,7 +42,7 @@
 
         <!-- check library versions -->
         <no-package-cycles-enforcer-rule.version>1.0.9</no-package-cycles-enforcer-rule.version>
-        <spotbugs-maven-plugin.version>4.7.2.1</spotbugs-maven-plugin.version>
+        <spotbugs-maven-plugin.version>4.7.3.0</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
@@ -66,7 +66,7 @@
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|jakarta.el.*)</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>7.2.1</dependency-check-maven.version>
+        <dependency-check-maven.version>7.4.4</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
