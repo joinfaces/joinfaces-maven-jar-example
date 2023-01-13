@@ -24,7 +24,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -48,15 +47,15 @@ public class AbstractPageIT {
 	@BeforeAll
 	public static void init() {
 		if (webDriver == null) {
-			String webDriverType = System.getProperty("webDriverType", "firefox");
+			String webDriverType = System.getProperty("webDriverType", "chrome");
 			if (webDriverType.equals("htmlunit")) {
 				webDriver = getHtmlUnitDriver();
 			}
-			else if (webDriverType.equals("chrome")) {
-				webDriver = getChromeDriver();
+			else if (webDriverType.equals("firefox")) {
+				webDriver = getFirefoxDriver();
 			}
 			else {
-				webDriver = getFirefoxDriver();
+				webDriver = getChromeDriver();
 			}
 		}
 	}
@@ -67,19 +66,17 @@ public class AbstractPageIT {
 
 	private static WebDriver getChromeDriver() {
 		WebDriverManager.getInstance(ChromeDriver.class).setup();
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		return new ChromeDriver(options);
+		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--headless", "--window-size=1920,1080", "--ignore-certificate-errors");
+		return new ChromeDriver(chromeOptions);
 	}
 
 	private static WebDriver getFirefoxDriver() {
 		WebDriverManager.getInstance(FirefoxDriver.class).setup();
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
-		FirefoxProfile firefoxProfile = new FirefoxProfile();
-		// setting preference because of https://github.com/mozilla/geckodriver/issues/659
-		firefoxProfile.setPreference("dom.file.createInChild", true);
-		firefoxOptions.setProfile(firefoxProfile);
+		firefoxOptions.setHeadless(true);
+		firefoxOptions.addArguments("--width=1920");
+		firefoxOptions.addArguments("--height=1080");
 		return new FirefoxDriver(firefoxOptions);
 	}
 

@@ -45,9 +45,7 @@ jobs:
         run: ./mvnw -B -Pcheck-duplicate,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true install
 
       - name: Tests with Maven
-        uses: GabrielBB/xvfb-action@v1
-        with:
-          run: ./mvnw -B -DwebDriverType=chrome verify
+        run: ./mvnw -B -DwebDriverType=chrome verify
 
       - uses: codecov/codecov-action@v3
         with:
