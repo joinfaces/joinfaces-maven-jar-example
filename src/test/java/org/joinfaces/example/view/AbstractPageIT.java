@@ -47,15 +47,15 @@ public class AbstractPageIT {
 	@BeforeAll
 	public static void init() {
 		if (webDriver == null) {
-			String webDriverType = System.getProperty("webDriverType", "firefox");
+			String webDriverType = System.getProperty("webDriverType", "chrome");
 			if (webDriverType.equals("htmlunit")) {
 				webDriver = getHtmlUnitDriver();
 			}
-			else if (webDriverType.equals("chrome")) {
-				webDriver = getChromeDriver();
+			else if (webDriverType.equals("firefox")) {
+				webDriver = getFirefoxDriver();
 			}
 			else {
-				webDriver = getFirefoxDriver();
+				webDriver = getChromeDriver();
 			}
 		}
 	}
