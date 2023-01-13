@@ -46,9 +46,9 @@ jobs:
         with:
           fail_ci_if_error: true
 
-      - name: Git branch name
-        id: git-branch-name
-        uses: EthanSK/git-branch-name-action@v1
+#      - name: Git branch name
+#        id: git-branch-name
+#        uses: EthanSK/git-branch-name-action@v1
 
       - name: Sonarqube with Maven
         env:
