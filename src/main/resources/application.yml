@@ -1,9 +1,9 @@
 joinfaces:
-  jsf:
-    PROJECT_STAGE: Production
-    FACELETS_LIBRARIES: /tags/tags.taglib.xml
   primefaces:
     theme: vela
+  faces:
+    project-stage: Production
+    facelets-libraries: /tags/tags.taglib.xml
 tomcat:
   version: @tomcat.version@
 jetty:
