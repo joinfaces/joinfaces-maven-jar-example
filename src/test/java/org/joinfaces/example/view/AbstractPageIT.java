@@ -74,7 +74,7 @@ public class AbstractPageIT {
 	private static WebDriver getFirefoxDriver() {
 		WebDriverManager.getInstance(FirefoxDriver.class).setup();
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("-headless");
+		firefoxOptions.addArguments("-headless");
 		firefoxOptions.addArguments("--width=1920");
 		firefoxOptions.addArguments("--height=1080");
 		return new FirefoxDriver(firefoxOptions);
