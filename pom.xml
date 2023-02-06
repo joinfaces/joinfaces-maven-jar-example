@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <joinfaces.version>4.7.8</joinfaces.version>
-        <maven-model.version>3.8.7</maven-model.version>
+        <maven-model.version>3.9.0</maven-model.version>
         <httpclient5.version>5.2.1</httpclient5.version>
 
         <!-- test library versions -->
