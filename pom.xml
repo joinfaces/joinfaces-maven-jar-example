@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -19,12 +19,9 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <!-- lombok -->
-        <lombok.version>1.18.26</lombok.version>
-             
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
-        <joinfaces.version>5.0.2</joinfaces.version>
+        <joinfaces.version>5.0.3</joinfaces.version>
         <maven-model.version>3.9.0</maven-model.version>
         <httpclient5.version>5.2.1</httpclient5.version>
 
