@@ -417,7 +417,7 @@
                         <configLocation>${checkstyle.configLocation}</configLocation>
                         <suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>
                         <headerLocation>${checkstyle.headerLocation}</headerLocation>
-                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
                         <consoleOutput>true</consoleOutput>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
                         <sourceDirectories>
