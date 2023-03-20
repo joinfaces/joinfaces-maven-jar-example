@@ -562,7 +562,6 @@
                                     <rules>
                                         <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule"/>
                                     </rules>
-                                    <includeTests>true</includeTests>
                                 </configuration>
                             </execution>
                         </executions>
