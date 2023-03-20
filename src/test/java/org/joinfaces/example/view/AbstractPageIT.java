@@ -67,7 +67,7 @@ public class AbstractPageIT {
 	private static WebDriver getChromeDriver() {
 		WebDriverManager.getInstance(ChromeDriver.class).setup();
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--headless", "--window-size=1920,1080", "--ignore-certificate-errors");
+		chromeOptions.addArguments("--headless", "--window-size=1920,1080", "--ignore-certificate-errors", "--remote-allow-origins=*");
 		return new ChromeDriver(chromeOptions);
 	}
 
