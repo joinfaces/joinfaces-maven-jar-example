@@ -22,7 +22,7 @@
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>5.0.3</joinfaces.version>
-        <maven-model.version>3.9.0</maven-model.version>
+        <maven-model.version>3.9.1</maven-model.version>
         <httpclient5.version>5.2.1</httpclient5.version>
 
         <!-- test library versions -->
