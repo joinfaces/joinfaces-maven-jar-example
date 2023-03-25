@@ -61,7 +61,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 <dependencies>
   <dependency>
     <groupId>org.joinfaces</groupId>
-    <artifactId>jsf-spring-boot-starter</artifactId>
+    <artifactId>faces-spring-boot-starter</artifactId>
   </dependency>
 </dependencies>
 ```
