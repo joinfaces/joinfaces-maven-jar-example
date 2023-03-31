@@ -1,0 +1,55 @@
+
+name: Java CI
+
+on: 
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Java ${{ matrix.java }}
+    strategy:
+      matrix:
+        java: [17,19]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin'
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - uses: browser-actions/setup-firefox@latest
+      - uses: browser-actions/setup-chrome@latest
+
+      - name: Validate with Maven
+        run: ./mvnw -B clean validate
+
+      - name: Static validation with Maven
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} install
+
+      - name: Tests with Maven
+        run: ./mvnw -B -DwebDriverType=chrome verify
+
+      - uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: true
+
+      - name: Sonarqube with Maven
+        env:
+          # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.0.x' && github.repository_owner == 'joinfaces' }}
+        run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
+

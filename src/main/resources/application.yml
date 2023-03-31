@@ -1,0 +1,20 @@
+joinfaces:
+  primefaces:
+    theme: vela
+  faces:
+    project-stage: Production
+    facelets-libraries: /tags/tags.taglib.xml
+tomcat:
+  version: @tomcat.version@
+jetty:
+  version: @jetty.version@
+undertow:
+  version: @undertow.version@
+application-users:
+  users-credentials:
+    - username: persapiens
+      password: 123
+      authorities: ROLE_ADMIN
+    - username: nyilmaz
+      password: qwe
+      authorities: ROLE_USER

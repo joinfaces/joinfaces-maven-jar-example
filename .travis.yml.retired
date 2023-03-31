@@ -1,0 +1,34 @@
+dist: bionic
+language: java
+jdk:
+  - openjdk8
+  - openjdk11
+cache:
+  directories:
+  - $HOME/.m2
+addons:
+  firefox: latest
+  chrome: stable
+
+before_script:
+  - echo "Extracting firefox and setting PATH variable..."
+  - tar -xjf /tmp/firefox-*.tar.bz2 --directory /tmp
+  - export PATH="/tmp/firefox:$PATH"
+
+install: ./mvnw -B clean validate
+
+script:
+  - ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true install
+#  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=firefox verify
+  - /usr/bin/xvfb-run ./mvnw -B -DwebDriverType=chrome verify
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - /usr/bin/xvfb-run ./mvnw org.eluder.coveralls:coveralls-maven-plugin:4.3.0:report
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: "./mvnw -Pcheck-sonarqube sonar:sonar"
+    on:
+      jdk: openjdk11
