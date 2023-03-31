@@ -16,7 +16,8 @@
 		"vscode": {
 			"extensions": [
 				"cracrayol.java-pmd",
-				"vscjava.vscode-maven"
+				"vscjava.vscode-maven",
+				"vscjava.vscode-java-pack"
 			]
 		}
 	}
