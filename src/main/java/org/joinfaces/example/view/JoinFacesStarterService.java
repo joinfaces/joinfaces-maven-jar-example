@@ -18,6 +18,7 @@ package org.joinfaces.example.view;
 
 import java.io.IOException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,7 @@ public class JoinFacesStarterService {
 	* Initialize default properties.
 	*/
 	@PostConstruct
-	public void init() throws IOException, XmlPullParserException {
+	public void init() throws IOException, XmlPullParserException, URISyntaxException {
 		findVersions();
 
 		this.joinFacesStartersComponents = new ArrayList<>();
@@ -132,14 +133,14 @@ public class JoinFacesStarterService {
 	}
 
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
-	private void findVersions() throws IOException, XmlPullParserException {
+	private void findVersions() throws IOException, XmlPullParserException, URISyntaxException {
 		findVersionsDependencies(versionMap(createModel("joinfaces-dependencies")));
 		findVersionsMojarra(versionMap(createModel("mojarra-spring-boot-starter")));
 		findVersionsMyfaces(versionMap(createModel("myfaces-spring-boot-starter")));
 	}
 
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
-	private Model createModel(String name) throws IOException, XmlPullParserException {
+	private Model createModel(String name) throws IOException, XmlPullParserException, URISyntaxException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		return mavenXpp3Reader.read(new URI("https://repo1.maven.org/maven2/org/joinfaces/" + name + "/"
 				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom").toURL().openStream());
