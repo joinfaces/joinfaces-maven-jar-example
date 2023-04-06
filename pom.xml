@@ -19,6 +19,7 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
+        <!-- added because maven-pmd-plugin does not support java 20 sources yet. -->
         <java.source>17</java.source>
 
         <!-- compile library versions -->
