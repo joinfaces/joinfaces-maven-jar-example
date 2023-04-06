@@ -17,6 +17,7 @@
 package org.joinfaces.example.view;
 
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -140,8 +141,8 @@ public class JoinFacesStarterService {
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
 	private Model createModel(String name) throws IOException, XmlPullParserException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
-		return mavenXpp3Reader.read(new URL("https://repo1.maven.org/maven2/org/joinfaces/" + name + "/"
-				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom").openStream());
+		return mavenXpp3Reader.read(new URI("https://repo1.maven.org/maven2/org/joinfaces/" + name + "/"
+				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom").toURL().openStream());
 	}
 
 	private Map<String, String> versionMap(Model pom) {
