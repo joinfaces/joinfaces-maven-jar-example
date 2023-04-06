@@ -19,6 +19,9 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
+        <!-- added because maven-pmd-plugin does not support java 20 sources yet. -->
+        <java.source>17</java.source>
+
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>5.0.4</joinfaces.version>
@@ -32,7 +35,7 @@
         <webdrivermanager.version>5.3.2</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
-        <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>        
+        <jacoco-maven-plugin.version>0.8.9</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
         <jacoco.totalLineRate>0.91</jacoco.totalLineRate>
         <jacoco.packageLineRate>0.90</jacoco.packageLineRate>
