@@ -39,7 +39,7 @@ public class FileUploadPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "fileUpload.jsf";
+		return "fileUpload.faces";
 	}
 
 	private By getDownloadButtonBy() {

@@ -37,7 +37,7 @@ public class LoginPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "login.jsf";
+		return "login.faces";
 	}
 
 	public StarterPage login(String username, String password) {

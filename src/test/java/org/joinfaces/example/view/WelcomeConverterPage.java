@@ -39,7 +39,7 @@ public class WelcomeConverterPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "welcomeConverter.jsf";
+		return "welcomeConverter.faces";
 	}
 
 	public void submit(String message) {

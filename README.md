@@ -23,7 +23,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-5.0.x.jar
+java -jar target/joinfaces-example-5.1.x.jar
 ```
 
 4- Access starter page at **http://localhost:8080/** This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
@@ -43,7 +43,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.0.5</joinfaces.version>
+   <joinfaces.version>5.1.0</joinfaces.version>
 </properties>
 
 <dependencyManagement>
@@ -79,11 +79,11 @@ Note that **security-spring-boot-starter** is included to secure the application
 
 ### src/main/resources/application.yml
 
-Configure jsf.PROJECT_STATE and jsf.primefaces.THEME properties.
+Configure faces.PROJECT_STATE and faces.primefaces.THEME properties.
 
 ```yml
 joinfaces:
-  jsf:
+  faces:
     PROJECT_STAGE: Development
   primefaces: 
     theme: overcast

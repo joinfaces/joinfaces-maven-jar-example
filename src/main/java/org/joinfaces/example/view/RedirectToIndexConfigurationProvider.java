@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.ApplicationScope;
 
 /**
- * Redirect to index.jsf SPA.
+ * Redirect to index.faces SPA.
  *
  * @author Marcelo Fernandes
  */
@@ -42,7 +42,7 @@ public class RedirectToIndexConfigurationProvider extends HttpConfigurationProvi
 		return ConfigurationBuilder.begin()
 			.addRule()
 			.when(Direction.isInbound().and(Path.matches("/")))
-			.perform(Redirect.temporary("/starter.jsf"));
+			.perform(Redirect.temporary("/starter.faces"));
 	}
 
 	@Override
