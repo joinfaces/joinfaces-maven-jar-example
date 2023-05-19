@@ -31,7 +31,7 @@ public class HelloTagPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "helloTag.jsf";
+		return "helloTag.faces";
 	}
 
 	private By getHelloWorldDivBy() {

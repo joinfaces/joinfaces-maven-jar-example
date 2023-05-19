@@ -33,7 +33,7 @@ public class MenuOfPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "starter.jsf";
+		return "starter.faces";
 	}
 
 	public StarterPage clickStarter() {

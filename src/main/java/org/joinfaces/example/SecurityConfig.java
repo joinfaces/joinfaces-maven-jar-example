@@ -47,22 +47,21 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain configure(HttpSecurity http) {
 		try {
-			http.csrf().disable();
+			http.csrf((csrf) -> csrf.disable());
 			http
 				.authorizeHttpRequests((authorize) -> authorize
 				.requestMatchers("/").permitAll()
-				.requestMatchers("/**.jsf").permitAll()
+				.requestMatchers("/**.faces").permitAll()
 				.requestMatchers("/jakarta.faces.resource/**").permitAll()
 				.anyRequest().authenticated())
-				.formLogin()
-				.loginPage("/login.jsf")
-				.permitAll()
-				.failureUrl("/login.jsf?error=true")
-				.defaultSuccessUrl("/starter.jsf")
-				.and()
-				.logout()
-				.logoutSuccessUrl("/login.jsf")
-				.deleteCookies("JSESSIONID");
+				.formLogin((formLogin) ->
+					formLogin.loginPage("/login.faces")
+					.permitAll()
+					.failureUrl("/login.faces?error=true")
+					.defaultSuccessUrl("/starter.faces"))
+				.logout((logout) ->
+					logout.logoutSuccessUrl("/login.faces")
+					.deleteCookies("JSESSIONID"));
 			return http.build();
 		}
 		catch (Exception ex) {
