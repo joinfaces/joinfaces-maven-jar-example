@@ -2,12 +2,17 @@ version: 2
 updates:
   - package-ecosystem: "maven"
     directory: "/"
-    target-branch: "4.7.x"
+    target-branch: "5.1.x"
     schedule:
       interval: daily
   - package-ecosystem: "maven"
     directory: "/"
     target-branch: "5.0.x"
+    schedule:
+      interval: daily
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "4.7.x"
     schedule:
       interval: daily
 
