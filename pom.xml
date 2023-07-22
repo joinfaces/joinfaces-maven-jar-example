@@ -31,7 +31,7 @@
         <!-- test library versions -->
         <selenium.version>4.10.0</selenium.version>
         <htmlunit-driver.version>4.10.0</htmlunit-driver.version>
-        <htmlunit.version>3.3.0</htmlunit.version>
+        <org.htmlunit.version>3.3.0</org.htmlunit.version>
         <webdrivermanager.version>5.3.2</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
@@ -127,7 +127,7 @@
             <dependency>
                 <groupId>org.htmlunit</groupId>
                 <artifactId>htmlunit</artifactId>
-                <version>${htmlunit.version}</version>
+                <version>${org.htmlunit.version}</version>
                 <scope>test</scope>
                 <exclusions>
                     <exclusion>
