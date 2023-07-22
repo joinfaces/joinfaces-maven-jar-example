@@ -22,6 +22,7 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -29,6 +30,9 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 
 /**
  * Spring Security Configuration.
@@ -45,14 +49,14 @@ public class SecurityConfig {
 	 * Configure security.
 	 **/
 	@Bean
-	public SecurityFilterChain configure(HttpSecurity http) {
+	public SecurityFilterChain configure(HttpSecurity http, MvcRequestMatcher.Builder mvc) {
 		try {
 			http.csrf((csrf) -> csrf.disable());
 			http
 				.authorizeHttpRequests((authorize) -> authorize
-				.requestMatchers("/").permitAll()
-				.requestMatchers("/**.faces").permitAll()
-				.requestMatchers("/jakarta.faces.resource/**").permitAll()
+				.requestMatchers(mvc.pattern("/")).permitAll()
+				.requestMatchers(new AntPathRequestMatcher("/**.faces")).permitAll()
+				.requestMatchers(new AntPathRequestMatcher("/jakarta.faces.resource/**")).permitAll()
 				.anyRequest().authenticated())
 				.formLogin((formLogin) ->
 					formLogin.loginPage("/login.faces")
@@ -67,6 +71,12 @@ public class SecurityConfig {
 		catch (Exception ex) {
 			throw new BeanCreationException("Wrong spring security configuration", ex);
 		}
+	}
+
+	@Scope("prototype")
+	@Bean
+	MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
+		return new MvcRequestMatcher.Builder(introspector);
 	}
 
 	/**
