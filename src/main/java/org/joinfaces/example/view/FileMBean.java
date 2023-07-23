@@ -16,6 +16,7 @@
 
 package org.joinfaces.example.view;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -29,12 +30,12 @@ import org.primefaces.model.StreamedContent;
 import org.primefaces.model.file.UploadedFile;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.FileCopyUtils;
 
 /**
  * FileMBean to test primefaces upload component.
  * @author Marcelo Fernandes
  */
-@SuppressFBWarnings("THROWS_METHOD_THROWS_RUNTIMEEXCEPTION")
 @Component
 @ViewScoped
 public class FileMBean implements Serializable {
@@ -52,17 +53,11 @@ public class FileMBean implements Serializable {
 	/**
 	* Upload file action.
 	*/
-	public void upload() {
+	public void upload() throws IOException {
 		if (this.uploadedFile != null) {
+			byte[] data = FileCopyUtils.copyToByteArray(this.uploadedFile.getInputStream());
 			this.downloadFile = DefaultStreamedContent.builder()
-				.stream(() -> {
-					try {
-						return this.uploadedFile.getInputStream();
-					}
-					catch (IOException ex) {
-						throw new RuntimeException(ex);
-					}
-				})
+				.stream(() -> new ByteArrayInputStream(data))
 				.contentType(this.uploadedFile.getContentType())
 				.name(this.uploadedFile.getFileName())
 				.build();
