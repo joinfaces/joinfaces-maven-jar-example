@@ -16,9 +16,9 @@
 
 package org.joinfaces.example.view;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.io.ByteArrayInputStream;
 
 import jakarta.faces.view.ViewScoped;
 
