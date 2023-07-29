@@ -29,7 +29,7 @@ public class SecurityConfigIT {
 	@Test
 	public void exceptionOnConfigureNull() {
 		SecurityConfig securityConfig = new SecurityConfig();
-		Assertions.assertThrows(BeanCreationException.class, () -> securityConfig.configure((HttpSecurity) null));
+		Assertions.assertThrows(BeanCreationException.class, () -> securityConfig.configure((HttpSecurity) null), null);
 	}
 
 }
