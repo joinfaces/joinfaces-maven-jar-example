@@ -16,6 +16,7 @@
 
 package org.joinfaces.example.view;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -53,7 +54,7 @@ public class FileMBean implements Serializable {
 	/**
 	* Upload file action.
 	*/
-	public void upload() {
+	public void upload() throws IOException {
 		if (this.uploadedFile != null) {
 			byte[] data = FileCopyUtils.copyToByteArray(this.uploadedFile.getInputStream());
 			this.downloadFile = DefaultStreamedContent.builder()
