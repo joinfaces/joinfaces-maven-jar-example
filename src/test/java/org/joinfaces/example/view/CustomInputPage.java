@@ -39,7 +39,7 @@ public class CustomInputPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "customInput.jsf";
+		return "customInput.faces";
 	}
 
 	public void submit(String message) {

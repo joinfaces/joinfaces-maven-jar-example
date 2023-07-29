@@ -54,7 +54,7 @@ public class StarterPage extends AbstractPageComponent {
 
 	@Override
 	public String getLocation() {
-		return "starter.jsf";
+		return "starter.faces";
 	}
 
 	private void click(WebElement webElement, String technology, By tabHeaderBy)  {
