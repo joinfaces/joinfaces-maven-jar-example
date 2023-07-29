@@ -23,7 +23,6 @@
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>5.0.9</joinfaces.version>
         <maven-model.version>3.9.3</maven-model.version>
-        <httpclient5.version>5.2.1</httpclient5.version>
 
         <!-- test library versions -->
         <selenium.version>4.10.0</selenium.version>
@@ -143,12 +142,6 @@
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>findbugs-annotations</artifactId>
                 <version>${findbugs-annotations.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents.client5</groupId>
-                <artifactId>httpclient5</artifactId>
-                <version>${httpclient5.version}</version>
-                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
