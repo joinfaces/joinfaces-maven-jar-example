@@ -19,9 +19,6 @@
     <description>Example project for Jsf Spring Boot Starter</description>
 
     <properties>
-        <!-- added because maven-pmd-plugin does not support java 20 sources yet. -->
-        <java.source>17</java.source>
-
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>5.0.9</joinfaces.version>
@@ -32,7 +29,6 @@
         <selenium.version>4.10.0</selenium.version>
         <htmlunit-driver.version>4.10.0</htmlunit-driver.version>
         <webdrivermanager.version>5.4.1</webdrivermanager.version>
-        <jarchivelib.version>1.2.0</jarchivelib.version>
 
         <jacoco-maven-plugin.version>0.8.9</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
@@ -144,12 +140,6 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>org.rauschig</groupId>
-                <artifactId>jarchivelib</artifactId>
-                <version>${jarchivelib.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>findbugs-annotations</artifactId>
                 <version>${findbugs-annotations.version}</version>
@@ -226,10 +216,6 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.rauschig</groupId>
-            <artifactId>jarchivelib</artifactId>
         </dependency>
         <dependency>
             <groupId>jakarta.enterprise</groupId>
