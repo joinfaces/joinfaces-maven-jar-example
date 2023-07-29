@@ -27,7 +27,6 @@
         <!-- test library versions -->
         <selenium.version>4.8.1</selenium.version>
         <htmlunit-driver.version>4.8.1</htmlunit-driver.version>
-        <htmlunit.version>3.3.0</htmlunit.version>
         <webdrivermanager.version>5.3.2</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
@@ -107,18 +106,6 @@
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>htmlunit-driver</artifactId>
                 <version>${htmlunit-driver.version}</version>
-                <scope>test</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.htmlunit</groupId>
-                <artifactId>htmlunit</artifactId>
-                <version>${htmlunit.version}</version>
                 <scope>test</scope>
                 <exclusions>
                     <exclusion>
@@ -222,10 +209,6 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>htmlunit-driver</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.htmlunit</groupId>
-            <artifactId>htmlunit</artifactId>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
