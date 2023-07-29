@@ -64,7 +64,7 @@ public class SecurityConfig {
 					.failureUrl("/login.faces?error=true")
 					.defaultSuccessUrl("/starter.faces"))
 				.logout((logout) ->
-					.logoutSuccessUrl("/login.faces")
+					logout.logoutSuccessUrl("/login.faces")
 					.deleteCookies("JSESSIONID"));
 			return http.build();
 		}
