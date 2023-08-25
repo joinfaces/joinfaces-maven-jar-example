@@ -50,6 +50,6 @@ jobs:
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.0.x' && github.repository_owner == 'joinfaces' }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.2.x' && github.repository_owner == 'joinfaces' }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
 
