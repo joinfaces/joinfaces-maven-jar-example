@@ -25,8 +25,8 @@
         <maven-model.version>3.9.5</maven-model.version>
 
         <!-- test library versions -->
-        <selenium.version>4.10.0</selenium.version>
-        <htmlunit-driver.version>4.10.0</htmlunit-driver.version>
+        <selenium.version>4.13.0</selenium.version>
+        <htmlunit-driver.version>4.13.0</htmlunit-driver.version>
         <webdrivermanager.version>5.5.3</webdrivermanager.version>
 
         <jacoco-maven-plugin.version>0.8.9</jacoco-maven-plugin.version>        
