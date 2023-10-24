@@ -46,7 +46,7 @@
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-pmd-plugin.version>3.21.0</maven-pmd-plugin.version>
-        <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <checkstyle.version>10.12.1</checkstyle.version>
 
         <check.dir>src/checkconfig</check.dir>
