@@ -1,3 +1,7 @@
+spring:
+  threads:
+    virtual:
+      enabled: true    
 joinfaces:
   primefaces:
     theme: vela
