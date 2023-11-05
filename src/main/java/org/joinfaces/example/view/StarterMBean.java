@@ -104,7 +104,7 @@ public class StarterMBean implements Serializable {
 			}
 		}
 		if (result.isEmpty()) {
-			result.add("jsf");
+			result.add("faces");
 		}
 
 		return result;

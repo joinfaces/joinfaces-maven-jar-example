@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
-        <joinfaces.version>5.2.0-m3</joinfaces.version>
+        <joinfaces.version>5.2.0-rc2</joinfaces.version>
         <maven-model.version>3.9.5</maven-model.version>
 
         <!-- test library versions -->
@@ -80,7 +80,7 @@
             </dependency>
             <dependency>
                 <groupId>org.joinfaces</groupId>
-                <artifactId>joinfaces-dependencies</artifactId>
+                <artifactId>joinfaces-bom</artifactId>
                 <version>${joinfaces.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -193,6 +193,12 @@
             <groupId>org.joinfaces</groupId>
             <artifactId>rewrite-spring-boot-starter</artifactId>
         </dependency>
+        <!-- rewrite downgrade because of https://github.com/joinfaces/joinfaces/issues/1999 -->
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-integration-spring</artifactId>
+            <version>10.0.0.Final</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -209,10 +215,6 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
@@ -422,12 +424,15 @@
 
         <plugins>
             <plugin>
-                <groupId>org.joinfaces</groupId>
-                <artifactId>joinfaces-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process-aot</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jacoco</groupId>
@@ -557,7 +562,8 @@
                         <artifactId>spotbugs-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <goals>
+                                <phase>process-test-classes</phase>
+                                <goals>                                   
                                     <goal>check</goal>
                                 </goals>
                             </execution>

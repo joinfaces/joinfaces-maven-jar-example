@@ -43,14 +43,14 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.2.0-m3</joinfaces.version>
+   <joinfaces.version>5.2.0-rc2</joinfaces.version>
 </properties>
 
 <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.joinfaces</groupId>
-            <artifactId>joinfaces-dependencies</artifactId>
+            <artifactId>joinfaces-bom</artifactId>
             <version>${joinfaces.version}</version>
             <type>pom</type>
             <scope>import</scope>
