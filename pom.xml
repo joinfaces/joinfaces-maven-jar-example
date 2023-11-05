@@ -562,7 +562,8 @@
                         <artifactId>spotbugs-maven-plugin</artifactId>
                         <executions>
                             <execution>
-                                <goals>
+                                <phase>process-test-classes</phase>
+                                <goals>                                   
                                     <goal>check</goal>
                                 </goals>
                             </execution>
