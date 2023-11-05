@@ -50,7 +50,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
     <dependencies>
         <dependency>
             <groupId>org.joinfaces</groupId>
-            <artifactId>joinfaces-dependencies</artifactId>
+            <artifactId>joinfaces-bom</artifactId>
             <version>${joinfaces.version}</version>
             <type>pom</type>
             <scope>import</scope>
