@@ -21,13 +21,13 @@
     <properties>
         <!-- compile library versions -->
         <joinfaces.version>4.7.12</joinfaces.version>
-        <maven-model.version>3.9.3</maven-model.version>
+        <maven-model.version>3.9.5</maven-model.version>
         <httpclient5.version>5.2.1</httpclient5.version>
 
         <!-- test library versions -->
         <selenium.version>4.8.1</selenium.version>
         <htmlunit-driver.version>4.8.1</htmlunit-driver.version>
-        <webdrivermanager.version>5.3.2</webdrivermanager.version>
+        <webdrivermanager.version>5.3.3</webdrivermanager.version>
         <jarchivelib.version>1.2.0</jarchivelib.version>
 
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>        
@@ -46,8 +46,8 @@
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
-        <maven-pmd-plugin.version>3.21.0</maven-pmd-plugin.version>
-        <maven-checkstyle-plugin.version>3.3.0</maven-checkstyle-plugin.version>
+        <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
+        <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <checkstyle.version>10.9.2</checkstyle.version>
 
         <check.dir>src/checkconfig</check.dir>
@@ -66,7 +66,7 @@
         <duplicate.ignoredClassPattern>(META-INF.versions.9.module-info|javax.el.*)</duplicate.ignoredClassPattern>
 
         <dependency-check-maven.version>8.1.2</dependency-check-maven.version>
-        <sonar-maven-plugin.version>3.9.1.2184</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
