@@ -42,7 +42,7 @@ public class AbstractPageIT {
 
 	private static int countFinish = 0;
 
-	private static final int NUMBER_OF_SUBCLASSES = 8;
+	private static final int NUMBER_OF_SUBCLASSES = 9;
 
 	@BeforeAll
 	public static void init() {
