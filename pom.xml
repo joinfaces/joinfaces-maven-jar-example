@@ -22,7 +22,7 @@
         <!-- compile library versions -->
         <joinfaces.version>4.7.18</joinfaces.version>
         <maven-model.version>3.9.5</maven-model.version>
-        <httpclient5.version>5.2.1</httpclient5.version>
+        <httpclient5.version>5.2.2</httpclient5.version>
 
         <!-- test library versions -->
         <selenium.version>4.8.1</selenium.version>
