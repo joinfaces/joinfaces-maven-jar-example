@@ -61,8 +61,8 @@
         <checkstyle.headerLocation>${checkstyle.dir}/checkstyle-header.txt</checkstyle.headerLocation>
         <checkstyle.excludes/>
         <duplicate-finder-maven-plugin.version>2.0.1</duplicate-finder-maven-plugin.version>
-        <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
-        <duplicate.ignoredClassPattern>(jakarta.el.*)</duplicate.ignoredClassPattern>
+        <duplicate.ignoredResourcePattern>()</duplicate.ignoredResourcePattern>
+        <duplicate.ignoredClassPattern>()</duplicate.ignoredClassPattern>
 
         <dependency-check-maven.version>9.0.0</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
