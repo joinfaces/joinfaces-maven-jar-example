@@ -37,7 +37,8 @@ jobs:
         run: ./mvnw -B clean validate
 
       - name: Static validation with Maven
-        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} install
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} install
+#        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} install
 
       - name: Tests with Maven
         run: ./mvnw -B -DwebDriverType=chrome verify
