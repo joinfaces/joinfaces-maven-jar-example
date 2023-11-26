@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.0-RC2</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
-        <joinfaces.version>5.2.0-rc2</joinfaces.version>
+        <joinfaces.version>5.2.0</joinfaces.version>
         <maven-model.version>3.9.5</maven-model.version>
 
         <!-- test library versions -->
@@ -192,12 +192,6 @@
         <dependency>
             <groupId>org.joinfaces</groupId>
             <artifactId>rewrite-spring-boot-starter</artifactId>
-        </dependency>
-        <!-- rewrite downgrade because of https://github.com/joinfaces/joinfaces/issues/1999 -->
-        <dependency>
-            <groupId>org.ocpsoft.rewrite</groupId>
-            <artifactId>rewrite-integration-spring</artifactId>
-            <version>10.0.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
