@@ -39,11 +39,10 @@
         <jacoco.branchRate>0.00</jacoco.branchRate>
 
         <!-- check library versions -->
-        <no-package-cycles-enforcer-rule.version>1.0.9</no-package-cycles-enforcer-rule.version>
+        <decycle-maven-plugin.version>1.1.0</decycle-maven-plugin.version>
         <spotbugs-maven-plugin.version>4.8.1.0</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.12.0</findsecbugs-plugin.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
-        <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
@@ -507,29 +506,27 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <dependencies>
-                            <dependency>
-                                <groupId>de.andrena.tools.nopackagecycles</groupId>
-                                <artifactId>no-package-cycles-enforcer-rule</artifactId>
-                                <version>${no-package-cycles-enforcer-rule.version}</version>
-                            </dependency>
-                        </dependencies>
+                        <groupId>de.obqo.decycle</groupId>
+                        <artifactId>decycle-maven-plugin</artifactId>
+                        <version>${decycle-maven-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>enforce-no-package-cycles</id>
                                 <goals>
-                                    <goal>enforce</goal>
+                                    <goal>check</goal>
                                 </goals>
-                                <phase>test</phase>
-                                <configuration>
-                                    <rules>
-                                        <NoPackageCyclesRule implementation="de.andrena.tools.nopackagecycles.NoPackageCyclesRule"/>
-                                    </rules>
-                                </configuration>
                             </execution>
                         </executions>
+                        <configuration>
+                            <slicings>
+                                <slicing>
+                                    <name>branches</name>
+                                    <patterns>org.joinfaces.example.*=base, org.joinfaces.example.{*}.**</patterns>
+                                    <constraints>
+                                        <allow>view</allow>
+                                    </constraints>
+                                </slicing>
+                            </slicings>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
