@@ -64,7 +64,7 @@
         <duplicate.ignoredResourcePattern>(about.html|mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>(jakarta.el.*)</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>8.3.1</dependency-check-maven.version>
+        <dependency-check-maven.version>9.0.2</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
