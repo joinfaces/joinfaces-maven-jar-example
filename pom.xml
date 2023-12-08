@@ -63,7 +63,7 @@
         <duplicate.ignoredResourcePattern>()</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>()</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>9.0.3</dependency-check-maven.version>
+        <dependency-check-maven.version>9.0.4</dependency-check-maven.version>
         <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
