@@ -410,6 +410,26 @@
                             <artifactId>org.json</artifactId>
                             <version>chargebee-1.0</version>
                         </dependency>
+                        <dependency>
+                            <groupId>joda-time</groupId>
+                            <artifactId>joda-time</artifactId>
+                            <version>2.12.5</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.google.code.gson</groupId>
+                            <artifactId>gson</artifactId>
+                            <version>2.10.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>velocity</groupId>
+                            <artifactId>velocity</artifactId>
+                            <version>1.5</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.esotericsoftware.minlog</groupId>
+                            <artifactId>minlog</artifactId>
+                            <version>1.2</version>
+                        </dependency>
                     </dependencies>
                 </plugin>
             </plugins>
