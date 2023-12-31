@@ -11,7 +11,7 @@ jobs:
     name: Java ${{ matrix.java }}
     strategy:
       matrix:
-        java: [17,20]
+        java: [17,21]
 
     steps:
       - uses: actions/checkout@v4
@@ -33,24 +33,27 @@ jobs:
       - uses: browser-actions/setup-firefox@latest
       - uses: browser-actions/setup-chrome@latest
 
-      - name: Validate with Maven
+      - name: Validate
         run: ./mvnw -B clean validate
 
-      - name: Static validation with Maven
-#        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
+      - name: Static Validation with Java 17
+        if: ${{ matrix.java == 17 }}
         run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
 
-      - name: Tests with Maven
+      - name: Static Validation with Java 21
+        if: ${{ matrix.java == 21 }}
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
+
+      - name: Tests
         run: ./mvnw -B -DwebDriverType=chrome verify
 
       - uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
 
-      - name: Sonarqube with Maven
+      - name: Sonarqube
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.2.x' && github.repository_owner == 'joinfaces' }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
-
