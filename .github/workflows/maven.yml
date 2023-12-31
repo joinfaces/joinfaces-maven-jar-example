@@ -47,6 +47,10 @@ jobs:
       - name: Tests
         run: ./mvnw -B -DwebDriverType=chrome verify
 
+      - name: Build Native Image
+        if: ${{ matrix.java == 21 }}
+        run: ./mvnw -B -Pnative -DskipTests=true spring-boot:build-image
+
       - uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
