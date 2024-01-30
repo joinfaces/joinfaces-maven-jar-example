@@ -14,24 +14,24 @@ jobs:
         java: [17,20]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4.1.1
 
       - name: Set up JDK ${{ matrix.java }}
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4.0.0
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
 
       - name: Cache local Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4.0.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - uses: browser-actions/setup-firefox@latest
-      - uses: browser-actions/setup-chrome@latest
+      - uses: browser-actions/setup-firefox@v1.4.0
+      - uses: browser-actions/setup-chrome@v1.4.0
 
       - name: Validate with Maven
         run: ./mvnw -B clean validate
@@ -42,15 +42,16 @@ jobs:
       - name: Tests with Maven
         run: ./mvnw -B -DwebDriverType=chrome verify
 
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v3.1.5
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.1.x' && github.repository_owner == 'joinfaces' }}  
 
       - name: Sonarqube with Maven
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.0.x' && github.repository_owner == 'joinfaces' }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.1.x' && github.repository_owner == 'joinfaces' }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
 
