@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-maven-
 
       - uses: browser-actions/setup-firefox@v1.4.0
-      - uses: browser-actions/setup-chrome@latest
+      - uses: browser-actions/setup-chrome@v1.4.0
 
       - name: Validate
         run: ./mvnw -B clean validate
