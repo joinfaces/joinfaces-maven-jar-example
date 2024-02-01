@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,8 +36,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		StarterPage page = menu.clickStarter();
 
-		assertThat(page.getServletContainerTabHeaderText())
-			.contains("Tomcat : Servlet Container");
+		assertThat(page.getServletContainerTabHeaderText()).contains("Tomcat : Servlet Container");
 	}
 
 	@Test
@@ -47,8 +46,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		FileUploadPage page = menu.clickFileUpload();
 
-		assertThat(page.isDownloadButtonEnabled())
-			.isFalse();
+		assertThat(page.isDownloadButtonEnabled()).isFalse();
 	}
 
 	@Test
@@ -58,8 +56,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		CustomInputPage page = menu.clickCustomInput();
 
-		assertThat(page.getOutputText())
-			.isEqualTo("You entered: null");
+		assertThat(page.getOutputText()).isEqualTo("You entered: null");
 	}
 
 	@Test
@@ -69,8 +66,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		HelloTagPage page = menu.clickHelloTag();
 
-		assertThat(page.getHelloWorldText())
-			.isEqualTo("Hello Tag File");
+		assertThat(page.getHelloWorldText()).isEqualTo("Hello Tag File");
 	}
 
 	@Test
@@ -80,8 +76,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 
 		HiCCPage page = menu.clickHiCC();
 
-		assertThat(page.getHiCCText())
-			.isEqualTo("Hi Composite Component");
+		assertThat(page.getHiCCText()).isEqualTo("Hi Composite Component");
 	}
 
 	@Test
@@ -92,7 +87,7 @@ public class MenuOfPageIT extends AbstractPageIT {
 		WelcomeConverterPage page = menu.clickWelcomeConverter();
 		page.submit("Nick");
 
-		assertThat(page.getOutputText())
-			.isEqualTo("Nick welcome!");
+		assertThat(page.getOutputText()).isEqualTo("Nick welcome!");
 	}
+
 }

@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -36,8 +36,7 @@ public class FileUploadPageIT extends AbstractPageIT {
 		FileUploadPage fileUploadPage = initElements(FileUploadPage.class);
 		fileUploadPage.navegateTo();
 
-		assertThat(fileUploadPage.isDownloadButtonEnabled())
-			.isFalse();
+		assertThat(fileUploadPage.isDownloadButtonEnabled()).isFalse();
 	}
 
 	@Test
@@ -47,7 +46,7 @@ public class FileUploadPageIT extends AbstractPageIT {
 
 		fileUploadPage.upload(new File("target/classes/application.yml").getAbsolutePath());
 
-		assertThat(fileUploadPage.isDownloadButtonEnabled())
-			.isTrue();
+		assertThat(fileUploadPage.isDownloadButtonEnabled()).isTrue();
 	}
+
 }

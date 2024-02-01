@@ -46,18 +46,17 @@
         <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
         <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
+        <spring-javaformat.version>0.0.41</spring-javaformat.version>
+
         <checkstyle.version>10.13.0</checkstyle.version>
 
         <check.dir>src/checkconfig</check.dir>
-        <checkstyle.dir>${check.dir}/checkstyle</checkstyle.dir>
         <pmd.dir>${check.dir}/pmd</pmd.dir>
 
         <pmd.ruleset>${pmd.dir}/pmd-ruleset.xml</pmd.ruleset>
         <cpd.excludeFromFailureFile/>
         <pmd.excludeFromFailureFile>${check.dir}/pmd/pmd-exclude.properties</pmd.excludeFromFailureFile> 
-        <checkstyle.configLocation>${checkstyle.dir}/checkstyle.xml</checkstyle.configLocation>
-        <checkstyle.suppressionsLocation>${checkstyle.dir}/checkstyle-suppressions.xml</checkstyle.suppressionsLocation>
-        <checkstyle.headerLocation>${checkstyle.dir}/checkstyle-header.txt</checkstyle.headerLocation>
+        <checkstyle.configLocation>io/spring/javaformat/checkstyle/checkstyle.xml</checkstyle.configLocation>
         <checkstyle.excludes/>
         <duplicate-finder-maven-plugin.version>2.0.1</duplicate-finder-maven-plugin.version>
         <duplicate.ignoredResourcePattern>(mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
@@ -371,25 +370,26 @@
                             <artifactId>checkstyle</artifactId>
                             <version>${checkstyle.version}</version>
                         </dependency>
+                        <dependency>
+                            <groupId>io.spring.javaformat</groupId>
+                            <artifactId>spring-javaformat-checkstyle</artifactId>
+                            <version>${spring-javaformat.version}</version>
+                        </dependency>
                     </dependencies>
                     <configuration>
                         <failsOnError>true</failsOnError>
                         <failOnViolation>true</failOnViolation>
                         <configLocation>${checkstyle.configLocation}</configLocation>
-                        <suppressionsLocation>${checkstyle.suppressionsLocation}</suppressionsLocation>
-                        <headerLocation>${checkstyle.headerLocation}</headerLocation>
                         <inputEncoding>${project.build.sourceEncoding}</inputEncoding>
                         <consoleOutput>true</consoleOutput>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                        <sourceDirectories>
-                            <param>${project.build.sourceDirectory}</param>
-                        </sourceDirectories>
-                        <testSourceDirectories>
-                            <param>${project.build.testSourceDirectory}</param>
-                        </testSourceDirectories>
-                        <excludes>${checkstyle.excludes}</excludes>
                     </configuration>
-                </plugin>            
+                </plugin>  
+                <plugin>
+                    <groupId>io.spring.javaformat</groupId>
+                    <artifactId>spring-javaformat-maven-plugin</artifactId>
+                    <version>${spring-javaformat.version}</version>
+                </plugin>          
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
@@ -460,6 +460,26 @@
 
     <profiles>
         <profile>
+            <id>format</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.spring.javaformat</groupId>
+                        <artifactId>spring-javaformat-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
             <id>check-checkstyle</id>
             <build>
                 <plugins>
@@ -469,7 +489,7 @@
                         <executions>
                             <execution>
                                 <id>checkstyle-validation</id>
-                                <phase>verify</phase>
+                                <phase>validate</phase>
                                 <goals>
                                     <goal>check</goal>
                                 </goals>

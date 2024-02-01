@@ -15,22 +15,3 @@
  */
 
 package org.joinfaces.example.view;
-
-import org.openqa.selenium.WebDriver;
-
-public class IndexPage extends AbstractPageComponent {
-
-	public IndexPage(WebDriver webDriver) {
-		super(webDriver);
-	}
-
-	@Override
-	public String getLocation() {
-		return "";
-	}
-
-	public String getCurrentURL() {
-		return webDriver.getCurrentUrl();
-	}
-
-}

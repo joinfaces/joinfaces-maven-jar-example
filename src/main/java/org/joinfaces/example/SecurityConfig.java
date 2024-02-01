@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -47,25 +47,27 @@ public class SecurityConfig {
 
 	/**
 	 * Configure security.
+	 * @param http security var.
+	 * @param mvc to create request matchers not handled by faces.
+	 * @return the security filter chain.
 	 **/
 	@Bean
 	public SecurityFilterChain configure(HttpSecurity http, MvcRequestMatcher.Builder mvc) {
 		try {
 			http.csrf((csrf) -> csrf.disable());
-			http
-				.authorizeHttpRequests((authorize) -> authorize
-				.requestMatchers(mvc.pattern("/")).permitAll()
-				.requestMatchers(new AntPathRequestMatcher("/**.faces")).permitAll()
-				.requestMatchers(new AntPathRequestMatcher("/jakarta.faces.resource/**")).permitAll()
-				.anyRequest().authenticated())
-				.formLogin((formLogin) ->
-					formLogin.loginPage("/login.faces")
+			http.authorizeHttpRequests((authorize) -> authorize.requestMatchers(mvc.pattern("/"))
+				.permitAll()
+				.requestMatchers(new AntPathRequestMatcher("/**.faces"))
+				.permitAll()
+				.requestMatchers(new AntPathRequestMatcher("/jakarta.faces.resource/**"))
+				.permitAll()
+				.anyRequest()
+				.authenticated())
+				.formLogin((formLogin) -> formLogin.loginPage("/login.faces")
 					.permitAll()
 					.failureUrl("/login.faces?error=true")
 					.defaultSuccessUrl("/starter.faces"))
-				.logout((logout) ->
-					logout.logoutSuccessUrl("/login.faces")
-					.deleteCookies("JSESSIONID"));
+				.logout((logout) -> logout.logoutSuccessUrl("/login.faces").deleteCookies("JSESSIONID"));
 			return http.build();
 		}
 		catch (Exception ex) {
@@ -82,7 +84,7 @@ public class SecurityConfig {
 	/**
 	 * UserDetailsService that configures an in-memory users store.
 	 * @param applicationUsers - autowired users from the application.yml file
-	 * @return InMemoryUserDetailsManager - a manager that keeps all the users' info in the memory
+	 * @return a manager that keeps all the users' info in the memory
 	 */
 	@Bean
 	public InMemoryUserDetailsManager userDetailsService(ApplicationUsers applicationUsers) {
@@ -92,8 +94,10 @@ public class SecurityConfig {
 			result.createUser(User.builder()
 				.username(userCredentials.getUsername())
 				.password(encoder.encode(userCredentials.getPassword()))
-				.authorities(userCredentials.getAuthorities().toArray(new String[0])).build());
+				.authorities(userCredentials.getAuthorities().toArray(new String[0]))
+				.build());
 		}
 		return result;
 	}
+
 }

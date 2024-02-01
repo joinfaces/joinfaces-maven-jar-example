@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -34,8 +34,7 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
 		page.navegateTo();
 
-		assertThat(page.getOutputText())
-			.isEmpty();
+		assertThat(page.getOutputText()).isEmpty();
 	}
 
 	@Test
@@ -45,8 +44,7 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 
 		page.submit("Hello");
 
-		assertThat(page.getOutputText())
-			.isEqualTo("Hello welcome!");
+		assertThat(page.getOutputText()).isEqualTo("Hello welcome!");
 	}
 
 }

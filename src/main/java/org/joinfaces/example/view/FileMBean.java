@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,9 +20,8 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.Serializable;
 
-import jakarta.faces.view.ViewScoped;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.faces.view.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 import org.primefaces.model.DefaultStreamedContent;
@@ -34,6 +33,7 @@ import org.springframework.util.FileCopyUtils;
 
 /**
  * FileMBean to test primefaces upload component.
+ *
  * @author Marcelo Fernandes
  */
 @Component
@@ -51,8 +51,8 @@ public class FileMBean implements Serializable {
 	private transient StreamedContent downloadFile;
 
 	/**
-	* Upload file action.
-	*/
+	 * Upload file action.
+	 */
 	public void upload() throws IOException {
 		if (this.uploadedFile != null) {
 			byte[] data = FileCopyUtils.copyToByteArray(this.uploadedFile.getInputStream());
@@ -63,4 +63,5 @@ public class FileMBean implements Serializable {
 				.build();
 		}
 	}
+
 }
