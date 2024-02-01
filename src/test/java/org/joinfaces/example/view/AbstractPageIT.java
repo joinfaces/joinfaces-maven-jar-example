@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,6 +31,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 /**
  * Abstract class to create utility methods to access WebClient and Page.
+ *
  * @author Marcelo Fernandes
  */
 public class AbstractPageIT {
@@ -67,7 +68,8 @@ public class AbstractPageIT {
 	private static WebDriver getChromeDriver() {
 		WebDriverManager.getInstance(ChromeDriver.class).setup();
 		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--headless", "--window-size=1920,1080", "--ignore-certificate-errors", "--remote-allow-origins=*", "--disable-dev-shm-usage", "--no-sandbox");
+		chromeOptions.addArguments("--headless", "--window-size=1920,1080", "--ignore-certificate-errors",
+				"--remote-allow-origins=*", "--disable-dev-shm-usage", "--no-sandbox");
 		return new ChromeDriver(chromeOptions);
 	}
 

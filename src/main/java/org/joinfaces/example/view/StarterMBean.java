@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,11 +23,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.faces.view.ViewScoped;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import freemarker.template.TemplateException;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.view.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -82,8 +81,8 @@ public class StarterMBean implements Serializable {
 	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;
 
 	/**
-	* Initialize default attributes.
-	*/
+	 * Initialize default attributes.
+	 */
 	@PostConstruct
 	public void init() {
 		this.joinFacesStarterComponents = this.joinFacesStarterService.getJoinFacesStartersComponents();
@@ -93,13 +92,15 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Calculate component artifact ids.
-	*/
+	 * Calculate component artifact ids.
+	 * @return component artifact ids
+	 */
 	public List<String> getComponentArtifactIds() {
 		List<String> result = new ArrayList<>();
 
 		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
-			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(),
+					this.selectedJoinFacesStarterComponents)) {
 				result.add(joinFacesStarter.getName());
 			}
 		}
@@ -111,13 +112,15 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Calculate joinfaces starter components header.
-	*/
+	 * Calculate joinfaces starter components header.
+	 * @return joinfaces starter components header
+	 */
 	public String getJoinFacesStarterComponentsHeader() {
 		StringBuilder result = new StringBuilder();
 
 		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterComponents) {
-			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterComponents)) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(),
+					this.selectedJoinFacesStarterComponents)) {
 				result.append(' ').append(joinFacesStarter.getName());
 			}
 		}
@@ -126,13 +129,15 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Calculate addon artifact ids.
-	*/
+	 * Calculate addon artifact ids.
+	 * @return addon artifact ids
+	 */
 	public List<String> getAddonArtifactIds() {
 		List<String> result = new ArrayList<>();
 
 		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
-			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(),
+					this.selectedJoinFacesStarterAddons)) {
 				result.add(joinFacesStarter.getName());
 			}
 		}
@@ -141,13 +146,15 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Calculate joinfaces starter addons header.
-	*/
+	 * Calculate joinfaces starter addons header.
+	 * @return joinfaces starter addons header
+	 */
 	public String getJoinFacesStarterAddonsHeader() {
 		StringBuilder result = new StringBuilder();
 
 		for (JoinFacesStarter joinFacesStarter : this.joinFacesStarterAddons) {
-			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(), this.selectedJoinFacesStarterAddons)) {
+			if (this.joinFacesStarterService.containsByName(joinFacesStarter.getName(),
+					this.selectedJoinFacesStarterAddons)) {
 				result.append(' ').append(joinFacesStarter.getName());
 			}
 		}
@@ -164,8 +171,9 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Create pom map.
-	*/
+	 * Create pom example.
+	 * @return pom example.
+	 */
 	public String getPom() throws IOException, TemplateException {
 		Map<String, Object> map = new HashMap<>();
 		map.put("starterService", this.joinFacesStarterService);
@@ -174,8 +182,10 @@ public class StarterMBean implements Serializable {
 	}
 
 	/**
-	* Set pom map.
-	*/
+	 * Set pom example.
+	 * @param pom example
+	 */
 	public void setPom(String pom) {
 	}
+
 }

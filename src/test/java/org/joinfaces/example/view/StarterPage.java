@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -57,11 +57,11 @@ public class StarterPage extends AbstractPageComponent {
 		return "starter.faces";
 	}
 
-	private void click(WebElement webElement, String technology, By tabHeaderBy)  {
+	private void click(WebElement webElement, String technology, By tabHeaderBy) {
 		webElement.click();
 
-		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(
-			ExpectedConditions.textToBePresentInElementLocated(tabHeaderBy, technology));
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.textToBePresentInElementLocated(tabHeaderBy, technology));
 	}
 
 	public void clickServletContainerTab() {
@@ -85,7 +85,8 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	private WebElement joinFacesComponentRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
+		return webDriver.findElement(
+				By.xpath("//*[@id='tabView:joinFacesComponents']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
 	}
 
 	public void clickSecurity() {
@@ -145,12 +146,13 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	public String getPomContent() {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:panelPom_content']/div/div[6]/div[1]/div/div")).getText();
+		return webDriver.findElement(By.xpath("//*[@id='tabView:panelPom_content']/div/div[6]/div[1]/div/div"))
+			.getText();
 	}
 
 	public StarterPage waitLoad() {
-		new WebDriverWait(webDriver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(
-			getServletContainerTabHeaderBy()));
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.visibilityOfElementLocated(getServletContainerTabHeaderBy()));
 
 		return this;
 	}
@@ -168,10 +170,12 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	private WebElement joinFacesAddonsRadioButtonInput(int index) {
-		return webDriver.findElement(By.xpath("//*[@id='tabView:joinFacesAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
+		return webDriver.findElement(
+				By.xpath("//*[@id='tabView:joinFacesAddons']/div[2]/table/tbody/tr[" + index + "]/td[1]/div/div"));
 	}
 
 	public String getJoinFacesAddonsTabHeaderText() {
 		return webDriver.findElement(getJoinFacesAddonsTabHeaderBy()).getText();
 	}
+
 }

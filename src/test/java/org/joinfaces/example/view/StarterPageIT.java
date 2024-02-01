@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -34,12 +34,10 @@ public class StarterPageIT extends AbstractPageIT {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
-		assertThat(starterPage.getServletContainerTabHeaderText())
-			.contains("Servlet Container");
+		assertThat(starterPage.getServletContainerTabHeaderText()).contains("Servlet Container");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("<joinfaces.version>");
+		assertThat(starterPage.getPomContent()).contains("<joinfaces.version>");
 	}
 
 	@Test
@@ -49,12 +47,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickServletContainerTab();
 		starterPage.clickJetty();
-		assertThat(starterPage.getServletContainerTabHeaderText())
-			.contains("Jetty");
+		assertThat(starterPage.getServletContainerTabHeaderText()).contains("Jetty");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("jetty-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("jetty-spring-boot-starter");
 	}
 
 	@Test
@@ -64,12 +60,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJsfImplementationTab();
 		starterPage.clickMyFaces();
-		assertThat(starterPage.getJsfImplementationTabHeaderText())
-			.contains("MyFaces");
+		assertThat(starterPage.getJsfImplementationTabHeaderText()).contains("MyFaces");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("myfaces-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("myfaces-spring-boot-starter");
 	}
 
 	@Test
@@ -79,12 +73,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickSecurity();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("Security");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText()).contains("Security");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("security-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("security-spring-boot-starter");
 	}
 
 	@Test
@@ -94,12 +86,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickPrimeFaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("PrimeFaces");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText()).contains("PrimeFaces");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("primefaces-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("primefaces-spring-boot-starter");
 	}
 
 	@Test
@@ -109,12 +99,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickTobago();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("Tobago");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText()).contains("Tobago");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("tobago-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("tobago-spring-boot-starter");
 	}
 
 	@Test
@@ -124,12 +112,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesComponentsTab();
 		starterPage.clickOmnifaces();
-		assertThat(starterPage.getJoinFacesComponentsTabHeaderText())
-			.contains("OmniFaces");
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText()).contains("OmniFaces");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("omnifaces-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("omnifaces-spring-boot-starter");
 	}
 
 	@Test
@@ -139,12 +125,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesAddonsTab();
 		starterPage.clickRewrite();
-		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
-			.contains("Rewrite");
+		assertThat(starterPage.getJoinFacesAddonsTabHeaderText()).contains("Rewrite");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("rewrite-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("rewrite-spring-boot-starter");
 	}
 
 	@Test
@@ -154,12 +138,10 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickJoinFacesAddonsTab();
 		starterPage.clickWeld();
-		assertThat(starterPage.getJoinFacesAddonsTabHeaderText())
-			.contains("Weld");
+		assertThat(starterPage.getJoinFacesAddonsTabHeaderText()).contains("Weld");
 
 		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent())
-			.contains("weld-spring-boot-starter");
+		assertThat(starterPage.getPomContent()).contains("weld-spring-boot-starter");
 	}
 
 }

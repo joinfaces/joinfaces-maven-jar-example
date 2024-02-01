@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -24,9 +24,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import jakarta.annotation.PostConstruct;
-
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.maven.model.Dependency;
 import org.apache.maven.model.Model;
@@ -91,44 +90,66 @@ public class JoinFacesStarterService {
 	public static final String WELD = "Weld";
 
 	private final String joinfacesVersion = JoinfacesAutoConfiguration.class.getPackage().getImplementationVersion();
+
 	private final String springBootVersion = SpringApplication.class.getPackage().getImplementationVersion();
+
 	private final String securityVersion = FilterChainProxy.class.getPackage().getImplementationVersion();
 
 	private String cdiVersion;
+
 	private String mojarraVersion;
+
 	private String myfacesVersion;
+
 	private String primefacesVersion;
+
 	private String primefacesExtensionsVersion;
+
 	private String omnifacesVersion;
+
 	private String tobagoVersion;
 
 	private String rewriteVersion;
+
 	private String weldVersion;
 
 	/**
-	* Initialize default properties.
-	*/
+	 * Initialize default properties.
+	 */
 	@PostConstruct
 	public void init() throws IOException, XmlPullParserException, URISyntaxException {
 		findVersions();
 
 		this.joinFacesStartersComponents = new ArrayList<>();
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(SECURITY)
-			.library(joinFacesStarterLibrary("Spring Security", "https://spring.io/projects/spring-security", getSecurityVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(PRIMEFACES)
-			.library(joinFacesStarterLibrary(PRIMEFACES, "https://primefaces.org", getPrimefacesVersion()))
-			.library(joinFacesStarterLibrary(PRIMEFACES_EXTENSIONS, "https://primefaces-extensions.github.io", getPrimefacesExtensionsVersion()))
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(SECURITY)
+			.library(joinFacesStarterLibrary("Spring Security", "https://spring.io/projects/spring-security",
+					getSecurityVersion()))
 			.build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(OMNIFACES)
-			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion())).build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder().name(TOBAGO)
-			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion())).build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(PRIMEFACES)
+			.library(joinFacesStarterLibrary(PRIMEFACES, "https://primefaces.org", getPrimefacesVersion()))
+			.library(joinFacesStarterLibrary(PRIMEFACES_EXTENSIONS, "https://primefaces-extensions.github.io",
+					getPrimefacesExtensionsVersion()))
+			.build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(OMNIFACES)
+			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion()))
+			.build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(TOBAGO)
+			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion()))
+			.build());
 
 		this.joinFacesStartersAddons = new ArrayList<>();
-		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(REWRITE)
-			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion())).build());
-		this.joinFacesStartersAddons.add(JoinFacesStarter.builder().name(WELD)
-			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion())).build());
+		this.joinFacesStartersAddons.add(JoinFacesStarter.builder()
+			.name(REWRITE)
+			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()))
+			.build());
+		this.joinFacesStartersAddons.add(JoinFacesStarter.builder()
+			.name(WELD)
+			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion()))
+			.build());
 	}
 
 	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
@@ -142,14 +163,17 @@ public class JoinFacesStarterService {
 	private Model createModel(String name) throws IOException, XmlPullParserException, URISyntaxException {
 		MavenXpp3Reader mavenXpp3Reader = new MavenXpp3Reader();
 		return mavenXpp3Reader.read(new URI("https://repo1.maven.org/maven2/org/joinfaces/" + name + "/"
-				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom").toURL().openStream());
+				+ this.joinfacesVersion + "/" + name + "-" + this.joinfacesVersion + ".pom")
+			.toURL()
+			.openStream());
 	}
 
 	private Map<String, String> versionMap(Model pom) {
 		return pom.getDependencyManagement()
-				.getDependencies()
-				.stream()
-				.collect(Collectors.toMap(dependency -> dependency.getGroupId() + ":" + dependency.getArtifactId(), Dependency::getVersion));
+			.getDependencies()
+			.stream()
+			.collect(Collectors.toMap((dependency) -> dependency.getGroupId() + ":" + dependency.getArtifactId(),
+					Dependency::getVersion));
 	}
 
 	private void findVersionsDependencies(Map<String, String> versionMap) {
@@ -174,16 +198,18 @@ public class JoinFacesStarterService {
 
 	private JoinFacesStarterLibrary joinFacesStarterLibrary(String name, String siteLink, String version) {
 		return JoinFacesStarterLibrary.builder()
-				.name(name)
-				.site(siteLink)
-				.image("images/" + name.toLowerCase().trim().replace(' ', '-') + ".png")
-				.version(version)
-				.build();
+			.name(name)
+			.site(siteLink)
+			.image("images/" + name.toLowerCase().trim().replace(' ', '-') + ".png")
+			.version(version)
+			.build();
 	}
 
 	/**
-	* Find joinfaces starter by name.
-	*/
+	 * Find joinfaces starter by name.
+	 * @param name of the starter
+	 * @return joinfaces starter
+	 */
 	public JoinFacesStarter findByName(String name) {
 		JoinFacesStarter result = findByName(name, this.joinFacesStartersComponents);
 		if (result == null) {
@@ -206,9 +232,13 @@ public class JoinFacesStarterService {
 	}
 
 	/**
-	* Calculate contains by name using joinfaces starter list.
-	*/
+	 * Calculate contains by name using joinfaces starter list.
+	 * @param name of the starter
+	 * @param joinFacesStarterList list of joinfaces starters
+	 * @return if list contains name
+	 */
 	public boolean containsByName(String name, List<JoinFacesStarter> joinFacesStarterList) {
 		return findByName(name, joinFacesStarterList) != null;
 	}
+
 }

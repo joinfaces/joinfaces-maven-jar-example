@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,11 +17,12 @@
 package org.joinfaces.example;
 
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 @SuppressFBWarnings("THROWS_METHOD_THROWS_CLAUSE_THROWABLE")
 public class SecurityConfigIT {
@@ -29,7 +30,8 @@ public class SecurityConfigIT {
 	@Test
 	public void exceptionOnConfigureNull() {
 		SecurityConfig securityConfig = new SecurityConfig();
-		Assertions.assertThrows(BeanCreationException.class, () -> securityConfig.configure((HttpSecurity) null, null));
+		assertThatExceptionOfType(BeanCreationException.class)
+			.isThrownBy(() -> securityConfig.configure((HttpSecurity) null, null));
 	}
 
 }

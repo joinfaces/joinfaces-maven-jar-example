@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *      https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -27,14 +27,17 @@ import jakarta.faces.context.ResponseWriter;
 
 /**
  * Custom input component.
+ *
  * @author Marcelo Fernandes
  */
-@FacesComponent(createTag = true, namespace = "http://joinfaces.org/example",
-	tagName = "custom-input", value = "org.joinfaces.example.view.CustomInput")
+@FacesComponent(createTag = true, namespace = "http://joinfaces.org/example", tagName = "custom-input",
+		value = "org.joinfaces.example.view.CustomInput")
 public class CustomInput extends UIInput {
 
 	private static final String INPUT = "input";
+
 	private static final String TYPE = "type";
+
 	private static final String VALUE = "value";
 
 	@Override
