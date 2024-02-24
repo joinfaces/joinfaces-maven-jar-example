@@ -36,7 +36,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-5.2.x.jar
+java -jar target/joinfaces-example-5.3.x.jar
 ```
 
 4- Access starter page at **http://localhost:8080/** This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
