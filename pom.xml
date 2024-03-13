@@ -65,7 +65,7 @@
         <duplicate.ignoredClassPattern>(jakarta.el.*)</duplicate.ignoredClassPattern>
 
         <dependency-check-maven.version>9.0.9</dependency-check-maven.version>
-        <sonar-maven-plugin.version>3.10.0.2594</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>3.11.0.3922</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
