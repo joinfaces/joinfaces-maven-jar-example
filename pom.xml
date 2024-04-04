@@ -45,6 +45,7 @@
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
+        <pmdVersion>7.0.0</pmdVersion>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <spring-javaformat.version>0.0.41</spring-javaformat.version>
 
@@ -309,6 +310,34 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
                     <version>${maven-pmd-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                          <groupId>net.sourceforge.pmd</groupId>
+                          <artifactId>pmd-compat6</artifactId>
+                          <!--<version>${pmdVersion}</version>-->
+                          <version>${pmdVersion}</version> <!-- this contains the fix from #4749 -->
+                        </dependency>
+                        <dependency>
+                          <groupId>net.sourceforge.pmd</groupId>
+                          <artifactId>pmd-core</artifactId>
+                          <version>${pmdVersion}</version>
+                        </dependency>
+                        <dependency>
+                          <groupId>net.sourceforge.pmd</groupId>
+                          <artifactId>pmd-java</artifactId>
+                          <version>${pmdVersion}</version>
+                        </dependency>
+                        <dependency>
+                          <groupId>net.sourceforge.pmd</groupId>
+                          <artifactId>pmd-javascript</artifactId>
+                          <version>${pmdVersion}</version>
+                        </dependency>
+                        <dependency>
+                          <groupId>net.sourceforge.pmd</groupId>
+                          <artifactId>pmd-jsp</artifactId>
+                          <version>${pmdVersion}</version>
+                        </dependency>
+                    </dependencies>
                     <configuration>
                         <targetJdk>${java.source}</targetJdk>
                         <includeTests>false</includeTests>
