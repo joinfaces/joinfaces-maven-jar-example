@@ -27,7 +27,7 @@
         <!-- test library versions -->
         <selenium.version>4.19.1</selenium.version>
         <htmlunit3-driver.version>4.19.1</htmlunit3-driver.version>
-        <webdrivermanager.version>5.7.0</webdrivermanager.version>
+        <webdrivermanager.version>5.8.0</webdrivermanager.version>
 
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
