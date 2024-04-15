@@ -55,7 +55,7 @@ jobs:
         if: ${{ matrix.java == 21 }}
         run: ./mvnw -B -Pnative -DskipTests=true spring-boot:build-image
 
-      - uses: codecov/codecov-action@v4.2.0
+      - uses: codecov/codecov-action@v4.3.0
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
