@@ -45,7 +45,7 @@
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <jdepend-maven-plugin.version>2.0</jdepend-maven-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
-        <maven-pmd-plugin.version>3.21.2</maven-pmd-plugin.version>
+        <maven-pmd-plugin.version>3.22.0</maven-pmd-plugin.version>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <checkstyle.version>10.15.0</checkstyle.version>
 
