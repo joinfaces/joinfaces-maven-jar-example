@@ -45,7 +45,7 @@
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-pmd-plugin.version>3.22.0</maven-pmd-plugin.version>
-        <pmdVersion>7.0.0</pmdVersion>
+        <pmdVersion>7.1.0</pmdVersion>
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <spring-javaformat.version>0.0.41</spring-javaformat.version>
 
