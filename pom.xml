@@ -48,7 +48,7 @@
         <maven-checkstyle-plugin.version>3.3.1</maven-checkstyle-plugin.version>
         <spring-javaformat.version>0.0.41</spring-javaformat.version>
 
-        <checkstyle.version>10.15.0</checkstyle.version>
+        <checkstyle.version>10.16.0</checkstyle.version>
 
         <check.dir>src/checkconfig</check.dir>
         <pmd.dir>${check.dir}/pmd</pmd.dir>
