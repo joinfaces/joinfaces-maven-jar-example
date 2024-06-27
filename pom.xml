@@ -26,7 +26,7 @@
 
         <!-- test library versions -->
         <selenium.version>4.22.0</selenium.version>
-        <htmlunit3-driver.version>4.21.0</htmlunit3-driver.version>
+        <htmlunit3-driver.version>4.22.0</htmlunit3-driver.version>
         <webdrivermanager.version>5.9.1</webdrivermanager.version>
 
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>        
