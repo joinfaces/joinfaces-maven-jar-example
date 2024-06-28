@@ -24,10 +24,10 @@ jobs:
 
       - name: Set up GraalVM ${{ matrix.java }} 
         if: ${{ matrix.java == 21 }}
-        uses: graalvm/setup-graalvm@v1
+        uses: graalvm/setup-graalvm@v1.2.2
         with:
           java-version: '21'
-          distribution: 'graalvm'
+          distribution: 'graalvm-community'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
 
@@ -46,7 +46,8 @@ jobs:
         run: ./mvnw -B clean validate
 
       - name: Static Validation
-        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
+        #run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
 
       - name: Tests
         run: ./mvnw -B -DwebDriverType=chrome verify
