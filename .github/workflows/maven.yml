@@ -39,7 +39,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - uses: browser-actions/setup-firefox@v1.5.1
+      - uses: browser-actions/setup-firefox@v1.5.2
       - uses: browser-actions/setup-chrome@v1.7.2
 
       - name: Validate
