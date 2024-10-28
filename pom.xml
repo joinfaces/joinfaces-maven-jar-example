@@ -40,7 +40,7 @@
 
         <!-- check library versions -->
         <decycle-maven-plugin.version>1.2.1</decycle-maven-plugin.version>
-        <spotbugs-maven-plugin.version>4.8.6.4</spotbugs-maven-plugin.version>
+        <spotbugs-maven-plugin.version>4.8.6.5</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
         <findbugs-annotations.version>3.0.1</findbugs-annotations.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
