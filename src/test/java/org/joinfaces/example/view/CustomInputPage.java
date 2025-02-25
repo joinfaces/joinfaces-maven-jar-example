@@ -38,7 +38,7 @@ public class CustomInputPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "customInput.faces";
 	}
 
@@ -62,11 +62,9 @@ public class CustomInputPage extends AbstractPageComponent {
 		return webDriver.findElement(getOutputTextBy()).getText();
 	}
 
-	public CustomInputPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.presenceOfElementLocated(getOutputTextBy()));
-
-		return this;
 	}
 
 }

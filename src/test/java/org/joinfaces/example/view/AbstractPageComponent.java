@@ -31,7 +31,7 @@ public abstract class AbstractPageComponent {
 		this.webDriver = webDriver;
 	}
 
-	public abstract String getLocation();
+	protected abstract String getLocation();
 
 	public void navegateTo() {
 		this.webDriver.navigate().to(this.preffix + "/" + getLocation());
@@ -42,5 +42,7 @@ public abstract class AbstractPageComponent {
 		result.setPreffix(this.preffix);
 		return result;
 	}
+
+	public abstract void waitLoad();
 
 }

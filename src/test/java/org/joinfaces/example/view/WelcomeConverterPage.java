@@ -38,7 +38,7 @@ public class WelcomeConverterPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "welcomeConverter.faces";
 	}
 
@@ -62,11 +62,9 @@ public class WelcomeConverterPage extends AbstractPageComponent {
 		return webDriver.findElement(getOutputTextBy()).getText();
 	}
 
-	public WelcomeConverterPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.presenceOfElementLocated(getOutputTextBy()));
-
-		return this;
 	}
 
 }

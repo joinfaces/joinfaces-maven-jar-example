@@ -30,7 +30,7 @@ public class HelloTagPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "helloTag.faces";
 	}
 
@@ -42,11 +42,9 @@ public class HelloTagPage extends AbstractPageComponent {
 		return webDriver.findElement(getHelloWorldDivBy()).getText();
 	}
 
-	public HelloTagPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.presenceOfElementLocated(getHelloWorldDivBy()));
-
-		return this;
 	}
 
 }
