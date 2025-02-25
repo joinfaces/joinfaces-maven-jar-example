@@ -30,7 +30,7 @@ public class HiCCPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "hiCC.faces";
 	}
 
@@ -42,11 +42,9 @@ public class HiCCPage extends AbstractPageComponent {
 		return webDriver.findElement(getHiCCDivBy()).getText();
 	}
 
-	public HiCCPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.presenceOfElementLocated(getHiCCDivBy()));
-
-		return this;
 	}
 
 }

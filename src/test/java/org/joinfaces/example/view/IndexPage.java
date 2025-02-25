@@ -25,12 +25,17 @@ public class IndexPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "";
 	}
 
 	public String getCurrentURL() {
 		return webDriver.getCurrentUrl();
+	}
+
+	@Override
+	public void waitLoad() {
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 }

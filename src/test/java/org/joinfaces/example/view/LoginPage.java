@@ -36,7 +36,7 @@ public class LoginPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "login.faces";
 	}
 
@@ -48,11 +48,18 @@ public class LoginPage extends AbstractPageComponent {
 
 		StarterPage starterPage = initElements(StarterPage.class);
 
-		return starterPage.waitLoad();
+		starterPage.waitLoad();
+
+		return starterPage;
 	}
 
 	public String getTitle() {
 		return webDriver.getTitle();
+	}
+
+	@Override
+	public void waitLoad() {
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 }

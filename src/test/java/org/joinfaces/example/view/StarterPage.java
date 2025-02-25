@@ -53,7 +53,7 @@ public class StarterPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "starter.faces";
 	}
 
@@ -150,11 +150,9 @@ public class StarterPage extends AbstractPageComponent {
 			.getText();
 	}
 
-	public StarterPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.visibilityOfElementLocated(getServletContainerTabHeaderBy()));
-
-		return this;
 	}
 
 	public void clickJoinFacesAddonsTab() {

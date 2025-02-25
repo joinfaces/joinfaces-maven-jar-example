@@ -38,7 +38,7 @@ public class FileUploadPage extends AbstractPageComponent {
 	}
 
 	@Override
-	public String getLocation() {
+	protected String getLocation() {
 		return "fileUpload.faces";
 	}
 
@@ -59,11 +59,9 @@ public class FileUploadPage extends AbstractPageComponent {
 		return webDriver.findElement(getDownloadButtonBy()).isEnabled();
 	}
 
-	public FileUploadPage waitLoad() {
+	public void waitLoad() {
 		new WebDriverWait(webDriver, Duration.ofSeconds(10))
 			.until(ExpectedConditions.presenceOfElementLocated(getDownloadButtonBy()));
-
-		return this;
 	}
 
 }
