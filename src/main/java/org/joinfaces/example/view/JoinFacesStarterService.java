@@ -152,7 +152,6 @@ public class JoinFacesStarterService {
 			.build());
 	}
 
-	@SuppressFBWarnings("URLCONNECTION_SSRF_FD")
 	private void findVersions() throws IOException, XmlPullParserException, URISyntaxException {
 		findVersionsDependencies(versionMap(createModel("joinfaces-dependencies")));
 		findVersionsMojarra(versionMap(createModel("mojarra-spring-boot-starter")));

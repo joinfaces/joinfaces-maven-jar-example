@@ -16,7 +16,6 @@
 
 package org.joinfaces.example;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.BeanCreationException;
@@ -24,7 +23,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
-@SuppressFBWarnings("THROWS_METHOD_THROWS_CLAUSE_THROWABLE")
 public class SecurityConfigIT {
 
 	@Test
