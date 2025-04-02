@@ -14,74 +14,78 @@
  * limitations under the License.
  */
 
-package org.joinfaces.example.view;
+ package org.joinfaces.example.view;
 
-import java.util.List;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
-public class MenuOfPage extends AbstractPageComponent {
-
-	@FindBy(xpath = "//a[@class='ui-menuitem-link ui-corner-all']")
-	private List<WebElement> menuAnchors;
-
-	public MenuOfPage(WebDriver webDriver) {
-		super(webDriver);
-	}
-
-	@Override
-	public String getLocation() {
-		return "starter.faces";
-	}
-
-	public StarterPage clickStarter() {
-		this.menuAnchors.get(0).click();
-
-		StarterPage page = initElements(StarterPage.class);
-
-		return page.waitLoad();
-	}
-
-	public FileUploadPage clickFileUpload() {
-		this.menuAnchors.get(1).click();
-
-		FileUploadPage page = initElements(FileUploadPage.class);
-
-		return page.waitLoad();
-	}
-
-	public CustomInputPage clickCustomInput() {
-		this.menuAnchors.get(2).click();
-
-		CustomInputPage page = initElements(CustomInputPage.class);
-
-		return page.waitLoad();
-	}
-
-	public HelloTagPage clickHelloTag() {
-		this.menuAnchors.get(3).click();
-
-		HelloTagPage page = initElements(HelloTagPage.class);
-
-		return page.waitLoad();
-	}
-
-	public HiCCPage clickHiCC() {
-		this.menuAnchors.get(4).click();
-
-		HiCCPage page = initElements(HiCCPage.class);
-
-		return page.waitLoad();
-	}
-
-	public WelcomeConverterPage clickWelcomeConverter() {
-		this.menuAnchors.get(5).click();
-
-		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
-
-		return page.waitLoad();
-	}
-
-}
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.WebElement;
+ import org.openqa.selenium.support.FindBy;
+ 
+ public class MenuOfPage extends AbstractPageComponent {
+ 
+	 @FindBy(id = "starterMenuItem")
+	 private WebElement starterMenuItem;
+ 
+	 @FindBy(id = "fileUploadMenuItem")
+	 private WebElement fileUploadMenuItem;
+ 
+	 @FindBy(id = "customInputMenuItem")
+	 private WebElement customInputMenuItem;
+ 
+	 @FindBy(id = "myTagMenuItem")
+	 private WebElement myTagMenuItem;
+ 
+	 @FindBy(id = "hiCCMenuItem")
+	 private WebElement hiCCMenuItem;
+ 
+	 @FindBy(id = "welcomeConverterMenuItem")
+	 private WebElement welcomeConverterMenuItem;
+ 
+	 public MenuOfPage(WebDriver webDriver) {
+		 super(webDriver);
+	 }
+ 
+	 @Override
+	 protected String getLocation() {
+		 return "starter.faces";
+	 }
+ 
+	 public StarterPage clickStarter() {
+		 return click(this.starterMenuItem, StarterPage.class);
+	 }
+ 
+	 public FileUploadPage clickFileUpload() {
+		 return click(this.fileUploadMenuItem, FileUploadPage.class);
+	 }
+ 
+	 public CustomInputPage clickCustomInput() {
+		 return click(this.customInputMenuItem, CustomInputPage.class);
+	 }
+ 
+	 public HelloTagPage clickHelloTag() {
+		 return click(this.myTagMenuItem, HelloTagPage.class);
+	 }
+ 
+	 public HiCCPage clickHiCC() {
+		 return click(this.hiCCMenuItem, HiCCPage.class);
+	 }
+ 
+	 public WelcomeConverterPage clickWelcomeConverter() {
+		 return click(this.welcomeConverterMenuItem, WelcomeConverterPage.class);
+	 }
+ 
+	 private <T extends AbstractPageComponent> T click(WebElement menuItem, Class<T> classx) {
+		 menuItem.click();
+ 
+		 T page = initElements(classx);
+ 
+		 page.waitLoad();
+ 
+		 return page;
+	 }
+ 
+	 @Override
+	 public void waitLoad() {
+		 throw new UnsupportedOperationException("Not supported yet.");
+	 }
+ 
+ }

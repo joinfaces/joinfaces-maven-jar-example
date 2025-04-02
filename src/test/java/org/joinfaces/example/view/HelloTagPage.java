@@ -14,39 +14,37 @@
  * limitations under the License.
  */
 
-package org.joinfaces.example.view;
+ package org.joinfaces.example.view;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-public class HelloTagPage extends AbstractPageComponent {
-
-	public HelloTagPage(WebDriver webDriver) {
-		super(webDriver);
-	}
-
-	@Override
-	public String getLocation() {
-		return "helloTag.faces";
-	}
-
-	private By getHelloWorldDivBy() {
-		return By.id("outputTextTagId");
-	}
-
-	public String getHelloWorldText() {
-		return webDriver.findElement(getHelloWorldDivBy()).getText();
-	}
-
-	public HelloTagPage waitLoad() {
-		new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			.until(ExpectedConditions.presenceOfElementLocated(getHelloWorldDivBy()));
-
-		return this;
-	}
-
-}
+ import java.time.Duration;
+ 
+ import org.openqa.selenium.By;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.support.ui.ExpectedConditions;
+ import org.openqa.selenium.support.ui.WebDriverWait;
+ 
+ public class HelloTagPage extends AbstractPageComponent {
+ 
+	 public HelloTagPage(WebDriver webDriver) {
+		 super(webDriver);
+	 }
+ 
+	 @Override
+	 protected String getLocation() {
+		 return "helloTag.faces";
+	 }
+ 
+	 private By getHelloWorldDivBy() {
+		 return By.id("outputTextTagId");
+	 }
+ 
+	 public String getHelloWorldText() {
+		 return webDriver.findElement(getHelloWorldDivBy()).getText();
+	 }
+ 
+	 public void waitLoad() {
+		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			 .until(ExpectedConditions.presenceOfElementLocated(getHelloWorldDivBy()));
+	 }
+ 
+ }

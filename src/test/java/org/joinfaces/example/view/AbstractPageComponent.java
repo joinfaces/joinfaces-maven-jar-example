@@ -14,33 +14,35 @@
  * limitations under the License.
  */
 
-package org.joinfaces.example.view;
+ package org.joinfaces.example.view;
 
-import lombok.Setter;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
-
-public abstract class AbstractPageComponent {
-
-	protected final WebDriver webDriver;
-
-	@Setter
-	private String preffix;
-
-	public AbstractPageComponent(WebDriver webDriver) {
-		this.webDriver = webDriver;
-	}
-
-	public abstract String getLocation();
-
-	public void navegateTo() {
-		this.webDriver.navigate().to(this.preffix + "/" + getLocation());
-	}
-
-	public <T extends AbstractPageComponent> T initElements(Class<T> classx) {
-		T result = PageFactory.initElements(this.webDriver, classx);
-		result.setPreffix(this.preffix);
-		return result;
-	}
-
-}
+ import lombok.Setter;
+ import org.openqa.selenium.WebDriver;
+ import org.openqa.selenium.support.PageFactory;
+ 
+ public abstract class AbstractPageComponent {
+ 
+	 protected final WebDriver webDriver;
+ 
+	 @Setter
+	 private String preffix;
+ 
+	 public AbstractPageComponent(WebDriver webDriver) {
+		 this.webDriver = webDriver;
+	 }
+ 
+	 protected abstract String getLocation();
+ 
+	 public void navegateTo() {
+		 this.webDriver.navigate().to(this.preffix + "/" + getLocation());
+	 }
+ 
+	 public <T extends AbstractPageComponent> T initElements(Class<T> classx) {
+		 T result = PageFactory.initElements(this.webDriver, classx);
+		 result.setPreffix(this.preffix);
+		 return result;
+	 }
+ 
+	 public abstract void waitLoad();
+ 
+ }
