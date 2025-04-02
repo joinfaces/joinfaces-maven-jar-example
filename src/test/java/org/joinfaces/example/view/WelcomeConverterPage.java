@@ -14,57 +14,57 @@
  * limitations under the License.
  */
 
- package org.joinfaces.example.view;
+package org.joinfaces.example.view;
 
- import java.time.Duration;
- 
- import org.openqa.selenium.By;
- import org.openqa.selenium.WebDriver;
- import org.openqa.selenium.WebElement;
- import org.openqa.selenium.support.FindBy;
- import org.openqa.selenium.support.ui.ExpectedConditions;
- import org.openqa.selenium.support.ui.WebDriverWait;
- 
- public class WelcomeConverterPage extends AbstractPageComponent {
- 
-	 @FindBy(name = "welcomeInput")
-	 private WebElement welcomeInput;
- 
-	 @FindBy(name = "welcomeButton")
-	 private WebElement welcomeButton;
- 
-	 public WelcomeConverterPage(WebDriver webDriver) {
-		 super(webDriver);
-	 }
- 
-	 @Override
-	 protected String getLocation() {
-		 return "welcomeConverter.faces";
-	 }
- 
-	 public void submit(String message) {
-		 this.welcomeInput.sendKeys(message);
- 
-		 this.welcomeButton.submit();
- 
-		 By outputTextBy = getOutputTextBy();
-		 String expectedValue = message + " welcome!";
- 
-		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			 .until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
-	 }
- 
-	 private By getOutputTextBy() {
-		 return By.id("welcomeOutput");
-	 }
- 
-	 public String getOutputText() {
-		 return webDriver.findElement(getOutputTextBy()).getText();
-	 }
- 
-	 public void waitLoad() {
-		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			 .until(ExpectedConditions.presenceOfElementLocated(getOutputTextBy()));
-	 }
- 
- }
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class WelcomeConverterPage extends AbstractPageComponent {
+
+	@FindBy(name = "welcomeInput")
+	private WebElement welcomeInput;
+
+	@FindBy(name = "welcomeButton")
+	private WebElement welcomeButton;
+
+	public WelcomeConverterPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+
+	@Override
+	protected String getLocation() {
+		return "welcomeConverter.faces";
+	}
+
+	public void submit(String message) {
+		this.welcomeInput.sendKeys(message);
+
+		this.welcomeButton.submit();
+
+		By outputTextBy = getOutputTextBy();
+		String expectedValue = message + " welcome!";
+
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.textToBe(outputTextBy, expectedValue));
+	}
+
+	private By getOutputTextBy() {
+		return By.id("welcomeOutput");
+	}
+
+	public String getOutputText() {
+		return webDriver.findElement(getOutputTextBy()).getText();
+	}
+
+	public void waitLoad() {
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.presenceOfElementLocated(getOutputTextBy()));
+	}
+
+}

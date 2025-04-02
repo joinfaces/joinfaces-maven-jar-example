@@ -14,54 +14,54 @@
  * limitations under the License.
  */
 
- package org.joinfaces.example.view;
+package org.joinfaces.example.view;
 
- import java.time.Duration;
- 
- import org.openqa.selenium.By;
- import org.openqa.selenium.WebDriver;
- import org.openqa.selenium.WebElement;
- import org.openqa.selenium.support.FindBy;
- import org.openqa.selenium.support.ui.ExpectedConditions;
- import org.openqa.selenium.support.ui.WebDriverWait;
- 
- public class FileUploadPage extends AbstractPageComponent {
- 
-	 @FindBy(name = "fileUpload_input")
-	 private WebElement fileUploadInput;
- 
-	 @FindBy(name = "submitButton")
-	 private WebElement submitButton;
- 
-	 public FileUploadPage(WebDriver webDriver) {
-		 super(webDriver);
-	 }
- 
-	 @Override
-	 protected String getLocation() {
-		 return "fileUpload.faces";
-	 }
- 
-	 private By getDownloadButtonBy() {
-		 return By.name("downloadButton");
-	 }
- 
-	 public void upload(String file) {
-		 this.fileUploadInput.sendKeys(file);
- 
-		 this.submitButton.click();
- 
-		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			 .until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
-	 }
- 
-	 public boolean isDownloadButtonEnabled() {
-		 return webDriver.findElement(getDownloadButtonBy()).isEnabled();
-	 }
- 
-	 public void waitLoad() {
-		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			 .until(ExpectedConditions.presenceOfElementLocated(getDownloadButtonBy()));
-	 }
- 
- }
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class FileUploadPage extends AbstractPageComponent {
+
+	@FindBy(name = "fileUpload_input")
+	private WebElement fileUploadInput;
+
+	@FindBy(name = "submitButton")
+	private WebElement submitButton;
+
+	public FileUploadPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+
+	@Override
+	protected String getLocation() {
+		return "fileUpload.faces";
+	}
+
+	private By getDownloadButtonBy() {
+		return By.name("downloadButton");
+	}
+
+	public void upload(String file) {
+		this.fileUploadInput.sendKeys(file);
+
+		this.submitButton.click();
+
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.elementToBeClickable(getDownloadButtonBy()));
+	}
+
+	public boolean isDownloadButtonEnabled() {
+		return webDriver.findElement(getDownloadButtonBy()).isEnabled();
+	}
+
+	public void waitLoad() {
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.presenceOfElementLocated(getDownloadButtonBy()));
+	}
+
+}

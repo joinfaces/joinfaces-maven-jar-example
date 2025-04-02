@@ -14,37 +14,37 @@
  * limitations under the License.
  */
 
- package org.joinfaces.example.view;
+package org.joinfaces.example.view;
 
- import java.time.Duration;
- 
- import org.openqa.selenium.By;
- import org.openqa.selenium.WebDriver;
- import org.openqa.selenium.support.ui.ExpectedConditions;
- import org.openqa.selenium.support.ui.WebDriverWait;
- 
- public class HiCCPage extends AbstractPageComponent {
- 
-	 public HiCCPage(WebDriver webDriver) {
-		 super(webDriver);
-	 }
- 
-	 @Override
-	 protected String getLocation() {
-		 return "hiCC.faces";
-	 }
- 
-	 private By getHiCCDivBy() {
-		 return By.id("hiCC:outputTextComponentId");
-	 }
- 
-	 public String getHiCCText() {
-		 return webDriver.findElement(getHiCCDivBy()).getText();
-	 }
- 
-	 public void waitLoad() {
-		 new WebDriverWait(webDriver, Duration.ofSeconds(10))
-			 .until(ExpectedConditions.presenceOfElementLocated(getHiCCDivBy()));
-	 }
- 
- }
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class HiCCPage extends AbstractPageComponent {
+
+	public HiCCPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+
+	@Override
+	protected String getLocation() {
+		return "hiCC.faces";
+	}
+
+	private By getHiCCDivBy() {
+		return By.id("hiCC:outputTextComponentId");
+	}
+
+	public String getHiCCText() {
+		return webDriver.findElement(getHiCCDivBy()).getText();
+	}
+
+	public void waitLoad() {
+		new WebDriverWait(webDriver, Duration.ofSeconds(10))
+			.until(ExpectedConditions.presenceOfElementLocated(getHiCCDivBy()));
+	}
+
+}

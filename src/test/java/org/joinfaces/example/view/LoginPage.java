@@ -14,52 +14,52 @@
  * limitations under the License.
  */
 
- package org.joinfaces.example.view;
+package org.joinfaces.example.view;
 
- import org.openqa.selenium.WebDriver;
- import org.openqa.selenium.WebElement;
- import org.openqa.selenium.support.FindBy;
- 
- public class LoginPage extends AbstractPageComponent {
- 
-	 @FindBy(name = "username")
-	 private WebElement usernameInput;
- 
-	 @FindBy(name = "password")
-	 private WebElement passwordInput;
- 
-	 @FindBy(name = "submit")
-	 private WebElement buttonSubmit;
- 
-	 public LoginPage(WebDriver webDriver) {
-		 super(webDriver);
-	 }
- 
-	 @Override
-	 protected String getLocation() {
-		 return "login.faces";
-	 }
- 
-	 public StarterPage login(String username, String password) {
-		 this.usernameInput.sendKeys(username);
-		 this.passwordInput.sendKeys(password);
- 
-		 this.buttonSubmit.click();
- 
-		 StarterPage starterPage = initElements(StarterPage.class);
- 
-		 starterPage.waitLoad();
- 
-		 return starterPage;
-	 }
- 
-	 public String getTitle() {
-		 return webDriver.getTitle();
-	 }
- 
-	 @Override
-	 public void waitLoad() {
-		 throw new UnsupportedOperationException("Not supported yet.");
-	 }
- 
- }
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPage extends AbstractPageComponent {
+
+	@FindBy(name = "username")
+	private WebElement usernameInput;
+
+	@FindBy(name = "password")
+	private WebElement passwordInput;
+
+	@FindBy(name = "submit")
+	private WebElement buttonSubmit;
+
+	public LoginPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+
+	@Override
+	protected String getLocation() {
+		return "login.faces";
+	}
+
+	public StarterPage login(String username, String password) {
+		this.usernameInput.sendKeys(username);
+		this.passwordInput.sendKeys(password);
+
+		this.buttonSubmit.click();
+
+		StarterPage starterPage = initElements(StarterPage.class);
+
+		starterPage.waitLoad();
+
+		return starterPage;
+	}
+
+	public String getTitle() {
+		return webDriver.getTitle();
+	}
+
+	@Override
+	public void waitLoad() {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+}

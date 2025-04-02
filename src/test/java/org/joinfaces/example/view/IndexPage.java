@@ -14,28 +14,28 @@
  * limitations under the License.
  */
 
- package org.joinfaces.example.view;
+package org.joinfaces.example.view;
 
- import org.openqa.selenium.WebDriver;
- 
- public class IndexPage extends AbstractPageComponent {
- 
-	 public IndexPage(WebDriver webDriver) {
-		 super(webDriver);
-	 }
- 
-	 @Override
-	 protected String getLocation() {
-		 return "";
-	 }
- 
-	 public String getCurrentURL() {
-		 return webDriver.getCurrentUrl();
-	 }
- 
-	 @Override
-	 public void waitLoad() {
-		 throw new UnsupportedOperationException("Not supported yet.");
-	 }
- 
- }
+import org.openqa.selenium.WebDriver;
+
+public class IndexPage extends AbstractPageComponent {
+
+	public IndexPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+
+	@Override
+	protected String getLocation() {
+		return "";
+	}
+
+	public String getCurrentURL() {
+		return webDriver.getCurrentUrl();
+	}
+
+	@Override
+	public void waitLoad() {
+		throw new UnsupportedOperationException("Not supported yet.");
+	}
+
+}
