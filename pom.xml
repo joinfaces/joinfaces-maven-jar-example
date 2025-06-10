@@ -64,7 +64,7 @@
         <duplicate.ignoredResourcePattern>(mozilla/public-suffix-list.txt)</duplicate.ignoredResourcePattern>
         <duplicate.ignoredClassPattern>()</duplicate.ignoredClassPattern>
 
-        <dependency-check-maven.version>12.1.2</dependency-check-maven.version>
+        <dependency-check-maven.version>12.1.3</dependency-check-maven.version>
         <sonar-maven-plugin.version>5.1.0.4751</sonar-maven-plugin.version>
         <sonar.projectKey>joinfaces_joinfaces-maven-jar-example</sonar.projectKey>
         <sonar.organization>joinfaces</sonar.organization>
