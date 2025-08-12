@@ -24,7 +24,7 @@ jobs:
 
       - name: Set up GraalVM ${{ matrix.java }} 
         if: ${{ matrix.java == 21 }}
-        uses: graalvm/setup-graalvm@v1.3.4
+        uses: graalvm/setup-graalvm@v1.3.5
         with:
           java-version: '21'
           distribution: 'graalvm-community'
