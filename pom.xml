@@ -20,7 +20,6 @@
 
     <properties>
         <!-- compile library versions -->
-        <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
         <joinfaces.version>6.0.0-rc1.2</joinfaces.version>
         <maven-model.version>3.9.11</maven-model.version>
 
@@ -71,11 +70,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>jakarta.validation</groupId>
-                <artifactId>jakarta.validation-api</artifactId>
-                <version>${jakarta.validation-api.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.joinfaces</groupId>
                 <artifactId>joinfaces-bom</artifactId>
@@ -145,10 +139,6 @@
     </dependencyManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
