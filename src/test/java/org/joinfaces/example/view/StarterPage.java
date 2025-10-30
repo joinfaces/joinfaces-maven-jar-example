@@ -39,6 +39,15 @@ public class StarterPage extends AbstractPageComponent {
 	@FindBy(xpath = "//a[text()='JSF Implementation']")
 	private WebElement jsfImplementationTab;
 
+	@FindBy(xpath = "//a[text()='CDI Implementation']")
+	private WebElement cdiImplementationTab;
+
+	@FindBy(id = "tabView:weld")
+	private WebElement weldRadioButtonInput;
+
+	@FindBy(id = "tabView:openwebbeans")
+	private WebElement openwebbeansRadioButtonInput;
+
 	@FindBy(xpath = "//a[text()='JoinFaces Components']")
 	private WebElement joinFacesComponentsTab;
 
@@ -80,6 +89,18 @@ public class StarterPage extends AbstractPageComponent {
 		click(this.myfacesRadioButtonInput, "MyFaces", getJsfImplementationTabHeaderBy());
 	}
 
+	public void clickCdiImplementationTab() {
+		this.cdiImplementationTab.click();
+	}
+
+	public void clickWeld() {
+		click(this.weldRadioButtonInput, "Weld", getCdiImplementationTabHeaderBy());
+	}
+
+	public void clickOpenWebBeans() {
+		click(this.openwebbeansRadioButtonInput, "OpenWebBeans", getCdiImplementationTabHeaderBy());
+	}
+
 	public void clickJoinFacesComponentsTab() {
 		this.joinFacesComponentsTab.click();
 	}
@@ -97,12 +118,16 @@ public class StarterPage extends AbstractPageComponent {
 		click(joinFacesComponentRadioButtonInput(2), "PrimeFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
-	public void clickOmnifaces() {
-		click(joinFacesComponentRadioButtonInput(3), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
+	public void clickTobago() {
+		click(joinFacesComponentRadioButtonInput(3), "Tobago", getJoinFacesComponentsTabHeaderBy());
 	}
 
-	public void clickTobago() {
-		click(joinFacesComponentRadioButtonInput(4), "Tobago", getJoinFacesComponentsTabHeaderBy());
+	public void clickBootsFaces() {
+		click(joinFacesComponentRadioButtonInput(4), "BootsFaces", getJoinFacesComponentsTabHeaderBy());
+	}
+
+	public void clickOmnifaces() {
+		click(joinFacesComponentRadioButtonInput(5), "OmniFaces", getJoinFacesComponentsTabHeaderBy());
 	}
 
 	public void clickPomTab() {
@@ -121,6 +146,10 @@ public class StarterPage extends AbstractPageComponent {
 		return getTabHeaderBy("JsfImplementation");
 	}
 
+	private By getCdiImplementationTabHeaderBy() {
+		return getTabHeaderBy("CdiImplementation");
+	}
+
 	private By getJoinFacesComponentsTabHeaderBy() {
 		return getTabHeaderBy("JoinFacesComponents");
 	}
@@ -135,6 +164,10 @@ public class StarterPage extends AbstractPageComponent {
 
 	public String getJsfImplementationTabHeaderText() {
 		return webDriver.findElement(getJsfImplementationTabHeaderBy()).getText();
+	}
+
+	public String getCdiImplementationTabHeaderText() {
+		return webDriver.findElement(getCdiImplementationTabHeaderBy()).getText();
 	}
 
 	public String getJoinFacesComponentsTabHeaderText() {
@@ -161,10 +194,6 @@ public class StarterPage extends AbstractPageComponent {
 
 	public void clickRewrite() {
 		click(joinFacesAddonsRadioButtonInput(1), "Rewrite", getJoinFacesAddonsTabHeaderBy());
-	}
-
-	public void clickWeld() {
-		click(joinFacesAddonsRadioButtonInput(2), "Weld", getJoinFacesAddonsTabHeaderBy());
 	}
 
 	private WebElement joinFacesAddonsRadioButtonInput(int index) {

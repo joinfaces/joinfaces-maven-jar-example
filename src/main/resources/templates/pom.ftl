@@ -43,6 +43,12 @@
         <artifactId>mojarra-spring-boot-starter</artifactId>
       </exclusion>
       </#if>
+      <#if !starterMBean.weldSelected>
+      <exclusion>
+        <groupId>org.joinfaces</groupId>
+        <artifactId>weld-spring-boot-starter</artifactId>
+      </exclusion>
+      </#if>
     </exclusions>
     </#if>
   </dependency>
@@ -57,6 +63,12 @@
   <dependency>
     <groupId>org.joinfaces</groupId>
     <artifactId>${starterMBean.jsfImplementation?lower_case}-spring-boot-starter</artifactId>
+  </dependency>
+</#if>
+<#if !starterMBean.weldSelected>
+  <dependency>
+    <groupId>org.joinfaces</groupId>
+    <artifactId>${starterMBean.cdiImplementation?lower_case}-spring-boot-starter</artifactId>
   </dependency>
 </#if>
 <#list starterMBean.addonArtifactIds as artifactId>

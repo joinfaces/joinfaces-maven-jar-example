@@ -54,7 +54,6 @@
                                      required="true" requiredMessage="Choose one Servlet Container" layout="custom">
                         <f:selectItem itemLabel="Tomcat" itemValue="Tomcat" />
                         <f:selectItem itemLabel="Jetty" itemValue="Jetty" />
-                        <f:selectItem itemLabel="Undertow" itemValue="Undertow" />
                         <p:ajax update="panelServletContainer panelPom" />
                     </p:selectOneRadio>            
                     <p:panelGrid columns="2" layout="grid">
@@ -69,12 +68,6 @@
                             <p:graphicImage title="Jetty ${environment.getProperty('jetty.version')}" alt="Jetty ${environment.getProperty('jetty.version')}" 
                                             value="#{resource['images/jetty.png']}"
                                             height="100" width="226"/>
-                        </p:link>
-                        <p:radioButton id="undertow" for="servletContainer" itemIndex="2" />
-                        <p:link href="http://undertow.io">
-                            <p:graphicImage title="Undertow ${environment.getProperty('undertow.version')}" alt="Undertow ${environment.getProperty('undertow.version')}" 
-                                            value="#{resource['images/undertow.png']}"
-                                            height="100" width="200"/>
                         </p:link>
                     </p:panelGrid>
                 </p:panel>
@@ -99,6 +92,31 @@
                         <p:link href="http://myfaces.apache.org" >
                             <p:graphicImage title="Apache MyFaces ${joinFacesStarterService.myfacesVersion}" alt="Apache MyFaces ${joinFacesStarterService.myfacesVersion}"
                                             value="#{resource['images/myfaces.png']}"
+                                            height="100" width="210"/>
+                        </p:link>
+                    </p:panelGrid>
+                </p:panel>
+            </p:tab>
+
+            <p:tab title="CDI Implementation" id="tabCdiImplementation" >
+                <p:panel id="panelCdiImplementation" header="${starterMBean.cdiImplementation} : CDI Implementation" >
+                    <p:selectOneRadio id="cdiImplementation" value="#{starterMBean.cdiImplementation}" 
+                                       required="true" requiredMessage="Choose one CDI Implementation" layout="custom">
+                        <f:selectItem itemLabel="Weld" itemValue="Weld" />
+                        <f:selectItem itemLabel="OpenWebBeans" itemValue="OpenWebBeans" />
+                        <p:ajax update="panelCdiImplementation panelPom" />
+                    </p:selectOneRadio>
+                    <p:panelGrid columns="2" layout="grid">
+                        <p:radioButton id="weld" for="cdiImplementation" itemIndex="0" />
+                        <p:link href="https://weld.cdi-spec.org" >
+                            <p:graphicImage title="Weld ${joinFacesStarterService.weldVersion}" alt="Weld ${joinFacesStarterService.weldVersion}"
+                                            value="#{resource['images/weld.png']}"
+                                            height="100" width="103"/>
+                        </p:link>
+                        <p:radioButton id="openwebbeans" for="cdiImplementation" itemIndex="1" />
+                        <p:link href="http://openwebbeans.apache.org" >
+                            <p:graphicImage title="OpenWebBeans ${joinFacesStarterService.openwebbeansVersion}" alt="OpenWebBeans ${joinFacesStarterService.openwebbeansVersion}"
+                                            value="#{resource['images/openwebbeans.png']}"
                                             height="100" width="210"/>
                         </p:link>
                     </p:panelGrid>

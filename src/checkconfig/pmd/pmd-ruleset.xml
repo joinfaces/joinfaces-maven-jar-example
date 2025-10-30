@@ -52,7 +52,6 @@ under the License.
     </rule>
     <rule ref="category/java/errorprone.xml/UnnecessaryConversionTemporary" />
     <rule ref="category/java/errorprone.xml/UnusedNullCheckInEquals" />
-    <rule ref="category/java/errorprone.xml/UselessOperationOnImmutable" />
     <rule ref="category/java/errorprone.xml/CloneMethodMustBePublic" />
     <rule ref="category/java/errorprone.xml/CloneMethodMustImplementCloneable" />
     <rule ref="category/java/errorprone.xml/CloneMethodReturnTypeMustMatchClassName" />

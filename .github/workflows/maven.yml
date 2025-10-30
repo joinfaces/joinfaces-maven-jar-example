@@ -10,23 +10,23 @@ jobs:
     name: Java ${{ matrix.java }}
     strategy:
       matrix:
-        java: [17,21]
+        java: [17,21,25]
 
     steps:
       - uses: actions/checkout@v5.0.0
 
       - name: Set up JDK ${{ matrix.java }}
-        if: ${{ matrix.java == 17 }}
+        if: ${{ matrix.java != 25 }}
         uses: actions/setup-java@v5.0.0
         with:
           java-version: ${{ matrix.java }}
           distribution: 'temurin'
 
       - name: Set up GraalVM ${{ matrix.java }} 
-        if: ${{ matrix.java == 21 }}
+        if: ${{ matrix.java == 25 }}
         uses: graalvm/setup-graalvm@v1.4.2
         with:
-          java-version: '21'
+          java-version: '25'
           distribution: 'graalvm-community'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           native-image-job-reports: 'true'
@@ -53,18 +53,18 @@ jobs:
         run: ./mvnw -B -DwebDriverType=chrome verify
 
       - name: Build Native Image
-        if: ${{ matrix.java == 21 }}
+        if: ${{ matrix.java == 25 }}
         run: ./mvnw -B -Pnative -DskipTests=true spring-boot:build-image
 
       - uses: codecov/codecov-action@v5.5.1
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.4.x' && github.repository_owner == 'joinfaces' }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '6.0.x' && github.repository_owner == 'joinfaces' }}
 
       - name: Sonarqube
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '5.4.x' && github.repository_owner == 'joinfaces' }}
+        if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '6.0.x' && github.repository_owner == 'joinfaces' }}
         run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar

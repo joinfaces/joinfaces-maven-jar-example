@@ -73,6 +73,11 @@ public class JoinFacesStarterService {
 	 */
 	public static final String TOBAGO = "Tobago";
 
+	/**
+	 * BootsFaces constant.
+	 */
+	public static final String BOOTSFACES = "BootsFaces";
+
 	@SuppressFBWarnings("EI_EXPOSE_REP")
 	private List<JoinFacesStarter> joinFacesStartersComponents;
 
@@ -88,6 +93,11 @@ public class JoinFacesStarterService {
 	 * Weld constant.
 	 */
 	public static final String WELD = "Weld";
+
+	/**
+	 * OpenWebBeans constant.
+	 */
+	public static final String OPENWEBBEANS = "OpenWebBeans";
 
 	private final String joinfacesVersion = JoinfacesAutoConfiguration.class.getPackage().getImplementationVersion();
 
@@ -109,9 +119,13 @@ public class JoinFacesStarterService {
 
 	private String tobagoVersion;
 
+	private String bootsfacesVersion;
+
 	private String rewriteVersion;
 
 	private String weldVersion;
+
+	private String openwebbeansVersion;
 
 	/**
 	 * Initialize default properties.
@@ -133,22 +147,22 @@ public class JoinFacesStarterService {
 					getPrimefacesExtensionsVersion()))
 			.build());
 		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
-			.name(OMNIFACES)
-			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion()))
-			.build());
-		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
 			.name(TOBAGO)
 			.library(joinFacesStarterLibrary(TOBAGO, "https://myfaces.apache.org/#/tobago", getTobagoVersion()))
+			.build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(BOOTSFACES)
+			.library(joinFacesStarterLibrary(BOOTSFACES, "https://www.bootsfaces.net/", getBootsfacesVersion()))
+			.build());
+		this.joinFacesStartersComponents.add(JoinFacesStarter.builder()
+			.name(OMNIFACES)
+			.library(joinFacesStarterLibrary(OMNIFACES, "https://omnifaces.org/", getOmnifacesVersion()))
 			.build());
 
 		this.joinFacesStartersAddons = new ArrayList<>();
 		this.joinFacesStartersAddons.add(JoinFacesStarter.builder()
 			.name(REWRITE)
 			.library(joinFacesStarterLibrary(REWRITE, "https://www.ocpsoft.org/rewrite/", getRewriteVersion()))
-			.build());
-		this.joinFacesStartersAddons.add(JoinFacesStarter.builder()
-			.name(WELD)
-			.library(joinFacesStarterLibrary(WELD, "https://weld.cdi-spec.org/", getWeldVersion()))
 			.build());
 	}
 
@@ -183,8 +197,10 @@ public class JoinFacesStarterService {
 		this.primefacesVersion = versionMap.get("org.primefaces:primefaces");
 		this.primefacesExtensionsVersion = versionMap.get("org.primefaces.extensions:primefaces-extensions");
 		this.tobagoVersion = versionMap.get("org.apache.myfaces.tobago:tobago-core");
+		this.bootsfacesVersion = versionMap.get("net.bootsfaces:bootsfaces");
 		this.rewriteVersion = versionMap.get("org.ocpsoft.rewrite:rewrite-servlet");
 		this.weldVersion = versionMap.get("org.jboss.weld.servlet:weld-servlet-core");
+		this.openwebbeansVersion = versionMap.get("org.apache.openwebbeans:openwebbeans-web");
 	}
 
 	private void findVersionsMojarra(Map<String, String> versionMap) {

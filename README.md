@@ -11,13 +11,13 @@ This SAP (Single Page Application) illustrates Jakarta Faces usage inside JAR pa
 [PrimeFaces](https://primefaces.org/), 
 [PrimeFaces Extensions](https://primefaces-extensions.github.io/), 
 [Apache MyFaces Tobago](https://github.com/apache/myfaces-tobago), 
+[BootsFaces](https://www.bootsfaces.net/),
 [OmniFaces](https://omnifaces.org/), 
 [AdminFaces](https://adminfaces.github.io/site/), 
 [Mojarra](https://eclipse-ee4j.github.io/mojarra/) and 
 [MyFaces](http://myfaces.apache.org) libraries to run at embedded 
-[Tomcat](https://tomcat.apache.org/), 
-[Jetty](https://www.eclipse.org/jetty) or 
-[Undertow](https://undertow.io/). 
+[Tomcat](https://tomcat.apache.org/), or
+[Jetty](https://www.eclipse.org/jetty).
 It autoconfigures [Weld](https://weld.cdi-spec.org),
 [Apache OpenWebBeans](https://openwebbeans.apache.org/) and
 [Rewrite](https://www.ocpsoft.org/rewrite/) too.
@@ -36,7 +36,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-5.5.x.jar
+java -jar target/joinfaces-example-6.0.x.jar
 ```
 
 4- Access starter page at **http://localhost:8080/** This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
@@ -56,7 +56,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>5.5.0-m3</joinfaces.version>
+   <joinfaces.version>6.0.0-rc1.2</joinfaces.version>
 </properties>
 
 <dependencyManagement>

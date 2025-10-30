@@ -48,6 +48,8 @@ public class StarterMBean implements Serializable {
 
 	private static final String MOJARRA = "Mojarra";
 
+	private static final String WELD = "Weld";
+
 	@Getter
 	@Setter
 	private String servletContainer = TOMCAT;
@@ -55,6 +57,10 @@ public class StarterMBean implements Serializable {
 	@Getter
 	@Setter
 	private String jsfImplementation = MOJARRA;
+
+	@Getter
+	@Setter
+	private String cdiImplementation = WELD;
 
 	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
@@ -168,6 +174,10 @@ public class StarterMBean implements Serializable {
 
 	public boolean isMojarraSelected() {
 		return this.jsfImplementation.equals(MOJARRA);
+	}
+
+	public boolean isWeldSelected() {
+		return this.cdiImplementation.equals(WELD);
 	}
 
 	/**

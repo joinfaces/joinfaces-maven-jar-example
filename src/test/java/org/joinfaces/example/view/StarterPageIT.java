@@ -18,14 +18,11 @@ package org.joinfaces.example.view;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class StarterPageIT extends AbstractPageIT {
 
@@ -64,6 +61,19 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent()).contains("myfaces-spring-boot-starter");
+	}
+
+	@Test
+	public void clickOpenWebBeans() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickCdiImplementationTab();
+		starterPage.clickOpenWebBeans();
+		assertThat(starterPage.getCdiImplementationTabHeaderText()).contains("OpenWebBeans");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent()).contains("openwebbeans-spring-boot-starter");
 	}
 
 	@Test
@@ -106,6 +116,19 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
+	public void clickBootsFaces() {
+		StarterPage starterPage = initElements(StarterPage.class);
+		starterPage.navegateTo();
+
+		starterPage.clickJoinFacesComponentsTab();
+		starterPage.clickBootsFaces();
+		assertThat(starterPage.getJoinFacesComponentsTabHeaderText()).contains("BootsFaces");
+
+		starterPage.clickPomTab();
+		assertThat(starterPage.getPomContent()).contains("bootsfaces-spring-boot-starter");
+	}
+
+	@Test
 	public void clickOmnifaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
@@ -129,19 +152,6 @@ public class StarterPageIT extends AbstractPageIT {
 
 		starterPage.clickPomTab();
 		assertThat(starterPage.getPomContent()).contains("rewrite-spring-boot-starter");
-	}
-
-	@Test
-	public void clickWeld() {
-		StarterPage starterPage = initElements(StarterPage.class);
-		starterPage.navegateTo();
-
-		starterPage.clickJoinFacesAddonsTab();
-		starterPage.clickWeld();
-		assertThat(starterPage.getJoinFacesAddonsTabHeaderText()).contains("Weld");
-
-		starterPage.clickPomTab();
-		assertThat(starterPage.getPomContent()).contains("weld-spring-boot-starter");
 	}
 
 }
