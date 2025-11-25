@@ -46,7 +46,7 @@ public class AbstractPageIT {
 	private static final int NUMBER_OF_SUBCLASSES = 9;
 
 	@BeforeAll
-	public static void init() {
+	static void init() {
 		if (webDriver == null) {
 			String webDriverType = System.getProperty("webDriverType", "chrome");
 			if (webDriverType.equals("htmlunit")) {
@@ -83,7 +83,7 @@ public class AbstractPageIT {
 	}
 
 	@AfterAll
-	public static void finish() {
+	static void finish() {
 		countFinish++;
 		if (countFinish == NUMBER_OF_SUBCLASSES) {
 			webDriver.close();

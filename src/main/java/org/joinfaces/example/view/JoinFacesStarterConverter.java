@@ -19,8 +19,8 @@ package org.joinfaces.example.view;
 import jakarta.faces.component.UIComponent;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.convert.Converter;
+import lombok.AllArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -28,10 +28,10 @@ import org.springframework.stereotype.Component;
  *
  * @author Marcelo Fernandes
  */
+@AllArgsConstructor
 @Component
 public class JoinFacesStarterConverter implements Converter<JoinFacesStarter> {
 
-	@Autowired
 	private JoinFacesStarterService joinFacesStarterService;
 
 	@Override

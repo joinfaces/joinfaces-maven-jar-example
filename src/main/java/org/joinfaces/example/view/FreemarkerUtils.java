@@ -22,8 +22,8 @@ import java.util.Map;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import lombok.AllArgsConstructor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.context.annotation.ApplicationScope;
@@ -33,11 +33,11 @@ import org.springframework.web.context.annotation.ApplicationScope;
  *
  * @author Marcelo Fernandes
  */
+@AllArgsConstructor
 @Component
 @ApplicationScope
 public class FreemarkerUtils {
 
-	@Autowired
 	private Configuration configuration;
 
 	/**

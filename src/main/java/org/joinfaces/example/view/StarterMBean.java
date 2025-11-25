@@ -30,7 +30,6 @@ import jakarta.faces.view.ViewScoped;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -71,12 +70,6 @@ public class StarterMBean implements Serializable {
 	@Setter
 	private List<JoinFacesStarter> selectedJoinFacesStarterComponents;
 
-	@Autowired
-	private transient JoinFacesStarterService joinFacesStarterService;
-
-	@Autowired
-	private transient FreemarkerUtils freemarkerUtils;
-
 	@SuppressFBWarnings("EI_EXPOSE_REP")
 	@Getter
 	private List<JoinFacesStarter> joinFacesStarterAddons;
@@ -85,6 +78,15 @@ public class StarterMBean implements Serializable {
 	@Getter
 	@Setter
 	private List<JoinFacesStarter> selectedJoinFacesStarterAddons;
+
+	private transient JoinFacesStarterService joinFacesStarterService;
+
+	private transient FreemarkerUtils freemarkerUtils;
+
+	public StarterMBean(JoinFacesStarterService joinFacesStarterService, FreemarkerUtils freemarkerUtils) {
+		this.joinFacesStarterService = joinFacesStarterService;
+		this.freemarkerUtils = freemarkerUtils;
+	}
 
 	/**
 	 * Initialize default attributes.
