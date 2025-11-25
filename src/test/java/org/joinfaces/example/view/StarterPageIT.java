@@ -24,10 +24,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class StarterPageIT extends AbstractPageIT {
+class StarterPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkPanelHeaderText() {
+	void checkPanelHeaderText() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -38,7 +38,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickJetty() {
+	void clickJetty() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -51,7 +51,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickMyfaces() {
+	void clickMyfaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -64,7 +64,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickOpenWebBeans() {
+	void clickOpenWebBeans() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -77,7 +77,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickSecurity() {
+	void clickSecurity() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -90,7 +90,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickPrimefaces() {
+	void clickPrimefaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -103,7 +103,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickTobago() {
+	void clickTobago() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -116,7 +116,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickBootsFaces() {
+	void clickBootsFaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -129,7 +129,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickOmnifaces() {
+	void clickOmnifaces() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 
@@ -142,7 +142,7 @@ public class StarterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void clickRewrite() {
+	void clickRewrite() {
 		StarterPage starterPage = initElements(StarterPage.class);
 		starterPage.navegateTo();
 

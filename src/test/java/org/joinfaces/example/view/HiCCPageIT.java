@@ -18,19 +18,16 @@ package org.joinfaces.example.view;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HiCCPageIT extends AbstractPageIT {
+class HiCCPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkCompositeComponentElement() {
+	void checkCompositeComponentElement() {
 		HiCCPage hiCCPage = initElements(HiCCPage.class);
 		hiCCPage.navegateTo();
 

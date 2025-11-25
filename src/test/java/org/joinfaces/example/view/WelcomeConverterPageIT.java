@@ -18,19 +18,16 @@ package org.joinfaces.example.view;
 
 import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class WelcomeConverterPageIT extends AbstractPageIT {
+class WelcomeConverterPageIT extends AbstractPageIT {
 
 	@Test
-	public void checkCustomInputElement() {
+	void checkCustomInputElement() {
 		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
 		page.navegateTo();
 
@@ -38,7 +35,7 @@ public class WelcomeConverterPageIT extends AbstractPageIT {
 	}
 
 	@Test
-	public void submitHello() {
+	void submitHello() {
 		WelcomeConverterPage page = initElements(WelcomeConverterPage.class);
 		page.navegateTo();
 
