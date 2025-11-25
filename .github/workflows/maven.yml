@@ -46,8 +46,10 @@ jobs:
         run: ./mvnw -B clean validate
 
       - name: Static Validation
-        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
-        #run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=${{ secrets.NVDAPIKEY }} install
+        env:
+          SECRET: ${{ secrets.NVDAPIKEY }}
+        run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=$SECRET install
+        #run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=$SECRET install
 
       - name: Tests
         run: ./mvnw -B -DwebDriverType=chrome verify
@@ -66,5 +68,6 @@ jobs:
         env:
           # to get access to secrets.SONAR_TOKEN, provide GITHUB_TOKEN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SECRET: ${{ secrets.SONAR_TOKEN }}
         if: ${{ matrix.java == 17 && github.event_name == 'push' && github.ref_name == '6.0.x' && github.repository_owner == 'joinfaces' }}
-        run: ./mvnw -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Pcheck-sonarqube sonar:sonar
+        run: ./mvnw -Dsonar.login=$SECRET -Pcheck-sonarqube sonar:sonar
