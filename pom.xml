@@ -25,7 +25,7 @@
         <maven-model.version>3.9.12</maven-model.version>
 
         <!-- test library versions -->
-        <selenium.version>4.39.0</selenium.version>
+        <selenium.version>4.40.0</selenium.version>
         <htmlunit3-driver.version>4.39.0</htmlunit3-driver.version>
         <webdrivermanager.version>6.3.3</webdrivermanager.version>
 
