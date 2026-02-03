@@ -52,7 +52,7 @@ jobs:
         run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=$SECRET install
         #run: ./mvnw -B -Pcheck-duplicate,check-checkstyle,check-cycles,check-cpd,check-pmd,check-spotbugs,check-dependency -DskipTests=true -Dmaven.compiler.source=${{ matrix.java }} -Dmaven.compiler.target=${{ matrix.java }} -DnvdApiKey=$SECRET install
 
-      - name: Static Validation
+      - name: Static Validation Java 17
         env:
           SECRET: ${{ secrets.NVDAPIKEY }}
         if: ${{ matrix.java == 17 }}
