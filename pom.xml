@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <joinfaces.version>6.0.3</joinfaces.version>
-        <maven-model.version>3.9.13</maven-model.version>
+        <maven-model.version>3.9.14</maven-model.version>
 
         <!-- test library versions -->
         <selenium.version>4.41.0</selenium.version>
