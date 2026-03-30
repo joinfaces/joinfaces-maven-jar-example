@@ -21,7 +21,7 @@
     <properties>
         <!-- compile library versions -->
         <jakarta.validation-api.version>3.0.2</jakarta.validation-api.version>
-        <joinfaces.version>5.5.12</joinfaces.version>
+        <joinfaces.version>5.5.13</joinfaces.version>
         <maven-model.version>3.9.14</maven-model.version>
 
         <!-- test library versions -->
