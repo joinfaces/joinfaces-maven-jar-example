@@ -28,7 +28,7 @@
         <htmlunit3-driver.version>4.44.0</htmlunit3-driver.version>
         <webdrivermanager.version>6.3.4</webdrivermanager.version>
 
-        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>        
+        <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>        
         <jacoco.exclude>org/joinfaces/example/JoinFacesExampleApplication.class</jacoco.exclude>
         <jacoco.totalLineRate>0.91</jacoco.totalLineRate>
         <jacoco.packageLineRate>0.90</jacoco.packageLineRate>
