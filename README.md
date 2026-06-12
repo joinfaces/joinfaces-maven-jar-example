@@ -36,7 +36,7 @@ mvn clean install
 
 3- Run
 ```Shell
-java -jar target/joinfaces-example-6.0.x.jar
+java -jar target/joinfaces-example-6.1.x.jar
 ```
 
 4- Access starter page at **http://localhost:8080/** This page can help you to choose the JoinFaces Starter that fits your needs. You may log in with credentials
@@ -56,7 +56,7 @@ Includes joinfaces starter dependency. All other jsf dependencies are included t
 
 ```xml
 <properties>
-   <joinfaces.version>6.0.0-rc1.2</joinfaces.version>
+   <joinfaces.version>6.1.0</joinfaces.version>
 </properties>
 
 <dependencyManagement>
