@@ -19,8 +19,9 @@ package org.joinfaces.example;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-@SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 class JoinFacesExampleApplicationIT {
 
 	@Test

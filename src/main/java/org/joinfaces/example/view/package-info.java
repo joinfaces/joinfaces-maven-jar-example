@@ -14,4 +14,7 @@
  * limitations under the License.
  */
 
+/**
+ * View javadoc package.
+ */
 package org.joinfaces.example.view;

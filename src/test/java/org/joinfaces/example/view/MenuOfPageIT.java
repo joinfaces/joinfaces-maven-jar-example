@@ -20,10 +20,11 @@ import org.joinfaces.example.JoinFacesExampleApplication;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = JoinFacesExampleApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
 class MenuOfPageIT extends AbstractPageIT {
 	@Test
 	void clickStarter() {
