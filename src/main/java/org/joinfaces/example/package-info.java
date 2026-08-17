@@ -14,4 +14,7 @@
  * limitations under the License.
  */
 
+/**
+ * Main package of the JoinFaces example application.
+ */
 package org.joinfaces.example;
